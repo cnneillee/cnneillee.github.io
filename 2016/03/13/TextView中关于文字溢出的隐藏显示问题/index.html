@@ -3,18 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>About me | NeilLee blog</title>
+  <title>TextView中关于文字溢出的、隐藏显示问题 | NeilLee blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于我的简要介绍~~">
+  <meta name="description" content="在TextView 和 EditText中，可使用ellipsize属性来设置文字溢出隐藏，如：“一段很长的文本…”
+&amp;lt;–! more –&amp;gt;
+在xml中
+
+android:ellipsize = “end”　　     省略号在结尾
+android:ellipsize = “start” 　　省略号在开头
+android:ellipsize = “middle”     省略号在中间">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About me">
-<meta property="og:url" content="http://yoursite.com/2016/03/09/about-me/index.html">
+<meta property="og:title" content="TextView中关于文字溢出的、隐藏显示问题">
+<meta property="og:url" content="http://yoursite.com/2016/03/13/TextView中关于文字溢出的隐藏显示问题/index.html">
 <meta property="og:site_name" content="NeilLee blog">
-<meta property="og:description" content="关于我的简要介绍~~">
-<meta property="og:updated_time" content="2016-03-09T14:05:19.391Z">
+<meta property="og:description" content="在TextView 和 EditText中，可使用ellipsize属性来设置文字溢出隐藏，如：“一段很长的文本…”
+&amp;lt;–! more –&amp;gt;
+在xml中
+
+android:ellipsize = “end”　　     省略号在结尾
+android:ellipsize = “start” 　　省略号在开头
+android:ellipsize = “middle”     省略号在中间">
+<meta property="og:updated_time" content="2016-03-13T03:25:53.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About me">
-<meta name="twitter:description" content="关于我的简要介绍~~">
+<meta name="twitter:title" content="TextView中关于文字溢出的、隐藏显示问题">
+<meta name="twitter:description" content="在TextView 和 EditText中，可使用ellipsize属性来设置文字溢出隐藏，如：“一段很长的文本…”
+&amp;lt;–! more –&amp;gt;
+在xml中
+
+android:ellipsize = “end”　　     省略号在结尾
+android:ellipsize = “start” 　　省略号在开头
+android:ellipsize = “middle”     省略号在中间">
   
     <link rel="alternative" href="/atom.xml" title="NeilLee blog" type="application/atom+xml">
   
@@ -241,11 +259,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-about-me" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-TextView中关于文字溢出的隐藏显示问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/09/about-me/" class="article-date">
-      <time datetime="2016-03-09T10:48:45.000Z" itemprop="datePublished">2016-03-09</time>
+      <a href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/" class="article-date">
+      <time datetime="2016-03-13T03:20:11.000Z" itemprop="datePublished">2016-03-13</time>
 </a>
     </div>
   
@@ -258,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      About me
+      TextView中关于文字溢出的、隐藏显示问题
     </h1>
   
 
@@ -269,7 +287,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/info/">info</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TextView/">TextView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tricks/">tricks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ui/">ui</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -279,42 +297,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>关于我的简要介绍~~</p>
-<a id="more"></a>
-<p>#About me</p>
-<blockquote>
-<p>Name: </p>
-</blockquote>
+        <p>在TextView 和 EditText中，可使用ellipsize属性来设置文字溢出隐藏，如：“一段很长的文本…”</p>
+<p>&lt;–! more –&gt;</p>
+<p></p><h1>在xml中</h1><p></p>
 <ul>
-<li>Neil Lee</li>
+<li>android:ellipsize = “end”　　     省略号在结尾</li>
+<li>android:ellipsize = “start” 　　省略号在开头</li>
+<li>android:ellipsize = “middle”     省略号在中间</li>
+<li>android:ellipsize = “marquee”     跑马灯</li>
+<li>最好加一个约束android:singleline = “true” 或者 android:maxLines=”1”</li>
 </ul>
-<blockquote>
-<p>About me: </p>
-</blockquote>
+<p></p><h1>代码中</h1><p></p>
 <ul>
-<li>a student</li>
-<li>major in software engineering</li>
-<li>engaged in <a href="https://www.baidu.com" target="_blank" rel="external">java</a>, <a href="https://www.android.com" target="_blank" rel="external">android</a> </li>
-<li>bla,bla,bla…<br><br></li>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“END”));</li>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“START”));</li>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“MIDDLE”));</li>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“MARQUEE”));</li>
+<li>最好再加一个约束tv.setSingleLine(true);</li>
 </ul>
-<blockquote>
-<p>Website &amp; Blogs: </p>
-</blockquote>
-<ul>
-<li>#<a href="https://github.com/neilleecn" target="_blank" rel="external">Github</a></li>
-<li>#<a href="https://www.zhihu.com/people/neil-lee-34-58" target="_blank" rel="external">Zhihu</a></li>
-</ul>
-<blockquote>
-<p>Something: </p>
-</blockquote>
-<ul>
-<li>java</li>
-<li>android</li>
-<li>html</li>
-<li>css</li>
-<li>markdown</li>
-<li>bla, bla, bla…</li>
-</ul>
+<p><strong>注：EditText中不支持marquee模式！</strong></p>
+<p><strong>对于多行的时候，比如4行，想设置溢出隐藏，可是发现只最多只能显示两行，不知是否android的bug。</strong></p>
+<p><code>&lt;TextView
+android:maxLines=&quot;4&quot;
+android:ellipsize=&quot;end&quot;
+......
+/&gt;</code></p>
 
       
     </div>
@@ -323,13 +330,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/09/about-me/">About me</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/">TextView中关于文字溢出的、隐藏显示问题</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Neil Lee 的个人博客">Neil Lee</a></p>
-        <p><span>发布时间:</span>2016年03月09日 - 18时48分</p>
-        <p><span>最后更新:</span>2016年03月09日 - 22时05分</p>
+        <p><span>发布时间:</span>2016年03月13日 - 11时20分</p>
+        <p><span>最后更新:</span>2016年03月13日 - 11时25分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/09/about-me/" title="About me">http://yoursite.com/2016/03/09/about-me/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/09/about-me/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/" title="TextView中关于文字溢出的、隐藏显示问题">http://yoursite.com/2016/03/13/TextView中关于文字溢出的隐藏显示问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/13/TextView中关于文字溢出的隐藏显示问题/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -342,18 +349,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/03/09/hexo-gathering-hexo大杂烩/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Hexo gathering-hexo大杂烩
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2016/03/12/dialog在show-方法调用时抛出异常-的解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">dialog在show()方法调用时抛出异常(requestFeature()...) 的解决方案</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -364,7 +362,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">在xml中</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">代码中</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -426,7 +424,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/09/about-me/" data-title="About me" data-url="http://yoursite.com/2016/03/09/about-me/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/13/TextView中关于文字溢出的隐藏显示问题/" data-title="TextView中关于文字溢出的、隐藏显示问题" data-url="http://yoursite.com/2016/03/13/TextView中关于文字溢出的隐藏显示问题/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -448,13 +446,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/09/hexo-gathering-hexo大杂烩/" title="上一篇: Hexo gathering-hexo大杂烩">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/03/09/hello-world/" title="下一篇: Hello World">
+            <a href="/2016/03/12/dialog在show-方法调用时抛出异常-的解决方案/" title="下一篇: dialog在show()方法调用时抛出异常(requestFeature()...) 的解决方案">
                 <i class="fa fa-angle-right"></i>
             </a>
         

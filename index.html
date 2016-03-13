@@ -151,7 +151,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/info/" style="font-size: 10px;">info</a>
+                        <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a>
                     </div>
                 </section>
                 
@@ -244,6 +244,153 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-TextView中关于文字溢出的隐藏显示问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/" class="article-date">
+      <time datetime="2016-03-13T03:20:11.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/">TextView中关于文字溢出的、隐藏显示问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>在TextView 和 EditText中，可使用ellipsize属性来设置文字溢出隐藏，如：“一段很长的文本…”</p>
+<p>&lt;–! more –&gt;</p>
+<p></p><h1>在xml中</h1><p></p>
+<ul>
+<li>android:ellipsize = “end”　　     省略号在结尾</li>
+<li>android:ellipsize = “start” 　　省略号在开头</li>
+<li>android:ellipsize = “middle”     省略号在中间</li>
+<li>android:ellipsize = “marquee”     跑马灯</li>
+<li>最好加一个约束android:singleline = “true” 或者 android:maxLines=”1”</li>
+</ul>
+<p></p><h1>代码中</h1><p></p>
+<ul>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“END”));</li>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“START”));</li>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“MIDDLE”));</li>
+<li>tv.setEllipsize(TextUtils.TruncateAt.valueOf(“MARQUEE”));</li>
+<li>最好再加一个约束tv.setSingleLine(true);</li>
+</ul>
+<p><strong>注：EditText中不支持marquee模式！</strong></p>
+<p><strong>对于多行的时候，比如4行，想设置溢出隐藏，可是发现只最多只能显示两行，不知是否android的bug。</strong></p>
+<p><code>&lt;TextView
+android:maxLines=&quot;4&quot;
+android:ellipsize=&quot;end&quot;
+......
+/&gt;</code></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TextView/">TextView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tricks/">tricks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ui/">ui</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-dialog在show-方法调用时抛出异常-的解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/12/dialog在show-方法调用时抛出异常-的解决方案/" class="article-date">
+      <time datetime="2016-03-12T03:13:54.000Z" itemprop="datePublished">2016-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/dialog在show-方法调用时抛出异常-的解决方案/">dialog在show()方法调用时抛出异常(requestFeature()...) 的解决方案</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>2016.3.12 Dialog、FATAL EXCEPTION、AndroidRuntime requestFeature() must be called before adding content<br>&lt;—! more —&gt;</p>
+<p></p><h1>问题：</h1><p></p>
+<blockquote>
+<p>E/AndroidRuntime: FATAL EXCEPTION: main<br>   Process: com.qbeprint, PID: 30954<br>   android.util.AndroidRuntimeException: requestFeature() must be called before adding content<br>   at com.android.internal.policy.impl.PhoneWindow.requestFeature(PhoneWindow.java:345)<br>   at com.android.internal.app.AlertController.installContent(AlertController.java:238)<br>   at android.app.AlertDialog.onCreate(AlertDialog.java:372)<br>   at android.app.ProgressDialog.onCreate(ProgressDialog.java:198)<br>   at android.app.Dialog.dispatchOnCreate(Dialog.java:415)<br>   at android.app.Dialog.show(Dialog.java:303)</p>
+</blockquote>
+<p></p><h1>简述：</h1><br>在使用Dialog过程中，有自定义Dialog的Layout，先使用了Dialog的setContentView()方法，后使用了show()方法，造成该错误<p></p>
+<p></p><h1>出现原因：</h1><br>setContentView()必须放在show()方法之后<p></p>
+<p></p><h1>解决措施：</h1><br>将setContentView()放在show()执行顺序之后<p></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FATAL-EXCEPTION/">FATAL EXCEPTION</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dialog/">dialog</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-hexo-gathering-hexo大杂烩" class="article article-type-post" itemscope itemprop="blogPost">
   
