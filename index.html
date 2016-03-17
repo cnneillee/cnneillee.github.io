@@ -151,7 +151,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
+                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/android-studio/" style="font-size: 15px;">android-studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
                     </div>
                 </section>
                 
@@ -334,18 +334,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h1 id="项目中的哪些文件需要上传至Github？-https-www-zhihu-com-question-37910193-answer-25076950"><a href="#项目中的哪些文件需要上传至Github？-https-www-zhihu-com-question-37910193-answer-25076950" class="headerlink" title="[项目中的哪些文件需要上传至Github？][https://www.zhihu.com/question/37910193#answer-25076950]"></a>[项目中的哪些文件需要上传至Github？][<a href="https://www.zhihu.com/question/37910193#answer-25076950" target="_blank" rel="external">https://www.zhihu.com/question/37910193#answer-25076950</a>]</h1><p>1、[Android.gitignore][<a href="https://github.com/github/gitignore/blob/master/Android.gitignore" target="_blank" rel="external">https://github.com/github/gitignore/blob/master/Android.gitignore</a>]<br>2、<br><code>.gradle
-/local.properties
-.DS_Store # only needed under mac os
-/build
-/captures
-*.iml
-.idea
-*.apk #optional</code> </p>
-<p>其中<br>.idea  #ide 相关<br>*.apk  #optional</p>
-<p>是在系统默认的.gitignore文件基础上额外添加的，如果不加 .idea的话会存在不同开发人员开发机上.idea/下文件不同，导致需要提交的问题。而且经过我和团队小伙伴之间的实践.idea目录下的东西AS都会自动生成，并不需要提交到仓库中。</p>
-
+              <p>Android Studio项目中与Github的结合使用<br>
+          
       
     </div>
     
@@ -354,6 +344,14 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/Android-Studio项目与Github/#more">点我进入 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -398,23 +396,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>Android Studio在第一次新建一个Gradle项目时需要下载Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。</p>
-<ul>
-<li>首先，我们下载好的gradle-版本号-bin(|all).zip应该放在哪儿呢。Gradle有一个user home，默认是C:/Users/【你当前的用户名】/.gradle。</li>
-</ul>
-<p>这个目录下面有四个子文件夹，我们要放到</p>
-<p>wrapper/dists/[gradle-版本号-bin|all]/[一连串乱七八糟的字符的文件夹]/</p>
-<p>。例如，我就把gradle-bin和gradle-all（只需要放一个，all的话，有源码，文档等，好一些）分别放到了</p>
-<pre><code>C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-all/6vpvhqu0efs1fqmqr2decq1v12
-
-C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
-</code></pre><p>两个目录下面。然后启动android studio，他会自动解压安装（而且优先解压gradle-1.10-all，因为bin那个我发现没有解压他）。至于这个乱码文件夹目录（上面的6vpvhqu0efs1fqmqr2decq1v12），我的处理是先打开一次android studio，然后关闭，这个目录就生成了（注意，这个目录每次在发现新的需要下载的版本的时候都会新生成一个随机码文件夹，所以，不要想着把zip文件放到上次生成的随机码目录中）。</p>
-<p> 另外，想知道自己的Gradle项目用的是哪个版本（而且还有all和bin的区分），只需要看项目根目录下面找gradle/wrapper/gradle-wrapper.properties这个文件，里面是对应的版本号（Android Studio就会下这个)，比如文件的内容如下：</p>
-<p>#Thu Mar 20 19:47:09 GMT 2014<br>distributionBase=GRADLE_USER_HOME<br>distributionPath=wrapper/dists<br>zipStoreBase=GRADLE_USER_HOME<br>zipStorePath=wrapper/dists<br>distributionUrl=http/://services.gradle.org/distributions/gradle-1.10-all.zip</p>
-<p>那么你就要准备好去官网下载gradle-1.10-all.zip放到上面说的文件夹下面（下gradle-1.10-bin.zip是不管用的）</p>
-<p>这种方法目前百试不爽，绝对不需要再等待了，等他下载完估计要近一个小时的时间了（想当初我就是打开.gradle下面的那个文件夹，看着gradle**.zip一点点的下载完成的，慢死了。如果想要验证上面这个方法有没有成功，你就到.gradle/wrapper/dist/gradle-1.10-all/乱码文件夹/下面等着，看他会不会自动解压，只要解压力 ，说明就没问题了！</p>
-
+              <p>gradle在android studio中非常重要，但是gradle常常造成项目build失败等各种问题，这里搜罗了关于gradle的<strong>配置</strong>、<strong>更新</strong>、<strong>使用</strong>等各种信息<br>
+          
       
     </div>
     
@@ -423,6 +406,14 @@ C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/android与gradle/#more">点我进入 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -467,12 +458,11 @@ C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
     <div class="article-entry" itemprop="articleBody">
       
           
-        <!-- Hexo的使用技巧 -->
-<h1 id="如何使用Hexo寫草稿-http-oomusou-io-hexo-hexo-draft"><a href="#如何使用Hexo寫草稿-http-oomusou-io-hexo-hexo-draft" class="headerlink" title="[如何使用Hexo寫草稿?][http://oomusou.io/hexo/hexo-draft/]"></a>[如何使用Hexo寫草稿?][<a href="http://oomusou.io/hexo/hexo-draft/" target="_blank" rel="external">http://oomusou.io/hexo/hexo-draft/</a>]</h1><p>hexo写文章的过程<br>Hexo n “文章名字”            将文章建立在 hexo/_source/_post的目录中<br>Hexo g                        编译md文章，结果编译在hexo/public目录中，形成html<br>hexo d                         将文章部署上github中</p>
-<p>hexo可以有类似传统博客的草稿功能，即将文章声明为草稿，待完成后再发布<br>Hexo n draft “文章名字”        将文章建立在 hexo/_source/_draft的目录中[及时hexo n/g/d的其他文章过后，此文章仍旧不会被发布]<br>Hexo publish “文章名字”        将文章从hexo/_source/_draft移入hexo/_source/_post中，之后便跟普通文章一样被编译、部署</p>
-<p>hexo server –draft         可在浏览器上实时预览草稿文章</p>
-<p>说明：可手动将草稿跟普通文章在两个目录间剪切粘贴，使得其性质在两者之间转换</p>
-
+              <p>hexo使用过程中的方法集合：</p>
+<ul>
+<li>如何使用Hexo写草稿?</li>
+<li>如何在本地实现对文章的预览?
+          
       
     </div>
     
@@ -481,6 +471,14 @@ C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/hexo的使用技巧/#more">点我进入 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

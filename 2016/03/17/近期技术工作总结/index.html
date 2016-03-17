@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/17/近期技术工作总结/index.html">
 <meta property="og:site_name" content="NeilLee blog">
 <meta property="og:description" content="近期(3.8-3.18)技术工作总结近期做了一个小项目。从某种意义上讲，这个项目破产了。先就这个问题进行一定的总结">
-<meta property="og:updated_time" content="2016-03-17T10:51:44.101Z">
+<meta property="og:updated_time" content="2016-03-17T11:02:35.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="近期(3.8-3.18)技术工作总结">
 <meta name="twitter:description" content="近期(3.8-3.18)技术工作总结近期做了一个小项目。从某种意义上讲，这个项目破产了。先就这个问题进行一定的总结">
@@ -149,7 +149,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
+                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/android-studio/" style="font-size: 15px;">android-studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
                     </div>
                 </section>
                 
@@ -283,13 +283,17 @@
 <h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>近期接了一个学长的小项目，负责开发一个Android平台上的、带扫码打印功能的app。</p>
 <p>时间折腾得很久，项目进度很慢。</p>
 <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>归结起来有以下几个原因：</p>
-<ul>
-<li>需求不明确<br>  学长是负责整个项目的运营。但是丝毫不懂技术，有种“你跟我谈技术，我跟你聊情怀” 的感觉。<br>  因此，提出来的需求很不明确。在询问需求的时候，都是以“你们想一下”、“都可以”、“你们如果有多个想法，可以做几个版本，在不同的圈子里进行投放，让用户来投票，咱们再统计那种比较好”…之类的话搪塞过去。</li>
-<li>管理有问题<br>  android团队内：学长在我们几个人之间，算是指定了一位同学作为负责人吧。一开始以为这个负责人技术比较扎实。直到真正写代码的时候才发现，这货啥都不会。然后网络交互、部分前端都我一人包了。[插一句，这哥们儿，写个UI，想让TextView center_vertical，居然想到左右用两个View吧TV挤在中间！！！我的天！！！]<br>  所有团队管理：其他团队我不知道具体内部的情况。但是，在团队与团队间进行交互之际，确实问题很大。<pre><code>web向app提供接口，只给了接口的collection，至于文档之类的，什么都没有。在沟通期间，还特别不顺畅，提个问题，好几天才得到答复，而且还是隔着好几重传递的。沟通成本太大。更要命的是，android的某个功能开发完毕后，过了几天，再测试的时候，服务器居然把接口给改了！！！返回来的json数据解析错误！！！此前并没有给我们任何形式的通知！！！
-</code></pre></li>
-<li>缺乏有效的沟通<br>  跟前面第二点所提到的，一个问题得一级一级地往上传，回复也是一级一级地向下传递。这就算了，很多事情还不事先通知，老是卡在某个环节，答复总是不下来。</li>
-<li>经验不足<br>  管理、技术经验都很匮乏。</li>
+<h3 id="需求不明确"><a href="#需求不明确" class="headerlink" title="需求不明确"></a>需求不明确</h3><p>学长是负责整个项目的运营。但是丝毫不懂技术，有种“你跟我谈技术，我跟你聊情怀” 的感觉。因此，提出来的需求很不明确。在询问需求的时候，都是以“你们想一下”、“都可以”、“你们如果有多个想法，可以做几个版本，在不同的圈子里进行投放，让用户来投票，咱们再统计那种比较好”…之类的话搪塞过去。</p>
+<h3 id="管理有问题"><a href="#管理有问题" class="headerlink" title="管理有问题"></a>管理有问题</h3><ul>
+<li>android团队内：</li>
 </ul>
+<p>学长在我们几个人之间，算是指定了一位同学作为负责人吧。一开始以为这个负责人技术比较扎实。直到真正写代码的时候才发现，这货啥都不会。然后网络交互、部分前端都我一人包了。插一句，这哥们儿，写个UI，想让TextView center_vertical，居然想到左右用两个View吧TV挤在中间！！！我的天！！！</p>
+<ul>
+<li>所有团队管理：</li>
+</ul>
+<p>其他团队我不知道具体内部的情况。但是，在团队与团队间进行交互之际，确实问题很大。web向app提供接口，只给了接口的collection，至于文档之类的，什么都没有。在沟通期间，还特别不顺畅，提个问题，好几天才得到答复，而且还是隔着好几重传递的。沟通成本太大。更要命的是，android的某个功能开发完毕后，过了几天，再测试的时候，服务器居然把接口给改了！！！返回来的json数据解析错误！！！此前并没有给我们任何形式的通知！！！</p>
+<h3 id="缺乏有效的沟通"><a href="#缺乏有效的沟通" class="headerlink" title="缺乏有效的沟通"></a>缺乏有效的沟通</h3><p>跟前面第二点所提到的，一个问题得一级一级地往上传，回复也是一级一级地向下传递。这就算了，很多事情还不事先通知，老是卡在某个环节，答复总是不下来。</p>
+<h3 id="经验不足"><a href="#经验不足" class="headerlink" title="经验不足"></a>经验不足</h3><p>管理、技术经验都很匮乏。</p>
 <p>…(以后想到了再补充)</p>
 <h1 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h1><p>诸多方面的问题并不是导致我从团队中离开的最终原因。最终原因是：在团队里看不到希望。看不到整个项目的希望，没有一个文档或者标准来评判整个工作是否完成或者完成得如何，团队太过散漫、慵懒。虽然有一个比较好的idea，但是，抱着idea睡大觉是没用的，迟早会被别人赶超。</p>
 <p>这次项目耽误的时间太多了，时间不是花在项目的推进上，而是沟通！！！虽说初衷也是为了练练手、学习技术和管理，但是，这么多天过去了，我觉得我并没有学到什么，反倒是浪费了不少的时间，裹足不前。</p>
@@ -305,7 +309,7 @@
         <p><span>本文标题:</span><a href="/2016/03/17/近期技术工作总结/">近期(3.8-3.18)技术工作总结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Neil Lee 的个人博客">Neil Lee</a></p>
         <p><span>发布时间:</span>2016年03月17日 - 18时26分</p>
-        <p><span>最后更新:</span>2016年03月17日 - 18时51分</p>
+        <p><span>最后更新:</span>2016年03月17日 - 19时02分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/17/近期技术工作总结/" title="近期(3.8-3.18)技术工作总结">http://yoursite.com/2016/03/17/近期技术工作总结/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/17/近期技术工作总结/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -334,7 +338,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#描述"><span class="toc-number">1.</span> <span class="toc-text">描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原因"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#反思"><span class="toc-number">3.</span> <span class="toc-text">反思</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#描述"><span class="toc-number">1.</span> <span class="toc-text">描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原因"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需求不明确"><span class="toc-number">2.0.1.</span> <span class="toc-text">需求不明确</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理有问题"><span class="toc-number">2.0.2.</span> <span class="toc-text">管理有问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺乏有效的沟通"><span class="toc-number">2.0.3.</span> <span class="toc-text">缺乏有效的沟通</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#经验不足"><span class="toc-number">2.0.4.</span> <span class="toc-text">经验不足</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#反思"><span class="toc-number">3.</span> <span class="toc-text">反思</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

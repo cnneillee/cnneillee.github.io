@@ -5,31 +5,16 @@
   
   <title>android与gradle | NeilLee blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android Studio在第一次新建一个Gradle项目时需要下载Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。
-
-首先，我们下载好的gradle-版本号-bin(|all).zip应该放在哪儿呢。Gradle有一个user home，默认是C:/Users/【你当前的用户名】/.gradle。
-
-这个目录下面有四个子文件夹，我们要放到
-wrap">
+  <meta name="description" content="gradle在android studio中非常重要，但是gradle常常造成项目build失败等各种问题，这里搜罗了关于gradle的配置、更新、使用等各种信息">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android与gradle">
 <meta property="og:url" content="http://yoursite.com/2016/03/16/android与gradle/index.html">
 <meta property="og:site_name" content="NeilLee blog">
-<meta property="og:description" content="Android Studio在第一次新建一个Gradle项目时需要下载Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。
-
-首先，我们下载好的gradle-版本号-bin(|all).zip应该放在哪儿呢。Gradle有一个user home，默认是C:/Users/【你当前的用户名】/.gradle。
-
-这个目录下面有四个子文件夹，我们要放到
-wrap">
-<meta property="og:updated_time" content="2016-03-16T13:34:26.546Z">
+<meta property="og:description" content="gradle在android studio中非常重要，但是gradle常常造成项目build失败等各种问题，这里搜罗了关于gradle的配置、更新、使用等各种信息">
+<meta property="og:updated_time" content="2016-03-17T11:06:45.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android与gradle">
-<meta name="twitter:description" content="Android Studio在第一次新建一个Gradle项目时需要下载Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。
-
-首先，我们下载好的gradle-版本号-bin(|all).zip应该放在哪儿呢。Gradle有一个user home，默认是C:/Users/【你当前的用户名】/.gradle。
-
-这个目录下面有四个子文件夹，我们要放到
-wrap">
+<meta name="twitter:description" content="gradle在android studio中非常重要，但是gradle常常造成项目build失败等各种问题，这里搜罗了关于gradle的配置、更新、使用等各种信息">
   
     <link rel="alternative" href="/atom.xml" title="NeilLee blog" type="application/atom+xml">
   
@@ -164,7 +149,7 @@ wrap">
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
+                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/android-studio/" style="font-size: 15px;">android-studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
                     </div>
                 </section>
                 
@@ -283,6 +268,10 @@ wrap">
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -290,8 +279,7 @@ wrap">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>Android Studio在第一次新建一个Gradle项目时需要下载Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。</p>
+        <p>gradle在android studio中非常重要，但是gradle常常造成项目build失败等各种问题，这里搜罗了关于gradle的<strong>配置</strong>、<strong>更新</strong>、<strong>使用</strong>等各种信息<br><a id="more"></a><br>Android Studio在第一次新建一个Gradle项目时需要下载Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。</p>
 <ul>
 <li>首先，我们下载好的gradle-版本号-bin(|all).zip应该放在哪儿呢。Gradle有一个user home，默认是C:/Users/【你当前的用户名】/.gradle。</li>
 </ul>
@@ -317,7 +305,7 @@ C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
         <p><span>本文标题:</span><a href="/2016/03/16/android与gradle/">android与gradle</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Neil Lee 的个人博客">Neil Lee</a></p>
         <p><span>发布时间:</span>2016年03月16日 - 21时33分</p>
-        <p><span>最后更新:</span>2016年03月16日 - 21时34分</p>
+        <p><span>最后更新:</span>2016年03月17日 - 19时06分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/16/android与gradle/" title="android与gradle">http://yoursite.com/2016/03/16/android与gradle/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/16/android与gradle/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
