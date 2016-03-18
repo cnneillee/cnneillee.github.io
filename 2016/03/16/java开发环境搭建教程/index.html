@@ -23,7 +23,7 @@ JDK安装
 JDK安装正确检查
 java环境变量配置
 java安装常见名词说明">
-<meta property="og:updated_time" content="2016-03-16T09:06:39.976Z">
+<meta property="og:updated_time" content="2016-03-18T09:12:09.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java开发环境搭建教程">
 <meta name="twitter:description" content="java环境搭建
@@ -167,7 +167,7 @@ java安装常见名词说明">
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/android-studio/" style="font-size: 15px;">android-studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
+                        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/FATAL-EXCEPTION/" style="font-size: 10px;">FATAL EXCEPTION</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 20px;">android-studio</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/info/" style="font-size: 10px;">info</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/opensource/" style="font-size: 10px;">opensource</a> <a href="/tags/picFormat-distinguish/" style="font-size: 10px;">picFormat distinguish</a> <a href="/tags/self-thinking/" style="font-size: 10px;">self-thinking</a> <a href="/tags/start-up/" style="font-size: 10px;">start-up</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tricks/" style="font-size: 10px;">tricks</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
                     </div>
                 </section>
                 
@@ -306,41 +306,32 @@ java安装常见名词说明">
 <li>java安装常见名词说明</li>
 </ul>
 <a id="more"></a>
-<p>#JDK下载</p>
-<pre><code>&gt;进入oracle官网下载--&gt;[oracle][oracle]
-&gt;直接点击进入java下载页面--&gt;[Oracle Technology Network Java Java SE下载][javaseJDK]
-</code></pre><p>#JDK安装</p>
-<pre><code>&gt;安装包内找到可执行文件(jdkxxxx.exe)
-&gt;点击可执行文件，点选下一步[安装目录选择较为**纯净的目录**]
-&gt;安装目录很重要务必记住[拷贝在记事本中，安装结束后若环境变量未配置好，则要用到此目录]
-&gt;出现jre等工具选择下载时，可下也可不下
-</code></pre><p>#JDK安装正确检查<br>    cmd下，分别键入以下三个命令：</p>
-<pre><code>&gt;java
-&gt;javac
-&gt;java -version
-若无错误信息，则说明配置成功
-若错误信息，则需配置环境变量
-</code></pre><p>#java环境变量配置[未自动配置成功的情况下须完成此步骤]</p>
-<pre><code>&gt;主要三个变量（后二者可基于第一个，设置为相对目录(%JAVA_HOME%目录)）
-    - JAVA_HOME[可选，设置此目录作用是作为以下两个变量的参考目录]
-        jdk的安装目录（例如D:\Java\jdk1.6.0_12）
-    - CLASSPATH[指向java的类库，注意添加一个&quot;.&quot;表示当前目录]
-        `.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar`
-    - PATH[指向java\javac可执行文件的目录]
-        `*%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin*`
-&gt;也可只设置两个变量（但是这两个变量必须设置其绝对路径）
-    - CLASSPATH[指向java的类库，注意添加一个&quot;.&quot;表示当前目录]  
-        `.;jdk安装目录\lib\dt.jar;jdk安装目录\lib\tools.jar`
-    - PATH[指向java\javac可执行文件的目录]
-        `*%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin*`
-&gt;[百度经验教程][javaenvironmentval]
-</code></pre><p>#特别说明<br>    环境变量：指向某个存放目标软件的目录<br>    纯净的目录：无中文及中文字符、无空格，且目录的设置有特殊含义，按照一定的规范设置，便于查找及查看的目录<br>    相对路径、绝对路径：</p>
-<pre><code>&gt;类似地理的参考系，经纬度能够在某个星球范围内唯一确定某个点；
-&gt;而正前方100米的描述则只能在知道当前位置的情况下才能得到目标点
-&gt; 
-&gt;绝对路径：该计算机内能够唯一确定某个位置的路径
-&gt;相对路径：只有在已知参考目录之后，才能据此确定位置的路径
-</code></pre>
+<h1 id="JDK下载"><a href="#JDK下载" class="headerlink" title="JDK下载"></a>JDK下载</h1><blockquote>
+<p>进入oracle官网下载–&gt;[oracle][oracle]<br>直接点击进入java下载页面–&gt;[Oracle Technology Network Java Java SE下载][javaseJDK]</p>
+</blockquote>
+<h1 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h1><blockquote>
+<p>安装包内找到可执行文件(jdkxxxx.exe)<br>点击可执行文件，点选下一步[安装目录选择较为<strong>纯净的目录</strong>]<br>安装目录很重要务必记住[拷贝在记事本中，安装结束后若环境变量未配置好，则要用到此目录]<br>出现jre等工具选择下载时，可下也可不下</p>
+</blockquote>
+<p>#J DK安装正确检查<br>    cmd下，分别键入以下三个命令：</p>
+<blockquote>
+<p>java<br>javac<br>java -version<br>若无错误信息，则说明配置成功<br>若错误信息，则需配置环境变量</p>
+</blockquote>
+<h1 id="java环境变量配置-未自动配置成功的情况下须完成此步骤"><a href="#java环境变量配置-未自动配置成功的情况下须完成此步骤" class="headerlink" title="java环境变量配置[未自动配置成功的情况下须完成此步骤]"></a>java环境变量配置[未自动配置成功的情况下须完成此步骤]</h1><blockquote>
+<p>主要三个变量（后二者可基于第一个，设置为相对目录(%JAVA_HOME%目录)）</p>
+<ul>
+<li>JAVA_HOME[可选，设置此目录作用是作为以下两个变量的参考目录]<br>jdk的安装目录（例如D:\Java\jdk1.6.0_12）</li>
+<li>CLASSPATH[指向java的类库，注意添加一个”.”表示当前目录]<br><code>.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code></li>
+<li>PATH[指向java\javac可执行文件的目录]<br><code>*%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin*</code><br>也可只设置两个变量（但是这两个变量必须设置其绝对路径）</li>
+<li>CLASSPATH[指向java的类库，注意添加一个”.”表示当前目录]<br><code>.;jdk安装目录\lib\dt.jar;jdk安装目录\lib\tools.jar</code></li>
+<li>PATH[指向java\javac可执行文件的目录]<br><code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin</code><br>[百度经验教程][javaenvironmentval]</li>
+</ul>
+</blockquote>
+<h1 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h1><p>环境变量：指向某个存放目标软件的目录<br>纯净的目录：无中文及中文字符、无空格，且目录的设置有特殊含义，按照一定的规范设置，便于查找及查看的目录<br>相对路径、绝对路径：</p>
+<blockquote>
+<p>类似地理的参考系，经纬度能够在某个星球范围内唯一确定某个点；<br>而正前方100米的描述则只能在知道当前位置的情况下才能得到目标点</p>
+<p>绝对路径：该计算机内能够唯一确定某个位置的路径<br>相对路径：只有在已知参考目录之后，才能据此确定位置的路径</p>
+</blockquote>
+
       
     </div>
     
@@ -351,7 +342,7 @@ java安装常见名词说明">
         <p><span>本文标题:</span><a href="/2016/03/16/java开发环境搭建教程/">java开发环境搭建教程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Neil Lee 的个人博客">Neil Lee</a></p>
         <p><span>发布时间:</span>2016年03月16日 - 17时02分</p>
-        <p><span>最后更新:</span>2016年03月16日 - 17时06分</p>
+        <p><span>最后更新:</span>2016年03月18日 - 17时12分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/16/java开发环境搭建教程/" title="java开发环境搭建教程">http://yoursite.com/2016/03/16/java开发环境搭建教程/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/16/java开发环境搭建教程/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -389,7 +380,7 @@ java安装常见名词说明">
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK下载"><span class="toc-number">1.</span> <span class="toc-text">JDK下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK安装"><span class="toc-number">2.</span> <span class="toc-text">JDK安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java环境变量配置-未自动配置成功的情况下须完成此步骤"><span class="toc-number">3.</span> <span class="toc-text">java环境变量配置[未自动配置成功的情况下须完成此步骤]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特别说明"><span class="toc-number">4.</span> <span class="toc-text">特别说明</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -484,7 +475,7 @@ java安装常见名词说明">
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/近期技术工作总结/">近期(3.8-3.18)技术工作总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-Studio项目与Github/">Android Studio项目与Github</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/android与gradle/">android与gradle</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/hexo的使用技巧/">hexo的使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/博客搜罗/">博客搜罗</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/android开发环境的搭建/">android开发环境的搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/java开发环境搭建教程/">java开发环境搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/Android-Studio-AAPT-err-Facade-for-libpng-error-Not-a-PNG-file/">[Android Studio]AAPT err(Facade for ......): libpng error: Not a PNG file.</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/">TextView中关于文字溢出的、隐藏显示问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/dialog在show-方法调用时抛出异常-的解决方案/">dialog在show()方法调用时抛出异常(requestFeature()...) 的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/hexo-gathering-hexo大杂烩/">Hexo gathering-hexo大杂烩</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/about-me/">About me</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/android-studio的更新/">android studio的更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/开源项目分类合集/">开源项目分类合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/近期技术工作总结/">近期(3.8-3.18)技术工作总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-Studio项目与Github/">Android Studio项目与Github</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/android与gradle/">android与gradle</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/hexo的使用技巧/">hexo的使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/博客搜罗/">博客搜罗</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/android开发环境的搭建/">android开发环境的搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/java开发环境搭建教程/">java开发环境搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/Android-Studio-AAPT-err-Facade-for-libpng-error-Not-a-PNG-file/">[Android Studio]AAPT err(Facade for ......): libpng error: Not a PNG file.</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/">TextView中关于文字溢出的、隐藏显示问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/dialog在show-方法调用时抛出异常-的解决方案/">dialog在show()方法调用时抛出异常(requestFeature()...) 的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/hexo-gathering-hexo大杂烩/">Hexo gathering-hexo大杂烩</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/about-me/">About me</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/hello-world/">Hello World</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
