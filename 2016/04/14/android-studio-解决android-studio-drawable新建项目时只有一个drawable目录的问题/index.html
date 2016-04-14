@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>BaseAdapter数据已经加载，但是listView不显示的解决方案 | NeilLee blog</title>
+  <title>[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题 | NeilLee blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BaseAdapter数据已经加载，但是listView不显示的解决方案">
+  <meta name="description" content="android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BaseAdapter数据已经加载，但是listView不显示的解决方案">
-<meta property="og:url" content="http://yoursite.com/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/index.html">
+<meta property="og:title" content="[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题">
+<meta property="og:url" content="http://yoursite.com/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/index.html">
 <meta property="og:site_name" content="NeilLee blog">
-<meta property="og:description" content="BaseAdapter数据已经加载，但是listView不显示的解决方案">
-<meta property="og:updated_time" content="2016-03-19T17:55:24.309Z">
+<meta property="og:description" content="android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203911504-1281851192.png">
+<meta property="og:updated_time" content="2016-04-14T12:57:07.438Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BaseAdapter数据已经加载，但是listView不显示的解决方案">
-<meta name="twitter:description" content="BaseAdapter数据已经加载，但是listView不显示的解决方案">
+<meta name="twitter:title" content="[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题">
+<meta name="twitter:description" content="android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png">
   
     <link rel="alternative" href="/atom.xml" title="NeilLee blog" type="application/atom+xml">
   
@@ -241,11 +246,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-BaseAdapter数据已经加载，但是listView不显示的解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/" class="article-date">
-      <time datetime="2016-03-19T17:49:51.000Z" itemprop="datePublished">2016-03-20</time>
+      <a href="/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/" class="article-date">
+      <time datetime="2016-04-14T12:53:54.000Z" itemprop="datePublished">2016-04-14</time>
 </a>
     </div>
   
@@ -258,7 +263,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      BaseAdapter数据已经加载，但是listView不显示的解决方案
+      [android studio]解决android studio drawable新建项目时只有一个drawable目录的问题
     </h1>
   
 
@@ -269,7 +274,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BaseAdapter/">BaseAdapter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ListView/">ListView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/androidstudio/">androidstudio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/drawable/">drawable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setting/">setting</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -279,11 +284,33 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>BaseAdapter数据已经加载，但是listView不显示的解决方案<br><a id="more"></a></p>
-<h1 id="在编码过程中，发现："><a href="#在编码过程中，发现：" class="headerlink" title="在编码过程中，发现："></a>在编码过程中，发现：</h1><blockquote>
-<p>明明已经将数据加载到了Adapter里了，并且调用了adapter的notifyDataSetChanged()，但是ListView就是不显示结果。</p>
-</blockquote>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>填充数据前，最好clear一下mAdapter，避免加载到重复的数据项<br> mAdapter.notifyDataSetChanged();<br>lv.setAdapter(mAdapter);</p>
+        <p>android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法<br><a id="more"></a></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法：</p>
+<h1 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h1><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><h3 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h3><ul>
+<li>进入<strong>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/root/res</strong>目录</li>
+<li>在此目录下，新建你要初始化的文件夹（drawable-hdpi等文件夹）<strong>这一点可以参照同目录下的mipmap各种分辨率的mipmap目录</strong><br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png" alt=""></li>
+<li>你可以在各个文件夹中放一张默认的图，以后每次新建项目时，就会有类似mipmap目录下的ic_launcher.png<br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png" alt=""></li>
+<li>回退到<strong>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule</strong>目录，打开recipe.xml.ftl文件</li>
+<li>在recipe.xml.ftl中增加如下的代码，位置见图（依据你要初始化的目录来添加相应代码）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;copy from=&quot;root/res/drawable-hdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</span><br><span class="line">&lt;copy from=&quot;root/res/drawable-xhdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</span><br><span class="line">&lt;copy from=&quot;root/res/drawable-xxhdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png" alt=""></p>
+<p>随后你就可以在新建的Module中看到初始化的drawable目录</p>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>与方法1的区别在于：不能在目录中添加初始化的图片</p>
+<h3 id="详细步骤-1"><a href="#详细步骤-1" class="headerlink" title="详细步骤"></a>详细步骤</h3><ul>
+<li>进入<strong>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/recipe.xml.ftl</strong>文件</li>
+<li>添加如下代码，位置见图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</span><br><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</span><br><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203911504-1281851192.png" alt=""></p>
+<p>随后你就可以在新建的Module中看到初始化的drawable目录</p>
+<h1 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h1><p>当然，通过类似的方式我们还可以在创建Module的时候做很多事情，比如：</p>
+<ul>
+<li>在colors.xml文件中生成常用颜色</li>
+<li>在build.gradle文件中生成自定义配置</li>
+<li>在.gitignore文件中生成自定义忽略配置<br>等等…</li>
+</ul>
+<h1 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h1><p><a href="http://liukun.engineer/2016/04/10/Android-Studio-advanced-configuration/" target="_blank" rel="external">http://liukun.engineer/2016/04/10/Android-Studio-advanced-configuration/</a></p>
 
       
     </div>
@@ -292,13 +319,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/">BaseAdapter数据已经加载，但是listView不显示的解决方案</a></p>
+        <p><span>本文标题:</span><a href="/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/">[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Neil Lee 的个人博客">Neil Lee</a></p>
-        <p><span>发布时间:</span>2016年03月20日 - 01时49分</p>
-        <p><span>最后更新:</span>2016年03月20日 - 01时55分</p>
+        <p><span>发布时间:</span>2016年04月14日 - 20时53分</p>
+        <p><span>最后更新:</span>2016年04月14日 - 20时57分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/" title="BaseAdapter数据已经加载，但是listView不显示的解决方案">http://yoursite.com/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/" title="[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题">http://yoursite.com/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -311,18 +338,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/03/20/android网络连接/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          android网络连接
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/18/android-studio的更新/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">android studio的更新</div>
+    <a href="/2016/04/14/fhjksaf/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">fhjksaf</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -333,7 +351,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在编码过程中，发现："><span class="toc-number">1.</span> <span class="toc-text">在编码过程中，发现：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方法介绍"><span class="toc-number">2.</span> <span class="toc-text">方法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法1"><span class="toc-number">2.1.</span> <span class="toc-text">方法1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#详细步骤"><span class="toc-number">2.1.1.</span> <span class="toc-text">详细步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法2"><span class="toc-number">2.2.</span> <span class="toc-text">方法2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#详细步骤-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">详细步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#说明："><span class="toc-number">3.</span> <span class="toc-text">说明：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章："><span class="toc-number">4.</span> <span class="toc-text">参考文章：</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -395,7 +413,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/" data-title="BaseAdapter数据已经加载，但是listView不显示的解决方案" data-url="http://yoursite.com/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/" data-title="[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题" data-url="http://yoursite.com/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -417,13 +435,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/20/android网络连接/" title="上一篇: android网络连接">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/03/18/android-studio的更新/" title="下一篇: android studio的更新">
+            <a href="/2016/04/14/fhjksaf/" title="下一篇: fhjksaf">
                 <i class="fa fa-angle-right"></i>
             </a>
         
