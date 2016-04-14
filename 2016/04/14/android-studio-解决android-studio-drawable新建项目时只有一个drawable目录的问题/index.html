@@ -15,7 +15,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203911504-1281851192.png">
-<meta property="og:updated_time" content="2016-04-14T12:57:07.438Z">
+<meta property="og:updated_time" content="2016-04-14T13:21:06.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题">
 <meta name="twitter:description" content="android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法">
@@ -287,10 +287,10 @@
         <p>android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法<br><a id="more"></a></p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>android studio默认新建Module时，只新建一个drawable目录，并不会新建适配不同分辨率的drawable目录。但其实，这是可以设置的。有以下两种方法：</p>
 <h1 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h1><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><h3 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h3><ul>
-<li>进入<strong>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/root/res</strong>目录</li>
+<li>进入<strong><a href="[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/root/res"></a></strong>目录</li>
 <li>在此目录下，新建你要初始化的文件夹（drawable-hdpi等文件夹）<strong>这一点可以参照同目录下的mipmap各种分辨率的mipmap目录</strong><br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png" alt=""></li>
 <li>你可以在各个文件夹中放一张默认的图，以后每次新建项目时，就会有类似mipmap目录下的ic_launcher.png<br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png" alt=""></li>
-<li>回退到<strong>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule</strong>目录，打开recipe.xml.ftl文件</li>
+<li>回退到<strong><a href="[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule"></a></strong>目录，打开<a href="recipe.xml.ftl"></a>文件</li>
 <li>在recipe.xml.ftl中增加如下的代码，位置见图（依据你要初始化的目录来添加相应代码）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;copy from=&quot;root/res/drawable-hdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</span><br><span class="line">&lt;copy from=&quot;root/res/drawable-xhdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</span><br><span class="line">&lt;copy from=&quot;root/res/drawable-xxhdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -298,7 +298,7 @@
 <p>随后你就可以在新建的Module中看到初始化的drawable目录</p>
 <h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>与方法1的区别在于：不能在目录中添加初始化的图片</p>
 <h3 id="详细步骤-1"><a href="#详细步骤-1" class="headerlink" title="详细步骤"></a>详细步骤</h3><ul>
-<li>进入<strong>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/recipe.xml.ftl</strong>文件</li>
+<li>进入<strong><a href="[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/recipe.xml.ftl"></a></strong>文件</li>
 <li>添加如下代码，位置见图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</span><br><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</span><br><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -322,7 +322,7 @@
         <p><span>本文标题:</span><a href="/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/">[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Neil Lee 的个人博客">Neil Lee</a></p>
         <p><span>发布时间:</span>2016年04月14日 - 20时53分</p>
-        <p><span>最后更新:</span>2016年04月14日 - 20时57分</p>
+        <p><span>最后更新:</span>2016年04月14日 - 21时21分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/" title="[android studio]解决android studio drawable新建项目时只有一个drawable目录的问题">http://yoursite.com/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/　　作者: Neil Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
