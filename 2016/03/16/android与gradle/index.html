@@ -10,7 +10,7 @@
     
     <title>
         
-            android与gradle | 
+            Android 与 Gradle | 
         
         NeilLee&#39;s blog
     </title>
@@ -48,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://neilleecn.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="android与gradle | NeilLee&#39;s blog">
+    <meta property="og:title" content="Android 与 Gradle | NeilLee&#39;s blog">
     <meta property="og:description" content="null">
     <meta property="og:article:tag" content="android-studio"> <meta property="og:article:tag" content="gradle"> 
 
@@ -134,12 +134,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(http://oltjxlyku.bkt.clouddn.com/bg.jpg);
       }
     </style>
 
@@ -268,19 +263,11 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script>
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://oltjxlyku.bkt.clouddn.com/android%20studio%20gradle.png)">
     
             <p class="article-headline-p">
-                android与gradle
+                Android 与 Gradle
             </p>
         </div>
 
@@ -337,7 +324,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2016/03/16/android与gradle/" class="leancloud-views_num" data-flag-title="android与gradle">
+                <span id="/2016/03/16/android与gradle/" class="leancloud-views_num" data-flag-title="Android 与 Gradle">
      &nbsp;浏览量
 </span>
 
@@ -349,7 +336,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=android与gradle&url=http://neilleecn.github.io//2016/03/16/android与gradle/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android 与 Gradle&url=http://neilleecn.github.io//2016/03/16/android与gradle/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -358,7 +345,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=android与gradle&url=http://neilleecn.github.io//2016/03/16/android与gradle/index.html&via=Neil Lee" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android 与 Gradle&url=http://neilleecn.github.io//2016/03/16/android与gradle/index.html&via=Neil Lee" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -385,7 +372,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://neilleecn.github.io//2016/03/16/android与gradle/index.html&title=android与gradle" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://neilleecn.github.io//2016/03/16/android与gradle/index.html&title=Android 与 Gradle" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -394,7 +381,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=android与gradle&summary=null&pics=http://neilleecn.github.io/img/favicon.png&url=http://neilleecn.github.io/2016/03/16/android与gradle/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=Android 与 Gradle&summary=null&pics=http://neilleecn.github.io/img/favicon.png&url=http://neilleecn.github.io/2016/03/16/android与gradle/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -412,21 +399,17 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>gradle在android studio中非常重要，但是gradle常常造成项目build失败等各种问题，这里搜罗了关于gradle的<strong>配置</strong>、<strong>更新</strong>、<strong>使用</strong>等各种信息<br><a id="more"></a><br>Android Studio在第一次新建一个Gradle项目时需要下载Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。</p>
-<ul>
-<li>首先，我们下载好的gradle-版本号-bin(|all).zip应该放在哪儿呢。Gradle有一个user home，默认是C:/Users/【你当前的用户名】/.gradle。</li>
-</ul>
+        <p>Gradle 在 Android Studio 中非常重要，但是 Gradle 常常造成项目 build 失败等各种问题，这里搜罗了关于 Gradle 的<strong>配置</strong>、<strong>更新</strong>、<strong>使用</strong>等各种信息<br><a id="more"></a><br>Android Studio 在第一次新建一个 Gradle 项目时需要下载 Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。</p>
+<p>首先，我们下载好的 <code>gradle-版本号-bin(|all).zip</code> 应该放在哪儿呢。Gradle 有一个 <code>user home</code>，默认是 <code>C:/Users/【你当前的用户名】/.gradle</code>。</p>
 <p>这个目录下面有四个子文件夹，我们要放到</p>
 <p>wrapper/dists/[gradle-版本号-bin|all]/[一连串乱七八糟的字符的文件夹]/</p>
 <p>。例如，我就把gradle-bin和gradle-all（只需要放一个，all的话，有源码，文档等，好一些）分别放到了</p>
-<pre><code>C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-all/6vpvhqu0efs1fqmqr2decq1v12
-
-C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
-</code></pre><p>两个目录下面。然后启动android studio，他会自动解压安装（而且优先解压gradle-1.10-all，因为bin那个我发现没有解压他）。至于这个乱码文件夹目录（上面的6vpvhqu0efs1fqmqr2decq1v12），我的处理是先打开一次android studio，然后关闭，这个目录就生成了（注意，这个目录每次在发现新的需要下载的版本的时候都会新生成一个随机码文件夹，所以，不要想着把zip文件放到上次生成的随机码目录中）。</p>
-<p> 另外，想知道自己的Gradle项目用的是哪个版本（而且还有all和bin的区分），只需要看项目根目录下面找gradle/wrapper/gradle-wrapper.properties这个文件，里面是对应的版本号（Android Studio就会下这个)，比如文件的内容如下：</p>
-<p>#Thu Mar 20 19:47:09 GMT 2014<br>distributionBase=GRADLE_USER_HOME<br>distributionPath=wrapper/dists<br>zipStoreBase=GRADLE_USER_HOME<br>zipStorePath=wrapper/dists<br>distributionUrl=http/://services.gradle.org/distributions/gradle-1.10-all.zip</p>
-<p>那么你就要准备好去官网下载gradle-1.10-all.zip放到上面说的文件夹下面（下gradle-1.10-bin.zip是不管用的）</p>
-<p>这种方法目前百试不爽，绝对不需要再等待了，等他下载完估计要近一个小时的时间了（想当初我就是打开.gradle下面的那个文件夹，看着gradle**.zip一点点的下载完成的，慢死了。如果想要验证上面这个方法有没有成功，你就到.gradle/wrapper/dist/gradle-1.10-all/乱码文件夹/下面等着，看他会不会自动解压，只要解压力 ，说明就没问题了！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-all/6vpvhqu0efs1fqmqr2decq1v12</span><br><span class="line">C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12</span><br></pre></td></tr></table></figure>
+<p>两个目录下面。然后启动 Android Studio ，他会自动解压安装（而且优先解压gradle-1.10-all，因为bin那个我发现没有解压他）。至于这个乱码文件夹目录（上面的 <code>6vpvhqu0efs1fqmqr2decq1v12</code>），我的处理是先打开一次 Android Studio ，然后关闭，这个目录就生成了（注意，这个目录每次在发现新的需要下载的版本的时候都会新生成一个随机码文件夹，所以，不要想着把 zip 文件放到上次生成的随机码目录中）。</p>
+<p> 另外，想知道自己的 Gradle 项目用的是哪个版本（而且还有 all 和 bin 的区分），只需要看项目根目录下面找 <code>gradle/wrapper/gradle-wrapper.properties</code> 这个文件，里面是对应的版本号（Android Studio 就会下这个)，比如文件的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Thu Mar 20 19:47:09 GMT 2014</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=http/://services.gradle.org/distributions/gradle-1.10-all.zip</span><br></pre></td></tr></table></figure>
+<p>那么你就要准备好去官网下载 <code>gradle-1.10-all.zip</code> 放到上面说的文件夹下面（下 <code>gradle-1.10-bin.zip</code> 是不管用的）</p>
+<p>这种方法目前百试不爽，绝对不需要再等待了，等他下载完估计要近一个小时的时间了（想当初我就是打开 <code>.gradle</code> 下面的那个文件夹，看着 <code>gradle**.zip</code> 一点点的下载完成的，慢死了。如果想要验证上面这个方法有没有成功，你就到 <code>.gradle/wrapper/dist/gradle-1.10-all/乱码文件夹/</code> 下面等着，看他会不会自动解压，只要解压 ，说明就没问题了！</p>
 
     
 
@@ -439,6 +422,43 @@ C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
                 <!-- Post Comments -->
                 
                     
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key="2016/03/16/android与gradle/"
+        data-url="http://neilleecn.github.io/2016/03/16/android与gradle/"
+        data-title="Android 与 Gradle">
+    </div>
+    <!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+		var duoshuoQuery = {short_name:"neillee"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
 
 
 
@@ -556,13 +576,28 @@ C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">17</span></a>
+                <a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
             </ul>
         </li>
         
     
 
     <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术总结/">技术总结<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
     
 
     <!-- Pages  -->
@@ -885,6 +920,25 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        queue.offer(function(){
+            var duoshuoQuery = {
+                short_name: 'neillee'
+            };
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';
+                ds.async = true;
+                ds.src = 'https://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        });
+    </script>
+    <!-- 多说公共 js 代码 end -->
 
 
 

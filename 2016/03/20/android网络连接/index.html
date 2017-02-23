@@ -10,7 +10,7 @@
     
     <title>
         
-            android网络连接 | 
+            Android 网络连接 | 
         
         NeilLee&#39;s blog
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Neil Lee">
     <meta name="description" content="null">
-    <meta name="keywords" content="null,android,net,wifi">
+    <meta name="keywords" content="null,android,network">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://neilleecn.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="android网络连接 | NeilLee&#39;s blog">
+    <meta property="og:title" content="Android 网络连接 | NeilLee&#39;s blog">
     <meta property="og:description" content="null">
-    <meta property="og:article:tag" content="android"> <meta property="og:article:tag" content="net"> <meta property="og:article:tag" content="wifi"> 
+    <meta property="og:article:tag" content="android"> <meta property="og:article:tag" content="network"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -134,12 +134,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(http://oltjxlyku.bkt.clouddn.com/bg.jpg);
       }
     </style>
 
@@ -244,7 +239,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#android手机的几种网络"><span class="post-toc-number">1.</span> <span class="post-toc-text">android手机的几种网络</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取网络状态"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取网络状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关类："><span class="post-toc-number">2.1.</span> <span class="post-toc-text">相关类：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些方法（NetworkInfo的）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">一些方法（NetworkInfo的）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#几种上网方式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">几种上网方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特别的CMCC"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">特别的CMCC</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、Android-手机的几种网络"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、Android 手机的几种网络</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、获取网络状态"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、获取网络状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-相关类："><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 相关类：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-一些方法（NetworkInfo-的）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 一些方法（NetworkInfo 的）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-几种上网方式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 几种上网方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-特别的CMCC"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 特别的CMCC</span></a></li></ol></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -268,19 +263,11 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script>
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://oltjxlyku.bkt.clouddn.com/network.PNG)">
     
             <p class="article-headline-p">
-                android网络连接
+                Android 网络连接
             </p>
         </div>
 
@@ -323,7 +310,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/android/">android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/net/">net</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/wifi/">wifi</a>
+        <a class="post_tag-link" href="/tags/android/">android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/network/">network</a>
     </ul>
     
 
@@ -337,7 +324,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2016/03/20/android网络连接/" class="leancloud-views_num" data-flag-title="android网络连接">
+                <span id="/2016/03/20/android网络连接/" class="leancloud-views_num" data-flag-title="Android 网络连接">
      &nbsp;浏览量
 </span>
 
@@ -349,7 +336,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=android网络连接&url=http://neilleecn.github.io//2016/03/20/android网络连接/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android 网络连接&url=http://neilleecn.github.io//2016/03/20/android网络连接/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -358,7 +345,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=android网络连接&url=http://neilleecn.github.io//2016/03/20/android网络连接/index.html&via=Neil Lee" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android 网络连接&url=http://neilleecn.github.io//2016/03/20/android网络连接/index.html&via=Neil Lee" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -385,7 +372,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://neilleecn.github.io//2016/03/20/android网络连接/index.html&title=android网络连接" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://neilleecn.github.io//2016/03/20/android网络连接/index.html&title=Android 网络连接" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -394,7 +381,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=android网络连接&summary=null&pics=http://neilleecn.github.io/img/favicon.png&url=http://neilleecn.github.io/2016/03/20/android网络连接/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=Android 网络连接&summary=null&pics=http://neilleecn.github.io/img/favicon.png&url=http://neilleecn.github.io/2016/03/20/android网络连接/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -412,15 +399,14 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>android手机的几种网络<br>获取网络状态</p>
-<a id="more"></a>
-<h1 id="android手机的几种网络"><a href="#android手机的几种网络" class="headerlink" title="android手机的几种网络"></a>android手机的几种网络</h1><p>MOBILE(数据流量)<br>WIFI(wifi)</p>
-<h1 id="获取网络状态"><a href="#获取网络状态" class="headerlink" title="获取网络状态"></a>获取网络状态</h1><h2 id="相关类："><a href="#相关类：" class="headerlink" title="相关类："></a>相关类：</h2><p><code>ConnectivityManager：(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE); 
+        <p>Android 手机的几种网络<br>获取网络状态<br><a id="more"></a></p>
+<h1 id="一、Android-手机的几种网络"><a href="#一、Android-手机的几种网络" class="headerlink" title="一、Android 手机的几种网络"></a>一、Android 手机的几种网络</h1><p>MOBILE(数据流量)<br>WIFI(wifi)</p>
+<h1 id="二、获取网络状态"><a href="#二、获取网络状态" class="headerlink" title="二、获取网络状态"></a>二、获取网络状态</h1><h2 id="2-1-相关类："><a href="#2-1-相关类：" class="headerlink" title="2.1 相关类："></a>2.1 相关类：</h2><p><code>ConnectivityManager：(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE); 
 NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
-<h2 id="一些方法（NetworkInfo的）"><a href="#一些方法（NetworkInfo的）" class="headerlink" title="一些方法（NetworkInfo的）"></a>一些方法（NetworkInfo的）</h2><p>getDetailedState()：获取详细状态。<br>getExtraInfo()：获取附加信息。<br>getReason()：获取连接失败的原因。<br>getType()：获取网络类型(一般为移动或Wi-Fi)。<br>getTypeName()：获取网络类型名称(一般取值“WIFI”或“MOBILE”)。<br>isAvailable()：判断该网络是否可用。<br>isConnected()：判断是否已经连接。<br>isConnectedOrConnecting()：判断是否已经连接或正在连接。<br>isFailover()：判断是否连接失败。<br>isRoaming()：判断是否漫游</p>
-<h2 id="几种上网方式"><a href="#几种上网方式" class="headerlink" title="几种上网方式"></a>几种上网方式</h2><p>当用WIFI上的时候，getType是WIFI，getExtraInfo是空的。<br>当用MOBILE（数据流量）上的时候，getType是MOBILE。<br>用移动CMNET方式，getExtraInfo的值是cmnet。<br>用移动CMWAP方式，getExtraInfo的值是cmwap，但是不在代理的情况下访问普通的网站访问不了。<br>用联通3gwap方式，getExtraInfo的值是3gwap。<br>用联通3gnet方式，getExtraInfo的值是3gnet。<br>用联通uniwap方式，getExtraInfo的值是uniwap。<br>用联通uninet方式，getExtraInfo的值是uninet。</p>
+<h2 id="2-2-一些方法（NetworkInfo-的）"><a href="#2-2-一些方法（NetworkInfo-的）" class="headerlink" title="2.2 一些方法（NetworkInfo 的）"></a>2.2 一些方法（NetworkInfo 的）</h2><p>getDetailedState()：获取详细状态。<br>getExtraInfo()：获取附加信息。<br>getReason()：获取连接失败的原因。<br>getType()：获取网络类型(一般为移动或Wi-Fi)。<br>getTypeName()：获取网络类型名称(一般取值“WIFI”或“MOBILE”)。<br>isAvailable()：判断该网络是否可用。<br>isConnected()：判断是否已经连接。<br>isConnectedOrConnecting()：判断是否已经连接或正在连接。<br>isFailover()：判断是否连接失败。<br>isRoaming()：判断是否漫游</p>
+<h2 id="2-3-几种上网方式"><a href="#2-3-几种上网方式" class="headerlink" title="2.3 几种上网方式"></a>2.3 几种上网方式</h2><p>当用 WIFI 上的时候，getType 是WIFI，getExtraInfo 是空的。<br>当用 MOBILE（数据流量）上的时候，getType 是 MOBILE 。<br>用移动 CMNET 方式，getExtraInfo的值是 cmnet。<br>用移动 CMWAP 方式，getExtraInfo的值是 cmwap，但是不在代理的情况下访问普通的网站访问不了。<br>用联通 3gwap 方式，getExtraInfo的值是 3gwap。<br>用联通 3gnet 方式，getExtraInfo的值是 3gnet。<br>用联通 uniwap 方式，getExtraInfo的值是 uniwap。<br>用联通 uninet 方式，getExtraInfo的值是 uninet。</p>
 <p>以上参考自<br><a href="http://www.inthumb.com/c/learnandroid/article?id=576&amp;category_id=4.1" target="_blank" rel="external">http://www.inthumb.com/c/learnandroid/article?id=576&amp;category_id=4.1</a><br><a href="http://www.eoeandroid.com/thread-167333-1-1.html?_dsign=6c32dbf4" target="_blank" rel="external">http://www.eoeandroid.com/thread-167333-1-1.html?_dsign=6c32dbf4</a><br><a href="http://www.cnblogs.com/qingblog/archive/2012/07/19/2598983.html" target="_blank" rel="external">http://www.cnblogs.com/qingblog/archive/2012/07/19/2598983.html</a></p>
-<h2 id="特别的CMCC"><a href="#特别的CMCC" class="headerlink" title="特别的CMCC"></a>特别的CMCC</h2><p>[问题来源] <a href="http://www.eoeandroid.com/thread-182792-1-1.html?_dsign=d7ad2a6a" target="_blank" rel="external">http://www.eoeandroid.com/thread-182792-1-1.html?_dsign=d7ad2a6a</a><br>[解决方案] <a href="http://zhidao.baidu.com/question/560189543835675044.html?fr=iks&amp;word=android+%C5%D0%B6%CFcmcc&amp;ie=gbk" target="_blank" rel="external">http://zhidao.baidu.com/question/560189543835675044.html?fr=iks&amp;word=android+%C5%D0%B6%CFcmcc&amp;ie=gbk</a><br>当连接上但却未登录CMCC时：</p>
+<h2 id="2-4-特别的CMCC"><a href="#2-4-特别的CMCC" class="headerlink" title="2.4 特别的CMCC"></a>2.4 特别的CMCC</h2><p>[问题来源] <a href="http://www.eoeandroid.com/thread-182792-1-1.html?_dsign=d7ad2a6a" target="_blank" rel="external">http://www.eoeandroid.com/thread-182792-1-1.html?_dsign=d7ad2a6a</a><br>[解决方案] <a href="http://zhidao.baidu.com/question/560189543835675044.html?fr=iks&amp;word=android+%C5%D0%B6%CFcmcc&amp;ie=gbk" target="_blank" rel="external">http://zhidao.baidu.com/question/560189543835675044.html?fr=iks&amp;word=android+%C5%D0%B6%CFcmcc&amp;ie=gbk</a><br>当连接上但却未登录CMCC时：</p>
 <p>LOG日志打印：连接不可达到</p>
 <p><code>class IpAddrThread extends Thread {
         @Override
@@ -453,7 +439,7 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
         }
     }</code></p>
 <p>经过几次尝试，整理出下表数据</p>
-<p><img src="assets/network.PNG" alt="networkTable"></p>
+<p><img src="http://oltjxlyku.bkt.clouddn.com/network.PNG" alt="networkTable"></p>
 
     
 
@@ -466,6 +452,43 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
                 <!-- Post Comments -->
                 
                     
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key="2016/03/20/android网络连接/"
+        data-url="http://neilleecn.github.io/2016/03/20/android网络连接/"
+        data-title="Android 网络连接">
+    </div>
+    <!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+		var duoshuoQuery = {short_name:"neillee"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
 
 
 
@@ -477,7 +500,7 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/04/14/android-studio-解决android-studio-drawable新建项目时只有一个drawable目录的问题/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/04/14/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -491,7 +514,7 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
 
     <!-- Next Nav -->
     
-        <a href="/2016/03/20/BaseAdapter数据已经加载，但是listView不显示的解决方案/" id="post_nav-older" class="next-content">
+        <a href="/2016/03/20/BaseAdapter数据已经加载，但是ListView不显示的解决方案/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -583,13 +606,28 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">17</span></a>
+                <a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
             </ul>
         </li>
         
     
 
     <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术总结/">技术总结<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
     
 
     <!-- Pages  -->
@@ -912,6 +950,25 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        queue.offer(function(){
+            var duoshuoQuery = {
+                short_name: 'neillee'
+            };
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';
+                ds.async = true;
+                ds.src = 'https://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        });
+    </script>
+    <!-- 多说公共 js 代码 end -->
 
 
 
