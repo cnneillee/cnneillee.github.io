@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://neilleecn.github.io/"/>
-  <updated>2017-02-26T04:21:03.157Z</updated>
-  <id>http://neilleecn.github.io/</id>
+  <link href="http://cnneillee.github.io/"/>
+  <updated>2017-03-09T03:38:27.633Z</updated>
+  <id>http://cnneillee.github.io/</id>
   
   <author>
     <name>Neil Lee</name>
@@ -16,11 +16,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>逆向——解析AndroidManifest</title>
+    <link href="http://cnneillee.github.io/2017/03/06/%E9%80%86%E5%90%91%E8%A7%A3%E6%9E%90AndroidManifest/"/>
+    <id>http://cnneillee.github.io/2017/03/06/逆向解析AndroidManifest/</id>
+    <published>2017-03-06T09:10:10.492Z</published>
+    <updated>2017-03-09T03:38:27.633Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;h2 id=&quot;1-1-APK-文件结构&quot;&gt;&lt;a href=&quot;#1-1-APK-文件结构&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
+    
+    
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷完《晓松奇谈》和《晓说》以后</title>
+    <link href="http://cnneillee.github.io/2017/02/26/%E5%88%B7%E5%AE%8C%E3%80%8A%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88%E3%80%8B%E5%92%8C%E3%80%8A%E6%99%93%E8%AF%B4%E3%80%8B%E4%BB%A5%E5%90%8E/"/>
+    <id>http://cnneillee.github.io/2017/02/26/刷完《晓松奇谈》和《晓说》以后/</id>
+    <published>2017-02-26T10:56:59.000Z</published>
+    <updated>2017-03-09T03:44:49.449Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;缘由&quot;&gt;&lt;a href=&quot;#缘由&quot; class=&quot;headerlink&quot; title=&quot;缘由&quot;&gt;&lt;/a&gt;缘由&lt;/h1&gt;&lt;p&gt;看高晓松的节目（&lt;a href=&quot;https://movie.douban.com/subject/24859454/&quot; target=&quot;_
+    
+    </summary>
+    
+      <category term="日常" scheme="http://cnneillee.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="reflecting" scheme="http://cnneillee.github.io/tags/reflecting/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2017年的第一个五月计划</title>
-    <link href="http://neilleecn.github.io/2017/02/26/2017%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BA%94%E6%9C%88%E8%AE%A1%E5%88%92/"/>
-    <id>http://neilleecn.github.io/2017/02/26/2017年的第一个五月计划/</id>
+    <link href="http://cnneillee.github.io/2017/02/26/2017%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BA%94%E6%9C%88%E8%AE%A1%E5%88%92/"/>
+    <id>http://cnneillee.github.io/2017/02/26/2017年的第一个五月计划/</id>
     <published>2017-02-26T02:39:54.000Z</published>
-    <updated>2017-02-26T04:21:03.157Z</updated>
+    <updated>2017-03-09T03:45:27.022Z</updated>
     
     <summary type="html">
     
@@ -30,19 +70,39 @@
     
     </summary>
     
-      <category term="生活规划" scheme="http://neilleecn.github.io/categories/%E7%94%9F%E6%B4%BB%E8%A7%84%E5%88%92/"/>
+      <category term="生活规划" scheme="http://cnneillee.github.io/categories/%E7%94%9F%E6%B4%BB%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="planning" scheme="http://neilleecn.github.io/tags/planning/"/>
+      <category term="planning" scheme="http://cnneillee.github.io/tags/planning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不同类型的图标尺寸适配指南</title>
+    <link href="http://cnneillee.github.io/2017/02/25/%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%9B%BE%E6%A0%87%E5%B0%BA%E5%AF%B8%E9%80%82%E9%85%8D%E6%8C%87%E5%8D%97/"/>
+    <id>http://cnneillee.github.io/2017/02/25/不同类型的图标尺寸适配指南/</id>
+    <published>2017-02-25T15:22:26.927Z</published>
+    <updated>2017-03-09T03:08:30.814Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;h2 id=&quot;1-1-ICON&quot;&gt;&lt;a href=&quot;#1-1-ICON&quot; class=&quot;headerlink&quot; title=&quot;1
+    
+    </summary>
+    
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
+    
+    
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
   </entry>
   
   <entry>
     <title>2017年启用 Hexo 博客</title>
-    <link href="http://neilleecn.github.io/2017/02/24/2017%E5%B9%B4%E5%90%AF%E7%94%A8Hexo%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://neilleecn.github.io/2017/02/24/2017年启用Hexo博客/</id>
+    <link href="http://cnneillee.github.io/2017/02/24/2017%E5%B9%B4%E5%90%AF%E7%94%A8Hexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://cnneillee.github.io/2017/02/24/2017年启用Hexo博客/</id>
     <published>2017-02-24T04:36:23.000Z</published>
-    <updated>2017-02-26T05:05:05.033Z</updated>
+    <updated>2017-03-09T03:47:02.753Z</updated>
     
     <summary type="html">
     
@@ -51,17 +111,17 @@
     
     </summary>
     
-      <category term="日常" scheme="http://neilleecn.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+      <category term="生活规划" scheme="http://cnneillee.github.io/categories/%E7%94%9F%E6%B4%BB%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="daily" scheme="http://neilleecn.github.io/tags/daily/"/>
+      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
     
   </entry>
   
   <entry>
     <title>解决 Android Studio 新建项目时只有一个 drawable 目录的问题</title>
-    <link href="http://neilleecn.github.io/2016/04/14/android-studio-%E8%A7%A3%E5%86%B3android-studio%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%97%B6%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AAdrawable%E7%9B%AE%E5%BD%95%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://neilleecn.github.io/2016/04/14/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/</id>
+    <link href="http://cnneillee.github.io/2016/04/14/android-studio-%E8%A7%A3%E5%86%B3android-studio%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%97%B6%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AAdrawable%E7%9B%AE%E5%BD%95%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://cnneillee.github.io/2016/04/14/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/</id>
     <published>2016-04-14T12:53:54.000Z</published>
     <updated>2017-02-23T11:13:08.367Z</updated>
     
@@ -71,19 +131,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="android-studio" scheme="http://neilleecn.github.io/tags/android-studio/"/>
+      <category term="android-studio" scheme="http://cnneillee.github.io/tags/android-studio/"/>
     
   </entry>
   
   <entry>
     <title>Android 网络连接</title>
-    <link href="http://neilleecn.github.io/2016/03/20/android%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/"/>
-    <id>http://neilleecn.github.io/2016/03/20/android网络连接/</id>
+    <link href="http://cnneillee.github.io/2016/03/20/android%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/"/>
+    <id>http://cnneillee.github.io/2016/03/20/android网络连接/</id>
     <published>2016-03-20T12:36:30.000Z</published>
     <updated>2017-02-23T11:17:40.976Z</updated>
     
@@ -93,19 +153,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="network" scheme="http://neilleecn.github.io/tags/network/"/>
+      <category term="network" scheme="http://cnneillee.github.io/tags/network/"/>
     
   </entry>
   
   <entry>
     <title>BaseAdapter 数据已经加载，但是 ListView 不显示的解决方案</title>
-    <link href="http://neilleecn.github.io/2016/03/20/BaseAdapter%E6%95%B0%E6%8D%AE%E5%B7%B2%E7%BB%8F%E5%8A%A0%E8%BD%BD%EF%BC%8C%E4%BD%86%E6%98%AFListView%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://neilleecn.github.io/2016/03/20/BaseAdapter数据已经加载，但是ListView不显示的解决方案/</id>
+    <link href="http://cnneillee.github.io/2016/03/20/BaseAdapter%E6%95%B0%E6%8D%AE%E5%B7%B2%E7%BB%8F%E5%8A%A0%E8%BD%BD%EF%BC%8C%E4%BD%86%E6%98%AFListView%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://cnneillee.github.io/2016/03/20/BaseAdapter数据已经加载，但是ListView不显示的解决方案/</id>
     <published>2016-03-19T17:49:51.000Z</published>
     <updated>2017-02-23T12:39:04.402Z</updated>
     
@@ -115,19 +175,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="sollution" scheme="http://neilleecn.github.io/tags/sollution/"/>
+      <category term="sollution" scheme="http://cnneillee.github.io/tags/sollution/"/>
     
   </entry>
   
   <entry>
     <title>Android Studio 的更新</title>
-    <link href="http://neilleecn.github.io/2016/03/18/android-studio%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
-    <id>http://neilleecn.github.io/2016/03/18/android-studio的更新/</id>
+    <link href="http://cnneillee.github.io/2016/03/18/android-studio%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
+    <id>http://cnneillee.github.io/2016/03/18/android-studio的更新/</id>
     <published>2016-03-18T07:50:38.000Z</published>
     <updated>2017-02-23T11:24:30.344Z</updated>
     
@@ -137,19 +197,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="android-studio" scheme="http://neilleecn.github.io/tags/android-studio/"/>
+      <category term="android-studio" scheme="http://cnneillee.github.io/tags/android-studio/"/>
     
   </entry>
   
   <entry>
     <title>开源项目分类合集</title>
-    <link href="http://neilleecn.github.io/2016/03/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%88%86%E7%B1%BB%E5%90%88%E9%9B%86/"/>
-    <id>http://neilleecn.github.io/2016/03/17/开源项目分类合集/</id>
+    <link href="http://cnneillee.github.io/2016/03/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%88%86%E7%B1%BB%E5%90%88%E9%9B%86/"/>
+    <id>http://cnneillee.github.io/2016/03/17/开源项目分类合集/</id>
     <published>2016-03-17T14:37:47.000Z</published>
     <updated>2017-02-23T11:28:19.557Z</updated>
     
@@ -159,21 +219,21 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="gathering" scheme="http://neilleecn.github.io/tags/gathering/"/>
+      <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
     
   </entry>
   
   <entry>
     <title>近期(2016.3.8-2016.3.18)技术工作总结</title>
-    <link href="http://neilleecn.github.io/2016/03/17/%E8%BF%91%E6%9C%9F%E6%8A%80%E6%9C%AF%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
-    <id>http://neilleecn.github.io/2016/03/17/近期技术工作总结/</id>
+    <link href="http://cnneillee.github.io/2016/03/17/%E8%BF%91%E6%9C%9F%E6%8A%80%E6%9C%AF%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
+    <id>http://cnneillee.github.io/2016/03/17/近期技术工作总结/</id>
     <published>2016-03-17T10:26:24.000Z</published>
-    <updated>2017-02-23T12:36:13.640Z</updated>
+    <updated>2017-03-09T03:44:22.820Z</updated>
     
     <summary type="html">
     
@@ -181,17 +241,17 @@
     
     </summary>
     
-      <category term="技术总结" scheme="http://neilleecn.github.io/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+      <category term="日常" scheme="http://cnneillee.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-      <category term="reflecting" scheme="http://neilleecn.github.io/tags/reflecting/"/>
+      <category term="reflecting" scheme="http://cnneillee.github.io/tags/reflecting/"/>
     
   </entry>
   
   <entry>
     <title>Android Studio 项目与 Github</title>
-    <link href="http://neilleecn.github.io/2016/03/16/Android-Studio%E9%A1%B9%E7%9B%AE%E4%B8%8EGithub/"/>
-    <id>http://neilleecn.github.io/2016/03/16/Android-Studio项目与Github/</id>
+    <link href="http://cnneillee.github.io/2016/03/16/Android-Studio%E9%A1%B9%E7%9B%AE%E4%B8%8EGithub/"/>
+    <id>http://cnneillee.github.io/2016/03/16/Android-Studio项目与Github/</id>
     <published>2016-03-16T13:37:27.000Z</published>
     <updated>2017-02-23T11:45:59.996Z</updated>
     
@@ -201,21 +261,21 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="android-studio" scheme="http://neilleecn.github.io/tags/android-studio/"/>
+      <category term="android-studio" scheme="http://cnneillee.github.io/tags/android-studio/"/>
     
-      <category term="git/github" scheme="http://neilleecn.github.io/tags/git-github/"/>
+      <category term="git/github" scheme="http://cnneillee.github.io/tags/git-github/"/>
     
   </entry>
   
   <entry>
     <title>Android 与 Gradle</title>
-    <link href="http://neilleecn.github.io/2016/03/16/android%E4%B8%8Egradle/"/>
-    <id>http://neilleecn.github.io/2016/03/16/android与gradle/</id>
+    <link href="http://cnneillee.github.io/2016/03/16/android%E4%B8%8Egradle/"/>
+    <id>http://cnneillee.github.io/2016/03/16/android与gradle/</id>
     <published>2016-03-16T13:33:06.000Z</published>
     <updated>2017-02-23T11:51:48.351Z</updated>
     
@@ -225,19 +285,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android-studio" scheme="http://neilleecn.github.io/tags/android-studio/"/>
+      <category term="android-studio" scheme="http://cnneillee.github.io/tags/android-studio/"/>
     
-      <category term="gradle" scheme="http://neilleecn.github.io/tags/gradle/"/>
+      <category term="gradle" scheme="http://cnneillee.github.io/tags/gradle/"/>
     
   </entry>
   
   <entry>
     <title>Hexo 的使用技巧</title>
-    <link href="http://neilleecn.github.io/2016/03/16/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>http://neilleecn.github.io/2016/03/16/hexo的使用技巧/</id>
+    <link href="http://cnneillee.github.io/2016/03/16/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://cnneillee.github.io/2016/03/16/hexo的使用技巧/</id>
     <published>2016-03-16T12:46:24.000Z</published>
     <updated>2017-02-23T12:14:35.176Z</updated>
     
@@ -250,17 +310,17 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://neilleecn.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://cnneillee.github.io/categories/Hexo/"/>
     
     
-      <category term="hexo" scheme="http://neilleecn.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="http://cnneillee.github.io/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>博客搜罗</title>
-    <link href="http://neilleecn.github.io/2016/03/16/%E5%8D%9A%E5%AE%A2%E6%90%9C%E7%BD%97/"/>
-    <id>http://neilleecn.github.io/2016/03/16/博客搜罗/</id>
+    <link href="http://cnneillee.github.io/2016/03/16/%E5%8D%9A%E5%AE%A2%E6%90%9C%E7%BD%97/"/>
+    <id>http://cnneillee.github.io/2016/03/16/博客搜罗/</id>
     <published>2016-03-16T12:39:37.000Z</published>
     <updated>2017-02-23T12:32:34.038Z</updated>
     
@@ -270,17 +330,17 @@
     
     </summary>
     
-      <category term="学习资源" scheme="http://neilleecn.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+      <category term="学习资源" scheme="http://cnneillee.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="gathering" scheme="http://neilleecn.github.io/tags/gathering/"/>
+      <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
     
   </entry>
   
   <entry>
     <title>Android 开发环境搭建</title>
-    <link href="http://neilleecn.github.io/2016/03/16/android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://neilleecn.github.io/2016/03/16/android开发环境搭建/</id>
+    <link href="http://cnneillee.github.io/2016/03/16/android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://cnneillee.github.io/2016/03/16/android开发环境搭建/</id>
     <published>2016-03-16T09:34:28.000Z</published>
     <updated>2017-02-23T09:27:27.803Z</updated>
     
@@ -290,21 +350,21 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="android-studio" scheme="http://neilleecn.github.io/tags/android-studio/"/>
+      <category term="android-studio" scheme="http://cnneillee.github.io/tags/android-studio/"/>
     
-      <category term="setup" scheme="http://neilleecn.github.io/tags/setup/"/>
+      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
     
   </entry>
   
   <entry>
     <title>java开发环境搭建教程</title>
-    <link href="http://neilleecn.github.io/2016/03/16/java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>http://neilleecn.github.io/2016/03/16/java开发环境搭建教程/</id>
+    <link href="http://cnneillee.github.io/2016/03/16/java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>http://cnneillee.github.io/2016/03/16/java开发环境搭建教程/</id>
     <published>2016-03-16T09:02:23.000Z</published>
     <updated>2017-02-23T07:59:29.657Z</updated>
     
@@ -322,16 +382,16 @@
     </summary>
     
     
-      <category term="setup" scheme="http://neilleecn.github.io/tags/setup/"/>
+      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
     
-      <category term="java" scheme="http://neilleecn.github.io/tags/java/"/>
+      <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>AAPT err(Facade for ......): libpng error: Not a PNG file.</title>
-    <link href="http://neilleecn.github.io/2016/03/15/Android-Studio-AAPT-err-Facade-for-libpng-error-Not-a-PNG-file/"/>
-    <id>http://neilleecn.github.io/2016/03/15/Android-Studio-AAPT-err-Facade-for-libpng-error-Not-a-PNG-file/</id>
+    <link href="http://cnneillee.github.io/2016/03/15/Android-Studio-AAPT-err-Facade-for-libpng-error-Not-a-PNG-file/"/>
+    <id>http://cnneillee.github.io/2016/03/15/Android-Studio-AAPT-err-Facade-for-libpng-error-Not-a-PNG-file/</id>
     <published>2016-03-15T11:00:15.000Z</published>
     <updated>2017-02-23T09:09:58.762Z</updated>
     
@@ -341,21 +401,21 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="android-studio" scheme="http://neilleecn.github.io/tags/android-studio/"/>
+      <category term="android-studio" scheme="http://cnneillee.github.io/tags/android-studio/"/>
     
-      <category term="error" scheme="http://neilleecn.github.io/tags/error/"/>
+      <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
     
   </entry>
   
   <entry>
     <title>TextView 中关于文字溢出的、隐藏显示问题</title>
-    <link href="http://neilleecn.github.io/2016/03/13/TextView%E4%B8%AD%E5%85%B3%E4%BA%8E%E6%96%87%E5%AD%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%9A%90%E8%97%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
-    <id>http://neilleecn.github.io/2016/03/13/TextView中关于文字溢出的隐藏显示问题/</id>
+    <link href="http://cnneillee.github.io/2016/03/13/TextView%E4%B8%AD%E5%85%B3%E4%BA%8E%E6%96%87%E5%AD%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%9A%90%E8%97%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
+    <id>http://cnneillee.github.io/2016/03/13/TextView中关于文字溢出的隐藏显示问题/</id>
     <published>2016-03-13T03:20:11.000Z</published>
     <updated>2017-02-23T11:55:06.327Z</updated>
     
@@ -365,19 +425,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="sollution" scheme="http://neilleecn.github.io/tags/sollution/"/>
+      <category term="sollution" scheme="http://cnneillee.github.io/tags/sollution/"/>
     
   </entry>
   
   <entry>
     <title>Dialog 在 show() 方法调用时抛出异常的解决方案</title>
-    <link href="http://neilleecn.github.io/2016/03/12/dialog%E5%9C%A8show-%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E6%97%B6%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://neilleecn.github.io/2016/03/12/dialog在show-方法调用时抛出异常的解决方案/</id>
+    <link href="http://cnneillee.github.io/2016/03/12/dialog%E5%9C%A8show-%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E6%97%B6%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://cnneillee.github.io/2016/03/12/dialog在show-方法调用时抛出异常的解决方案/</id>
     <published>2016-03-12T03:13:54.000Z</published>
     <updated>2017-02-23T12:01:51.896Z</updated>
     
@@ -387,53 +447,12 @@
     
     </summary>
     
-      <category term="Android" scheme="http://neilleecn.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://neilleecn.github.io/tags/android/"/>
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
-      <category term="exception" scheme="http://neilleecn.github.io/tags/exception/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 大杂烩</title>
-    <link href="http://neilleecn.github.io/2016/03/09/hexo%E5%A4%A7%E6%9D%82%E7%83%A9/"/>
-    <id>http://neilleecn.github.io/2016/03/09/hexo大杂烩/</id>
-    <published>2016-03-09T13:09:46.000Z</published>
-    <updated>2017-02-23T12:21:38.036Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo参考文档&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;Hexo常见配置及奇淫逸巧~~&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://neilleecn.github.io/categories/Hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://neilleecn.github.io/tags/hexo/"/>
-    
-      <category term="gathering" scheme="http://neilleecn.github.io/tags/gathering/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://neilleecn.github.io/2016/03/09/hello-world/"/>
-    <id>http://neilleecn.github.io/2016/03/09/hello-world/</id>
-    <published>2016-03-09T09:16:02.959Z</published>
-    <updated>2017-02-23T07:58:27.123Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://neilleecn.github.io/categories/Hexo/"/>
-    
+      <category term="exception" scheme="http://cnneillee.github.io/tags/exception/"/>
     
   </entry>
   
