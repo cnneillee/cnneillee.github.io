@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            Git 与 Github 使用 | 
+        
+        NeilLee&#39;s blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Neil Lee">
+    <meta name="description" content="null">
+    <meta name="keywords" content="null,git/github">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="NeilLee&#39;s blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://cnneillee.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Git 与 Github 使用 | NeilLee&#39;s blog">
+    <meta property="og:description" content="null">
+    <meta property="og:article:tag" content="git/github"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(http://oltjxlyku.bkt.clouddn.com/bg.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?B51Mj8cv5v';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-关于-Git"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 关于 Git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-关于-Github"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 关于 Github</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-Github-与-Git-的区别"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 Github 与 Git 的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-Github的一些功能"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">1.4 Github的一些功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-5-由Github衍生出来的项目"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">1.5 由Github衍生出来的项目</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、版本控制"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、版本控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-版本控制概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 版本控制概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-版本控制系统"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 版本控制系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-本地版本控制系统"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">2.2.1 本地版本控制系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-集中化的版本控制系统"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">2.2.2 集中化的版本控制系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-分布式版本控制系统"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">2.2.3 分布式版本控制系统</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、Git-基础"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Git 基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-Git-历史"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 Git 历史</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-Git-基础"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 Git 基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-1-Git-工具的特性"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">3.2.1 Git 工具的特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-2-三种状态"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">3.2.2 三种状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-3-Git-的安装与配置"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">3.2.3 Git 的安装与配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-Git-详细知识"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 Git 详细知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-1-获取-Git-仓库"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">3.3.1 获取 Git 仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-2-记录每次更新到仓库"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">3.3.2 记录每次更新到仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-3-查看提交历史"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">3.3.3 查看提交历史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-4-撤消操作"><span class="post-toc-number">3.3.4.</span> <span class="post-toc-text">3.3.4 撤消操作</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、学习使用-Git-工具"><span class="post-toc-number">4.</span> <span class="post-toc-text">二、学习使用 Git 工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-学习资料汇总"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">2.1 学习资料汇总</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、知乎上关于Github的问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">三、知乎上关于Github的问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、Github的一些用法"><span class="post-toc-number">6.</span> <span class="post-toc-text">四、Github的一些用法</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Git 与 Github 使用
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Neil Lee</strong>
+        <span>2月 12, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC2UlEQVR42u3au3LjMBAEQP3/T/tSB0dqZsE7y0AzUrn4QCPwFnb29XXk9cLGxsbGxsbGxsb+SPYrvpKn/vKxb3+/+n11//176jVjY2Njb81+86//gn1/f7Kg+zfnT0VrxsbGxj6AnXwmWehsO+7vX98abGxsbOyrpbTHlfs33G8ENjY2Nva/ZrfP5oUweSc2NjY2dl4w2pbQU63/H+ulYWNjY388e9bQ/9nf/zXfxsbGxv5gdnvNjhntm5OQoH4/NjY29qbs9hhwv6BkZLMtQm3wgI2NjX0ae71c5fHt7Fv5+M6bQoiNjY19ADuPAe7LSdSsj5HtKE/dVMLGxsbejt0WnjzEXWkY5YUqCnqxsbGxt2PPRhtnbaC2aLVtrKKAYWNjY2/Hbscc2xhgJSpuC1jUVMLGxsbelN0GsW3E++yW3a8EGxsb+wR2u/SVjXh2QOervLCxsbH3ZiftnrwZ1JaoNjbOCx42Njb2CexnjwGzMZ11ZLQebGxs7E3ZydJnRWWlpOVxRdGuwsbGxj6M3Y7LJMeMdiuXWkjY2NjYh7Gf4q0cFdqIIt9obGxs7L3ZyeEhPwa0raW8UM1iBmxsbOwT2ElzvygScUuoPbTMIgpsbGzsE9g5vuWtt4ra4c5h3cbGxsb+5ey8iTMrTnmguxJaDHtp2NjY2Aew85I2K1Qr45htAIyNjY29N3slcG3j29nhp40xluIBbGxs7C3YeYsnPx7Mjhbt6M/l37GxsbEPYM+GaWaRwDo4b3JhY2Nj781ur9mITxvWtuUquhMbGxt7U3ZbGPJPPhXltts6TEWwsbGxfzk7L1pRI34BvzIG+qZdhY2NjX0Ae32wcmXspj2WtEUXGxsbGzvhrTw1CyEeS0WwsbGxj2c/VQ6HDaPkgISNjY19AHsl3M0XmpecpVgXGxsb+zB23qBpC0kbKrQrKaIIbGxs7E3Z51zY2NjY2NjY2NjYH3P9AchM4pWxdZeiAAAAAElFTkSuQmCC">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/git-github/">git/github</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2017/02/12/git与github使用/" class="leancloud-views_num" data-flag-title="Git 与 Github 使用">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Git 与 Github 使用&url=http://cnneillee.github.io//2017/02/12/git与github使用/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Git 与 Github 使用&url=http://cnneillee.github.io//2017/02/12/git与github使用/index.html&via=Neil Lee" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io//2017/02/12/git与github使用/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://cnneillee.github.io//2017/02/12/git与github使用/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://cnneillee.github.io//2017/02/12/git与github使用/index.html&title=Git 与 Github 使用" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=Git 与 Github 使用&summary=null&pics=http://cnneillee.github.io/img/favicon.png&url=http://cnneillee.github.io/2017/02/12/git与github使用/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-关于-Git"><a href="#1-1-关于-Git" class="headerlink" title="1.1 关于 Git"></a>1.1 关于 Git</h2><p><a href="https://git-scm.com/" target="_blank" rel="external">https://git-scm.com/</a></p>
+<blockquote>
+<p>Git is a free and open source distributed version control system designed to<br>handle everything from small to very large projects with speed and efficiency.</p>
+</blockquote>
+<p>Git是一个免费开源分布式版本控制系统，被设计成快速高效地管理或大或小的项目。</p>
+<h2 id="1-2-关于-Github"><a href="#1-2-关于-Github" class="headerlink" title="1.2 关于 Github"></a>1.2 关于 Github</h2><p><a href="https://github.com/" target="_blank" rel="external">https://github.com</a></p>
+<blockquote>
+<p>GitHub is a web-based Git or version control repository and Internet hosting<br>service. It offers all of the distributed version control and source code<br>management (SCM) functionality of Git as well as adding its own features. It<br>provides access control and several collaboration features such as bug<br>tracking, feature requests, task management, and wikis for every project.<br><em><a href="https://en.wikipedia.org/wiki/GitHub" target="_blank" rel="external">From Wikipedia</a></em></p>
+</blockquote>
+<h2 id="1-3-Github-与-Git-的区别"><a href="#1-3-Github-与-Git-的区别" class="headerlink" title="1.3 Github 与 Git 的区别"></a>1.3 Github 与 Git 的区别</h2><p>Github 是基于 Git 进行开发的。类似地，开源项目 Gitlab 也是基于 Git 进行开发。<br>你可以将 Gitlab 安装在你的某个网络中的某台 PC 上，以该台 PC 搭建起一个代码管理平台。<br>这样，Github、Gitlab 就很好理解了。</p>
+<p>与此同时还有：<br><a href="https://gitlab.com/" target="_blank" rel="external">Gitlab</a>（局域网部署）<br><a href="https://bitbucket.org/" target="_blank" rel="external">Bitbucket</a>（免费账号不限 private 项目个数）<br><a href="https://coding.net/" target="_blank" rel="external">Coding</a>（对国内开发者来说可能有墙内优势）</p>
+<h2 id="1-4-Github的一些功能"><a href="#1-4-Github的一些功能" class="headerlink" title="1.4 Github的一些功能"></a>1.4 Github的一些功能</h2><ul>
+<li>Git 的基本功能，版本控制</li>
+<li>Repository，仓库</li>
+<li>Fork，授权拷贝</li>
+<li>Pull Request，推送请求</li>
+<li>社交属性： <ul>
+<li>针对特定个仓库（Repository）的 Watch、Star、Issue、Wiki ；</li>
+<li>针对具体用户的 Follow/Followed，基于 Git 历史的数据统计。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-5-由Github衍生出来的项目"><a href="#1-5-由Github衍生出来的项目" class="headerlink" title="1.5 由Github衍生出来的项目"></a>1.5 由Github衍生出来的项目</h2><p><em>git-flow ——一个成功的 Git 分支模型</em><br>介绍：<a href="http://nvie.com/posts/a-successful-git-
+branching-model/" target="_blank" rel="external">A successful Git branching model</a><br>翻译：<a href="http://www.oschina.net/translate/a-successful-git-branching-model" target="_blank" rel="external">http://www.juvenxu.com/2010/11/28/a-successful-git-branching-<br>model/</a><br>工具：<a href="https://github.com/nvie/gitflow" target="_blank" rel="external">nvie/gitflow</a><br>GitHubgit-flow 备忘清单</p>
+<p>作者：天猪(刘勇)<br>链接：<a href="https://www.zhihu.com/question/20070065/answer/16021641" target="_blank" rel="external">https://www.zhihu.com/question/20070065/answer/16021641</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h1 id="二、版本控制"><a href="#二、版本控制" class="headerlink" title="二、版本控制"></a>二、版本控制</h1><h2 id="2-1-版本控制概念"><a href="#2-1-版本控制概念" class="headerlink" title="2.1 版本控制概念"></a>2.1 版本控制概念</h2><p>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
+<h2 id="2-2-版本控制系统"><a href="#2-2-版本控制系统" class="headerlink" title="2.2 版本控制系统"></a>2.2 版本控制系统</h2><h3 id="2-2-1-本地版本控制系统"><a href="#2-2-1-本地版本控制系统" class="headerlink" title="2.2.1 本地版本控制系统"></a>2.2.1 本地版本控制系统</h3><p>用复制整个项目目录的方式来保存不同的版本，或许还会改名加上备份时间以示区别。<br><a href="https://git-scm.com/book/en/v2/images/local.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/local.png</a><br>唯一的好处就是简单，但是特别容易犯错。</p>
+<h3 id="2-2-2-集中化的版本控制系统"><a href="#2-2-2-集中化的版本控制系统" class="headerlink" title="2.2.2 集中化的版本控制系统"></a>2.2.2 集中化的版本控制系统</h3><p>让在不同系统上的开发者协同工作.<br><a href="https://git-scm.com/book/en/v2/images/centralized.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/centralized.png</a><br>这类系统，诸如 CVS、Subversion 以及 Perforce<br>等，都有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。</p>
+<h3 id="2-2-3-分布式版本控制系统"><a href="#2-2-3-分布式版本控制系统" class="headerlink" title="2.2.3 分布式版本控制系统"></a>2.2.3 分布式版本控制系统</h3><p><a href="https://git-scm.com/book/en/v2/images/distributed.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/distributed.png</a><br>在这类系统中，像 Git、Mercurial、Bazaar 以及 Darcs 等，客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。</p>
+<h1 id="三、Git-基础"><a href="#三、Git-基础" class="headerlink" title="三、Git 基础"></a>三、Git 基础</h1><h2 id="3-1-Git-历史"><a href="#3-1-Git-历史" class="headerlink" title="3.1 Git 历史"></a>3.1 Git 历史</h2><p>衍生自 Linux的开发过程。</p>
+<h2 id="3-2-Git-基础"><a href="#3-2-Git-基础" class="headerlink" title="3.2 Git 基础"></a>3.2 Git 基础</h2><h3 id="3-2-1-Git-工具的特性"><a href="#3-2-1-Git-工具的特性" class="headerlink" title="3.2.1 Git 工具的特性"></a>3.2.1 Git 工具的特性</h3><p><strong>直接记录快照，而非差异比较</strong></p>
+<ul>
+<li><p>差异性比较：<br><a href="https://git-scm.com/book/en/v2/images/deltas.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/deltas.png</a></p>
+</li>
+<li><p>快照记录：<br><a href="https://git-scm.com/book/en/v2/images/snapshots.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/snapshots.png</a></p>
+</li>
+</ul>
+<p><strong>近乎所有操作都是本地执行</strong><br>Git 是分布式版本控制，在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息。<br>如果你习惯于所有操作都有网络延时开销的集中式版本控制系统，Git 在这方面会让你感到速度之神赐给了 Git 超凡的能量。<br>因为你在本地磁盘上就有项目的完整历史，所以大部分操作看起来瞬间完成。</p>
+<p>如果你想查看当前版本与一个月前的版本之间引入的修改，Git<br>会查找到一个月前的文件做一次本地的差异计算，而不是由远程服务器处理或从远程服务器拉回旧版本文件再来本地处理。</p>
+<p><strong>Git 保证完整性</strong><br>Git 中所有数据在存储前都计算校验和，然后以校验和来引用。 这意味着不可能在 Git 不知情时更改任何文件内容或目录内容。 这个功能建构在 Git<br>底层，是构成 Git 哲学不可或缺的部分。 若你在传送过程中丢失信息或损坏文件，Git 就能发现。</p>
+<p>Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成字符串，基于 Git<br>中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：<br><code>24b9da6552252987aa493b52f8696cd6d3b00373</code></p>
+<p><strong>Git 一般只添加数据</strong><br>你执行的 Git 操作，几乎只往 Git 数据库中增加数据。 很难让 Git 执行任何不可逆操作，或者让它以任何方式清除数据。</p>
+<h3 id="3-2-2-三种状态"><a href="#3-2-2-三种状态" class="headerlink" title="3.2.2 三种状态"></a>3.2.2 三种状态</h3><p>Git 有三种状态，你的文件可能处于其中之一：</p>
+<ul>
+<li>已提交（committed），表示数据已经安全的保存在本地数据库中。</li>
+<li>已修改（modified），表示修改了文件，但还没保存到数据库中。</li>
+<li>已暂存（staged），表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li>
+</ul>
+<p>由此引入 Git 项目的三个工作区域的概念：Git 仓库、工作目录以及暂存区域。<br><a href="https://git-scm.com/book/en/v2/images/areas.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/areas.png</a></p>
+<h3 id="3-2-3-Git-的安装与配置"><a href="#3-2-3-Git-的安装与配置" class="headerlink" title="3.2.3 Git 的安装与配置"></a>3.2.3 Git 的安装与配置</h3><p>安装过程较为简单，不赘述。本文重点介绍 Git 的配置。<br>Git 自带一个 <code>git config</code> 的工具来帮助设置控制 Git 外观和行为的配置变量。 这些变量存储在三个不同的位置：</p>
+<ul>
+<li><code>/etc/gitconfig</code> 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果使用带有 <code>--system</code> 选项的 <code>git config</code> 时，它会从此文件读写配置变量。</li>
+<li><code>~/.gitconfig</code> 或 <code>~/.config/git/config</code> 文件：只针对当前用户。 可以传递 <code>--global</code> 选项让 Git 读写此文件。</li>
+<li>当前使用仓库的 Git 目录中的 <code>config</code> 文件（就是 <code>.git/config</code>）：针对该仓库。</li>
+</ul>
+<p>每一个级别覆盖上一级别的配置，所以 <code>.git/config</code> 的配置变量会覆盖 <code>/etc/gitconfig</code> 中的配置变量。</p>
+<p>在 Windows 系统中，Git 会查找 <code>$HOME</code> 目录下（一般情况下是 <code>C:\Users\$USER</code>）的 <code>.gitconfig</code> 文件。<br>Git 同样也会寻找 <code>/etc/gitconfig</code> 文件，但只限于 MSys 的根目录下，即安装 Git 时所选的目标位置。</p>
+<p><strong>用户信息</strong><br><code>$ git config --global user.name &quot;John Doe&quot; $ git config --global user.email
+johndoe@example.com</code><br>再次强调，如果使用了 <code>--global</code> 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。<br>当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 <code>--global</code> 选项的命令来配置。</p>
+<p><strong>设置文本文本编辑器</strong><br>默认使用 Vim<br><code>git config --global core.editor emacs</code></p>
+<p><strong>检查配置信息</strong><br>如果想要检查你的配置，可以使用 <code>git config --list</code> 命令来列出所有 Git 当时能找到的配置。<br><code>$ git config --list user.name=John Doe user.email=johndoe@example.com
+color.status=auto color.branch=auto color.interactive=auto color.diff=auto
+...</code><br>你可能会看到重复的变量名，因为 Git 会从不同的文件中读取同一个配置（例如：<code>/etc/gitconfig</code> 与 <code>~/.gitconfig</code>）。<br>这种情况下，Git 会使用它找到的每一个变量的最后一个配置。<br>你可以通过输入 <code>git config &lt;key&gt;</code>： 来检查 Git 的某一项配置:<br><code>git config user.name</code></p>
+<h2 id="3-3-Git-详细知识"><a href="#3-3-Git-详细知识" class="headerlink" title="3.3 Git 详细知识"></a>3.3 Git 详细知识</h2><h3 id="3-3-1-获取-Git-仓库"><a href="#3-3-1-获取-Git-仓库" class="headerlink" title="3.3.1 获取 Git 仓库"></a>3.3.1 获取 Git 仓库</h3><p>两种方式在本地建立仓库。<br>一种是，在现有项目会目录下导入所有文件到 Git；另一种是从服务器将已有的 Git 仓库克隆到本地。</p>
+<p><strong>在现有目录中初始化仓库</strong><br><code>git init # 创建一个名为 .git 的子目录，该目录中含有初始化的 Git 仓库中所有的必须文件，这些文件时 Git 仓库的骨干。 git
+add *.c # 实现对文件的追踪 git add LICENSE git commit -m &#39;initial project version&#39;</code></p>
+<p><strong>克隆已有的仓库</strong><br><code>git clone [url] [本地仓库名称，可选]</code><br>当你执行 <code>git clone</code> 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。<br>事实上，如果你的服务器的磁盘坏掉了，你通常可以使用任何一个克隆下来的用户端来重建服务器上的仓库（虽然可能会丢失某些服务器端的挂钩设置，但是所有版本的数据仍在）。</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/lzxianren/p/git2.html" target="_blank" rel="external">GIT服务器的四种协议</a></p>
+</blockquote>
+<h3 id="3-3-2-记录每次更新到仓库"><a href="#3-3-2-记录每次更新到仓库" class="headerlink" title="3.3.2 记录每次更新到仓库"></a>3.3.2 记录每次更新到仓库</h3><p>工作目录中的每个文件两种状态：</p>
+<ul>
+<li>已跟踪：指那些被纳入了版本控制的文件，在上一次快照中有它们的记录，在工作一段时间后，它们的状态可能处于未修改，已修改或已放入暂存区。</li>
+<li>未跟踪：工作目录中除已跟踪文件以外的所有其它文件都属于未跟踪文件，它们既不存在于上次快照的记录中，也没有放入暂存区。 初次克隆某个仓库的时候，工作目录中的所有文件都属于已跟踪文件，并处于未修改状态。<br>文件的状态变化周期：<br><a href="https://git-scm.com/book/en/v2/images/lifecycle.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/lifecycle.png</a></li>
+</ul>
+<p><strong>检查当前文件状态</strong><br><code>git status</code></p>
+<p><strong>跟踪新文件</strong><br><code>git add [文件名]</code><br><strong>暂存已修改文件</strong><br><code>git
+add</code>:这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。将这个命令理解为“添加内容到下一次提交中”而不是“将一个文件添加到项目中”要更加合适。<br><strong>状态简览</strong><br>运行 <code>git status -s</code>/<code>git status -short</code> ，状态报告输出如下：<br><code>$ git status -s M README MM Rakefile # 你可能注意到了 M 有两个可以出现的位置，出现在右边的 M
+表示该文件被修改了但是还没放入暂存区，出现在靠左边的 M 表示该文件被修改了并放入了暂存区。 A lib/git.rb # 新添加到暂存区中的文件前面有 A
+标记 M lib/simplegit.rb ?? LICENSE.txt # 新添加的未跟踪文件前面有 ?? 标记</code><br><strong>忽略文件</strong><br>在这种情况下，我们可以创建一个名为 <code>.gitignore</code> 的文件，列出要忽略的文件模式。<br>文件 <code>.gitignore</code> 的格式规范如下：</p>
+<ul>
+<li>所有空行或者以 <code>＃</code> 开头的行都会被 Git 忽略。</li>
+<li>可以使用标准的 glob 模式匹配。</li>
+<li>匹配模式可以以（<code>/</code>）开头防止递归。</li>
+<li>匹配模式可以以（<code>/</code>）结尾指定目录。</li>
+<li>要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（<code>!</code>）取反。</li>
+</ul>
+<p>所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。 星号（<code>*</code>）匹配零个或多个任意字符；<code>[abc]</code><br>匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个<br>c）；问号（<code>?</code>）只匹配一个任意字符；如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 <code>[0-9]</code> 表示匹配所有 0<br>到 9 的数字）。 使用两个星号（<code>*</code>) 表示匹配任意中间目录，比如 <code>a/**/z</code> 可以匹配 <code>a/z</code>, <code>a/b/z</code> 或 <code>a/b/c/z</code>等。<br>提供示例：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
+<p><strong>查看已暂存和未暂存的修改</strong><br>如果 <code>git status</code> 命令的输出对于你来说过于模糊，你想知道具体修改了什么地方，可以用 <code>git diff</code> 命令。 稍后我们会详细介绍 <code>git
+diff</code>，你可能通常会用它来回答这两个问题：当前做的哪些更新还没有暂存？ 有哪些更新已经暂存起来准备好了下次提交？ 尽管 <code>git status</code><br>已经通过在相应栏下列出文件名的方式回答了这个问题，<code>git diff</code> 将通过文件补丁的格式显示具体哪些行发生了改变。</p>
+<p>此命令比较的是工作目录中当前文件和暂存区域快照之间的差异， 也就是修改之后还没有暂存起来的变化内容。</p>
+<p>若要查看已暂存的将要添加到下次提交里的内容，可以用 <code>git diff --cached</code> 命令。（Git 1.6.1 及更高版本还允许使用 <code>git
+diff --staged</code>，效果是相同的，但更好记些。）</p>
+<p>请注意，<code>git diff</code> 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动。 所以有时候你一下子暂存了所有更新过的文件后，运行 <code>git
+diff</code> 后却什么也没有，就是这个原因。</p>
+<p><strong>提交更新</strong><br><code>git commit [comment，可选]</code></p>
+<p><strong>跳过使用暂存区域</strong><br>git commit -a -m ‘added new benchmarks’</p>
+<p><strong>移除文件</strong><br>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除（确切地说，是从暂存区域移除），然后提交。 可以用 <code>git rm</code><br>命令完成此项工作，并连带从工作目录中删除指定的文件，这样以后就不会出现在未跟踪文件清单中了。</p>
+<p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <code>-f</code>（译注：即 force 的首字母）。<br>这是一种安全特性，用于防止误删还没有添加到快照的数据，这样的数据不能被 Git 恢复。</p>
+<p><code>git rm --cached README</code>从暂存区域删除，同时，此处文件支持使用 <code>glob</code> 模式</p>
+<p><strong>移动文件</strong><br><code>git mv file_from file_to</code><br>相当于<br><code>mv file_from file_to git rm file_from git add file_to</code></p>
+<h3 id="3-3-3-查看提交历史"><a href="#3-3-3-查看提交历史" class="headerlink" title="3.3.3 查看提交历史"></a>3.3.3 查看提交历史</h3><p><code>git log</code> 有许多选项可以帮助你搜寻你所要找的提交， 接下来我们介绍些最常用的。<br><code>git log -p -2</code>：一个常用的选项是 <code>-p</code>，用来显示每次提交的内容差异。 你也可以加上 <code>-2</code> 来仅显示最近两次提交<br>如果你想看到每次提交的简略的统计信息，你可以使用 <code>--stat</code> 选项</p>
+<p>另外一个常用的选项是 <code>--pretty</code>。 这个选项可以指定使用不同于默认格式的方式展示提交历史。 这个选项有一些内建的子选项供你使用。 比如用<br><code>oneline</code> 将每个提交放在一行显示，查看的提交数很大时非常有用。 另外还有 <code>short</code>，<code>full</code> 和 <code>fuller</code><br>可以用，展示的信息或多或少有些不同，请自己动手实践一下看看效果如何。</p>
+<p>格式化：<code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot;</code><br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232008416-692874902.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232121791-1150661891.png" alt=""></p>
+<p><strong>限制输出长度</strong><br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232228916-955566173.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232252354-1893183599.png" alt=""></p>
+<h3 id="3-3-4-撤消操作"><a href="#3-3-4-撤消操作" class="headerlink" title="3.3.4 撤消操作"></a>3.3.4 撤消操作</h3><p><code>git commit --amend</code>修改上次 commit 的内容（如上次commit的内容已经 push ，则无法修改，只能产生新的 commit<br>），将自上次 commit 后发生的修改附加到上次 commit 上，并可做相关编辑。</p>
+<p><strong>取消暂存文件</strong><br><code>git reset HEAD &lt;file&gt;...</code> 来取消暂存.<br>此时，有三种参数：</p>
+<ul>
+<li>--hard，比较危险</li>
+<li>--soft</li>
+<li>--mixed，默认方式</li>
+</ul>
+<p><strong>撤消对文件的修改</strong><br>参见资料</p>
+<h1 id="二、学习使用-Git-工具"><a href="#二、学习使用-Git-工具" class="headerlink" title="二、学习使用 Git 工具"></a>二、学习使用 Git 工具</h1><h2 id="2-1-学习资料汇总"><a href="#2-1-学习资料汇总" class="headerlink" title="2.1 学习资料汇总"></a>2.1 学习资料汇总</h2><ul>
+<li>git 官网的书：<a href="https://git-scm.com/book/en/v2" target="_blank" rel="external">https://git-scm.com/book/en/v2</a></li>
+<li>StormZhang 写的入门教程：<em><a href="http://stormzhang.com/github/2016/06/19/learn-github-from-zero-summary/" target="_blank" rel="external">learn github from zero</a></em></li>
+<li>学习 Git 的游戏 Learn Git Branching：<a href="http://learngitbranching.js.org/" target="_blank" rel="external">http://learngitbranching.js.org/</a></li>
+<li>Git软件开发过程：<a href="http://aboutcoder.com/2015/11/16/work-in-git/" target="_blank" rel="external">http://aboutcoder.com/2015/11/16/work-in-git/</a></li>
+<li>git - 简明指南:<a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/index.zh.html</a></li>
+<li>git简明指南：<a href="https://progit.org/book" target="_blank" rel="external">https://progit.org/book</a></li>
+<li>github的博客：<a href="https://github.com/blog" target="_blank" rel="external">https://github.com/blog</a></li>
+<li>像 git 那样思考：<a href="http://think-like-a-git.net/" target="_blank" rel="external">http://think-like-a-git.net/</a></li>
+<li>图解Git：<a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">http://marklodato.github.io/visual-git-guide/index-zh-cn.html</a></li>
+<li>git-glow备忘清单：<a href="http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html" target="_blank" rel="external">http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html</a></li>
+<li>git magic：<a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html" target="_blank" rel="external">http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html</a></li>
+<li>GitHub 漫游指南：<a href="https://github.com/phodal/github-roam" target="_blank" rel="external">https://github.com/phodal/github-roam</a></li>
+<li>Git教程：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></li>
+<li>Udacity 学习课程：<a href="https://www.udacity.com/course/progress#!/c-ud775" target="_blank" rel="external">https://www.udacity.com/course/progress#!/c-ud775</a></li>
+</ul>
+<h1 id="三、知乎上关于Github的问题"><a href="#三、知乎上关于Github的问题" class="headerlink" title="三、知乎上关于Github的问题"></a>三、知乎上关于Github的问题</h1><ul>
+<li>GitHub 是怎样的一个存在？<a href="https://www.zhihu.com/question/28976652" target="_blank" rel="external">https://www.zhihu.com/question/28976652</a></li>
+<li>怎样使用 GitHub？<a href="https://www.zhihu.com/question/20070065" target="_blank" rel="external">https://www.zhihu.com/question/20070065</a></li>
+<li>蒋鑫的《GotGitHub》：<a href="http://www.worldhello.net/gotgithub/" target="_blank" rel="external">http://www.worldhello.net/gotgithub/</a></li>
+<li>gitref：<a href="http://gitref.org/" target="_blank" rel="external">http://gitref.org/</a></li>
+<li>Git Community Book 中文版：<a href="http://gitbook.liuhui998.com/" target="_blank" rel="external">http://gitbook.liuhui998.com/</a></li>
+<li>Githug：<a href="https://github.com/Gazler/githug" target="_blank" rel="external">https://github.com/Gazler/githug</a></li>
+<li>nowcoder上的教程：<a href="https://www.nowcoder.com/courses/2" target="_blank" rel="external">https://www.nowcoder.com/courses/2</a></li>
+</ul>
+<h1 id="四、Github的一些用法"><a href="#四、Github的一些用法" class="headerlink" title="四、Github的一些用法"></a>四、Github的一些用法</h1><p>如何高效利用GitHub?(<a href="http://www.yangzhiping.com/tech/github.html" target="_blank" rel="external">http://www.yangzhiping.com/tech/github.html</a>)<br>借助于 <a href="https://github.com/trybeee/GitStats" target="_blank" rel="external">GitStats</a><br>，我们能很好地统计自己的每个项目的工作量，从而看到工作进展。</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key="2017/02/12/git与github使用/"
+        data-url="http://cnneillee.github.io/2017/02/12/git与github使用/"
+        data-title="Git 与 Github 使用">
+    </div>
+    <!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+		var duoshuoQuery = {short_name:"neillee"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/02/13/github的其他用法/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/02/12/【实习】实习期间一些工具的使用/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Neil Lee's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        cn.neillee@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">44</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/">Script<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/Database/">Database<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味常识/">趣味常识<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">tag</i>
+                
+                标签云
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/u/2686015514" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/cnneillee" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+        <a href="https://www.linkedin.com/in/%E5%BF%A0%E6%88%90-%E6%9D%8E-a48562b1" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-linkedin.png);">
+                <span class="visuallyhidden">LinkedIn</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/neil-lee-34-58" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-zhihu.png);">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;NeilLee's blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('lUtNsIH5GOeqlwlXiIOLJgtm-gzGzoHsz', 'RoMAOm5BK3k1m6DGYVca7usg');
+    </script>
+    <script>
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        queue.offer(function(){
+            var duoshuoQuery = {
+                short_name: 'neillee'
+            };
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';
+                ds.async = true;
+                ds.src = 'https://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        });
+    </script>
+    <!-- 多说公共 js 代码 end -->
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>

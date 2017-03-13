@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Neil Lee">
     <meta name="description" content="null">
-    <meta name="keywords" content="null,android,sollution">
+    <meta name="keywords" content="null,android,solution">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -50,7 +50,7 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="TextView 中关于文字溢出的、隐藏显示问题 | NeilLee&#39;s blog">
     <meta property="og:description" content="null">
-    <meta property="og:article:tag" content="android"> <meta property="og:article:tag" content="sollution"> 
+    <meta property="og:article:tag" content="android"> <meta property="og:article:tag" content="solution"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -239,7 +239,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在xml中"><span class="post-toc-number">1.</span> <span class="post-toc-text">在xml中</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码中"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码中</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、在xml中"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、在xml中</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、代码中"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、代码中</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -309,6 +309,15 @@
 
     <!-- Qrcode -->
     
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADgUlEQVR42u3ay27bQBAEQP3/TydXA4Hk7pldgQGKJ8OWRW7x0JjH64/rx/VCgAMHDhw4cODAgQPHgzle8fXuv37+5u0t479u7jg8Cw4cOHDguMDxSxS9+cy727x70M+Hf/e4yfdszoIDBw4cOO5xJMfLD5ZH4OeI/Xyw9nlw4MCBA8czOdpHb4MzKeFmrwcHDhw4cDyf4zPN2fIsiXMcOHDgwPEcjtlY6DPEJqpnBF/tleLAgQMHjvVCw/N//up+Bw4cOHDg+Idj1s7bj3xmcXulQYkDBw4cOI5ybBp/v5RGi7ZgG/Ob58eBAwcOHDc4kpW1zVCqjcx2pLRpIOLAgQMHjhsc+c8JZT4ESj45W49LnhYHDhw4cNzgyMut/KjtAsTwGGXx+fb7ceDAgQPHUY7ZosA+5Gb3yl9Y8lQ4cODAgeMGR1tQJZ9smdqG4CbOceDAgQPH9zk2A6SzTO1gKf82HDhw4MDxTY6kGTcbDrURPuNoyXDgwIEDxw2OUzdr/2sfum2rEQcOHDhw3ObYP2K79LAqt+IAztcacODAgQPHPY6zLbnZskI7ZGrjtt7vwIEDBw4cI45TbbtNSOcjq1NkOHDgwIHjHkcSeJvIzL8/bwLORmI4cODAgeM2R96Y27f82gjcj76ihiMOHDhw4LjGkYRT3pJrm48Jcb5IUcQwDhw4cOA4ypEvJbQhOgvmWaGYR3K934EDBw4cOEqOdsjUFkt5WO6bgwcWGnDgwIEDxyGO/RrcvsG3WblrYxsHDhw4cNzjyA+QNxP3qxJtbOcvDwcOHDhwfIcjaQgObxYvH5xaoWiXHnDgwIEDx1mOtrnWtufaqE4O0zYT6/0OHDhw4MCx4EgO2Y6j2gFScox8cNXGNg4cOHDguMExO/B+KaE9WBvDx3qlOHDgwIFjxNGGX97+S8qzG+sL0YvHgQMHDhzXOJLwax+iHWXNDpnHPA4cOHDguM3RXvlaw6zwy+N/MwbDgQMHDhz3OA4EVbysMCNrC8WkHMWBAwcOHLc52sPkawSnuPMisC4aceDAgQPHNY5ZQZU/ehLS7WJEC40DBw4cOP4Xjk07b1aezV4SDhw4cOB4JscmbvOFhhxxVhziwIEDB47bHLNCqz1wEqUH4vM7YyccOHDgwLFeaDhVqg2XD+Ih0ypoceDAgQPHgsOFAwcOHDhw4MCBAweOh11/AV4FZ3C61utqAAAAAElFTkSuQmCC">
+        </ul>
+    
 
     <!-- Tags (bookmark) -->
     
@@ -318,7 +327,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/android/">android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/sollution/">sollution</a>
+        <a class="post_tag-link" href="/tags/android/">android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/solution/">solution</a>
     </ul>
     
 
@@ -332,7 +341,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/" class="leancloud-views_num" data-flag-title="TextView 中关于文字溢出的、隐藏显示问题">
+                <span id="/2016/03/13/textview中关于文字溢出的隐藏显示问题/" class="leancloud-views_num" data-flag-title="TextView 中关于文字溢出的、隐藏显示问题">
      &nbsp;浏览量
 </span>
 
@@ -344,7 +353,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=TextView 中关于文字溢出的、隐藏显示问题&url=http://cnneillee.github.io//2016/03/13/TextView中关于文字溢出的隐藏显示问题/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=TextView 中关于文字溢出的、隐藏显示问题&url=http://cnneillee.github.io//2016/03/13/textview中关于文字溢出的隐藏显示问题/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -353,7 +362,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=TextView 中关于文字溢出的、隐藏显示问题&url=http://cnneillee.github.io//2016/03/13/TextView中关于文字溢出的隐藏显示问题/index.html&via=Neil Lee" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=TextView 中关于文字溢出的、隐藏显示问题&url=http://cnneillee.github.io//2016/03/13/textview中关于文字溢出的隐藏显示问题/index.html&via=Neil Lee" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -362,7 +371,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io//2016/03/13/TextView中关于文字溢出的隐藏显示问题/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io//2016/03/13/textview中关于文字溢出的隐藏显示问题/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -371,7 +380,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://cnneillee.github.io//2016/03/13/TextView中关于文字溢出的隐藏显示问题/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://cnneillee.github.io//2016/03/13/textview中关于文字溢出的隐藏显示问题/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -380,7 +389,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://cnneillee.github.io//2016/03/13/TextView中关于文字溢出的隐藏显示问题/index.html&title=TextView 中关于文字溢出的、隐藏显示问题" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://cnneillee.github.io//2016/03/13/textview中关于文字溢出的隐藏显示问题/index.html&title=TextView 中关于文字溢出的、隐藏显示问题" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -389,7 +398,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=TextView 中关于文字溢出的、隐藏显示问题&summary=null&pics=http://cnneillee.github.io/img/favicon.png&url=http://cnneillee.github.io/2016/03/13/TextView中关于文字溢出的隐藏显示问题/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=TextView 中关于文字溢出的、隐藏显示问题&summary=null&pics=http://cnneillee.github.io/img/favicon.png&url=http://cnneillee.github.io/2016/03/13/textview中关于文字溢出的隐藏显示问题/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -408,14 +417,14 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>在 TextView 和 EditText 中，可使用 ellipsize 属性来设置文字溢出隐藏，如：“一段很长的文本…”<br><a id="more"></a></p>
-<h1 id="在xml中"><a href="#在xml中" class="headerlink" title="在xml中"></a>在xml中</h1><ul>
-<li><code>android:ellipsize = &quot;end&quot;</code>　　     省略号在结尾</li>
-<li><code>android:ellipsize = &quot;start&quot;</code> 　　省略号在开头</li>
-<li><code>android:ellipsize = &quot;middle&quot;</code>    省略号在中间</li>
-<li><code>android:ellipsize = &quot;marquee&quot;</code>     跑马灯</li>
+<h1 id="一、在xml中"><a href="#一、在xml中" class="headerlink" title="一、在xml中"></a>一、在xml中</h1><ul>
+<li><code>android:ellipsize = &quot;end&quot;</code>        省略号在结尾</li>
+<li><code>android:ellipsize = &quot;start&quot;</code>        省略号在开头</li>
+<li><code>android:ellipsize = &quot;middle&quot;</code>        省略号在中间</li>
+<li><code>android:ellipsize = &quot;marquee&quot;</code>    跑马灯</li>
 <li>最好加一个约束 <code>android:singleline = &quot;true&quot;</code> 或者 <code>android:maxLines=&quot;1&quot;</code></li>
 </ul>
-<h1 id="代码中"><a href="#代码中" class="headerlink" title="代码中"></a>代码中</h1><ul>
+<h1 id="二、代码中"><a href="#二、代码中" class="headerlink" title="二、代码中"></a>二、代码中</h1><ul>
 <li><code>tv.setEllipsize(TextUtils.TruncateAt.valueOf(&quot;END&quot;));</code></li>
 <li><code>tv.setEllipsize(TextUtils.TruncateAt.valueOf(&quot;START&quot;));</code></li>
 <li><code>tv.setEllipsize(TextUtils.TruncateAt.valueOf(&quot;MIDDLE&quot;));</code></li>
@@ -452,8 +461,8 @@
 <div id="comments">
     <!-- 多说评论框 start -->
     <div class="ds-thread"
-        data-thread-key="2016/03/13/TextView中关于文字溢出的隐藏显示问题/"
-        data-url="http://cnneillee.github.io/2016/03/13/TextView中关于文字溢出的隐藏显示问题/"
+        data-thread-key="2016/03/13/textview中关于文字溢出的隐藏显示问题/"
+        data-url="http://cnneillee.github.io/2016/03/13/textview中关于文字溢出的隐藏显示问题/"
         data-title="TextView 中关于文字溢出的、隐藏显示问题">
     </div>
     <!-- 多说评论框 end -->
@@ -590,7 +599,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
             </ul>
         </li>
         
@@ -608,7 +617,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/生活规划/">生活规划<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">44</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/">Script<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/Database/">Database<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味常识/">趣味常识<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         

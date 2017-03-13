@@ -239,7 +239,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、Android-手机的几种网络"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、Android 手机的几种网络</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、获取网络状态"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、获取网络状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-相关类："><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 相关类：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-一些方法（NetworkInfo-的）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 一些方法（NetworkInfo 的）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-几种上网方式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 几种上网方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-特别的CMCC"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 特别的CMCC</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、Android-手机的几种网络"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、Android 手机的几种网络</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、获取网络状态"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、获取网络状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-相关类："><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 相关类：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-NetworkInfo-的关键方法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 NetworkInfo 的关键方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-几种上网方式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 几种上网方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-特别的CMCC"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 特别的CMCC</span></a></li></ol></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -300,6 +300,15 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC10lEQVR42u3ay04jQQwF0Pz/T89sR0I099o9Iqk+vUIJoeoYCePH688jnxc2NjY2NjY2Njb2W7Jf8fPv93/9CdevXJ/49VPJHfI7Y2NjYz+B/cOf/m9gd10oP3F1Z2xsbOwHsPOk9V0IEnxy+vW5sztjY2NjYyfItiDZJzBsbGxs7Bk7asfHjaFZwYONjY2NPWvQXJcH+5LjrtBjY2NjP409G/T+7te/Nt/GxsbGfjN2++SD22Ss2zawVjfHxsbGPpS9Gabm7fskHG2Y8uIHGxsb+2x2nk6SyyWkfYCGbS9sbGzsQ9l5K39/fJsCi+SUJD9sbGzsB7Dzf/H3ZcNsiXNWhGBjY2OfzZ61e5KiZZOK8lAW72JjY2M/gL1pDO3bT9evbMbJ2NjY2M9hbxYx72oMtTcpSiNsbGzsQ9mzoqItFdrwtUPc6F1sbGzsQ9l3DVbzwNXXXbSZsLGxsZ/Dbps+eYNps4iZB7devsTGxsY+jt0mpNnCzayp1LarhnkbGxsb+2PZ7fg2LxJa/KYEqhMYNjY29kHsWVOpHSTMypi2RPnvvTRsbGzsN2a3baZ2LXJWeOSnDCswbGxs7CPYeeNmvxCZjAradLVavsTGxsY+mp0HZdZg2gwYhiHGxsbGPpp9feQ+OSWv50OCtuzBxsbGfgK7HbUODy4DkfwahuMBbGxs7IPY+2FAm97alNau72BjY2Nj78uSWXM/CVDe8MLGxsZ+DnuWPPJL5MVGcoc8WRbjAWxsbOwPZ7dP2zxqV4JmzazbKjBsbGzsD2TPFijvWrvMX8mXh7CxsbGfyc7LjLZxvx8AtwPmogLDxsbGPo69GdO2Zcy+vKnviY2NjY0dp65r6mwwnAcIGxsbGztvCSWk2XigDdlwPICNjY19HLttKhWt+XURkn+qWL7ExsbGPoi9Gdkmw9fNyHYW3GLnFBsbG/vD2c95sLGxsbGxsbGxsd/m+Qtzo5ED8WVDqgAAAABJRU5ErkJggg==">
+        </ul>
     
 
     <!-- Tags (bookmark) -->
@@ -401,43 +410,13 @@
     
         <p>Android 手机的几种网络<br>获取网络状态<br><a id="more"></a></p>
 <h1 id="一、Android-手机的几种网络"><a href="#一、Android-手机的几种网络" class="headerlink" title="一、Android 手机的几种网络"></a>一、Android 手机的几种网络</h1><p>MOBILE(数据流量)<br>WIFI(wifi)</p>
-<h1 id="二、获取网络状态"><a href="#二、获取网络状态" class="headerlink" title="二、获取网络状态"></a>二、获取网络状态</h1><h2 id="2-1-相关类："><a href="#2-1-相关类：" class="headerlink" title="2.1 相关类："></a>2.1 相关类：</h2><p><code>ConnectivityManager：(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE); 
-NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
-<h2 id="2-2-一些方法（NetworkInfo-的）"><a href="#2-2-一些方法（NetworkInfo-的）" class="headerlink" title="2.2 一些方法（NetworkInfo 的）"></a>2.2 一些方法（NetworkInfo 的）</h2><p>getDetailedState()：获取详细状态。<br>getExtraInfo()：获取附加信息。<br>getReason()：获取连接失败的原因。<br>getType()：获取网络类型(一般为移动或Wi-Fi)。<br>getTypeName()：获取网络类型名称(一般取值“WIFI”或“MOBILE”)。<br>isAvailable()：判断该网络是否可用。<br>isConnected()：判断是否已经连接。<br>isConnectedOrConnecting()：判断是否已经连接或正在连接。<br>isFailover()：判断是否连接失败。<br>isRoaming()：判断是否漫游</p>
+<h1 id="二、获取网络状态"><a href="#二、获取网络状态" class="headerlink" title="二、获取网络状态"></a>二、获取网络状态</h1><h2 id="2-1-相关类："><a href="#2-1-相关类：" class="headerlink" title="2.1 相关类："></a>2.1 相关类：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ConnectivityManager：</span><br><span class="line">(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE); </span><br><span class="line"></span><br><span class="line">NetworkInfo：</span><br><span class="line">connectionManager.getActiveNetworkInfo();</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-NetworkInfo-的关键方法"><a href="#2-2-NetworkInfo-的关键方法" class="headerlink" title="2.2 NetworkInfo 的关键方法"></a>2.2 NetworkInfo 的关键方法</h2><p>getDetailedState()：获取详细状态。<br>getExtraInfo()：获取附加信息。<br>getReason()：获取连接失败的原因。<br>getType()：获取网络类型(一般为移动或Wi-Fi)。<br>getTypeName()：获取网络类型名称(一般取值“WIFI”或“MOBILE”)。<br>isAvailable()：判断该网络是否可用。<br>isConnected()：判断是否已经连接。<br>isConnectedOrConnecting()：判断是否已经连接或正在连接。<br>isFailover()：判断是否连接失败。<br>isRoaming()：判断是否漫游</p>
 <h2 id="2-3-几种上网方式"><a href="#2-3-几种上网方式" class="headerlink" title="2.3 几种上网方式"></a>2.3 几种上网方式</h2><p>当用 WIFI 上的时候，getType 是WIFI，getExtraInfo 是空的。<br>当用 MOBILE（数据流量）上的时候，getType 是 MOBILE 。<br>用移动 CMNET 方式，getExtraInfo的值是 cmnet。<br>用移动 CMWAP 方式，getExtraInfo的值是 cmwap，但是不在代理的情况下访问普通的网站访问不了。<br>用联通 3gwap 方式，getExtraInfo的值是 3gwap。<br>用联通 3gnet 方式，getExtraInfo的值是 3gnet。<br>用联通 uniwap 方式，getExtraInfo的值是 uniwap。<br>用联通 uninet 方式，getExtraInfo的值是 uninet。</p>
 <p>以上参考自<br><a href="http://www.inthumb.com/c/learnandroid/article?id=576&amp;category_id=4.1" target="_blank" rel="external">http://www.inthumb.com/c/learnandroid/article?id=576&amp;category_id=4.1</a><br><a href="http://www.eoeandroid.com/thread-167333-1-1.html?_dsign=6c32dbf4" target="_blank" rel="external">http://www.eoeandroid.com/thread-167333-1-1.html?_dsign=6c32dbf4</a><br><a href="http://www.cnblogs.com/qingblog/archive/2012/07/19/2598983.html" target="_blank" rel="external">http://www.cnblogs.com/qingblog/archive/2012/07/19/2598983.html</a></p>
 <h2 id="2-4-特别的CMCC"><a href="#2-4-特别的CMCC" class="headerlink" title="2.4 特别的CMCC"></a>2.4 特别的CMCC</h2><p>[问题来源] <a href="http://www.eoeandroid.com/thread-182792-1-1.html?_dsign=d7ad2a6a" target="_blank" rel="external">http://www.eoeandroid.com/thread-182792-1-1.html?_dsign=d7ad2a6a</a><br>[解决方案] <a href="http://zhidao.baidu.com/question/560189543835675044.html?fr=iks&amp;word=android+%C5%D0%B6%CFcmcc&amp;ie=gbk" target="_blank" rel="external">http://zhidao.baidu.com/question/560189543835675044.html?fr=iks&amp;word=android+%C5%D0%B6%CFcmcc&amp;ie=gbk</a><br>当连接上但却未登录CMCC时：</p>
 <p>LOG日志打印：连接不可达到</p>
-<p><code>class IpAddrThread extends Thread {
-        @Override
-        public void run() {
-            try {
-                Process p = Runtime.getRuntime().exec(&quot;ping -c 3 -w 5 &quot; + &quot;202.108.22.5&quot;);
-                int status = p.waitFor();
-                if (status == 0) {
-                    Log.e(&quot;STATUS&quot;,&quot;连接正常&quot;);
-                    // pass
-                    // mPingIpAddrResult = &quot;连接正常&quot;;
-                } else {
-                    Log.e(&quot;STATUS&quot;,&quot;连接不可达到&quot;);
-                    // Fail:Host unreachable
-                    // mPingIpAddrResult = &quot;连接不可达到&quot;;
-                }
-            } catch (UnknownHostException e) {
-                Log.e(&quot;STATUS&quot;,&quot;出现未知连接&quot;);
-                // Fail: Unknown Host
-                // mPingIpAddrResult = &quot;出现未知连接&quot;;
-            } catch (IOException e) {
-                Log.e(&quot;STATUS&quot;,&quot;连接出现IO异常&quot;);
-                // Fail: IOException
-                // mPingIpAddrResult = &quot;连接出现IO异常&quot;;
-            } catch (InterruptedException e) {
-                Log.e(&quot;STATUS&quot;,&quot;连接出现中断异常&quot;);
-                // Fail: InterruptedException
-                // mPingIpAddrResult = &quot;连接出现中断异常&quot;;
-            }
-        }
-    }</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class IpAddrThread extends Thread &#123;</span><br><span class="line">       @Override</span><br><span class="line">       public void run() &#123;</span><br><span class="line">           try &#123;</span><br><span class="line">               Process p = Runtime.getRuntime().exec(&quot;ping -c 3 -w 5 &quot; + &quot;202.108.22.5&quot;);</span><br><span class="line">               int status = p.waitFor();</span><br><span class="line">               if (status == 0) &#123;</span><br><span class="line">                   Log.e(&quot;STATUS&quot;,&quot;连接正常&quot;);</span><br><span class="line">                   // pass</span><br><span class="line">                   // mPingIpAddrResult = &quot;连接正常&quot;;</span><br><span class="line">               &#125; else &#123;</span><br><span class="line">                   Log.e(&quot;STATUS&quot;,&quot;连接不可达到&quot;);</span><br><span class="line">                   // Fail:Host unreachable</span><br><span class="line">                   // mPingIpAddrResult = &quot;连接不可达到&quot;;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125; catch (UnknownHostException e) &#123;</span><br><span class="line">               Log.e(&quot;STATUS&quot;,&quot;出现未知连接&quot;);</span><br><span class="line">               // Fail: Unknown Host</span><br><span class="line">               // mPingIpAddrResult = &quot;出现未知连接&quot;;</span><br><span class="line">           &#125; catch (IOException e) &#123;</span><br><span class="line">               Log.e(&quot;STATUS&quot;,&quot;连接出现IO异常&quot;);</span><br><span class="line">               // Fail: IOException</span><br><span class="line">               // mPingIpAddrResult = &quot;连接出现IO异常&quot;;</span><br><span class="line">           &#125; catch (InterruptedException e) &#123;</span><br><span class="line">               Log.e(&quot;STATUS&quot;,&quot;连接出现中断异常&quot;);</span><br><span class="line">               // Fail: InterruptedException</span><br><span class="line">               // mPingIpAddrResult = &quot;连接出现中断异常&quot;;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>经过几次尝试，整理出下表数据</p>
 <p><img src="http://oltjxlyku.bkt.clouddn.com/network.PNG" alt="networkTable"></p>
 
@@ -500,7 +479,7 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/04/14/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/03/22/butterknife简介及generate-butterknife-injections不出现的问题解决/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -514,7 +493,7 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
 
     <!-- Next Nav -->
     
-        <a href="/2016/03/20/BaseAdapter数据已经加载，但是ListView不显示的解决方案/" id="post_nav-older" class="next-content">
+        <a href="/2016/03/20/baseadapter数据已经加载但是listview不显示的解决方案/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -606,7 +585,7 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
             </ul>
         </li>
         
@@ -624,7 +603,7 @@ NetworkInfo：connectionManager.getActiveNetworkInfo();</code></p>
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/生活规划/">生活规划<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">44</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/">Script<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/Database/">Database<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味常识/">趣味常识<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         

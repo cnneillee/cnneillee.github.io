@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Neil Lee">
     <meta name="description" content="null">
-    <meta name="keywords" content="null,android,exception">
+    <meta name="keywords" content="null,android,solution,exception">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -50,7 +50,7 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Dialog 在 show() 方法调用时抛出异常的解决方案 | NeilLee&#39;s blog">
     <meta property="og:description" content="null">
-    <meta property="og:article:tag" content="android"> <meta property="og:article:tag" content="exception"> 
+    <meta property="og:article:tag" content="android"> <meta property="og:article:tag" content="solution"> <meta property="og:article:tag" content="exception"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -239,7 +239,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简述"><span class="post-toc-number">2.</span> <span class="post-toc-text">简述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#出现原因"><span class="post-toc-number">3.</span> <span class="post-toc-text">出现原因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解决措施"><span class="post-toc-number">4.</span> <span class="post-toc-text">解决措施</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、简述"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、简述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、出现原因"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、出现原因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、解决措施"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、解决措施</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -301,6 +301,15 @@
 
     <!-- Qrcode -->
     
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADi0lEQVR42u3aS27jMBAFQN//0sl2gEDye01SEAbFleEkIlladPrz+bH+WR8EOHDgwIEDBw4cOHC8mOMTr+Sv/v5O8rl92uXFZnfBgQMHDhwHOJJt8r+6unxLkDz5fq/oLjhw4MCB4xjH1eGSz/dPyIPiLIjO7oIDBw4cON7J0X6Ts7Y/xYEDBw4c/x9H/uT2mdHFcODAgQPHyzjWS3LJgdrrzZpbD9VKceDAgQPH8kDD+z8/Ot+BAwcOHDj+cLQrGW5YH4xLnp+PQXy5EQ4cOHDg2MqxftyVUuAs8WtTvi/cOHDgwIFjK0f7oPyg7XBDHm7rJO2+PYYDBw4cOLZyzK6XXyAZepilcPftq+JF4sCBAweOAxzJNvkgwq7v83QuTx1x4MCBA8fzHPlYw6zhlBQZh8nYbNgOBw4cOHBs5UjaOW2wnKV/s8CcN7cuyXDgwIEDxwGOldCbp14rgXYWRKPgjQMHDhw4jnGsFAfb9lI7vpCPSiy1nXDgwIEDx1aOdlwgLwXmRb1hgW+hKIkDBw4cOPZytA2h5NCzEF5cIG6MRSfHgQMHDhxbOfKEam+7qA2Q+Tdt0ogDBw4cOM5x5I2cBO5EibBN5KL2FQ4cOHDg2Mqxkrzl4XlloCFvhg2TTxw4cODAcYxjFgLbADwbpMuH59qiJA4cOHDgOMexng7VLZ9yuG1lFPsSGgcOHDhwbOXIg1YbwDYkV3Ei15YRceDAgQPHkxztZvkF2kSrDe0JXz0qhwMHDhw4So5PsFqUXeMIG4YVkkYXDhw4cOA4xjFLpVaSwFnQne1bB1ocOHDgwDHiSAp860MGs5bSrFmVc+PAgQMHjic5PqOVB782oLanyl8zDhw4cODYy9E2adbD7Qz0RFkQBw4cOHCc45gduuXLE7mVwmKeNOLAgQMHjtMcyQWS4Ndecj1U520wHDhw4MDxPEcSXO/h2jG4XeEz/+cABw4cOHCc42jXfWDLfzorUM7KiEWgxYEDBw4cyxwbAlWy5Si5mr2S+mXgwIEDB44DHO329+EtH0FYD9XJSb68DBw4cODAcYxj1s5phxtmBb6V8QscOHDgwPF+juHoQNBAOtHW+rIvDhw4cOB4AUf+hHZ8oQ3bK0MYOHDgwIHjNEcS5GYDEG2jaEP4fKbthAMHDhw4lgca8pJf2wqaFRZnSSYOHDhw4DjHYeHAgQMHDhw4cODAgeNl6xc5L+0GYiQMqgAAAABJRU5ErkJggg==">
+        </ul>
+    
 
     <!-- Tags (bookmark) -->
     
@@ -310,7 +319,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/android/">android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/exception/">exception</a>
+        <a class="post_tag-link" href="/tags/android/">android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/exception/">exception</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/solution/">solution</a>
     </ul>
     
 
@@ -400,12 +409,12 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>2016.3.12 Dialog、FATAL EXCEPTION、AndroidRuntime requestFeature() must be called before adding content<br><a id="more"></a></p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><blockquote>
+<h1 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h1><blockquote>
 <p>E/AndroidRuntime: FATAL EXCEPTION: main<br>   Process: com.qbeprint, PID: 30954<br>   android.util.AndroidRuntimeException: requestFeature() must be called before adding content<br>   at com.android.internal.policy.impl.PhoneWindow.requestFeature(PhoneWindow.java:345)<br>   at com.android.internal.app.AlertController.installContent(AlertController.java:238)<br>   at android.app.AlertDialog.onCreate(AlertDialog.java:372)<br>   at android.app.ProgressDialog.onCreate(ProgressDialog.java:198)<br>   at android.app.Dialog.dispatchOnCreate(Dialog.java:415)<br>   at android.app.Dialog.show(Dialog.java:303)</p>
 </blockquote>
-<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>在使用 Dialog 过程中，有自定义 Dialog 的 Layout ，先使用了 Dialog 的 <code>setContentView()</code> 方法，后使用了 <code>show()</code> 方法，造成该错误</p>
-<h1 id="出现原因"><a href="#出现原因" class="headerlink" title="出现原因"></a>出现原因</h1><p><code>setContentView()</code> 必须放在 <code>show()</code> 方法之后</p>
-<h1 id="解决措施"><a href="#解决措施" class="headerlink" title="解决措施"></a>解决措施</h1><p>将 <code>setContentView()</code> 放在 <code>show()</code> 执行顺序之后</p>
+<h1 id="二、简述"><a href="#二、简述" class="headerlink" title="二、简述"></a>二、简述</h1><p>在使用 Dialog 过程中，有自定义 Dialog 的 Layout ，先使用了 Dialog 的 <code>setContentView()</code> 方法，后使用了 <code>show()</code> 方法，造成该错误</p>
+<h1 id="三、出现原因"><a href="#三、出现原因" class="headerlink" title="三、出现原因"></a>三、出现原因</h1><p><code>setContentView()</code> 必须放在 <code>show()</code> 方法之后</p>
+<h1 id="四、解决措施"><a href="#四、解决措施" class="headerlink" title="四、解决措施"></a>四、解决措施</h1><p>将 <code>setContentView()</code> 放在 <code>show()</code> 执行顺序之后</p>
 
     
 
@@ -466,7 +475,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/03/13/TextView中关于文字溢出的隐藏显示问题/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/03/13/textview中关于文字溢出的隐藏显示问题/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -480,7 +489,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2016/03/09/hexo大杂烩/" id="post_nav-older" class="next-content">
+        <a href="/2016/03/09/hexo基础/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -572,7 +581,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
             </ul>
         </li>
         
@@ -590,7 +599,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/生活规划/">生活规划<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">44</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/">Script<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/Database/">Database<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味常识/">趣味常识<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         

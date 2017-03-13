@@ -10,7 +10,7 @@
     
     <title>
         
-            分类: 生活规划 | 
+            LruCache | 
         
         NeilLee&#39;s blog
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Neil Lee">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,android">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://cnneillee.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: 生活规划 | NeilLee&#39;s blog">
+    <meta property="og:title" content="LruCache | NeilLee&#39;s blog">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="android"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -213,160 +213,303 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
-
-    <!-- Normal Post -->
-    
-        
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://oltjxlyku.bkt.clouddn.com/%E4%BA%94%E5%B9%B4%E8%AE%A1%E5%88%92.jpg)">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/02/26/2017年的第一个五月计划/">2017年的第一个五月计划</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            促进技术成长，培养规律生活，因此指定一个时间跨度 5 个月的计划，名为“2017年的第一个五月计划”，计划时间从 2017 年 3 月~2017 年...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/02/26/2017年的第一个五月计划/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Neil Lee's avatar">
-            </div>
-            <div>
-                <strong>Neil Lee</strong>
-                <span>2月 26, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/生活规划/">生活规划</a>
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
             </span>
-
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="2017/02/26/2017年的第一个五月计划/" data-count-type="comments"></span>
-                </span>
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
+        </a>
     </div>
-</div>
+    -->
 
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
         
-        
-        
-    
-        
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/02/24/2017年启用Hexo博客/">2017年启用 Hexo 博客</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            说明此博客是 20...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/02/24/2017年启用Hexo博客/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Neil Lee's avatar">
-            </div>
-            <div>
-                <strong>Neil Lee</strong>
-                <span>2月 24, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/生活规划/">生活规划</a>
-            </span>
-
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="2017/02/24/2017年启用Hexo博客/" data-count-type="comments"></span>
-                </span>
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-        
-        
-        
-    
-
-    
-
-    
-        <script>
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
-
-        locatePost = locatePost.next();
-    }
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                LruCache
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Neil Lee</strong>
+        <span>4月 11, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACcElEQVR42u3aQW7jMBAEQP//08l1gYWV7iHFyEHxZMCSpeKBpHvm9fWnxwsPDw8PDw8PD+9hvFc8/r3+3efkyv+f/u6a9t3w8PDwTvJ+WGrfPPj6Va4ZM3D0bnh4eHgHeclmkOOvwcmVs3fDw8PDexrv3bfXyGRLSDYJPDw8vM/l5QflWXiBh4eH9ym8fIFOHp8co/OQ91DWgoeHhxfzdhXA7vj8oPoeHh4e3qylKS6GXW8Gs3iibrrCw8PDu4GXl/CLOCBZvi9/rdgGZv8Y8PDw8BZ4JwPcvAWhfRYeHh7eSV6y6LcNWG2k224n9ZEaDw8P7wbeLHpoj9ezMtgtYQQeHh7ezTFu2xqVM/LJKtpk8fDw8G7m5bfld82W+PbYXf9jwMPDw9vKWynw54WxXdP6w3Tg4eHhHeTNFuj11oFZUW2YteDh4eEt89qIIW8UWC+w5SEIHh4e3kleW+Zvm1ZXJjE5iOPh4eGd5+U/t7ddtY08Nh+p8fDw8DaFEfnSnMcKK8WtNgjGw8PDO8Nr49qkaaDdBmYtWcW+h4eHh7eVl5Sp1o/O247Ls9YBPDw8vK285MC6K7rNp2YWf+Dh4eGd5+VlsDY+WAlt23ZYPDw8vLt5s9bS9YihbXXFw8PDew6vHS115a721/Dw8PDO8F7xyMv5K/Hu7QUwPDw8vE28vOyUF6LaUDjZGKKtBQ8PD+8gr12s15f4toULDw8P7xN5s+2h3QaSCaqP1Hh4eHi/ykvaC/JG1fZ9hmEEHh4e3g28NoyYNZiuBMdHY1w8PDy8rQWw/Jo7JqgOI/Dw8PC28v7ewMPDw8PDw8PDe8D4BqHo3nLlXqGBAAAAAElFTkSuQmCC">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/android/">android</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2016/04/11/lrucache/" class="leancloud-views_num" data-flag-title="LruCache">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LruCache&url=http://cnneillee.github.io//2016/04/11/lrucache/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LruCache&url=http://cnneillee.github.io//2016/04/11/lrucache/index.html&via=Neil Lee" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io//2016/04/11/lrucache/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://cnneillee.github.io//2016/04/11/lrucache/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://cnneillee.github.io//2016/04/11/lrucache/index.html&title=LruCache" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=LruCache&summary=null&pics=http://cnneillee.github.io/img/favicon.png&url=http://cnneillee.github.io/2016/04/11/lrucache/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>参考文章：</p>
+<p><a href="http://blog.csdn.net/luoyanglizi/article/details/50994469" target="_blank" rel="external">LruCache源码解析</a></p>
+<hr>
+<p><em>本文从我的另一个 blog <a href="http://www.cnblogs.com/neillee" target="_blank" rel="external">http://www.cnblogs.com/neillee</a> 中同步过来，同步过程使用了 python 脚本，文章<a href="http://cnneillee.github.io/2017/02/26/cnblogs%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B/">cnblogs博客迁移过程</a>详细介绍了同步过程，并附有源码！</em></p>
+<p><a href="http://www.cnblogs.com/neillee/p/5379639.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5379639.html</a></p>
+<p><em>截至博客迁移时，cnblogs上的访问量为：20</em></p>
+<hr>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key="2016/04/11/lrucache/"
+        data-url="http://cnneillee.github.io/2016/04/11/lrucache/"
+        data-title="LruCache">
+    </div>
+    <!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+		var duoshuoQuery = {short_name:"neillee"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/04/11/android-api汇集/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/04/11/fragment/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -446,7 +589,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
             </ul>
         </li>
         
@@ -464,7 +607,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/生活规划/">生活规划<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">44</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/">Script<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/Database/">Database<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味常识/">趣味常识<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         

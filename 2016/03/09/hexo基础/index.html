@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            Hexo 基础 —— Hexo 的原理、配置及基本使用方法 | 
+        
+        NeilLee&#39;s blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Neil Lee">
+    <meta name="description" content="null">
+    <meta name="keywords" content="null,gathering,hexo">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="NeilLee&#39;s blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://cnneillee.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Hexo 基础 —— Hexo 的原理、配置及基本使用方法 | NeilLee&#39;s blog">
+    <meta property="og:description" content="null">
+    <meta property="og:article:tag" content="gathering"> <meta property="og:article:tag" content="hexo"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(http://oltjxlyku.bkt.clouddn.com/bg.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?B51Mj8cv5v';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概要"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、概要</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-0-先修"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.0 先修</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-描述"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.1 描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-功能"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.2 功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-理解"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">1.3 理解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-Hexo-安装后的目录结构"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">1.4 Hexo 安装后的目录结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-原理"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">1.4 原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、安装步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、安装步骤</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、Themes"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Themes</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、Hexo-Front-matter"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、Hexo Front-matter</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、常用的-Hexo-命令"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、常用的 Hexo 命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六、参考文章"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、参考文章</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#七、奇淫逸巧"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、奇淫逸巧</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Hexo 基础 —— Hexo 的原理、配置及基本使用方法
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Neil Lee</strong>
+        <span>3月 09, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACcklEQVR42u3bQW7jMBAEQP//07vXAIGU7qFIKEHxFCS2xeKBHDcnn39/enzw8PDw8PDw8PBexvvE4/LjLv569d6vv7l/ymxueHh4eGd4P2y13yZ0BUheeb8cK3PDw8PDO8+7mkTy4HzSM3AxNzw8PLzX81YWJTlO8PDw8H47L4kn2gK9fS4eHh7ee3jFF/5R0HA1ueRgOJS14OHh4cW8/JLp/M9H7/fw8PDwAt6z437rjya3UKzj4eHhneG1m/V9JNFGunnMUYTCeHh4eJt5LWz9XbMFGoYReHh4eBt4eXt9i8yDhvUQGQ8PD+88b6X9dPavAvk12APfGPDw8PC28XJquxx5vNsu+vB+Dw8PD2+BN9us2wfnMS4eHh7e+3mzRqu24F4pmuslwMPDw9vMe/jy6bZofnZZi9YBPDw8vA28tphuN/pZM9asdRUPDw/vJC8pl/PW1eRQebZxAQ8PD+89vGdbr1YijOhZeHh4eJt5+bV9vq3nUWx7LNUHAx4eHt5m3myDbsviWdiRHAl4eHh4Z3htENBeSs2ijXb58PDw8E7ykobUfHPPS+08zsgPGDw8PLwzvHw7zoOJ9VaqpCWrTqnx8PDwHuJFX+/LbToPI2bjh+XGw8PD28xrx0rAunLxtlRS4+Hh4T3KW9mOk6K5jXTzcGTYOoCHh4f3EC8PWJMWq7a9YHZhVqfUeHh4eBt4sw26bbraEWrg4eHhvZk3a5CKSuFZixUeHh7e63lJPJHHu3n4+0AYgYeHh7eB14YRSUyQF8RtoHy5xHh4eHhHeLMPTcrihHH/yrqIx8PDw9vM+3sDDw8PDw8PDw/vBeM//gR3y0mUnFcAAAAASUVORK5CYII=">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/gathering/">gathering</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/hexo/">hexo</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2016/03/09/hexo基础/" class="leancloud-views_num" data-flag-title="Hexo 基础 —— Hexo 的原理、配置及基本使用方法">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hexo 基础 —— Hexo 的原理、配置及基本使用方法&url=http://cnneillee.github.io//2016/03/09/hexo基础/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Hexo 基础 —— Hexo 的原理、配置及基本使用方法&url=http://cnneillee.github.io//2016/03/09/hexo基础/index.html&via=Neil Lee" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io//2016/03/09/hexo基础/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://cnneillee.github.io//2016/03/09/hexo基础/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://cnneillee.github.io//2016/03/09/hexo基础/index.html&title=Hexo 基础 —— Hexo 的原理、配置及基本使用方法" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=Hexo 基础 —— Hexo 的原理、配置及基本使用方法&summary=null&pics=http://cnneillee.github.io/img/favicon.png&url=http://cnneillee.github.io/2016/03/09/hexo基础/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>Hexo 参考文档<br></p>
+<p>Hexo 常见配置及基本使用方法~~</p>
+<a id="more"></a>
+<p><em>关于 hexo 进阶用法，参照另一篇文章 <a href="http://cnneillee.github.io/2016/03/09/hexo进阶">你可能还不知道的 Hexo 拓展用法 —— Hexo 进阶</a></em></p>
+<h1 id="一、概要"><a href="#一、概要" class="headerlink" title="一、概要"></a>一、概要</h1><h2 id="1-0-先修"><a href="#1-0-先修" class="headerlink" title="1.0 先修"></a>1.0 先修</h2><p>使用 Hexo 之前，掌握如下工具的基本使用有助于你快速地掌握 Hexo 的基本原理和使用方法。</p>
+<ul>
+<li>Github</li>
+<li>npm</li>
+<li>markdown</li>
+</ul>
+<h2 id="1-1-描述"><a href="#1-1-描述" class="headerlink" title="1.1 描述"></a>1.1 描述</h2><blockquote>
+<p><em>A fast, simple &amp; powerful blog framework</em></p>
+<p><em><a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io</a></em></p>
+</blockquote>
+<h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><p>轻量、便捷、灵活地搭建你的静态网站。</p>
+<h2 id="1-3-理解"><a href="#1-3-理解" class="headerlink" title="1.3 理解"></a>1.3 理解</h2><p>我从接触 Hexo 到如今，已有一年的时间。在使用 Hexo 的这一年时间里，经历过它给写作带来的轻快感和新鲜感，体验过重装系统几乎丢失大部分数据的绝望，也在几易博客主题中享受到了Hexo 的灵活性，近日还修改了 Github 名折腾了一下。</p>
+<p>总的来说，不是新手的我对 Hexo 的原理有一定的理解。</p>
+<h2 id="1-4-Hexo-安装后的目录结构"><a href="#1-4-Hexo-安装后的目录结构" class="headerlink" title="1.4 Hexo 安装后的目录结构"></a>1.4 Hexo 安装后的目录结构</h2><ul>
+<li><code>.deploy_git/</code>，类似 github/git 的 <code>.git</code> 目录，存放一些功能性信息</li>
+<li><code>node_modules/</code>，nodejs 的一些库</li>
+<li><code>public/</code>，Hexo 生成的 html 内容</li>
+<li><code>scaffords/</code>，post、draft、page 模板</li>
+<li><code>source/</code>，用户撰写的 MD 源文件</li>
+<li><code>themes/</code>，主题目录</li>
+<li><code>.npmignore</code>，类似 <code>.gitignore</code> 文件，存放 npm 的忽略策略</li>
+<li><code>_config.yml</code>，整个 Hexo 的配置文件</li>
+<li><code>db.json</code></li>
+<li><code>package.json</code></li>
+<li><code>Post.txt</code></li>
+</ul>
+<h2 id="1-4-原理"><a href="#1-4-原理" class="headerlink" title="1.4 原理"></a>1.4 原理</h2><ol>
+<li><code>Hexo n &quot;文章标题&quot;</code>    —&gt;        <code>source/_post/</code> 文件夹下，新建名为 “文章标题”（对特殊符号会做处理） 的 MD 文件，文件模板位于 <code>scaffolds/</code> 文件夹下。</li>
+<li><code>hexo p [layout]</code>    —&gt;        发布草稿，将 <code>source/_draft/</code> 文件夹下的文件挪到 <code>source/_post/</code> 文件夹下。</li>
+<li><code>hexo g</code>                —&gt;        将所有 MD 文件，依照 <code>theme</code> 和 <code>hexo config.yml</code> 下的规则，生成一系列的 html 页面，存放在 <code>public</code> 文件夹下，最终发布到 github 上的也是此文件夹的这些文件，你可以在构建完成后，比较 github 的博客仓库与该目录的区别。</li>
+<li><code>hexo s</code>                —&gt;        在本地开启服务器，通过 <code>localhost:4000</code> 预览修改后的结果，<em>注意：此时你对 MD 及配置文件的修改，通过刷新页面都能够即时生效</em>。</li>
+<li><code>hexo d</code>                —&gt;        发布，将最近一次在 <code>public</code> 文件夹下生成的内容，发布到 github 上。</li>
+</ol>
+<h1 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h1><ul>
+<li>安装 <a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></li>
+<li>安装及配置 <a href="https://github.com/" target="_blank" rel="external">Github</a></li>
+<li>安装及配置 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a></li>
+</ul>
+<h1 id="三、Themes"><a href="#三、Themes" class="headerlink" title="三、Themes"></a>三、Themes</h1><p>Hexo 有各种主题供使用者进行使用，同时，众多程序员也加入到 Hexo 主题的开发进程中。你可以从你能找到地方下载并安装你喜欢的 Hexo 主题，从而开始你的博客搭建之旅。</p>
+<p>本站使用到的主题为  <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="external">Material</a>。</p>
+<h1 id="四、Hexo-Front-matter"><a href="#四、Hexo-Front-matter" class="headerlink" title="四、Hexo Front-matter"></a>四、Hexo Front-matter</h1><p>Front-matter 内容被放在正文的头部，用于 Hexo 进行解析。</p>
+<p>官网介绍：<a href="https://hexo.io/zh-cn/docs/front-matter.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/front-matter.html</a><br>Hexo 通用的 Front-matter：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>布局</td>
+<td>-</td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+<td>-</td>
+</tr>
+<tr>
+<td>date</td>
+<td>建立日期</td>
+<td>文件建立日期</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>更新日期</td>
+<td>文件更新日期</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>开启文章的评论功能</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签（不适用于分页）</td>
+<td>-</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类（不适用于分页）</td>
+<td>-</td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>覆盖文章网址</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>material 主题专属的 Front-matter：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>thumbnail</td>
+<td>缩略图地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>toc    显示</td>
+<td>TOC 按钮</td>
+<td>true</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>显示评论</td>
+<td>true</td>
+</tr>
+<tr>
+<td>notag</td>
+<td>不生成标签按钮</td>
+<td>false</td>
+</tr>
+<tr>
+<td>top</td>
+<td>置顶</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h1 id="五、常用的-Hexo-命令"><a href="#五、常用的-Hexo-命令" class="headerlink" title="五、常用的 Hexo 命令"></a>五、常用的 Hexo 命令</h1><blockquote>
+<p>hexo n “我的博文” == hexo new “我的博文” #新建文章</p>
+<p>hexo p == hexo publish</p>
+<p>hexo g == hexo generate        #生成</p>
+<p>hexo s == hexo server         #启动服务预览</p>
+<p>hexo d == hexo deploy        #部署</p>
+</blockquote>
+<p><a href="https://segmentfault.com/a/1190000002632530" target="_blank" rel="external">点击查看更多 Hexo 命令</a></p>
+<h1 id="六、参考文章"><a href="#六、参考文章" class="headerlink" title="六、参考文章"></a>六、参考文章</h1><p><a href="http://wsgzao.github.io/post/hexo-guide/" target="_blank" rel="external">1、使用 GitHub 和 Hexo 搭建免费静态 Blog </a></p>
+<p><a href="http://luuman.github.io/2015/12/27/Hexo-plug/" target="_blank" rel="external">2、Hexo 插件安装</a></p>
+<p><a href="http://luuman.github.io/2015/12/25/Hexo/" target="_blank" rel="external">3、Hexo 的使用介绍</a></p>
+<p><a href="http://luuman.github.io/2015/11/27/HexoBug/" target="_blank" rel="external">4、HexoBug</a></p>
+<p><a href="http://luuman.github.io/2015/12/21/GitHub+Hexo/" target="_blank" rel="external">5、使用 GitHub 搭建 Hexo 博客</a></p>
+<h1 id="七、奇淫逸巧"><a href="#七、奇淫逸巧" class="headerlink" title="七、奇淫逸巧"></a>七、奇淫逸巧</h1><p><em>关于 hexo 进阶用法，参照另一篇文章 <a href="http://cnneillee.github.io/2016/03/09/hexo进阶">你可能还不知道的 Hexo 拓展用法 —— Hexo 进阶</a></em></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key="2016/03/09/hexo基础/"
+        data-url="http://cnneillee.github.io/2016/03/09/hexo基础/"
+        data-title="Hexo 基础 —— Hexo 的原理、配置及基本使用方法">
+    </div>
+    <!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+		var duoshuoQuery = {short_name:"neillee"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/03/12/dialog在show-方法调用时抛出异常的解决方案/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/03/09/hello-world/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Neil Lee's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        cn.neillee@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">44</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/">Script<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Script/Database/">Database<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/学习资源/">学习资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味常识/">趣味常识<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">tag</i>
+                
+                标签云
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/u/2686015514" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/cnneillee" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+        <a href="https://www.linkedin.com/in/%E5%BF%A0%E6%88%90-%E6%9D%8E-a48562b1" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-linkedin.png);">
+                <span class="visuallyhidden">LinkedIn</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/neil-lee-34-58" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-zhihu.png);">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;NeilLee's blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('lUtNsIH5GOeqlwlXiIOLJgtm-gzGzoHsz', 'RoMAOm5BK3k1m6DGYVca7usg');
+    </script>
+    <script>
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        queue.offer(function(){
+            var duoshuoQuery = {
+                short_name: 'neillee'
+            };
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';
+                ds.async = true;
+                ds.src = 'https://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        });
+    </script>
+    <!-- 多说公共 js 代码 end -->
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
