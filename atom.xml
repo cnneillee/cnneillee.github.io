@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-03-13T11:32:48.873Z</updated>
+  <updated>2017-03-14T03:56:24.058Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -16,25 +16,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Redis 的基本使用方法及注意事项</title>
-    <link href="http://cnneillee.github.io/2017/03/13/redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
-    <id>http://cnneillee.github.io/2017/03/13/redis的基本使用方法及注意事项/</id>
-    <published>2017-03-13T11:31:39.000Z</published>
-    <updated>2017-03-13T11:32:48.873Z</updated>
+    <title>【书单】2017.03书单及阅读情况汇总</title>
+    <link href="http://cnneillee.github.io/2017/03/14/%E3%80%90%E4%B9%A6%E5%8D%95%E3%80%912017-03%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95%E5%8F%8A%E6%83%85%E5%86%B5%E6%B1%87%E6%80%BB/"/>
+    <id>http://cnneillee.github.io/2017/03/14/【书单】2017-03阅读书单及情况汇总/</id>
+    <published>2017-03-14T02:44:39.000Z</published>
+    <updated>2017-03-14T03:56:24.058Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;来自官网：&lt;/p&gt;
-&lt;p&gt;Redis is an open source (BSD licensed), in-memory
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;本学期开始推行的书单计划，是从 03 月份开始实施的。此次是第一次写文章进行记录。&lt;/p&gt;
+&lt;p&gt;在过去一周的时间里，我看得
     
     </summary>
     
-      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
     
     
-      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
+      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
     
-      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
+      <category term="readinglist" scheme="http://cnneillee.github.io/tags/readinglist/"/>
     
   </entry>
   
@@ -55,9 +55,32 @@
       <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
     
     
+      <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
+    
       <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
     
-      <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
+      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis 的基本使用方法及注意事项</title>
+    <link href="http://cnneillee.github.io/2017/03/13/redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    <id>http://cnneillee.github.io/2017/03/13/redis的基本使用方法及注意事项/</id>
+    <published>2017-03-13T11:31:39.000Z</published>
+    <updated>2017-03-13T11:32:48.873Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;来自官网：&lt;/p&gt;
+&lt;p&gt;Redis is an open source (BSD licensed), in-memory
+    
+    </summary>
+    
+      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+    
+    
+      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
     
       <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
     
@@ -109,7 +132,7 @@
     <link href="http://cnneillee.github.io/2017/02/26/%E5%88%B7%E5%AE%8C%E3%80%8A%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88%E3%80%8B%E5%92%8C%E3%80%8A%E6%99%93%E8%AF%B4%E3%80%8B%E4%BB%A5%E5%90%8E/"/>
     <id>http://cnneillee.github.io/2017/02/26/刷完《晓松奇谈》和《晓说》以后/</id>
     <published>2017-02-26T10:56:59.000Z</published>
-    <updated>2017-03-13T11:40:15.734Z</updated>
+    <updated>2017-03-13T15:26:21.682Z</updated>
     
     <summary type="html">
     
@@ -408,28 +431,6 @@
     
     
       <category term="reflecting" scheme="http://cnneillee.github.io/tags/reflecting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题</title>
-    <link href="http://cnneillee.github.io/2017/01/18/%E3%80%90%E8%BD%AC%E3%80%91%E8%A7%A3%E5%86%B3gradle%E6%8A%A5%E9%94%99%E6%89%BE%E4%B8%8D%E5%88%B0org.gradle.api.internal.project.projectInternal.getpluginmanager()%E6%96%B9%E6%B3%95%E9%97%AE%E9%A2%98/"/>
-    <id>http://cnneillee.github.io/2017/01/18/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/</id>
-    <published>2017-01-18T01:40:00.000Z</published>
-    <updated>2017-03-13T13:00:18.462Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;源地址：&lt;a href=&quot;http://www.mamicode.com/info-detail-1178200.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.mamicode.com/info-detail-1178200
-    
-    </summary>
-    
-      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
-    
-    
-      <category term="android-studio" scheme="http://cnneillee.github.io/tags/android-studio/"/>
-    
-      <category term="gradle" scheme="http://cnneillee.github.io/tags/gradle/"/>
     
   </entry>
   
