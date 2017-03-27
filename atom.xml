@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-03-14T03:56:24.058Z</updated>
+  <updated>2017-03-27T00:52:49.838Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -16,11 +16,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【纪录片】201702-201703观看的纪录片</title>
+    <link href="http://cnneillee.github.io/2017/03/27/%E3%80%90%E7%BA%AA%E5%BD%95%E7%89%87%E3%80%91201702-201703%E8%A7%82%E7%9C%8B%E7%9A%84%E7%BA%AA%E5%BD%95%E7%89%87/"/>
+    <id>http://cnneillee.github.io/2017/03/27/【纪录片】201702-201703观看的纪录片/</id>
+    <published>2017-03-26T17:03:46.000Z</published>
+    <updated>2017-03-27T00:52:49.838Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大概从去年12月份就开始看纪录片了，前期看的不多。从20170206-至今，这段时间看的纪录片蛮多的。&lt;/p&gt;
+&lt;p&gt;我是在
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
+    
+    
+      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
+    
+      <category term="videolist" scheme="http://cnneillee.github.io/tags/videolist/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【书单】2017.03书单及阅读情况汇总</title>
     <link href="http://cnneillee.github.io/2017/03/14/%E3%80%90%E4%B9%A6%E5%8D%95%E3%80%912017-03%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95%E5%8F%8A%E6%83%85%E5%86%B5%E6%B1%87%E6%80%BB/"/>
     <id>http://cnneillee.github.io/2017/03/14/【书单】2017-03阅读书单及情况汇总/</id>
     <published>2017-03-14T02:44:39.000Z</published>
-    <updated>2017-03-14T03:56:24.058Z</updated>
+    <updated>2017-03-27T00:54:53.947Z</updated>
     
     <summary type="html">
     
@@ -35,29 +58,6 @@
       <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
     
       <category term="readinglist" scheme="http://cnneillee.github.io/tags/readinglist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis 的基本使用方法及注意事项</title>
-    <link href="http://cnneillee.github.io/2017/03/13/redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
-    <id>http://cnneillee.github.io/2017/03/13/redis的基本使用方法及注意事项/</id>
-    <published>2017-03-13T11:31:39.000Z</published>
-    <updated>2017-03-14T05:35:19.120Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;来自官网：&lt;/p&gt;
-&lt;p&gt;Redis is an open source (BSD licensed), in-memory
-    
-    </summary>
-    
-      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
-    
-    
-      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
-    
-      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
     
   </entry>
   
@@ -81,6 +81,29 @@
       <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
     
       <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
+    
+      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis 的基本使用方法及注意事项</title>
+    <link href="http://cnneillee.github.io/2017/03/13/redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    <id>http://cnneillee.github.io/2017/03/13/redis的基本使用方法及注意事项/</id>
+    <published>2017-03-13T11:31:39.000Z</published>
+    <updated>2017-03-14T05:35:19.120Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;来自官网：&lt;/p&gt;
+&lt;p&gt;Redis is an open source (BSD licensed), in-memory
+    
+    </summary>
+    
+      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+    
+    
+      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
     
       <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
     
@@ -403,27 +426,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;本系列为&lt;a href=&quot;http://www.cnblogs.com/neillee/p/6390943.html&quot; ta
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
-    
-    
-      <category term="reflecting" scheme="http://cnneillee.github.io/tags/reflecting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【实习】实习系列文章说明</title>
-    <link href="http://cnneillee.github.io/2017/02/12/%E3%80%90%E5%AE%9E%E4%B9%A0%E3%80%91%E5%AE%9E%E4%B9%A0%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E8%AF%B4%E6%98%8E/"/>
-    <id>http://cnneillee.github.io/2017/02/12/【实习】实习系列文章说明/</id>
-    <published>2017-02-12T06:34:00.000Z</published>
-    <updated>2017-03-13T13:52:04.092Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于今年将要进行为期6个月的实习，特开辟实习系列文章以作记录。&lt;/p&gt;
-&lt;h1 id=&quot;二、系列文章说明&quot;&gt;&lt;a href=
     
     </summary>
     
