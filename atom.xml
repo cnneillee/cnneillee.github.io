@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-03-27T00:52:49.838Z</updated>
+  <updated>2017-03-29T15:31:14.522Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github的git.exe的目录所在</title>
+    <link href="http://cnneillee.github.io/2017/03/29/github%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/"/>
+    <id>http://cnneillee.github.io/2017/03/29/github你必须要知道的几个点/</id>
+    <published>2017-03-29T07:26:00.000Z</published>
+    <updated>2017-03-29T15:31:14.522Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于项目需要，我近期较为频繁的使用 Github 对代码进行管理。&lt;/p&gt;
+&lt;p&gt;非常险的一次是，在进行某个新功能的开发时，
+    
+    </summary>
+    
+      <category term="Version Control" scheme="http://cnneillee.github.io/categories/Version-Control/"/>
+    
+    
+      <category term="git/github" scheme="http://cnneillee.github.io/tags/git-github/"/>
+    
+  </entry>
   
   <entry>
     <title>【纪录片】201702-201703观看的纪录片</title>
@@ -62,6 +83,29 @@
   </entry>
   
   <entry>
+    <title>Redis 的基本使用方法及注意事项</title>
+    <link href="http://cnneillee.github.io/2017/03/13/redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    <id>http://cnneillee.github.io/2017/03/13/redis的基本使用方法及注意事项/</id>
+    <published>2017-03-13T11:31:39.000Z</published>
+    <updated>2017-03-14T05:35:19.120Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;来自官网：&lt;/p&gt;
+&lt;p&gt;Redis is an open source (BSD licensed), in-memory
+    
+    </summary>
+    
+      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+    
+    
+      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
+    
+      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Redis 使用过程中遇到的几个问题</title>
     <link href="http://cnneillee.github.io/2017/03/13/redis%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
     <id>http://cnneillee.github.io/2017/03/13/redis使用过程中遇到的几个问题/</id>
@@ -81,29 +125,6 @@
       <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
     
       <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
-    
-      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis 的基本使用方法及注意事项</title>
-    <link href="http://cnneillee.github.io/2017/03/13/redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
-    <id>http://cnneillee.github.io/2017/03/13/redis的基本使用方法及注意事项/</id>
-    <published>2017-03-13T11:31:39.000Z</published>
-    <updated>2017-03-14T05:35:19.120Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;来自官网：&lt;/p&gt;
-&lt;p&gt;Redis is an open source (BSD licensed), in-memory
-    
-    </summary>
-    
-      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
-    
-    
-      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
     
       <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
     
@@ -413,26 +434,6 @@
     
       <category term="资源与工具" scheme="http://cnneillee.github.io/categories/%E8%B5%84%E6%BA%90%E4%B8%8E%E5%B7%A5%E5%85%B7/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>【实习】实习第一周周报</title>
-    <link href="http://cnneillee.github.io/2017/02/12/%E3%80%90%E5%AE%9E%E4%B9%A0%E3%80%91%E5%AE%9E%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%91%A8%E5%91%A8%E6%8A%A5/"/>
-    <id>http://cnneillee.github.io/2017/02/12/【实习】实习第一周周报/</id>
-    <published>2017-02-12T07:11:00.000Z</published>
-    <updated>2017-03-13T13:51:01.419Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;本系列为&lt;a href=&quot;http://www.cnblogs.com/neillee/p/6390943.html&quot; ta
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
-    
-    
-      <category term="reflecting" scheme="http://cnneillee.github.io/tags/reflecting/"/>
     
   </entry>
   
