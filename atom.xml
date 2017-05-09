@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-05-03T03:02:57.276Z</updated>
+  <updated>2017-05-09T06:54:25.067Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python中的条件运算符</title>
+    <link href="http://cnneillee.github.io/2017/05/09/Python%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://cnneillee.github.io/2017/05/09/Python中的条件运算符/</id>
+    <published>2017-05-09T06:50:45.000Z</published>
+    <updated>2017-05-09T06:54:25.067Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;在 C、Java 等语言中，有一种常见的条件运算符，又叫“三目运算符”。&lt;br&gt;详情参见 [条件运算符-wikipedia]
+    
+    </summary>
+    
+      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+    
+    
+      <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python字符串连接问题归结</title>
+    <link href="http://cnneillee.github.io/2017/05/09/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%BD%92%E7%BB%93/"/>
+    <id>http://cnneillee.github.io/2017/05/09/Python字符串连接问题归结/</id>
+    <published>2017-05-09T06:45:04.000Z</published>
+    <updated>2017-05-09T06:54:49.132Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;Python 字符串连接场景较为普遍。由于编者对 Java 等语言较为熟悉，常常将两者语法混淆。&lt;/p&gt;
+&lt;p&gt;加之，Pyt
+    
+    </summary>
+    
+      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+    
+    
+      <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 中全局变量的实现</title>
+    <link href="http://cnneillee.github.io/2017/05/09/Python%E4%B8%AD%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://cnneillee.github.io/2017/05/09/Python中全局变量的实现/</id>
+    <published>2017-05-09T05:58:45.000Z</published>
+    <updated>2017-05-09T06:49:59.133Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;Python 中全局变量的使用场景不多，但偶尔也有用武之处。&lt;/p&gt;
+&lt;p&gt;如在函数中的初始化，有时需要从外部传入一个全局变
+    
+    </summary>
+    
+      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+    
+    
+      <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SLF4J 日志系统在项目导入时频现的问题</title>
+    <link href="http://cnneillee.github.io/2017/05/09/SLF4J%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E5%9C%A8%E9%A1%B9%E7%9B%AE%E5%AF%BC%E5%85%A5%E6%97%B6%E9%A2%91%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
+    <id>http://cnneillee.github.io/2017/05/09/SLF4J日志系统在项目导入时频现的一个问题/</id>
+    <published>2017-05-08T16:12:49.000Z</published>
+    <updated>2017-05-08T16:29:59.469Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;近期在导入一个已有的项目时，日志系统出现了一个问题。错误信息如下：&lt;/p&gt;
+&lt;p&gt;SLF4J问题&lt;br&gt;&lt;figure cl
+    
+    </summary>
+    
+      <category term="Basic" scheme="http://cnneillee.github.io/categories/Basic/"/>
+    
+      <category term="Java" scheme="http://cnneillee.github.io/categories/Basic/Java/"/>
+    
+    
+      <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
+    
+      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
+    
+      <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Android MVP Presenter 中引发的空指针异常</title>
@@ -357,89 +446,6 @@
       <category term="alluxio" scheme="http://cnneillee.github.io/tags/alluxio/"/>
     
       <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hadoop 的安装及配置</title>
-    <link href="http://cnneillee.github.io/2017/02/16/hadoop%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
-    <id>http://cnneillee.github.io/2017/02/16/hadoop的安装及配置/</id>
-    <published>2017-02-16T06:12:00.000Z</published>
-    <updated>2017-03-13T14:18:13.221Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;h2 id=&quot;1-1-说明&quot;&gt;&lt;a href=&quot;#1-1-说明&quot; class=&quot;headerlink&quot; title=&quot;1.1 说
-    
-    </summary>
-    
-      <category term="Big Data" scheme="http://cnneillee.github.io/categories/Big-Data/"/>
-    
-    
-      <category term="hadoop" scheme="http://cnneillee.github.io/tags/hadoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 更新 Hostname 和 hosts</title>
-    <link href="http://cnneillee.github.io/2017/02/16/ubuntu%E6%9B%B4%E6%96%B0hostname%E5%92%8Chosts/"/>
-    <id>http://cnneillee.github.io/2017/02/16/ubuntu更新hostname和hosts/</id>
-    <published>2017-02-16T01:13:00.000Z</published>
-    <updated>2017-03-11T17:39:45.026Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;Hostname 即主机名，一般存放在 &lt;code&gt;/etc/hostname&lt;/code&gt; 中。hosts 即本地域名解析
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://cnneillee.github.io/categories/Linux/"/>
-    
-    
-      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
-    
-      <category term="linux" scheme="http://cnneillee.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github 的其他用法</title>
-    <link href="http://cnneillee.github.io/2017/02/13/github%E7%9A%84%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95/"/>
-    <id>http://cnneillee.github.io/2017/02/13/github的其他用法/</id>
-    <published>2017-02-13T09:20:00.000Z</published>
-    <updated>2017-03-13T13:31:35.710Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;Github 除了作为代码托管库外，有趣的程序员们还利用它解锁了有趣的新姿势。&lt;/p&gt;
-&lt;h1 id=&quot;二、新姿势&quot;&gt;&lt;a 
-    
-    </summary>
-    
-      <category term="Version Control" scheme="http://cnneillee.github.io/categories/Version-Control/"/>
-    
-    
-      <category term="github/git" scheme="http://cnneillee.github.io/tags/github-git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git 与 Github 使用</title>
-    <link href="http://cnneillee.github.io/2017/02/12/git%E4%B8%8Egithub%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cnneillee.github.io/2017/02/12/git与github使用/</id>
-    <published>2017-02-12T08:25:00.000Z</published>
-    <updated>2017-03-13T13:32:19.512Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;h2 id=&quot;1-1-关于-Git&quot;&gt;&lt;a href=&quot;#1-1-关于-Git&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-      <category term="Version Control" scheme="http://cnneillee.github.io/categories/Version-Control/"/>
-    
-    
-      <category term="git/github" scheme="http://cnneillee.github.io/tags/git-github/"/>
     
   </entry>
   
