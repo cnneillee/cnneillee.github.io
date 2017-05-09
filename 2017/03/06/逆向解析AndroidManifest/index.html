@@ -31,20 +31,20 @@ ga('send', 'pageview');
     
     
     <meta name="keywords" content="android">
-    <meta name="description" content="一、概述1.1 APK 文件结构用解压软件解压 apk 文件，大致能够得到以下几个文件/文件夹：  assets/ lib/ META-INF/ res/ AndroidManifest.xml classes.dex resources.arsc    1.2 APK 文件中的 AndroidManifest.xml功能：App 的配置清单文件。 用记事本直接打开 AndroidManifest">
+    <meta name="description" content="一、概述1.1 APK 文件结构用解压软件解压 apk 文件，大致能够得到以下几个文件/文件夹：  assets/ lib/ META-INF/ res/ AndroidManifest.xml classes.dex resources.arsc">
 <meta name="keywords" content="android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逆向——解析AndroidManifest">
 <meta property="og:url" content="http://cnneillee.github.io/2017/03/06/逆向解析AndroidManifest/index.html">
 <meta property="og:site_name" content="Neil Lee&#39;s blog">
-<meta property="og:description" content="一、概述1.1 APK 文件结构用解压软件解压 apk 文件，大致能够得到以下几个文件/文件夹：  assets/ lib/ META-INF/ res/ AndroidManifest.xml classes.dex resources.arsc    1.2 APK 文件中的 AndroidManifest.xml功能：App 的配置清单文件。 用记事本直接打开 AndroidManifest">
+<meta property="og:description" content="一、概述1.1 APK 文件结构用解压软件解压 apk 文件，大致能够得到以下几个文件/文件夹：  assets/ lib/ META-INF/ res/ AndroidManifest.xml classes.dex resources.arsc">
 <meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/qq_apk_unzip.JPG">
 <meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/zhihu_apk_unzip.JPG">
 <meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/zhihu_manifest_decoded.JPG">
 <meta property="og:updated_time" content="2017-03-14T05:48:22.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆向——解析AndroidManifest">
-<meta name="twitter:description" content="一、概述1.1 APK 文件结构用解压软件解压 apk 文件，大致能够得到以下几个文件/文件夹：  assets/ lib/ META-INF/ res/ AndroidManifest.xml classes.dex resources.arsc    1.2 APK 文件中的 AndroidManifest.xml功能：App 的配置清单文件。 用记事本直接打开 AndroidManifest">
+<meta name="twitter:description" content="一、概述1.1 APK 文件结构用解压软件解压 apk 文件，大致能够得到以下几个文件/文件夹：  assets/ lib/ META-INF/ res/ AndroidManifest.xml classes.dex resources.arsc">
 <meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/qq_apk_unzip.JPG">
     
         <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
@@ -241,15 +241,33 @@ ga('send', 'pageview');
 <li>classes.dex</li>
 <li>resources.arsc</li>
 </ul>
-<p><img src="http://oltjxlyku.bkt.clouddn.com/qq_apk_unzip.JPG" alt=""></p>
-<p><img src="http://oltjxlyku.bkt.clouddn.com/zhihu_apk_unzip.JPG" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oltjxlyku.bkt.clouddn.com/qq_apk_unzip.JPG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oltjxlyku.bkt.clouddn.com/zhihu_apk_unzip.JPG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="1-2-APK-文件中的-AndroidManifest-xml"><a href="#1-2-APK-文件中的-AndroidManifest-xml" class="headerlink" title="1.2 APK 文件中的 AndroidManifest.xml"></a>1.2 APK 文件中的 AndroidManifest.xml</h2><p>功能：App 的配置清单文件。</p>
 <p>用记事本直接打开 AndroidManifest.xml 发现乱码，用Sublime打开，出现 16 进制数。</p>
 <h1 id="二、AndroidManifest-xml-的乱码问题"><a href="#二、AndroidManifest-xml-的乱码问题" class="headerlink" title="二、AndroidManifest.xml 的乱码问题"></a>二、AndroidManifest.xml 的乱码问题</h1><h2 id="2-1-乱码原因"><a href="#2-1-乱码原因" class="headerlink" title="2.1 乱码原因"></a>2.1 乱码原因</h2><p>处于安全、Apk 体积等因素的考量，在打包过程中，按照一定规则（安全、轻量、机器易读）， AndroidManifest.xml 会被压缩。</p>
 <p>因而，当直接查看 APK 文件中的 AndroidManifest.xml 文件时，得到的是乱码。</p>
 <h2 id="2-2-正确解码"><a href="#2-2-正确解码" class="headerlink" title="2.2 正确解码"></a>2.2 正确解码</h2><p><a href="http://blog.csdn.net/jiangwei0910410003/article/details/50568487" target="_blank" rel="external"> Android 逆向之旅—解析编译之后的 AndroidManifest 文件格式</a> 文章详细介绍了 AndroidManifest.xml 的解码技术，文末附项目的 github 地址。</p>
 <h2 id="2-3-亲测可用"><a href="#2-3-亲测可用" class="headerlink" title="2.3 亲测可用"></a>2.3 亲测可用</h2><p>为了验证其可用性，我使用了知乎 app 的 AndroidManifest 进行测试，解析结果如下图。完美！</p>
-<p><img src="http://oltjxlyku.bkt.clouddn.com/zhihu_manifest_decoded.JPG" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oltjxlyku.bkt.clouddn.com/zhihu_manifest_decoded.JPG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 

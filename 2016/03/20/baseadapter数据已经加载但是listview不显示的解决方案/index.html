@@ -229,7 +229,7 @@ ga('send', 'pageview');
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>BaseAdapter 数据已经加载，但是 ListView 不显示的解决方案<br><a id="more"></a></p>
 <h1 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h1><p>在编码过程中，发现：<br>明明已经将数据加载到了 Adapter 里了，并且调用了 adapter 的 <code>notifyDataSetChanged()</code>，但是 ListView 就是不显示结果。</p>
-<h1 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h1><p>填充数据前，最好 clear 一下 mAdapter ，避免加载到重复的数据项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mAdapter.notifyDataSetChanged();</span><br><span class="line">lv.setAdapter(mAdapter);</span><br></pre></td></tr></table></figure></p>
+<h1 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h1><p>填充数据前，最好 clear 一下 mAdapter ，避免加载到重复的数据项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mAdapter.notifyDataSetChanged();</div><div class="line">lv.setAdapter(mAdapter);</div></pre></td></tr></table></figure></p>
 
         </div>
 

@@ -41,7 +41,6 @@ ga('send', 'pageview');
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203911504-1281851192.png">
 <meta property="og:updated_time" content="2017-03-13T06:32:36.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决 Android Studio 新建项目时只有一个 drawable 目录的问题">
@@ -236,21 +235,39 @@ ga('send', 'pageview');
 <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法：</p>
 <h1 id="二、方法介绍"><a href="#二、方法介绍" class="headerlink" title="二、方法介绍"></a>二、方法介绍</h1><h2 id="2-1-方法1"><a href="#2-1-方法1" class="headerlink" title="2.1 方法1"></a>2.1 方法1</h2><ul>
 <li>进入 <code>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/root/res</code> 目录</li>
-<li>在此目录下，新建你要初始化的文件夹（<code>drawable-hdpi</code> 等文件夹）**这一点可以参照同目录下的 mipmap 各种分辨率的 mipmap 目录<br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png" alt=""></li>
-<li>你可以在各个文件夹中放一张默认的图，以后每次新建项目时，就会有类似 mipmap 目录下的 ic_launcher.png<br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png" alt=""></li>
+<li>在此目录下，新建你要初始化的文件夹（<code>drawable-hdpi</code> 等文件夹）**这一点可以参照同目录下的 mipmap 各种分辨率的 mipmap 目录<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>你可以在各个文件夹中放一张默认的图，以后每次新建项目时，就会有类似 mipmap 目录下的 ic_launcher.png <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li>回退到 <code>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule</code> 目录，打开 <code>recipe.xml.ftl</code> 文件</li>
-<li>在 <code>recipe.xml.ftl</code> 中增加如下的代码，位置见图（依据你要初始化的目录来添加相应代码）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;copy from=&quot;root/res/drawable-hdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</span><br><span class="line">&lt;copy from=&quot;root/res/drawable-xhdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</span><br><span class="line">&lt;copy from=&quot;root/res/drawable-xxhdpi&quot;</span><br><span class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<li>在 <code>recipe.xml.ftl</code> 中增加如下的代码，位置见图（依据你要初始化的目录来添加相应代码）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;copy from=&quot;root/res/drawable-hdpi&quot;</div><div class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</div><div class="line">&lt;copy from=&quot;root/res/drawable-xhdpi&quot;</div><div class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</div><div class="line">&lt;copy from=&quot;root/res/drawable-xxhdpi&quot;</div><div class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>随后你就可以在新建的Module中看到初始化的drawable目录</p>
 <h2 id="2-2-方法2"><a href="#2-2-方法2" class="headerlink" title="2.2 方法2"></a>2.2 方法2</h2><p>与方法1的区别在于：不能在目录中添加初始化的图片</p>
 <ul>
 <li>进入 <code>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/recipe.xml.ftl</code> 文件</li>
-<li>添加如下代码，位置见图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</span><br><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</span><br><span class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<li>添加如下代码，位置见图<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</div><div class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</div><div class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203911504-1281851192.png" alt=""></p>
+{% image http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203911504-1281851192.png '' '' %}
 <p>随后你就可以在新建的Module中看到初始化的drawable目录</p>
 <p><strong>说明：</strong><br>当然，通过类似的方式我们还可以在创建 Module 的时候做很多事情，比如：</p>
 <ul>

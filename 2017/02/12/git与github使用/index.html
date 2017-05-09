@@ -336,9 +336,21 @@ diff</code> 后却什么也没有，就是这个原因。</p>
 <h3 id="3-3-3-查看提交历史"><a href="#3-3-3-查看提交历史" class="headerlink" title="3.3.3 查看提交历史"></a>3.3.3 查看提交历史</h3><p><code>git log</code> 有许多选项可以帮助你搜寻你所要找的提交， 接下来我们介绍些最常用的。<br><code>git log -p -2</code>：一个常用的选项是 <code>-p</code>，用来显示每次提交的内容差异。 你也可以加上 <code>-2</code> 来仅显示最近两次提交<br>如果你想看到每次提交的简略的统计信息，你可以使用 <code>--stat</code> 选项</p>
 <p>另外一个常用的选项是 <code>--pretty</code>。 这个选项可以指定使用不同于默认格式的方式展示提交历史。 这个选项有一些内建的子选项供你使用。 比如用<br><code>oneline</code> 将每个提交放在一行显示，查看的提交数很大时非常有用。 另外还有 <code>short</code>，<code>full</code> 和 <code>fuller</code><br>可以用，展示的信息或多或少有些不同，请自己动手实践一下看看效果如何。</p>
 <p>格式化：<code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot;</code><br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232008416-692874902.png" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232121791-1150661891.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232121791-1150661891.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p><strong>限制输出长度</strong><br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232228916-955566173.png" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232252354-1893183599.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232252354-1893183599.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="3-3-4-撤消操作"><a href="#3-3-4-撤消操作" class="headerlink" title="3.3.4 撤消操作"></a>3.3.4 撤消操作</h3><p><code>git commit --amend</code>修改上次 commit 的内容（如上次commit的内容已经 push ，则无法修改，只能产生新的 commit<br>），将自上次 commit 后发生的修改附加到上次 commit 上，并可做相关编辑。</p>
 <p><strong>取消暂存文件</strong><br><code>git reset HEAD &lt;file&gt;...</code> 来取消暂存.<br>此时，有三种参数：</p>
 <ul>
