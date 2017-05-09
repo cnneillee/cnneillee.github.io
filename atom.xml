@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>NeilLee&#39;s blog</title>
+  <title>Neil Lee&#39;s blog</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-05-09T06:54:25.067Z</updated>
+  <updated>2017-05-09T15:35:10.590Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
     <name>Neil Lee</name>
-    
+    <email>cn.neillee@gmail.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
@@ -20,11 +20,11 @@
     <link href="http://cnneillee.github.io/2017/05/09/Python%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>http://cnneillee.github.io/2017/05/09/Python中的条件运算符/</id>
     <published>2017-05-09T06:50:45.000Z</published>
-    <updated>2017-05-09T06:54:25.067Z</updated>
+    <updated>2017-05-09T15:35:10.590Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;在 C、Java 等语言中，有一种常见的条件运算符，又叫“三目运算符”。&lt;br&gt;详情参见 [条件运算符-wikipedia]
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;在 C、Java 等语言中，有一种常见的条件运算符，又叫“三目运算符”。&lt;br&gt;详情参见 &lt;a href=&quot;https://
     
     </summary>
     
@@ -40,7 +40,7 @@
     <link href="http://cnneillee.github.io/2017/05/09/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%BD%92%E7%BB%93/"/>
     <id>http://cnneillee.github.io/2017/05/09/Python字符串连接问题归结/</id>
     <published>2017-05-09T06:45:04.000Z</published>
-    <updated>2017-05-09T06:54:49.132Z</updated>
+    <updated>2017-05-09T15:34:42.587Z</updated>
     
     <summary type="html">
     
@@ -61,7 +61,7 @@
     <link href="http://cnneillee.github.io/2017/05/09/Python%E4%B8%AD%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
     <id>http://cnneillee.github.io/2017/05/09/Python中全局变量的实现/</id>
     <published>2017-05-09T05:58:45.000Z</published>
-    <updated>2017-05-09T06:49:59.133Z</updated>
+    <updated>2017-05-09T15:34:57.480Z</updated>
     
     <summary type="html">
     
@@ -82,7 +82,7 @@
     <link href="http://cnneillee.github.io/2017/05/09/SLF4J%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E5%9C%A8%E9%A1%B9%E7%9B%AE%E5%AF%BC%E5%85%A5%E6%97%B6%E9%A2%91%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
     <id>http://cnneillee.github.io/2017/05/09/SLF4J日志系统在项目导入时频现的一个问题/</id>
     <published>2017-05-08T16:12:49.000Z</published>
-    <updated>2017-05-08T16:29:59.469Z</updated>
+    <updated>2017-05-09T15:35:39.071Z</updated>
     
     <summary type="html">
     
@@ -98,9 +98,9 @@
     
       <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
     
-      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
-    
       <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
+    
+      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
     
   </entry>
   
@@ -372,7 +372,7 @@
     <link href="http://cnneillee.github.io/2017/02/22/notepad++%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7/"/>
     <id>http://cnneillee.github.io/2017/02/22/notepad++上的代码格式化工具/</id>
     <published>2017-02-22T02:22:00.000Z</published>
-    <updated>2017-03-13T14:02:13.154Z</updated>
+    <updated>2017-05-09T15:26:49.743Z</updated>
     
     <summary type="html">
     
@@ -390,7 +390,7 @@
     <link href="http://cnneillee.github.io/2017/02/22/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91pc%E7%AB%AF%E8%B0%83%E8%AF%95%E6%89%8B%E6%9C%BA%E7%AB%AFhtml%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%B7%A5%E5%85%B7/"/>
     <id>http://cnneillee.github.io/2017/02/22/【工具】pc端调试手机端html页面的工具/</id>
     <published>2017-02-22T02:06:00.000Z</published>
-    <updated>2017-03-13T15:18:02.155Z</updated>
+    <updated>2017-05-09T15:11:29.118Z</updated>
     
     <summary type="html">
     
@@ -410,7 +410,7 @@
     <link href="http://cnneillee.github.io/2017/02/21/%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4ps-kill/"/>
     <id>http://cnneillee.github.io/2017/02/21/与进程相关的命令ps-kill/</id>
     <published>2017-02-21T06:39:00.000Z</published>
-    <updated>2017-03-11T17:24:27.996Z</updated>
+    <updated>2017-05-09T15:36:39.292Z</updated>
     
     <summary type="html">
     
@@ -431,7 +431,7 @@
     <link href="http://cnneillee.github.io/2017/02/17/alluxio%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     <id>http://cnneillee.github.io/2017/02/17/alluxio安装与配置/</id>
     <published>2017-02-17T09:30:00.000Z</published>
-    <updated>2017-03-13T14:15:06.348Z</updated>
+    <updated>2017-05-09T15:17:27.201Z</updated>
     
     <summary type="html">
     

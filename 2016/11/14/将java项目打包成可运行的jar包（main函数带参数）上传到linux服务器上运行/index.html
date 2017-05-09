@@ -1,437 +1,284 @@
 <!DOCTYPE html>
-<html lang="zh">
-    <head>
-    <!-- 
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.3.0 -->
-
-    <!-- Title -->
+<html>
+<head>
     
-    <title>
-        
-            将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行 | 
-        
-        NeilLee&#39;s blog
-    </title>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
 
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
 
-    <!-- Meta & Info -->
+    
+
+    
+
+
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Neil Lee">
-    <meta name="description" content="null">
-    <meta name="keywords" content="null,solution,java,linux">
-
-    <!--iOS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="NeilLee&#39;s blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://cnneillee.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行 | NeilLee&#39;s blog">
-    <meta property="og:description" content="null">
-    <meta property="og:article:tag" content="solution"> <meta property="og:article:tag" content="java"> <meta property="og:article:tag" content="linux"> 
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import CSS -->
-    <link rel="stylesheet" href="/css/material.min.css">
-    <link rel="stylesheet" href="/css/style.min.css">
-    <!-- Config CSS -->
-
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-image: url(http://oltjxlyku.bkt.clouddn.com/bg.jpg);
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/queue.js"></script>
-
-    <!-- UC Browser Compatible -->
-    <script>
-        var agent = navigator.userAgent.toLowerCase();
-        if(agent.indexOf('ucbrowser')>0) {
-            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
-            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-        }
-    </script>
-
     
-    <!-- Baidu Analytics -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {var hm = document.createElement('script');
-        hm.src = 'https://hm.baidu.com/hm.js?B51Mj8cv5v';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
     
-
+    <link rel="canonical" href="http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/">
     
-
-    <!-- Bing Background -->
     
-
-    <!-- Custom Head -->
+    <title>将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java,solution,linux">
+    <meta name="description" content="一、概述java项目有两种架构，一种是 B/S 架构的，一种是 C/S 架构的。对于 B/S 架构来说，我们常见的 java ee 即是 B/S 架构，通常，开发人员会在本地进行开发，然后将项目打包成 war文件，上传至服务器，供调用。而对于 B/S 架构来说，通常即是里面有个主方法，就是我们常写的 java 项目/程序。通常，开发完之后，将项目打包成 jar包，随后上传至服务器，供调用。本文，针">
+<meta name="keywords" content="java,solution,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行">
+<meta property="og:url" content="http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述java项目有两种架构，一种是 B/S 架构的，一种是 C/S 架构的。对于 B/S 架构来说，我们常见的 java ee 即是 B/S 架构，通常，开发人员会在本地进行开发，然后将项目打包成 war文件，上传至服务器，供调用。而对于 B/S 架构来说，通常即是里面有个主方法，就是我们常写的 java 项目/程序。通常，开发完之后，将项目打包成 jar包，随后上传至服务器，供调用。本文，针">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215215107-618732496.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215717310-277980181.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114220129232-869653535.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221052263-58580083.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221225404-742916186.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221133888-1593064140.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221728842-1375885340.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222009701-1414080272.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222540529-1209559392.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223246013-300335085.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223831623-1981784674.png">
+<meta property="og:updated_time" content="2017-05-09T15:31:03.938Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行">
+<meta name="twitter:description" content="一、概述java项目有两种架构，一种是 B/S 架构的，一种是 C/S 架构的。对于 B/S 架构来说，我们常见的 java ee 即是 B/S 架构，通常，开发人员会在本地进行开发，然后将项目打包成 war文件，上传至服务器，供调用。而对于 B/S 架构来说，通常即是里面有个主方法，就是我们常写的 java 项目/程序。通常，开发完之后，将项目打包成 jar包，随后上传至服务器，供调用。本文，针">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215215107-618732496.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 </head>
 
+<body>
+    <div id="loading" class="active"></div>
 
-    
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Post TOC -->
-
-    
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
         </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
     </div>
-    -->
-
-    <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、需求描述"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、需求描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、导出-jar-包步骤"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、导出 jar 包步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-确保正确地写完项目"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 确保正确地写完项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-选中项目，点击右键"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 选中项目，点击右键</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-选择export"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 选择export</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-选择导出可运行的-jar-文件"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">3.4 选择导出可运行的 jar 文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-配置-JAR-包"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">3.4 配置 JAR 包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-完成"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">3.5 完成</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、可运行-JAR-文件结构解析"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、可运行 JAR 文件结构解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-解压上述步骤得到的-JAR-包"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">4.1 解压上述步骤得到的 JAR 包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、服务器上运行"><span class="post-toc-number">5.</span> <span class="post-toc-text">四、服务器上运行</span></a></li></ol>
-
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
-    </ul>
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
-    
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script>
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
-</script>
-
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
         
-    
-            <p class="article-headline-p">
-                将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行
-            </p>
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>Neil Lee</strong>
-        <span>11月 14, 2016</span>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-14T14:41:00.000Z" itemprop="datePublished" class="page-time">
+  2016-11-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
     </div>
 
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">devices other</i>
-            <span class="visuallyhidden">devices other</span>
-        </button>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE00lEQVR42u3awW4bMQwE0Pz/T7fXAm2SIYdbJ+3bU+DYu9KTAVNDvf1wFdcbAnz48OFz4cOHD58LH75vwvcWX7++/707/OFh79xn+tnfX3/vleSeu7njw4cPHz58V3yf/FR/OLjk73y4U44EOv8qfDx3fPjw4cOH75ZvOplpWZOj3z59d2d8+PDhw4fvK/Dlm/n37pOECLsR5ouEDx8+fPjwfRe+5P159JBECdE2fjUqfPjw4cOH77V8g8C6iPjzuzXPTUL5F/Q68OHDhw8fvuKA2r/x98vO9+HDhw8fvv+Sb3c1Efy0sEjuljfmk2Llk7njw4cPHz58BV/y+KaU2TW5k8XYcUwXeJy44MOHDx8+fMGed9panhI8V+Lki9Q3yPHhw4cPH76eb1eC5J9NJpk3yJNwoT8qhw8fPnz48D3Hl2+qk3fm6PlWfxdq5ONJGgb48OHDhw/fc3xRYB1v5pNp5633XfHURyH48OHDhw/fFd+uTNkd82qWYRfTT9v2y8QFHz58+PDhK/h2P/m7e+6a6Lvja0nQHxVt+PDhw4cP3wN8/fGyqjioA/2kNZ4XN/jw4cOHD98TfLvjX9Mf/nzaf+dg3PjwHD58+PDhw1fwTYeeFARJKTPd5CflTv7EHRw+fPjw4cPX802LkjzQb7bl+fL0TfdpqIEPHz58+PA1fHmJkIfsB8VBzNS0EKbLgw8fPnz48PV8OdbVf3fb+GkLYdcmj0aIDx8+fPjw1Xx5ETAdSlO4TBdsd43bD/jw4cOHD1/Nd7sh37XDk9B8VzxNiZd1Hz58+PDhwxfwTRvSeQHRR/PT8H26AMsvAT58+PDhw1fwJT/b0+j8x/DaBf3569NnHZzvw4cPHz58+FZhfdKcbsL9adGQlC/5c3fLjw8fPnz48N3yTVmrw16rZnYeGewW/pO54MOHDx8+fDVfMoi+vZ1v16+CieSe43YFPnz48OHDV/AlH8sPpeV3mx4pa8qUJqzHhw8fPnz4nuCbxtkJ33SrnwfuebGSt/zzrwg+fPjw4cN3xZcHB1dwV5v86TunQQk+fPjw4cN3y5fH67uCYNf8no4nKV92IQU+fPjw4cN3xde0sacFSh6OT6e6i+aXjQp8+PDhw4ev4Mub3E0ckEf8CVDfJm8OwOHDhw8fPnxXkUGzaZ9u7KdtgKZ8yb8oy8IFHz58+PDhK/iacHwa/fflTt5IeLxNjg8fPnz48MVh/XQCfcN7umzJaHcLk98HHz58+PDh6/mmjfBdobBrTvflVP61GBRJ+PDhw4cP3xHfrtTYlUG7A3DT2D1hysMCfPjw4cOH75ZvOujpT34++Xzz37TYd3PBhw8fPnz4Gr5pQHC1Od816fMiKS9o8ngCHz58+PDh6/l2RUYeGTQlRR73XzXFl5EBPnz48OHDF/NNf7yn0XZT1vRHzfJyZ3A4Dx8+fPjw4av5+jC9OUaWb/inIf4jz8KHDx8+fPiO+KZHunfhex/W76KKZlT48OHDhw/fa/l2AXpevjThRd4qSO6JDx8+fPjwvZavaa7nDfh8Mj3W+Fn48OHDhw/fEd9tezvnmB5ry5e2/+9xrwMfPnz48OE7PaCWcPQRwNWodiEIPnz48OHD1/C5xvEHAnz48OFz4cOHD58LH76ve/0EDlDKWJE5fxIAAAAASUVORK5CYII=">
-        </ul>
     
 
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/java/">java</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/linux/">linux</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/solution/">solution</a>
-    </ul>
-    
 
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+</header>
+
+
+<div class="container body-wrap">
     
-    <!-- Leancloud Views -->
-        <a class="post_share-link" href="#">
-            <li class="mdl-menu__item">
-                <span id="/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/" class="leancloud-views_num" data-flag-title="将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行">
-     &nbsp;浏览量
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、需求描述"><span class="post-toc-text">二、需求描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、导出-jar-包步骤"><span class="post-toc-text">三、导出 jar 包步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-确保正确地写完项目"><span class="post-toc-text">3.1 确保正确地写完项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-选中项目，点击右键"><span class="post-toc-text">3.2 选中项目，点击右键</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-选择export"><span class="post-toc-text">3.3 选择export</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-选择导出可运行的-jar-文件"><span class="post-toc-text">3.4 选择导出可运行的 jar 文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-配置-JAR-包"><span class="post-toc-text">3.4 配置 JAR 包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-完成"><span class="post-toc-text">3.5 完成</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、可运行-JAR-文件结构解析"><span class="post-toc-text">四、可运行 JAR 文件结构解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-解压上述步骤得到的-JAR-包"><span class="post-toc-text">4.1 解压上述步骤得到的 JAR 包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、服务器上运行"><span class="post-toc-text">四、服务器上运行</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-11-14 22:41:00" datetime="2016-11-14T14:41:00.000Z"  itemprop="datePublished">2016-11-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
-            </li>
-        </a>
-    
 
-    
+            
 
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行&url=http://cnneillee.github.io//2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行&url=http://cnneillee.github.io//2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/index.html&via=Neil Lee" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io//2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://cnneillee.github.io//2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://cnneillee.github.io//2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/index.html&title=将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 LinkedIn
-            </li>
-        </a>
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行&summary=null&pics=http://cnneillee.github.io/img/favicon.png&url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>java项目有两种架构，一种是 B/S 架构的，一种是 C/S 架构的。<br>对于 B/S 架构来说，我们常见的 java ee 即是 B/S 架构，通常，开发人员会在本地进行开发，然后将项目打包成 war<br>文件，上传至服务器，供调用。<br>而对于 B/S 架构来说，通常即是里面有个主方法，就是我们常写的 java 项目/程序。通常，开发完之后，将项目打包成 jar<br>包，随后上传至服务器，供调用。<br>本文，针对后者进行介绍。</p>
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>java项目有两种架构，一种是 B/S 架构的，一种是 C/S 架构的。<br>对于 B/S 架构来说，我们常见的 java ee 即是 B/S 架构，通常，开发人员会在本地进行开发，然后将项目打包成 war<br>文件，上传至服务器，供调用。<br>而对于 B/S 架构来说，通常即是里面有个主方法，就是我们常写的 java 项目/程序。通常，开发完之后，将项目打包成 jar<br>包，随后上传至服务器，供调用。<br>本文，针对后者进行介绍。</p>
 <h1 id="二、需求描述"><a href="#二、需求描述" class="headerlink" title="二、需求描述"></a>二、需求描述</h1><p>一个 java 项目，分包存放多个 java 文件，java 文件中，有依赖第三方库（从外部导入的 jar<br>包）。其中，主函数（项目入口）位于项目的一个包内，主函数必须带有四个参数。</p>
 <h1 id="三、导出-jar-包步骤"><a href="#三、导出-jar-包步骤" class="headerlink" title="三、导出 jar 包步骤"></a>三、导出 jar 包步骤</h1><h2 id="3-1-确保正确地写完项目"><a href="#3-1-确保正确地写完项目" class="headerlink" title="3.1 确保正确地写完项目"></a>3.1 确保正确地写完项目</h2><p>这一步就不消说了。</p>
 <h2 id="3-2-选中项目，点击右键"><a href="#3-2-选中项目，点击右键" class="headerlink" title="3.2 选中项目，点击右键"></a>3.2 选中项目，点击右键</h2><p>鼠标单击项目名称，选中后u，单击右键，随即弹出菜单列表</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215215107-618732496.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215215107-618732496.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="3-3-选择export"><a href="#3-3-选择export" class="headerlink" title="3.3 选择export"></a>3.3 选择export</h2><p>在弹出的列表中，选择”Export…”，随即弹出 Export 的窗口</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215717310-277980181.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215717310-277980181.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="3-4-选择导出可运行的-jar-文件"><a href="#3-4-选择导出可运行的-jar-文件" class="headerlink" title="3.4 选择导出可运行的 jar 文件"></a>3.4 选择导出可运行的 jar 文件</h2><p>在弹出的 Export 窗口中，点开 java ，选择 Runable JAR file 选项。</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114220129232-869653535.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114220129232-869653535.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ul>
 <li>JAR file，单纯只是将项目打包成 jar 包，一般用于java lib的导出，用于给其他人依赖开发使用</li>
 <li>Runable JAR file，顾名思义，可运行的 jar 包，能够被运行（因为随后要指定项目入口）</li>
 </ul>
 <p>选择 Runable JAR file 选项，点击 Next ，弹出 Runable JAR file Export 窗口</p>
 <h2 id="3-4-配置-JAR-包"><a href="#3-4-配置-JAR-包" class="headerlink" title="3.4 配置 JAR 包"></a>3.4 配置 JAR 包</h2><p>在弹出的 Runable JAR file Export 窗口中，</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221052263-58580083.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221052263-58580083.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ul>
 <li>修改 Launch configuration，选择为你的项目的入口，即有主方法的类</li>
 <li>Export destination ，选择你想要导出的目录</li>
@@ -439,15 +286,45 @@
 <li>点击 Next</li>
 </ul>
 <h2 id="3-5-完成"><a href="#3-5-完成" class="headerlink" title="3.5 完成"></a>3.5 完成</h2><p>导出过程可能会消耗一定时间，地下有绿色进度条提醒进度。等待片刻，即可完成整个过程。</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221225404-742916186.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221225404-742916186.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>若项目有依赖第三方包，则有可能会弹出以下警示框，点击 OK 即可。</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221133888-1593064140.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221133888-1593064140.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>由于项目中可能存在一些不规范之初，在完成此步骤后，也许会弹出一个警告框。点击 Details 可查看详情，点击 OK 进入导出过程。</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221728842-1375885340.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221728842-1375885340.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>在 3.4 步骤中选择的目标目录中，即可看到导出的 jar 包。</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222009701-1414080272.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222009701-1414080272.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="四、可运行-JAR-文件结构解析"><a href="#四、可运行-JAR-文件结构解析" class="headerlink" title="四、可运行 JAR 文件结构解析"></a>四、可运行 JAR 文件结构解析</h1><h2 id="4-1-解压上述步骤得到的-JAR-包"><a href="#4-1-解压上述步骤得到的-JAR-包" class="headerlink" title="4.1 解压上述步骤得到的 JAR 包"></a>4.1 解压上述步骤得到的 JAR 包</h2><p>文件目录结构见下图：</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222540529-1209559392.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222540529-1209559392.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ul>
 <li>META-INF 文件夹存放着项目的配置信息： <ul>
 <li>maven依赖（如果有的话， META-INF 中包含了 maven 文件夹）</li>
@@ -456,567 +333,320 @@
 </li>
 <li>其他文件夹都存放着 .class 文件（结构类似exlipse项目中的bin目录），若有第三方依赖，则也有第三方包的 .class 文件</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223246013-300335085.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223246013-300335085.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="四、服务器上运行"><a href="#四、服务器上运行" class="headerlink" title="四、服务器上运行"></a>四、服务器上运行</h1><p>将文件上传至服务器的步骤，本文就不赘述了。此处简单讲解一下运行过程。<br>进入可运行的 jar 包目录，此处打开命令行，键入命令<code>java -jar JSTUNServer.jar 5000 192.168.2.1 5001
 192.168.2.3</code>（<code>java -jar [jar包] [参数1 参数2 参数3...]</code>），敲回车，即可运行。</p>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223831623-1981784674.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223831623-1981784674.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>由于我选用的实例代码需要特殊的环境，此处报的错与本文论述的内容无关。此处就证明了上述过程的正确性。</p>
-<p><em>本文从我的另一个 blog <a href="http://www.cnblogs.com/neillee" target="_blank" rel="external">http://www.cnblogs.com/neillee</a> 中同步过来，同步过程使用了 python 脚本，文章<a href="http://cnneillee.github.io/2017/02/26/cnblogs%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B/">cnblogs博客迁移过程</a>详细介绍了同步过程，并附有源码！</em></p>
-<p><a href="http://www.cnblogs.com/neillee/p/6063808.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6063808.html</a></p>
-<p><em>截至博客迁移时，cnblogs上的访问量为：798</em></p>
 
-    
+        </div>
 
-    
-</div>
+        <blockquote class="post-copyright">
+    <div class="content">
+        
 
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用多说评论 -->
-    <link rel="stylesheet" href="/css/duoshuo.min.css">
-<style>
-    #ds-thread #ds-reset .ds-post-button{
-        background-color: #0097A7 !important;
-    }
-    #ds-wrapper #ds-reset .ds-icons-32{
-        background-color: #0097A7 !important;
-    }
-    #ds-reset .ds-highlight {
-        color: #0097A7 !important;
-    }
-</style>
-<div id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread"
-        data-thread-key="2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/"
-        data-url="http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/"
-        data-title="将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行">
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/6063808.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6063808.html</a>
+        
     </div>
-    <!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-		var duoshuoQuery = {short_name:"neillee"};
-		(function() {
-			var ds = document.createElement('script');
-			ds.type = 'text/javascript';ds.async = true;
-			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-			ds.charset = 'UTF-8';
-			(document.getElementsByTagName('head')[0] 
-			 || document.getElementsByTagName('body')[0]).appendChild(ds);
-		})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
 
 
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solution/">solution</a></li></ul>
 
 
-
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
+            
+<div class="page-share-wrap">
     
-        <a href="/2016/11/20/node、npm、gulp、bower、ionic下载及安装/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/&title=《将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
         </a>
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2016/11/10/tlv-类型-长度-值-格式及编码/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
         </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/&title=《将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
     
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/11/20/node、npm、gulp、bower、ionic下载及安装/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">node、npm、gulp、bower、ionic下载及安装</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/10/tlv-类型-长度-值-格式及编码/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">TLV（类型—长度—值）格式及编码</h4>
+      </a>
+    </div>
+  
 </nav>
 
-        </div>
-    </div>
 
 
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
-    </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Neil Lee's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        cn.neillee@gmail.com
-        <b class="caret"></b>
-    </a>
-</div>
-
-
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="#" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
     
-        <li id="sidebar-first-li">
-            <a href="/" target="_self">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
-        </li>
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
         
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">45</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/Java/">Java<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味与常识/">趣味与常识<span class="sidebar_archives-count">4</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Pages  -->
-    
         <li>
-            <a href="/tags" title="标签云">
-                
-                    <i class="material-icons sidebar-material-icons">tag</i>
-                
-                标签云
-            </a>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
         </li>
         
-            <li class="divider"></li>
+
         
-    
         <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
         </li>
         
-    
-
-    <!-- Article Number  -->
-    
-</ul>
+    </ul>
+</div>
 
 
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
 
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
+</div>
 
-<!-- Sidebar Divider -->
-
-    <div class="sidebar-divider"></div>
-
-
-<!-- Theme Material -->
-
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
 
 
-<!-- Help & Support -->
-<!--
-
--->
-
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
-
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    <!-- Sidebar Image -->
-    
-
-</aside>
-
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-        <a href="http://weibo.com/u/2686015514" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
-                <span class="visuallyhidden">Weibo</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/cnneillee" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- LinkedIn -->
-    
-        <a href="https://www.linkedin.com/in/%E6%9E%97%E8%8C%82-%E6%9D%8E-564701134" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-linkedin.png);">
-                <span class="visuallyhidden">LinkedIn</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Zhihu -->
-    
-        <a href="https://www.zhihu.com/people/neil-lee-34-58" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-zhihu.png);">
-                <span class="visuallyhidden">Zhihu</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-</div>
-
-
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;
-            <script type="text/javascript">
-                var fd = new Date();
-                document.write(fd.getFullYear());
-            </script>
-            &nbsp;NeilLee's blog
-        </div>
-
-        <!-- Paradox Footer Right Section -->
-
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
-    
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
 </footer>
 
-
-                    <!-- Import File -->
-<script src="/js/lazyload.min.js"></script>
-<script src="/js/js.min.js"></script>
-<script src="/js/nprogress.js"></script>
-
-<script type="text/javascript">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/&title=《将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/&title=《将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/11/14/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
 
 
-    <!-- Leancloud -->
-    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-    <script>
-        AV.initialize('lUtNsIH5GOeqlwlXiIOLJgtm-gzGzoHsz', 'RoMAOm5BK3k1m6DGYVca7usg');
-    </script>
-    <script>
-    function showTime(Counter) {
-        var query = new AV.Query(Counter);
-        $('.leancloud-views_num').each(function() {
-            var url = $(this).attr('id').trim();
-            query.equalTo('url', url);
-            query.find({
-                success: function(results) {
-                    if (results.length === 0) {
-                        var content = '0 ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                        return;
-                    }
-                    for (var i = 0; i < results.length; i++) {
-                        var object = results[i];
-                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    }
-                },
-                error: function(object, error) {
-                    console.log('Error: ' + error.code + ' ' + error.message);
-                }
-            });
-        });
-    }
-
-    function addCount(Counter) {
-      var Counter = AV.Object.extend('Counter');
-      url = $('.leancloud-views_num').attr('id').trim();
-      title = $('.leancloud-views_num').attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-      query.equalTo('url', url);
-      query.find({
-          success: function(results) {
-            if (results.length > 0) {
-                var counter = results[0];
-                counter.fetchWhenSave(true);
-                counter.increment('time');
-                counter.save(null, {
-                    success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    },
-                    error: function(counter, error) {
-                        console.log('Failed to save Visitor num, with error message: ' + error.message);
-                    }
-                });
-            } else {
-              var newcounter = new Counter();
-              newcounter.set('title', title);
-              newcounter.set('url', url);
-              newcounter.set('time', 1);
-              newcounter.save(null, {
-                  success: function(newcounter) {
-                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
-                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
-                      $(document.getElementById(url)).text(content);
-                  },
-                  error: function(newcounter, error) {
-                      console.log('Failed to create');
-                  }
-              });
-            }
-        },
-        error: function(error) {
-            console.log('Error:' + error.code + ' ' + error.message);
-        }
-      });
-    }
-    $(function() {
-        var Counter = AV.Object.extend('Counter');
-        if ($('.leancloud-views_num').length === 1) {
-            addCount(Counter);
-        } else if ($('.post-title-link').length > 1) {
-            showTime(Counter);
-        }
-    });
-</script>
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEkUlEQVR42u3aSY7bQBAEQP//0/J1AINSZhUNsDXBk6Hh0gwaqKXrz5/4eP1zXP3+86/vr/351/d3u7r2ap1XT78657YDEyZMmDA9kilZ1is+8iUmZFf3yaHb8y+vxYQJEyZMhzMlt0sI3ofbGe7mVfOP8cEEEyZMmDD9Gqa2mNwkCnm5m98NEyZMmDBhapfePr5t2r4P6smZ70t6TJgwYcL0G5jy2yXhNm/mts3ZWVk7a15jwoQJE6bvYMqnVr7v3/9lvgkTJkyYMD2G6VUeeXBti972WXeNAUVvjQkTJkyYjmXabBm2L7kPzJsNyxuay5gwYcKE6VimpP3atlnzc/apw6ziT1IZTJgwYcL0HUz54M77Bc2AErLNlmeLW5e+mDBhwoTpwUyzQZlhk3Sxb7i5ataSXtX9mDBhwoTpYUx52Vk/oCwyN6+apBRtyxgTJkyYMJ3OlG86zorJpFSeld95KT4b4rls8mLChAkTpmOZ8q3EWQndDgnNwnmyqmExjAkTJkyYjmXah88ooJYlcbKGNn1pm8WYMGHChOn7mDahvR3ZmRWibcmdBP4iOcCECRMmTEcxzRa0CdXtVW1Eno0NfXg7TJgwYcJ0LNO+XMwfPCuV22buvR++t8SECRMmTE9kel+gzsZckoW2Jfds23Wzwuh/FiZMmDBhejDT7GXyUZ78l1ngbz/zrJDGhAkTJkznMrUFcMuXQ7QvP/tr/vFWfQJMmDBhwvRIpk0Dt20K50tJPkly7f7tMGHChAnTiUx3lYXJAM1s4GazhTlrENfemDBhwoTpwUx5ozZf+v9r8iaJwmaD88PTMWHChAnTsUxt4JxtYc4Sghxi1qqu55swYcKECdOBTLO+72xzcd9+zVOQfesZEyZMmDB9E1Nyat4UTpq/+Tmbj7RJdDBhwoQJ0+lMbRF71xjr5vw2IdikL5gwYcKE6TuYZi+QX9Vyb3rVmy3VSz5MmDBhwnQ40yzEztKF/APMIPKXLzZrMWHChAnT4UyzhulmEzRvIifJQXvnupDGhAkTJkzHMuW325Sgm2SiLWL3w6yX/4EwYcKECdOBTLMmbwI3SyBewdGOAb2P6dFqMWHChAnT4Uz5I9vGa95UnSUEm1K5gMaECRMmTMcyzbA2m4ttIbopcWcfAxMmTJgwfSvTDCgPye0Qz2ydd21zXvbCMWHChAnTgUx5Wbtf1l2bkW1p3X4ATJgwYcL0HUzJlmQ7bNoG41nL+N7Nyw93wIQJEyZMX8HUjo3OytG89E2e2I4QDceMMGHChAnTsUz5a7dt2TbwJ0F9v2maHx/ugAkTJkyYDmF6lcc+JLeboLP28b1JAyZMmDBhOpepDZBtElC3UxdN3ruGdVYpBSZMmDBheiRTO/6SlLhtQM1L7k1LevUsTJgwYcJ0OFPbNs3buHeNB93VJl71vzFhwoQJ0y9gyovetmHapiZ54jJLLDBhwoQJ029muveXJNjPitu2eX35OyZMmDBhOpxpM6yz2cLMC+b95mi7hmG2ggkTJkyYHsbUNkBnQ6jtsvZDrrMzh0CYMGHChOmJTH8Be7zeP9YJzuwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
 
 
 
 
-
-
-    <!-- 多说公共 js 代码 start -->
-    <script type="text/javascript">
-        queue.offer(function(){
-            var duoshuoQuery = {
-                short_name: 'neillee'
-            };
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';
-                ds.async = true;
-                ds.src = 'https://static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0]
-                 || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
-        });
-    </script>
-    <!-- 多说公共 js 代码 end -->
-
-
-
-
-
-<!-- Swiftye -->
-
-
-<!-- Local Search-->
-
-
-<!-- Window Load-->
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-    $(window).load(function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
 </script>
 
-<!-- MathJax Load-->
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 
 
-                </main>
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
             </div>
-        </body>
-    
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
 </html>

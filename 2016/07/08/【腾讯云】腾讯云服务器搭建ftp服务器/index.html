@@ -1,414 +1,238 @@
 <!DOCTYPE html>
-<html lang="zh">
-    <head>
-    <!-- 
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.3.0 -->
-
-    <!-- Title -->
+<html>
+<head>
     
-    <title>
-        
-            【腾讯云】腾讯云服务器搭建ftp服务器 | 
-        
-        NeilLee&#39;s blog
-    </title>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
 
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
 
-    <!-- Meta & Info -->
+    
+
+    
+
+
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Neil Lee">
-    <meta name="description" content="null">
-    <meta name="keywords" content="null,linux,ftp">
-
-    <!--iOS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="NeilLee&#39;s blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://cnneillee.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="【腾讯云】腾讯云服务器搭建ftp服务器 | NeilLee&#39;s blog">
-    <meta property="og:description" content="null">
-    <meta property="og:article:tag" content="linux"> <meta property="og:article:tag" content="ftp"> 
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import CSS -->
-    <link rel="stylesheet" href="/css/material.min.css">
-    <link rel="stylesheet" href="/css/style.min.css">
-    <!-- Config CSS -->
-
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-image: url(http://oltjxlyku.bkt.clouddn.com/bg.jpg);
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/queue.js"></script>
-
-    <!-- UC Browser Compatible -->
-    <script>
-        var agent = navigator.userAgent.toLowerCase();
-        if(agent.indexOf('ucbrowser')>0) {
-            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
-            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-        }
-    </script>
-
     
-    <!-- Baidu Analytics -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {var hm = document.createElement('script');
-        hm.src = 'https://hm.baidu.com/hm.js?B51Mj8cv5v';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
     
-
+    <link rel="canonical" href="http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/">
     
-
-    <!-- Bing Background -->
     
-
-    <!-- Custom Head -->
+    <title>【腾讯云】腾讯云服务器搭建ftp服务器 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,ftp">
+    <meta name="description" content="一、硬件描述1.1 云服务器：腾讯云云主机操作系统：Ubuntu Server 14.04.1 LTS 32位CPU：1核内存：1GB系统盘：20GB(本地磁盘)数据盘：0GB公网带宽：1Mbps 1.2 本地配置操作系统：windows 8.1 二、远程登陆服务器（ubuntu为例）2.1 操作教程官方文档：如何远程登录linux服务器 2.2 踩过的坑需要特别注意的是，在使用ssh与putty">
+<meta name="keywords" content="linux,ftp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【腾讯云】腾讯云服务器搭建ftp服务器">
+<meta property="og:url" content="http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、硬件描述1.1 云服务器：腾讯云云主机操作系统：Ubuntu Server 14.04.1 LTS 32位CPU：1核内存：1GB系统盘：20GB(本地磁盘)数据盘：0GB公网带宽：1Mbps 1.2 本地配置操作系统：windows 8.1 二、远程登陆服务器（ubuntu为例）2.1 操作教程官方文档：如何远程登录linux服务器 2.2 踩过的坑需要特别注意的是，在使用ssh与putty">
+<meta property="og:image" content="https://mccdn.qcloud.com/img56397115cb2c1.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708134551686-1064505686.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png">
+<meta property="og:updated_time" content="2017-05-09T15:13:35.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【腾讯云】腾讯云服务器搭建ftp服务器">
+<meta name="twitter:description" content="一、硬件描述1.1 云服务器：腾讯云云主机操作系统：Ubuntu Server 14.04.1 LTS 32位CPU：1核内存：1GB系统盘：20GB(本地磁盘)数据盘：0GB公网带宽：1Mbps 1.2 本地配置操作系统：windows 8.1 二、远程登陆服务器（ubuntu为例）2.1 操作教程官方文档：如何远程登录linux服务器 2.2 踩过的坑需要特别注意的是，在使用ssh与putty">
+<meta name="twitter:image" content="https://mccdn.qcloud.com/img56397115cb2c1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 </head>
 
+<body>
+    <div id="loading" class="active"></div>
 
-    
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Post TOC -->
-
-    
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
         </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
     </div>
-    -->
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
 
-    <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、硬件描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、硬件描述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-云服务器：腾讯云"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 云服务器：腾讯云</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-本地配置"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 本地配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、远程登陆服务器（ubuntu为例）"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、远程登陆服务器（ubuntu为例）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-操作教程"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 操作教程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-踩过的坑"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 踩过的坑</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、搭建vsftpd服务器"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、搭建vsftpd服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-下载vsftpd"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 下载vsftpd</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-开启ftp服务"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 开启ftp服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-ftp用户管理"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">3.4 ftp用户管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-通过对-vsftpd-配置文件的修改实现对vsftpd的精细化配置"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">3.5 通过对 vsftpd 配置文件的修改实现对vsftpd的精细化配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、踩过的坑"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、踩过的坑</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-不同系统配置文件的目录不同"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">4.1 不同系统配置文件的目录不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-明确vsftpd-conf-文件中几个参数的作用"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">4.2 明确vsftpd.conf 文件中几个参数的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-记得打开21端口的安全组"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">4.3 记得打开21端口的安全组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5-写文件时遇到-bash-data1-txt-Permission-denied"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">4.5 写文件时遇到-bash: data1.txt: Permission denied</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、参考文献"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、参考文献</span></a></li></ol>
-
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
-    </ul>
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://oltjxlyku.bkt.clouddn.com/qcloud.jpg)">
-    
-            <p class="article-headline-p">
-                【腾讯云】腾讯云服务器搭建ftp服务器
-            </p>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【腾讯云】腾讯云服务器搭建ftp服务器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>Neil Lee</strong>
-        <span>7月 08, 2016</span>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【腾讯云】腾讯云服务器搭建ftp服务器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-07T18:34:00.000Z" itemprop="datePublished" class="page-time">
+  2016-07-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
     </div>
 
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">devices other</i>
-            <span class="visuallyhidden">devices other</span>
-        </button>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADkElEQVR42u3aS27jMBAFQN//0jPbAAM773WThgYorYxYEcnSot2f1x/Xj+uFAAcOHDhw4MCBAweOB3O84uvf/4oW+3Hnu2e++/zuaZ+fU58FBw4cOHBc4MiP1N7z+ajJ8RKUzT5x4MCBA8c9jjwQtltvV2yfudknDhw4cOB4Dke9cHDsPD37HMhx4MCBA8f/xbFnytO5WWDGgQMHDhxP4Ni3jjZHykN1Xny8XivFgQMHDhzrgYbnf/7qfAcOHDhw4PiHo71mS+blwjy4fl6rOBEOHDhw4DjKkQeq/Bg50Cz9awfvflkdBw4cOHBc5ki+TULprOE0K1C2AR4HDhw4cHyHo2XapGrFdkeDC5/DOQ4cOHDguMeRJ12v8mrHDmZDeMmQBA4cOHDg+CbHptyWHD4PqEngPPV3HDhw4MDxTY628NcW9fJRhlkilw9G4MCBAweOGxxtaW92gHYooQVNXmSR0eLAgQMHjgVHHpDapCsv4eXFyrZwufrdgQMHDhw41jlLHsb2n/Og2B6+DcY4cODAgeMsx+yos3bRZqAh+d9ofAEHDhw4cFzmyJfJ06rZt3kAPtWIwoEDBw4c9ziS5fclwtnYQREyZ40uHDhw4MBxjSMvxm0Qc7j9YET0AnDgwIEDx1c48oO1zaR90bANvasuHA4cOHDgWHDkAwHJ1tvmUD6aMMN6uyscOHDgwHGU42whL29l5WnYqSQwajvhwIEDB45DHLMhg4QgZ81HJdoXUAdaHDhw4MCx4GjTrdlYQ1vam5G1w3M4cODAgeMGR/vQJKy23+YQs6LhL3vGgQMHDhxHOZKG0Kl2VH6k2RhcXojEgQMHDhy3Odqt70t7eVso/1mQN6Jw4MCBA8c9jvYR+8A2axrlZcc8FcSBAwcOHPc4ZiEzD4358YoRt1lYxYEDBw4cX+doU7tZQTB/JS1fG+Zx4MCBA8c9jk1xsCVrA+Tmx0FdHMSBAwcOHAuO9mrTpHaILQ+0eZj/pbCIAwcOHDiOcmxCVJ50be5s07y6yIgDBw4cOC5wtClTnrzN2lHJIMK+rYUDBw4cOG5ztEMGZ+/ZlxTbAIwDBw4cOJ7DkQTCdtTgVMExR8eBAwcOHM/hmBUBW6bZIEU9HoEDBw4cOK5x5IW8KIDFzaq2KJmjR6MPOHDgwIHjAkdbaGuLd20ra9ZkGjbAcODAgQPHUQ4XDhw4cODAgQMHDhw4Hnb9BXcAryjSiL/CAAAAAElFTkSuQmCC">
-        </ul>
     
 
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/ftp/">ftp</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/linux/">linux</a>
-    </ul>
-    
 
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+</header>
+
+
+<div class="container body-wrap">
     
-    <!-- Leancloud Views -->
-        <a class="post_share-link" href="#">
-            <li class="mdl-menu__item">
-                <span id="/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/" class="leancloud-views_num" data-flag-title="【腾讯云】腾讯云服务器搭建ftp服务器">
-     &nbsp;浏览量
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、硬件描述"><span class="post-toc-text">一、硬件描述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-云服务器：腾讯云"><span class="post-toc-text">1.1 云服务器：腾讯云</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-本地配置"><span class="post-toc-text">1.2 本地配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、远程登陆服务器（ubuntu为例）"><span class="post-toc-text">二、远程登陆服务器（ubuntu为例）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-操作教程"><span class="post-toc-text">2.1 操作教程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-踩过的坑"><span class="post-toc-text">2.2 踩过的坑</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、搭建vsftpd服务器"><span class="post-toc-text">三、搭建vsftpd服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-下载vsftpd"><span class="post-toc-text">3.1 下载vsftpd</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）"><span class="post-toc-text">3.2 关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-开启ftp服务"><span class="post-toc-text">3.3 开启ftp服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-ftp用户管理"><span class="post-toc-text">3.4 ftp用户管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-通过对-vsftpd-配置文件的修改实现对vsftpd的精细化配置"><span class="post-toc-text">3.5 通过对 vsftpd 配置文件的修改实现对vsftpd的精细化配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、踩过的坑"><span class="post-toc-text">四、踩过的坑</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-不同系统配置文件的目录不同"><span class="post-toc-text">4.1 不同系统配置文件的目录不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-明确vsftpd-conf-文件中几个参数的作用"><span class="post-toc-text">4.2 明确vsftpd.conf 文件中几个参数的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-记得打开21端口的安全组"><span class="post-toc-text">4.3 记得打开21端口的安全组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside"><span class="post-toc-text">4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5-写文件时遇到-bash-data1-txt-Permission-denied"><span class="post-toc-text">4.5 写文件时遇到-bash: data1.txt: Permission denied</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、参考文献"><span class="post-toc-text">五、参考文献</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-【腾讯云】腾讯云服务器搭建ftp服务器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【腾讯云】腾讯云服务器搭建ftp服务器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-08 02:34:00" datetime="2016-07-07T18:34:00.000Z"  itemprop="datePublished">2016-07-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
-            </li>
-        </a>
-    
 
-    
+            
 
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=【腾讯云】腾讯云服务器搭建ftp服务器&url=http://cnneillee.github.io//2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=【腾讯云】腾讯云服务器搭建ftp服务器&url=http://cnneillee.github.io//2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/index.html&via=Neil Lee" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io//2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://cnneillee.github.io//2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://cnneillee.github.io//2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/index.html&title=【腾讯云】腾讯云服务器搭建ftp服务器" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 LinkedIn
-            </li>
-        </a>
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=NeilLee&#39;s blog&title=【腾讯云】腾讯云服务器搭建ftp服务器&summary=null&pics=http://cnneillee.github.io/img/favicon.png&url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <h1 id="一、硬件描述"><a href="#一、硬件描述" class="headerlink" title="一、硬件描述"></a>一、硬件描述</h1><h2 id="1-1-云服务器：腾讯云"><a href="#1-1-云服务器：腾讯云" class="headerlink" title="1.1 云服务器：腾讯云"></a>1.1 云服务器：腾讯云</h2><p><strong>云主机</strong><br>操作系统：Ubuntu Server 14.04.1 LTS 32位<br>CPU：1核<br>内存：1GB<br>系统盘：20GB(本地磁盘)<br>数据盘：0GB<br>公网带宽：1Mbps</p>
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、硬件描述"><a href="#一、硬件描述" class="headerlink" title="一、硬件描述"></a>一、硬件描述</h1><h2 id="1-1-云服务器：腾讯云"><a href="#1-1-云服务器：腾讯云" class="headerlink" title="1.1 云服务器：腾讯云"></a>1.1 云服务器：腾讯云</h2><p><strong>云主机</strong><br>操作系统：Ubuntu Server 14.04.1 LTS 32位<br>CPU：1核<br>内存：1GB<br>系统盘：20GB(本地磁盘)<br>数据盘：0GB<br>公网带宽：1Mbps</p>
 <h2 id="1-2-本地配置"><a href="#1-2-本地配置" class="headerlink" title="1.2 本地配置"></a>1.2 本地配置</h2><p>操作系统：windows 8.1</p>
 <h1 id="二、远程登陆服务器（ubuntu为例）"><a href="#二、远程登陆服务器（ubuntu为例）" class="headerlink" title="二、远程登陆服务器（ubuntu为例）"></a>二、远程登陆服务器（ubuntu为例）</h1><h2 id="2-1-操作教程"><a href="#2-1-操作教程" class="headerlink" title="2.1 操作教程"></a>2.1 操作教程</h2><p>官方文档：<a href="https://www.qcloud.com/help/%E5%A6%82%E4%BD%95%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95linux%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="external">如何远程登录linux服务器</a></p>
 <h2 id="2-2-踩过的坑"><a href="#2-2-踩过的坑" class="headerlink" title="2.2 踩过的坑"></a>2.2 踩过的坑</h2><p><em>需要特别注意的是，在使用ssh与putty保存session登陆时，有一个坑！</em><br><img src="https://mccdn.qcloud.com/img56397115cb2c1.png" alt=""><br><strong>保存的session名称应避免与用户名冲突</strong></p>
@@ -452,10 +276,22 @@
 <blockquote>
 <p>用户登录FTP服务器后是否具有访问自己目录以外的其他文件的权限<br> 设置为YES时，用户被锁定在自己的home目录中，vsftpd将在下面chroot_list_file选项值的位置寻找chroot_list文件<br> 必须与下面的设置项配合<br> chroot_list_enable=YES<br> 被列入此文件的用户，在登录后将不能切换到自己目录以外的其他目录<br> 从而有利于FTP服务器的安全管理和隐私保护。此文件需自己建立<br> chroot_list_file=/etc/vsftpd/chroot_list</p>
 </blockquote>
-<p><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>关于主配置文件的使用，<a href="http://os.51cto.com/art/201008/221842.htm" target="_blank" rel="external">史上最详细的vsftpd配置文件讲解(1)</a><br>这篇文章写得很详细</p>
 <h1 id="四、踩过的坑"><a href="#四、踩过的坑" class="headerlink" title="四、踩过的坑"></a>四、踩过的坑</h1><h2 id="4-1-不同系统配置文件的目录不同"><a href="#4-1-不同系统配置文件的目录不同" class="headerlink" title="4.1 不同系统配置文件的目录不同"></a>4.1 不同系统配置文件的目录不同</h2><p>ubuntu不同于centos，ubuntu的配置文件目录不在 /etc/vsftpd/vsftpd.conf 而是在 /etc/vsftpd.conf</p>
-<h2 id="4-2-明确vsftpd-conf-文件中几个参数的作用"><a href="#4-2-明确vsftpd-conf-文件中几个参数的作用" class="headerlink" title="4.2 明确vsftpd.conf 文件中几个参数的作用"></a>4.2 明确vsftpd.conf 文件中几个参数的作用</h2><p><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt=""></p>
+<h2 id="4-2-明确vsftpd-conf-文件中几个参数的作用"><a href="#4-2-明确vsftpd-conf-文件中几个参数的作用" class="headerlink" title="4.2 明确vsftpd.conf 文件中几个参数的作用"></a>4.2 明确vsftpd.conf 文件中几个参数的作用</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="4-3-记得打开21端口的安全组"><a href="#4-3-记得打开21端口的安全组" class="headerlink" title="4.3 记得打开21端口的安全组"></a>4.3 记得打开21端口的安全组</h2><p>购买云主机的时候，在做最初配置时，有引导安全组的配置。因为之前选了默认的打开“Linux安全组放通22端口”，而没打开ftp的21端口。<br>所以，在配置完成ftp服务器时发现只能在服务器上登陆ftp，而通过外网无法访问ftp。这是一个比较容易被忽略的问题！（这是一个大坑）</p>
 <p>官方文档：<a href="https://www.qcloud.com/doc/product/213/500" target="_blank" rel="external">如何配置安全组？</a></p>
 <h2 id="4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside"><a href="#4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside" class="headerlink" title="4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside"></a>4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside</h2><p>chroot()</p>
@@ -465,564 +301,303 @@
 </blockquote>
 <p><a href="http://blog.csdn.net/hejinjing_tom_com/article/details/7767127" target="_blank" rel="external">避免’sudo echo x &gt;’ 时’Permission<br>denied’</a></p>
 <h1 id="五、参考文献"><a href="#五、参考文献" class="headerlink" title="五、参考文献"></a>五、参考文献</h1><p>1、qcloud文档中心， <a href="https://www.qcloud.com/doc/product" target="_blank" rel="external">https://www.qcloud.com/doc/product</a><br>2、专题：vsftpd入门——安装、配置、案例与常见问题。玩转vsftpd服务器的四大高级配置，<br><a href="http://os.51cto.com/art/201008/222036.htm" target="_blank" rel="external">http://os.51cto.com/art/201008/222036.htm</a><br>3、FTP两种工作模式介绍， <a href="http://www.softbar.com/blog/post/117.html" target="_blank" rel="external">http://www.softbar.com/blog/post/117.html</a><br>4、SELinux深入理解， <a href="http://blog.csdn.net/myarrow/article/details/9856095/" target="_blank" rel="external">http://blog.csdn.net/myarrow/article/details/9856095/</a><br>5、useradd 与adduser的区别，<br><a href="http://blog.csdn.net/deit_aaron/article/details/9984701" target="_blank" rel="external">http://blog.csdn.net/deit_aaron/article/details/9984701</a><br>5、史上最详细的vsftpd配置文件讲解(1)， <a href="http://os.51cto.com/art/201008/221842.htm" target="_blank" rel="external">http://os.51cto.com/art/201008/221842.htm</a><br>6、避免’sudo echo x &gt;’ 时’Permission denied’，<br><a href="http://blog.csdn.net/hejinjing_tom_com/article/details/7767127" target="_blank" rel="external">http://blog.csdn.net/hejinjing_tom_com/article/details/7767127</a></p>
-<hr>
-<p><em>本文从我的另一个 blog <a href="http://www.cnblogs.com/neillee" target="_blank" rel="external">http://www.cnblogs.com/neillee</a> 中同步过来，同步过程使用了 python 脚本，文章<a href="http://cnneillee.github.io/2017/02/26/cnblogs%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B/">cnblogs博客迁移过程</a>详细介绍了同步过程，并附有源码！</em></p>
-<p><a href="http://www.cnblogs.com/neillee/p/5652063.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5652063.html</a></p>
-<p><em>截至博客迁移时，cnblogs上的访问量为：1817</em></p>
-<hr>
 
-    
+        </div>
 
-    
-</div>
+        <blockquote class="post-copyright">
+    <div class="content">
+        
 
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用多说评论 -->
-    <link rel="stylesheet" href="/css/duoshuo.min.css">
-<style>
-    #ds-thread #ds-reset .ds-post-button{
-        background-color: #0097A7 !important;
-    }
-    #ds-wrapper #ds-reset .ds-icons-32{
-        background-color: #0097A7 !important;
-    }
-    #ds-reset .ds-highlight {
-        color: #0097A7 !important;
-    }
-</style>
-<div id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread"
-        data-thread-key="2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/"
-        data-url="http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/"
-        data-title="【腾讯云】腾讯云服务器搭建ftp服务器">
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5652063.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5652063.html</a>
+        
     </div>
-    <!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-		var duoshuoQuery = {short_name:"neillee"};
-		(function() {
-			var ds = document.createElement('script');
-			ds.type = 'text/javascript';ds.async = true;
-			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-			ds.charset = 'UTF-8';
-			(document.getElementsByTagName('head')[0] 
-			 || document.getElementsByTagName('body')[0]).appendChild(ds);
-		})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
 
 
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ftp/">ftp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 
 
-
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
+            
+<div class="page-share-wrap">
     
-        <a href="/2016/07/13/android新手容易遇到的error-retrieving-parent-for-item-no-resource-found-that-matches-the-given-name-'Theme.AppCompat.Light'.Theme出错的问题/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
         </a>
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2016/07/03/【转】标记接口和标记注解注解/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
         </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
     
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/07/13/android新手容易遇到的error-retrieving-parent-for-item-no-resource-found-that-matches-the-given-name-'Theme.AppCompat.Light'.Theme出错的问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 新手容易遇到的 Error retrieving parent for item No resource found that matches the given name  &#39;Theme.AppCompat.Light&#39;.Theme 出错的问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/07/03/【转】标记接口和标记注解注解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【转】标记接口和标记注解注解</h4>
+      </a>
+    </div>
+  
 </nav>
 
-        </div>
-    </div>
 
 
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
-    </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Neil Lee's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        cn.neillee@gmail.com
-        <b class="caret"></b>
-    </a>
-</div>
-
-
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="#" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
     
-        <li id="sidebar-first-li">
-            <a href="/" target="_self">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
-        </li>
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
         
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">16</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">45</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/">Basic<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Basic/Java/">Java<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Big-Data/">Big Data<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Daily/">Daily<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/Database/">Database<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/Network/">Network<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Scripts/">Scripts<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/Version-Control/">Version Control<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/资源与工具/">资源与工具<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/趣味与常识/">趣味与常识<span class="sidebar_archives-count">4</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Pages  -->
-    
         <li>
-            <a href="/tags" title="标签云">
-                
-                    <i class="material-icons sidebar-material-icons">tag</i>
-                
-                标签云
-            </a>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
         </li>
         
-            <li class="divider"></li>
+
         
-    
         <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
         </li>
         
-    
-
-    <!-- Article Number  -->
-    
-</ul>
+    </ul>
+</div>
 
 
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
 
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
+</div>
 
-<!-- Sidebar Divider -->
-
-    <div class="sidebar-divider"></div>
-
-
-<!-- Theme Material -->
-
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
 
 
-<!-- Help & Support -->
-<!--
-
--->
-
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
-
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    <!-- Sidebar Image -->
-    
-
-</aside>
-
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-        <a href="http://weibo.com/u/2686015514" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
-                <span class="visuallyhidden">Weibo</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/cnneillee" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- LinkedIn -->
-    
-        <a href="https://www.linkedin.com/in/%E6%9E%97%E8%8C%82-%E6%9D%8E-564701134" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-linkedin.png);">
-                <span class="visuallyhidden">LinkedIn</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Zhihu -->
-    
-        <a href="https://www.zhihu.com/people/neil-lee-34-58" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-zhihu.png);">
-                <span class="visuallyhidden">Zhihu</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-</div>
-
-
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;
-            <script type="text/javascript">
-                var fd = new Date();
-                document.write(fd.getFullYear());
-            </script>
-            &nbsp;NeilLee's blog
-        </div>
-
-        <!-- Paradox Footer Right Section -->
-
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
-    
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
 </footer>
 
-
-                    <!-- Import File -->
-<script src="/js/lazyload.min.js"></script>
-<script src="/js/js.min.js"></script>
-<script src="/js/nprogress.js"></script>
-
-<script type="text/javascript">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/07/08/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
 
 
-    <!-- Leancloud -->
-    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-    <script>
-        AV.initialize('lUtNsIH5GOeqlwlXiIOLJgtm-gzGzoHsz', 'RoMAOm5BK3k1m6DGYVca7usg');
-    </script>
-    <script>
-    function showTime(Counter) {
-        var query = new AV.Query(Counter);
-        $('.leancloud-views_num').each(function() {
-            var url = $(this).attr('id').trim();
-            query.equalTo('url', url);
-            query.find({
-                success: function(results) {
-                    if (results.length === 0) {
-                        var content = '0 ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                        return;
-                    }
-                    for (var i = 0; i < results.length; i++) {
-                        var object = results[i];
-                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    }
-                },
-                error: function(object, error) {
-                    console.log('Error: ' + error.code + ' ' + error.message);
-                }
-            });
-        });
-    }
-
-    function addCount(Counter) {
-      var Counter = AV.Object.extend('Counter');
-      url = $('.leancloud-views_num').attr('id').trim();
-      title = $('.leancloud-views_num').attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-      query.equalTo('url', url);
-      query.find({
-          success: function(results) {
-            if (results.length > 0) {
-                var counter = results[0];
-                counter.fetchWhenSave(true);
-                counter.increment('time');
-                counter.save(null, {
-                    success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    },
-                    error: function(counter, error) {
-                        console.log('Failed to save Visitor num, with error message: ' + error.message);
-                    }
-                });
-            } else {
-              var newcounter = new Counter();
-              newcounter.set('title', title);
-              newcounter.set('url', url);
-              newcounter.set('time', 1);
-              newcounter.save(null, {
-                  success: function(newcounter) {
-                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
-                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
-                      $(document.getElementById(url)).text(content);
-                  },
-                  error: function(newcounter, error) {
-                      console.log('Failed to create');
-                  }
-              });
-            }
-        },
-        error: function(error) {
-            console.log('Error:' + error.code + ' ' + error.message);
-        }
-      });
-    }
-    $(function() {
-        var Counter = AV.Object.extend('Counter');
-        if ($('.leancloud-views_num').length === 1) {
-            addCount(Counter);
-        } else if ($('.post-title-link').length > 1) {
-            showTime(Counter);
-        }
-    });
-</script>
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADL0lEQVR42u3awXLqMAwFUP7/p3nbN1MI98pphzjHqw4JiY+6EJL8eMTr+d969/nx1Z+fv7vn5/3trk5b2NjY2BdhPw9XspXj7+bUd5/kYUos2NjY2Luy32HyjSabaHPK8ZOP//5gxMbGxr49e7bR4xCcFWhsbGxs7ORxbSDatlGb9rCxsbGxk6bSjJSHr736R700bGxs7K9n51PR7//7V+bb2NjY2F/Mfi6s2YB2Vvy0b/ywc2xsbOyN2LOXzZo4SXN/dv/scA82Njb2Hux2NNtuMfn9vzJ+mFUf2NjY2Huz86ZSnSfj9DNLqEXJhI2NjX0D9jFmNqadDZVnb/zwHGxsbOyN2HniyZPNymAgH9/OjhNhY2Nj781uC4+VAz3td9s2VvRMbGxs7I3YyRfyozNtOykP7kprKSpLsLGxsS/LXmkJrbSK2gHDbDz8IW9jY2NjX5xdNNPjVJSnq7OeWadGbGxs7O3Ys9olTyRnpbEkEMnAABsbG3s/9iNe+aigLSrWW/z5wAAbGxt7J3aOnP30j9JJGdbkzjzVYWNjY1+dnc8QhnPjMnx5ClwZTmNjY2PvxM4PxLSlQjL0XTnQk6fDIldjY2NjX5DdJolzX98eFWrTGzY2NvZ92MVhl4XtrpclbVCGZ46wsbGxL8WeNdxXWv+/kd6SnbzdGzY2NvbF2W3jpi0S2gHw7PN8LDHsV2FjY2NfnJ0UFbOEt95CygfVL+bb2NjY2Buxz+XlKacNzexI6IvnYGNjY2/Hzg8+ztr9+dV2ZJukrhc7x8bGxt6OPUs8bapr72wLjyQc2NjY2Pux19vu+SaSYUN7/1IixMbGxt6C3b4yf9ms/bTe2IqSHzY2NvZG7NlgNW8qzcqJvFX0CNbbxIyNjY29BftZrvVWzqwsOSug2NjY2Pux83VW46keypbNo3zIgY2Njb0TO09as0IlLxLa+/MEho2NjX0H9kppsVI2JOFLrtZhxcbGxr4lO9locnXWVGrLmA8BxcbGxr4lO/8l3w50ZwOAWWLDxsbG3pXdFgl5KydpFa38S2ZjBmxsbOyd2G2Sy18wK2aWWkXriQ0bGxv7Sux/nTRaPd0dpBcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
 
 
 
 
-
-
-    <!-- 多说公共 js 代码 start -->
-    <script type="text/javascript">
-        queue.offer(function(){
-            var duoshuoQuery = {
-                short_name: 'neillee'
-            };
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';
-                ds.async = true;
-                ds.src = 'https://static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0]
-                 || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
-        });
-    </script>
-    <!-- 多说公共 js 代码 end -->
-
-
-
-
-
-<!-- Swiftye -->
-
-
-<!-- Local Search-->
-
-
-<!-- Window Load-->
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-    $(window).load(function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
 </script>
 
-<!-- MathJax Load-->
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 
 
-                </main>
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
             </div>
-        </body>
-    
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
 </html>
