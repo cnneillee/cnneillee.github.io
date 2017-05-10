@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/">
+    
+    
+    <title>解决 Android Studio 新建项目时只有一个 drawable 目录的问题 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android-studio,solution">
+    <meta name="description" content="Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法">
+<meta name="keywords" content="android-studio,solution">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决 Android Studio 新建项目时只有一个 drawable 目录的问题">
+<meta property="og:url" content="http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png">
+<meta property="og:updated_time" content="2017-03-13T06:32:36.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决 Android Studio 新建项目时只有一个 drawable 目录的问题">
+<meta name="twitter:description" content="Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">解决 Android Studio 新建项目时只有一个 drawable 目录的问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">解决 Android Studio 新建项目时只有一个 drawable 目录的问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-04-14T12:53:54.000Z" itemprop="datePublished" class="page-time">
+  2016-04-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、方法介绍"><span class="post-toc-text">二、方法介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-方法1"><span class="post-toc-text">2.1 方法1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-方法2"><span class="post-toc-text">2.2 方法2</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、参考文章："><span class="post-toc-text">三、参考文章：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">解决 Android Studio 新建项目时只有一个 drawable 目录的问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-04-14 20:53:54" datetime="2016-04-14T12:53:54.000Z"  itemprop="datePublished">2016-04-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法<br><a id="more"></a></p>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法：</p>
+<h1 id="二、方法介绍"><a href="#二、方法介绍" class="headerlink" title="二、方法介绍"></a>二、方法介绍</h1><h2 id="2-1-方法1"><a href="#2-1-方法1" class="headerlink" title="2.1 方法1"></a>2.1 方法1</h2><ul>
+<li>进入 <code>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/root/res</code> 目录</li>
+<li>在此目录下，新建你要初始化的文件夹（<code>drawable-hdpi</code> 等文件夹）**这一点可以参照同目录下的 mipmap 各种分辨率的 mipmap 目录<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203526848-668292915.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>你可以在各个文件夹中放一张默认的图，以后每次新建项目时，就会有类似 mipmap 目录下的 ic_launcher.png <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203552504-543529865.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>回退到 <code>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule</code> 目录，打开 <code>recipe.xml.ftl</code> 文件</li>
+<li>在 <code>recipe.xml.ftl</code> 中增加如下的代码，位置见图（依据你要初始化的目录来添加相应代码）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;copy from=&quot;root/res/drawable-hdpi&quot;</div><div class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</div><div class="line">&lt;copy from=&quot;root/res/drawable-xhdpi&quot;</div><div class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</div><div class="line">&lt;copy from=&quot;root/res/drawable-xxhdpi&quot;</div><div class="line">        to=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203503316-348123544.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>随后你就可以在新建的Module中看到初始化的drawable目录</p>
+<h2 id="2-2-方法2"><a href="#2-2-方法2" class="headerlink" title="2.2 方法2"></a>2.2 方法2</h2><p>与方法1的区别在于：不能在目录中添加初始化的图片</p>
+<ul>
+<li>进入 <code>[androidstudio安装目录]/plugins/android/lib/templates/gradle-projects/NewAndroidModule/recipe.xml.ftl</code> 文件</li>
+<li>添加如下代码，位置见图<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-hdpi&quot; /&gt;</div><div class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xhdpi&quot; /&gt;</div><div class="line">&lt;mkdir at=&quot;$&#123;escapeXmlAttribute(resOut)&#125;/drawable-xxhdpi&quot; /&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+{% image http://images2015.cnblogs.com/blog/797098/201604/797098-20160414203911504-1281851192.png '' '' %}
+<p>随后你就可以在新建的Module中看到初始化的drawable目录</p>
+<p><strong>说明：</strong><br>当然，通过类似的方式我们还可以在创建 Module 的时候做很多事情，比如：</p>
+<ul>
+<li>在 <code>colors.xml</code> 文件中生成常用颜色</li>
+<li>在 <code>build.gradle</code> 文件中生成自定义配置</li>
+<li>在 <code>.gitignore</code> 文件中生成自定义忽略配置<br>等等…</li>
+</ul>
+<h1 id="三、参考文章："><a href="#三、参考文章：" class="headerlink" title="三、参考文章："></a>三、参考文章：</h1><p><a href="http://liukun.engineer/2016/04/10/Android-Studio-advanced-configuration/" target="_blank" rel="external">http://liukun.engineer/2016/04/10/Android-Studio-advanced-configuration/</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solution/">solution</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/&title=《解决 Android Studio 新建项目时只有一个 drawable 目录的问题》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/&title=《解决 Android Studio 新建项目时只有一个 drawable 目录的问题》 — Neil Lee's blog&source=Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《解决 Android Studio 新建项目时只有一个 drawable 目录的问题》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/04/16/android/android夜间模式实现/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 夜间模式实现</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/04/12/android/多种方式实现在android手机上抓包/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">多种方式实现在 Android 手机上抓包</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/&title=《解决 Android Studio 新建项目时只有一个 drawable 目录的问题》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/&title=《解决 Android Studio 新建项目时只有一个 drawable 目录的问题》 — Neil Lee's blog&source=Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《解决 Android Studio 新建项目时只有一个 drawable 目录的问题》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEkUlEQVR42u3ayW7jSBAFQP3/T3uAOTVgW34vk+5WUcGToIUsBgXkVo9HfHz8f/z5+s/j8ze/+/7z8393tufrSVb4+dPHbxyYMGHChOklmT6eHsmtbm4vX1X7frKG5N4xYcKECdM9mJLTPQ/5z18nSUOOlawzTx2ix4kJEyZMmN6AKQmcbXrRlql5yd0+YEyYMGHChClPBf5Oo7ntxGLChAkTpndmmgXmfDCZlKOzYN+OVH+9F44JEyZMmF6MaROMT3/9l3IWTJgwYcL0j5g+RkdUKK5bw3nrNnl/c9eYMGHChOlcpryZm5SUbTs4D8yzRm0+EI3OiQkTJkyYjmVq26CzDTF5mN+v4TfWhgkTJkyY7sGUv5NceDYWTZKSJFGYfT9KCDBhwoQJ0+FM7TaXdtGbNu5+1Dr7K2DChAkTpvsxtenCbFvMVUlG/thmI1tMmDBhwnQ/plmAb4vMpNy9auyatHExYcKECdP9mGZLbLfU5K8355xRFvubMGHChAnTUUwJTZ4EJKnGrAC+alwa/Ws+fxMTJkyYMB3OtDnFrKRsW8Z5mJ+d7Yd1YsKECROmY5mSID3bWNMOJjcbbtoH3FJiwoQJE6Z7MO1PkScQs7FoO7CcFc/RUBMTJkyYMB3CtAm97ahytq1nX/S2hfoX38eECRMmTIczbcaTLVB7w3mTN0876oIcEyZMmDAdy/T843ah+QAyTwj2BLN2cLEITJgwYcJ0INMjPtrmaT4QzYeXm9SkaGRjwoQJE6YDmTYF6lVN3rx9PGv+XjDvxYQJEyZMhzPNWqJtorAJ58kAtR2LPkfEhAkTJkx3YpoF6c3WmU3BnLRr27FlUfpiwoQJE6ajmGYt13x7zaysnQG1m3jypAETJkyYMN2DqW3yzi7ZbgmatY/bdGf1d8GECRMmTAcytaeYldCb9nFesuabbus/ByZMmDBhenmm9gfJJfMG8bDNOsJaDVwxYcKECdOxTJsWZx7I87FoctuzB5MnMZgwYcKE6R2Y9mPO5Lavgp497OS3X5wBEyZMmDAdzjTbJJoH4H25m5w5L+nz1AQTJkyYMJ3LNBsEJoPJHCVv6W42+szGsZgwYcKE6XSmWRm5X9As8M/SlLY8xoQJEyZM92ZqU4FNejEbXraPuX38mDBhwoTpHkyb4P0xOpJkIr+xfEtQ+wgf+R8MEyZMmDAdwpQMC2c3uW/a7ilnd4QJEyZMmO7BtG+PtiG5DfPtmfdbgr4ofTFhwoQJ0+FMecBu27vJgvZF8uZR/XAVTJgwYcJ0LNOsKJ2NP9ux6H5UuS/IMWHChAnT6UzXDiPbYees3ZxvwclTkGLjDiZMmDBhOoopP2YFcDKwvLbEnaUyj6sOTJgwYcL0kkx5EpAvom345m3lqzYY1akJJkyYMGE6nCm/jdkQMSlK28I1Z2pTny9+iwkTJkyY3pgprxY3oX1WBueJxQ9XxIQJEyZMb8DUfpqPGK9NAjZw334HEyZMmDAdzjRr8ubhf7alpt1e04b5vHmNCRMmTJjOZWo37syGgvki9gF+f/XhvidMmDBhwvRaTP8BFC324JJA7WwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

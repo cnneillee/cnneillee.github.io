@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/04/17/android/android中的各类bar/">
+    
+    
+    <title>Android 中的各类 Bar | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android">
+    <meta name="description" content="一、ToolBar1.1 概述Google在2015的IO大会上发布了系列的MaterialDesign风格的控件。其中ToolBar是替代ActionBar的控件。由于ActionBar在各个安卓版本和定制Rom中的效果表现不一，导致严重的碎片化问题，ToolBar应运而生。 与ActionBar区别显示效果跟ActionBar并没有区别。优点：自定义视图的操作更加简单，状态栏的颜色可以调（An">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 中的各类 Bar">
+<meta property="og:url" content="http://cnneillee.github.io/2016/04/17/android/android中的各类bar/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、ToolBar1.1 概述Google在2015的IO大会上发布了系列的MaterialDesign风格的控件。其中ToolBar是替代ActionBar的控件。由于ActionBar在各个安卓版本和定制Rom中的效果表现不一，导致严重的碎片化问题，ToolBar应运而生。 与ActionBar区别显示效果跟ActionBar并没有区别。优点：自定义视图的操作更加简单，状态栏的颜色可以调（An">
+<meta property="og:image" content="http://img.blog.csdn.net/20140606151823031?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnY29udmllbmNl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150713093139859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150713095251222">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201702/797098-20170219150953957-808054892.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201702/797098-20170219151118191-1491914840.png">
+<meta property="og:updated_time" content="2017-05-09T16:56:55.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 中的各类 Bar">
+<meta name="twitter:description" content="一、ToolBar1.1 概述Google在2015的IO大会上发布了系列的MaterialDesign风格的控件。其中ToolBar是替代ActionBar的控件。由于ActionBar在各个安卓版本和定制Rom中的效果表现不一，导致严重的碎片化问题，ToolBar应运而生。 与ActionBar区别显示效果跟ActionBar并没有区别。优点：自定义视图的操作更加简单，状态栏的颜色可以调（An">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20140606151823031?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnY29udmllbmNl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 中的各类 Bar</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 中的各类 Bar</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-04-17T12:39:00.000Z" itemprop="datePublished" class="page-time">
+  2016-04-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、ToolBar"><span class="post-toc-text">一、ToolBar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-概述"><span class="post-toc-text">1.1 概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-使用方法"><span class="post-toc-text">1.2 使用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-1-导包-配置Gradle"><span class="post-toc-text">1.2.1 导包(配置Gradle)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-2-在AndroidManifest-xml设置此Activity的主题"><span class="post-toc-text">1.2.2 在AndroidManifest.xml设置此Activity的主题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-3-重定义主题-颜色等信息"><span class="post-toc-text">1.2.3 重定义主题(颜色等信息)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-4-ToolBarxml文件中定义"><span class="post-toc-text">1.2.4 ToolBarxml文件中定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-5-java代码中实现"><span class="post-toc-text">1.2.5 java代码中实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-参考文章"><span class="post-toc-text">1.3 参考文章</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、ActionBar"><span class="post-toc-text">二、ActionBar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-概述"><span class="post-toc-text">2.1 概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2、使用方法"><span class="post-toc-text">2.2、使用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1低版本（API11）"><span class="post-toc-text">2.2.1低版本（API11）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1创建Actions"><span class="post-toc-text">2.2.1创建Actions</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-Action的按钮交互"><span class="post-toc-text">2.2.2 Action的按钮交互</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-自定义ActionBar"><span class="post-toc-text">2.3 自定义ActionBar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-1-隐藏与显现"><span class="post-toc-text">2.3.1 隐藏与显现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-2-改变title"><span class="post-toc-text">2.3.2 改变title</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-3-隐藏导航"><span class="post-toc-text">2.3.3 隐藏导航</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-使用全屏模式"><span class="post-toc-text">2.3.4 使用全屏模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-使用Split-action-bar"><span class="post-toc-text">2.3.4 使用Split action bar</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-在Fragment中给action-bar添加action"><span class="post-toc-text">2.4 在Fragment中给action bar添加action</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-动态设置action-bar"><span class="post-toc-text">2.5 动态设置action bar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-1-自定义View"><span class="post-toc-text">2.5.1 自定义View</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-2-Action-View（示例见参考文章）"><span class="post-toc-text">2.5.2 Action View（示例见参考文章）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-3-Action-Provider（示例见参考文章）"><span class="post-toc-text">2.5.3 Action Provider（示例见参考文章）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-使用程序图标导航"><span class="post-toc-text">2.6 使用程序图标导航</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-6-1-使用程序图标作为-home-icon"><span class="post-toc-text">2.6.1 使用程序图标作为 home icon</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-7-参考文章："><span class="post-toc-text">2.7 参考文章：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#特别说明"><span class="post-toc-text">特别说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、StatusBar"><span class="post-toc-text">三、StatusBar</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、NavigationBar"><span class="post-toc-text">四、NavigationBar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-兼容性"><span class="post-toc-text">4.1 兼容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-沉浸式体验"><span class="post-toc-text">4.2 沉浸式体验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-使用实例"><span class="post-toc-text">4.3 使用实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-1-style-配置"><span class="post-toc-text">4.3.1 style 配置</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android中的各类bar"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 中的各类 Bar</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-04-17 20:39:00" datetime="2016-04-17T12:39:00.000Z"  itemprop="datePublished">2016-04-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、ToolBar"><a href="#一、ToolBar" class="headerlink" title="一、ToolBar"></a>一、ToolBar</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p>Google在2015的IO大会上发布了系列的Material<br>Design风格的控件。其中ToolBar是替代ActionBar的控件。由于ActionBar在各个安卓版本和定制Rom中的效果表现不一，导致严重的碎片化问题，ToolBar应运而生。</p>
+<p><strong>与ActionBar区别</strong><br>显示效果跟ActionBar并没有区别。<br>优点：自定义视图的操作更加简单，状态栏的颜色可以调（Android 4.4以上）。</p>
+<h2 id="1-2-使用方法"><a href="#1-2-使用方法" class="headerlink" title="1.2 使用方法"></a>1.2 使用方法</h2><h3 id="1-2-1-导包-配置Gradle"><a href="#1-2-1-导包-配置Gradle" class="headerlink" title="1.2.1 导包(配置Gradle)"></a>1.2.1 导包(配置Gradle)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.android.support:appcompat-v7:22.0.0&apos;</div></pre></td></tr></table></figure>
+<h3 id="1-2-2-在AndroidManifest-xml设置此Activity的主题"><a href="#1-2-2-在AndroidManifest-xml设置此Activity的主题" class="headerlink" title="1.2.2 在AndroidManifest.xml设置此Activity的主题"></a>1.2.2 在AndroidManifest.xml设置此Activity的主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">&lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</div></pre></td></tr></table></figure>
+<p>注意：务必将ActionBar消除，否则Activity将会崩溃</p>
+<h3 id="1-2-3-重定义主题-颜色等信息"><a href="#1-2-3-重定义主题-颜色等信息" class="headerlink" title="1.2.3 重定义主题(颜色等信息)"></a>1.2.3 重定义主题(颜色等信息)</h3><p>Android 4.4及以上，在values文件夹中新建values-v19.xml，内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line">	&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;</div><div class="line">		&lt;!--Toolbar颜色--&gt;</div><div class="line">		&lt;item name=&quot;colorPrimary&quot;&gt;@android:color/holo_blue_bright&lt;/item&gt;</div><div class="line">		&lt;!-- 状态栏颜色 --&gt;</div><div class="line">		&lt;item name=&quot;colorPrimaryDark&quot;&gt;@android:color/holo_blue_bright&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowTranslucentNavigation&quot;&gt;true&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowTranslucentStatus&quot;&gt;true&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
+<p>Android 4.4以下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line">	&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;</div><div class="line">		&lt;!--Toolbar颜色--&gt;</div><div class="line">		&lt;item name=&quot;colorPrimary&quot;&gt;@color/Indigo_colorPrimary&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
+<h3 id="1-2-4-ToolBarxml文件中定义"><a href="#1-2-4-ToolBarxml文件中定义" class="headerlink" title="1.2.4 ToolBarxml文件中定义"></a>1.2.4 ToolBarxml文件中定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;  </div><div class="line">&lt;android.support.v7.widget.Toolbar xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;  </div><div class="line">	android:id=&quot;@+id/toolbar&quot;  </div><div class="line">	android:layout_height=&quot;wrap_content&quot;  </div><div class="line">	android:layout_width=&quot;match_parent&quot;  </div><div class="line">	android:background=&quot;?attr/colorPrimary&quot;  //设置toolbar的背景颜色</div><div class="line">	android:minHeight=&quot;?android:attr/actionBarSize&quot;&gt;  &lt;!-- 最小高度 --&gt;</div><div class="line">&lt;/android.support.v7.widget.Toolbar&gt;</div></pre></td></tr></table></figure>
+<p><code>android:fitsSystemWindows=&quot;true&quot;</code>防止ToolBar与StatusBar融合</p>
+<h3 id="1-2-5-java代码中实现"><a href="#1-2-5-java代码中实现" class="headerlink" title="1.2.5 java代码中实现"></a>1.2.5 java代码中实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private Toolbar mToolbar;  </div><div class="line">private WebFragment mWebFragment;  </div><div class="line">private long mBeforeTime;  </div><div class="line">@Override  </div><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;  </div><div class="line">	super.onCreate(savedInstanceState);  </div><div class="line">	setContentView(R.layout.activity_main);</div><div class="line">	if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;  //版本检测</div><div class="line">		SystemBarTintManager tintManager = new SystemBarTintManager(this);  </div><div class="line">		mToolbar = (Toolbar) findViewById(R.id.toolbar);  </div><div class="line">		tintManager.setStatusBarTintEnabled(true);  //更改状态栏设置</div><div class="line">		setSupportActionBar(mToolbar);  //将ToolBar设置成ActionBar</div><div class="line">		tintManager.setStatusBarTintResource(android.R.color.holo_blue_bright);  </div><div class="line">	&#125;  </div><div class="line">	getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用  </div><div class="line">	getSupportActionBar().setDisplayHomeAsUpEnabled(true);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-3-参考文章"><a href="#1-3-参考文章" class="headerlink" title="1.3 参考文章"></a>1.3 参考文章</h3><p><a href="http://blog.csdn.net/qq284565035/article/details/47086439" target="_blank" rel="external">http://blog.csdn.net/qq284565035/article/details/47086439</a><br><a href="http://www.itstrike.cn/Question/9ae75549-b316-4844-938e-c22c0f4e6692.html" target="_blank" rel="external">http://www.itstrike.cn/Question/9ae75549-b316-4844-938e-c22c0f4e6692.html</a></p>
+<h1 id="二、ActionBar"><a href="#二、ActionBar" class="headerlink" title="二、ActionBar"></a>二、ActionBar</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><p>ActionBar位于Activity的顶部，可用来显示activity的标题、Icon、Actions和一些用于交互的View。它也可被用于应用的导航。<br>ActionBar 是在Android 3.0(API<br>11）中加入到SK中的，想在低版本中使用ActionBar有两种选择：使用<a href="http://actionbarsherlock.com" target="_blank" rel="external">http://actionbarsherlock.com</a> 或使用Support<br>Library v7。</p>
+<p>图示：<br><img src="http://img.blog.csdn.net/20140606151823031?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnY29udmllbmNl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>其中，[1]是ActionBar的图标，[2]是两个action按钮，[3]是overflow按钮</p>
+<h2 id="2-2、使用方法"><a href="#2-2、使用方法" class="headerlink" title="2.2、使用方法"></a>2.2、使用方法</h2><h3 id="2-2-1低版本（API11）"><a href="#2-2-1低版本（API11）" class="headerlink" title="2.2.1低版本（API11）"></a>2.2.1低版本（API11）</h3><p>开发API11以下的程序，首先必须在AndroidManifest.xml中指定Application或Activity的theme是Theme.Holo或其子类，否则将无法使用ActionBar。</p>
+<h3 id="2-2-1创建Actions"><a href="#2-2-1创建Actions" class="headerlink" title="2.2.1创建Actions"></a>2.2.1创建Actions</h3><p>类似于Menu即可在java代码中添加，也可在xml文件中添加。下面贴上xml代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; &gt;  </div><div class="line">	&lt;item  </div><div class="line">		android:id=&quot;@+id/action_refresh&quot;  </div><div class="line">		android:orderInCategory=&quot;100&quot;  </div><div class="line">  		android:showAsAction=&quot;always&quot;  </div><div class="line">		android:icon=&quot;@drawable/ic_action_refresh&quot;  </div><div class="line">		android:title=&quot;Refresh&quot;/&gt;  </div><div class="line">	&lt;item  </div><div class="line">		android:id=&quot;@+id/action_settings&quot;  </div><div class="line">		android:title=&quot;Settings&quot;&gt;  </div><div class="line">	&lt;/item&gt;  </div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
+<p>说明：</p>
+<ul>
+<li>showAsAction 属性（定义每个 Action 是如何显示的） </li>
+<li>always 表示永远显示在 ActionBar 中，如果屏幕空间不够则无法显示</li>
+<li>ifRoom 表示屏幕空间够的情况下显示在 ActionBar 中，不够的话就显示在 overflow 中</li>
+<li>never 则表示永远显示在 overflow 中</li>
+</ul>
+<p>在java代码中,通过重写onCreateOptionsMenu，以使用上面的menu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Override  </div><div class="line">public boolean onCreateOptionsMenu(Menu menu) &#123;  </div><div class="line">	MenuInflater inflater = getMenuInflater();  </div><div class="line">	inflater.inflate(R.menu.mainmenu, menu);  </div><div class="line">	return true;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-2-2-Action的按钮交互"><a href="#2-2-2-Action的按钮交互" class="headerlink" title="2.2.2 Action的按钮交互"></a>2.2.2 Action的按钮交互</h3><p>如果一个Action被单击，对于activity中的onOptionsItemSelected()将被调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@Override  </div><div class="line">public boolean onOptionsItemSelected(MenuItem item) &#123;  </div><div class="line">	switch (item.getItemId()) &#123;  </div><div class="line">		// action with ID action_refresh was selected  </div><div class="line">		case R.id.action_refresh:  </div><div class="line">			Toast.makeText(this, &quot;Refresh selected&quot;, Toast.LENGTH_SHORT).show();  </div><div class="line">			break;  </div><div class="line">		// action with ID action_settings was selected  </div><div class="line">		case R.id.action_settings:  </div><div class="line">			Toast.makeText(this, &quot;Settings selected&quot;, Toast.LENG).show();  </div><div class="line">			break;  </div><div class="line">		default:  </div><div class="line">			break;  </div><div class="line">	&#125;  </div><div class="line">	return true;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明：<br>onCreateOptionsMenu() 只会被调用一次。若想改变 Menu，可以调用 invalidateOptionsMenu()，这会使 onCreateOptionsMenu() 将会再次被调用。</p>
+<h2 id="2-3-自定义ActionBar"><a href="#2-3-自定义ActionBar" class="headerlink" title="2.3 自定义ActionBar"></a>2.3 自定义ActionBar</h2><h3 id="2-3-1-隐藏与显现"><a href="#2-3-1-隐藏与显现" class="headerlink" title="2.3.1 隐藏与显现"></a>2.3.1 隐藏与显现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ActionBar actionBar = getActionBar();  </div><div class="line">actionBar.hide();  </div><div class="line">// more stuff here...  </div><div class="line">actionBar.show();</div></pre></td></tr></table></figure>
+<h3 id="2-3-2-改变title"><a href="#2-3-2-改变title" class="headerlink" title="2.3.2 改变title"></a>2.3.2 改变title</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ActionBar actionBar = getActionBar();  </div><div class="line">actionBar.setSubtitle(&quot;mytest&quot;);  </div><div class="line">actionBar.setTitle(&quot;vogella.com&quot;);</div></pre></td></tr></table></figure>
+<h3 id="2-3-3-隐藏导航"><a href="#2-3-3-隐藏导航" class="headerlink" title="2.3.3 隐藏导航"></a>2.3.3 隐藏导航</h3><p><code>getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);</code></p>
+<h3 id="2-3-4-使用全屏模式"><a href="#2-3-4-使用全屏模式" class="headerlink" title="2.3.4 使用全屏模式"></a>2.3.4 使用全屏模式</h3><p>对于Android 4.4 (API 19)应用程序可以使用全屏模式，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// This method hides the system bars and resize the content  </div><div class="line">private void hideSystemUI() &#123;  </div><div class="line">	getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN  </div><div class="line">                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar  </div><div class="line">                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar  </div><div class="line">                // remove the following flag for version &lt; API 19  </div><div class="line">                | View.SYSTEM_UI_FLAG_IMMERSIVE);   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-3-4-使用Split-action-bar"><a href="#2-3-4-使用Split-action-bar" class="headerlink" title="2.3.4 使用Split action bar"></a>2.3.4 使用Split action bar</h3><p>启用split action bar可在 AndroidManifest.xml 中定义 <code>android:uiOptions=&quot;SplitActionBarWhenNarrow&quot;</code> </p>
+<p>参阅 <a href="http://blog.csdn.net/lsdmx2016/article/details/17415911" target="_blank" rel="external">http://blog.csdn.net/lsdmx2016/article/details/17415911</a></p>
+<h2 id="2-4-在Fragment中给action-bar添加action"><a href="#2-4-在Fragment中给action-bar添加action" class="headerlink" title="2.4 在Fragment中给action bar添加action"></a>2.4 在Fragment中给action bar添加action</h2><p>在 onCreate() 中调用 setHasOptionsMenu(true)。Android Framework 会调用 Fragement 中的 onCreateOptionsMenu() 来向 Activity 的 Menu 中添加 item。</p>
+<h2 id="2-5-动态设置action-bar"><a href="#2-5-动态设置action-bar" class="headerlink" title="2.5 动态设置action bar"></a>2.5 动态设置action bar</h2><h3 id="2-5-1-自定义View"><a href="#2-5-1-自定义View" class="headerlink" title="2.5.1 自定义View"></a>2.5.1 自定义View</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">actionBar.setCustomView(R.layout.actionbar_view);  </div><div class="line">EditText search = (EditText) actionBar.getCustomView().findViewById(R.id.searchfield);</div></pre></td></tr></table></figure>
+<h3 id="2-5-2-Action-View（示例见参考文章）"><a href="#2-5-2-Action-View（示例见参考文章）" class="headerlink" title="2.5.2 Action View（示例见参考文章）"></a>2.5.2 Action View（示例见参考文章）</h3><p>Action View 控件可以替换 Action bar 的 Action 按钮图标。可以利用这个特点将某个 Action 项替换成一个 ProgressBar。可通过<code>android:actionLayout</code> 或 <code>android:actionViewClass</code> 来定义一个布局文件或Widg来作为 Action 的 action view。</p>
+<h3 id="2-5-3-Action-Provider（示例见参考文章）"><a href="#2-5-3-Action-Provider（示例见参考文章）" class="headerlink" title="2.5.3 Action Provider（示例见参考文章）"></a>2.5.3 Action Provider（示例见参考文章）</h3><p>Action Provider 提供了在单个组件里提供多种交互方式的方法。它可以用来创建 action view，动态弹出子 menu，处理 action 调用事件。基类为 ActionProvider 目前 Android 平台提供两种 <code>action provider：MediaRouteActionProvider</code> 和 ShareActionProvider。  下面以一个例子计算 ShareActionProvider 的用法。使用这个 action provider 可以让程序从注册了 Intent.ACTION_SEND 的 Intent 中获取。</p>
+<h2 id="2-6-使用程序图标导航"><a href="#2-6-使用程序图标导航" class="headerlink" title="2.6 使用程序图标导航"></a>2.6 使用程序图标导航</h2><h3 id="2-6-1-使用程序图标作为-home-icon"><a href="#2-6-1-使用程序图标作为-home-icon" class="headerlink" title="2.6.1 使用程序图标作为 home icon"></a>2.6.1 使用程序图标作为 home icon</h3><p>Action Bar的左侧图标称为home icon，可为这个图标设置一个Action。推荐做法是当按了这个图标，返回到Home Activity中。</p>
+<p>&gt;<br>actionBar.setHomeButtonEnabled(true);//或者使用actionBar.setDisplayHomeAsUpEnabled(true);</p>
+<pre><code>在onOptionsMenuItemSelected() 中使用android.R.id.home并启用actionbar的HomeIcon
+case android.R.id.home:  
+</code></pre><h2 id="2-7-参考文章："><a href="#2-7-参考文章：" class="headerlink" title="2.7 参考文章："></a>2.7 参考文章：</h2><p>1、<a href="http://blog.csdn.net/bigconvience/article/details/28886241" target="_blank" rel="external">http://blog.csdn.net/bigconvience/article/details/28886241</a></p>
+<h1 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h1><p>1、Android Studio 中按照默认的 Activity 启动时，不显示 ActionBar 的问题<br>在Eclipse新建一个 MainActivity extends Activity 时，能够正常显示 ActionBar，如图：<br><img src="http://img.blog.csdn.net/20150713093139859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>但在 AS 中 extends Activity，不显示 ActionBar，如图<br><img src="http://img.blog.csdn.net/20150713095251222" alt=""><br>但在 AS 中 extends ActionBarActivity，能够正常显示 ActionBar，但是会显示该类过时</p>
+<p>推荐使用 extends AppCompatActivity</p>
+<p>同样的代码在 Eclipse 和 Android Studio 中会出现较大差异，需要区别对待。<br>AppCompatActivity 是为了兼容性考虑！造成这种差异的原因是主题的问题！！！<br>在主题方面，还有很多不懂，今后加强学习</p>
+<p>（参考文章：<a href="http://m.blog.csdn.net/article/details?id=46858249" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=46858249</a>）</p>
+<h1 id="三、StatusBar"><a href="#三、StatusBar" class="headerlink" title="三、StatusBar"></a>三、StatusBar</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170219150953957-808054892.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p>StatusBar 是一个半透明阴影，View 可以伸展到其后面。</p>
+<h1 id="四、NavigationBar"><a href="#四、NavigationBar" class="headerlink" title="四、NavigationBar"></a>四、NavigationBar</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170219151118191-1491914840.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p>NavigationBar 一般是纯黑不能使用的。Google 提供 NavigationBar 的透明与使用的可能，却没有推荐使用。个人觉得是为了给<br>Bottom navigation 做准备。这里不讨论 Bottom navigation 的优劣(我是 Bottom navigation 黑)。</p>
+<h2 id="4-1-兼容性"><a href="#4-1-兼容性" class="headerlink" title="4.1 兼容性"></a>4.1 兼容性</h2><p>android 从 4.4 开始，开始支持UI使用 StatusBar 与 NavigationBar 的范围。</p>
+<h2 id="4-2-沉浸式体验"><a href="#4-2-沉浸式体验" class="headerlink" title="4.2 沉浸式体验"></a>4.2 沉浸式体验</h2><h2 id="4-3-使用实例"><a href="#4-3-使用实例" class="headerlink" title="4.3 使用实例"></a>4.3 使用实例</h2><h3 id="4-3-1-style-配置"><a href="#4-3-1-style-配置" class="headerlink" title="4.3.1 style 配置"></a>4.3.1 style 配置</h3><p>在 value 中的 styles.xml 中设置：</p>
+<p>在 value-v19 中的 styles.xml 中设置(为了兼容4.4)</p>
+<p>在 value-v21 中的 styles.xml 中设置</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5402091.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5402091.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/&title=《Android 中的各类 Bar》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/&title=《Android 中的各类 Bar》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 中的各类 Bar》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/04/18/java/HashMap封装的数据用循环快速添加进list中产生的数据集全部相同的问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HashMap 封装的数据用循环快速添加进 list 中产生的数据集全部相同的问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/04/16/android/android中versioncode-versionname/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 中 versionCode &amp; versionName</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/&title=《Android 中的各类 Bar》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/&title=《Android 中的各类 Bar》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 中的各类 Bar》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/17/android/android中的各类bar/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQW7cMBAEQP//0wngU4BE6+4Z0l4EpdPCliUWDXC4Pfz4iK9fn9efn/++nn779LTXz3k9hsMXHh4e3mjom0E/3fk0rORdT/fXE4SHh4d3jZcUg9d/lbwswSR3JmPGw8PDewdee2cyoByDh4eH9//x8sKQ8GaThYeHh/edvDYg2AcHbTBxPWvBw8PDm/SYigbYz36+3t/Dw8PDG3XV98tuWwY2Ta9/PBMPDw/vAi8PYfOWWDIFs9D29c+jrAUPDw9vzZsx8oZWC5sdRIgCXDw8PLxDvE1haEOE9i2zLf6xuoeHh4cXrOezFtdsCtqDAvsSgoeHh3eKl79401FqY4v9xNXzioeHh1fy9nFt2yTLj1Lh4eHhvRvvFGl/gGAWBA/DCDw8PLxrvJa0WdbbnySHD/Dw8PBu8NrzWe2mdlZIZuUKDw8P7x14s6AhCXzbYtDeWWQVeHh4eCNeHj3kQcOmkOTttC+mDw8PD+8a71QY0ZaTdlrbqcHDw8P7Ht6mbT87KNBObvFkPDw8vGu8vKGV378JEdrn1N8Y8PDw8Na8ZEHfDKs9jLUPnfHw8PDu8ZLtbBvmni0DbYuumBU8PDy8Ea/92p8z9vFEPvWPY8PDw8O7xstX0badvyk8swNhXxwdwMPDw1vz8lvzjWwObsOF5AgCHh4e3m1e29bahxHFhnh0DOvx6AAeHh7eId7ZmCBvax3YIs/ab3h4eHhrXh2MlhvitvGfT1z0b8DDw8O7wMuvZCj5VjsZRMtoCwkeHh7ehrcPBXLS5vn5k/Hw8PC+h7ffBG82u5sYoohu8fDw8H6I1x6HOrX0txONh4eH9w68tmzky/3siEARRuDh4eFd4OVhQb5w14t42R5LigoeHh7eDV77VT8vGPn05UVic3wBDw8Pb837DbuniL2WoBkhAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

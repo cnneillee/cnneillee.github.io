@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/">
+    
+    
+    <title>Android Studio 与 Gradle | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android-studio,gradle">
+    <meta name="description" content="Gradle 在 Android Studio 中非常重要，但是 Gradle 常常造成项目 build 失败等各种问题，这里搜罗了关于 Gradle 的配置、更新、使用等各种信息">
+<meta name="keywords" content="android-studio,gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio 与 Gradle">
+<meta property="og:url" content="http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="Gradle 在 Android Studio 中非常重要，但是 Gradle 常常造成项目 build 失败等各种问题，这里搜罗了关于 Gradle 的配置、更新、使用等各种信息">
+<meta property="og:updated_time" content="2017-03-13T06:59:31.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio 与 Gradle">
+<meta name="twitter:description" content="Gradle 在 Android Studio 中非常重要，但是 Gradle 常常造成项目 build 失败等各种问题，这里搜罗了关于 Gradle 的配置、更新、使用等各种信息">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android Studio 与 Gradle</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android Studio 与 Gradle</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-03-16T13:33:06.000Z" itemprop="datePublished" class="page-time">
+  2016-03-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、配置"><span class="post-toc-text">二、配置</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android-studio与gradle"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android Studio 与 Gradle</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-03-16 21:33:06" datetime="2016-03-16T13:33:06.000Z"  itemprop="datePublished">2016-03-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Gradle 在 Android Studio 中非常重要，但是 Gradle 常常造成项目 build 失败等各种问题，这里搜罗了关于 Gradle 的<strong>配置</strong>、<strong>更新</strong>、<strong>使用</strong>等各种信息<br><a id="more"></a></p>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>来自官网：<a href="https://gradle.org/" target="_blank" rel="external">https://gradle.org/</a><br>From mobile apps to microservices, from small startups to big enterprises, Gradle helps teams build, automate and deliver better software, faster.</p>
+<h1 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h1><p>Android Studio 在第一次新建一个 Gradle 项目时需要下载 Gradle，所以启动很慢（Gradle-bin大约三十几兆），所以我们应该事先帮他下载好。</p>
+<p>首先，我们下载好的 <code>gradle-版本号-bin(|all).zip</code> 应该放在哪儿呢。Gradle 有一个 <code>user home</code>，默认是 <code>C:/Users/【你当前的用户名】/.gradle</code>。</p>
+<p>这个目录下面有四个子文件夹，我们要放到</p>
+<p>wrapper/dists/[gradle-版本号-bin|all]/[一连串乱七八糟的字符的文件夹]/</p>
+<p>。例如，我就把gradle-bin和gradle-all（只需要放一个，all的话，有源码，文档等，好一些）分别放到了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-all/6vpvhqu0efs1fqmqr2decq1v12</div><div class="line">C:/Users/Leo/.gradle/wrapper/dists/gradle-1.10-bin/6vpvhqu0efs1fqmqr2decq1v12</div></pre></td></tr></table></figure>
+<p>两个目录下面。然后启动 Android Studio ，他会自动解压安装（而且优先解压gradle-1.10-all，因为bin那个我发现没有解压他）。至于这个乱码文件夹目录（上面的 <code>6vpvhqu0efs1fqmqr2decq1v12</code>），我的处理是先打开一次 Android Studio ，然后关闭，这个目录就生成了（注意，这个目录每次在发现新的需要下载的版本的时候都会新生成一个随机码文件夹，所以，不要想着把 zip 文件放到上次生成的随机码目录中）。</p>
+<p> 另外，想知道自己的 Gradle 项目用的是哪个版本（而且还有 all 和 bin 的区分），只需要看项目根目录下面找 <code>gradle/wrapper/gradle-wrapper.properties</code> 这个文件，里面是对应的版本号（Android Studio 就会下这个)，比如文件的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#Thu Mar 20 19:47:09 GMT 2014</div><div class="line">distributionBase=GRADLE_USER_HOME</div><div class="line">distributionPath=wrapper/dists</div><div class="line">zipStoreBase=GRADLE_USER_HOME</div><div class="line">zipStorePath=wrapper/dists</div><div class="line">distributionUrl=http/://services.gradle.org/distributions/gradle-1.10-all.zip</div></pre></td></tr></table></figure>
+<p>那么你就要准备好去官网下载 <code>gradle-1.10-all.zip</code> 放到上面说的文件夹下面（下 <code>gradle-1.10-bin.zip</code> 是不管用的）</p>
+<p>这种方法目前百试不爽，绝对不需要再等待了，等他下载完估计要近一个小时的时间了（想当初我就是打开 <code>.gradle</code> 下面的那个文件夹，看着 <code>gradle**.zip</code> 一点点的下载完成的，慢死了。如果想要验证上面这个方法有没有成功，你就到 <code>.gradle/wrapper/dist/gradle-1.10-all/乱码文件夹/</code> 下面等着，看他会不会自动解压，只要解压 ，说明就没问题了！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/&title=《Android Studio 与 Gradle》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/&title=《Android Studio 与 Gradle》 — Neil Lee's blog&source=Gradle 在 Android Studio 中非常重要，但是 Gradle 常常造成项目 build 失败等各种问题，这里搜罗了关于 Gradle 的..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio 与 Gradle》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/03/16/android/android-studio项目与github/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android Studio 项目与 Github</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/16/hexo/hexo进阶/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">你可能还不知道的 Hexo 拓展用法 —— Hexo 进阶</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/&title=《Android Studio 与 Gradle》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/&title=《Android Studio 与 Gradle》 — Neil Lee's blog&source=Gradle 在 Android Studio 中非常重要，但是 Gradle 常常造成项目 build 失败等各种问题，这里搜罗了关于 Gradle 的..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio 与 Gradle》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/16/android/android-studio与gradle/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3awY4iMQwEUP7/p9nrrlY0VU4scXh9QgNM5/UhMWW/XvH1/u9K3n3H1/Pn/373tXHh4eHhHS/9+cafvpv//fmT+Wee14yHh4e3zfu0oz6/zjf02dGSrOeLBQ8PD+/HeMnhcfLI8sMDDw8P7/d5bdCQhxcJCQ8PD+8XeLMI9aTszo+B9hHj4eHhbfPyLtLvvF7p7+Hh4eEdd9Xz4DUqbeNCOS/Ev6wWDw8Pb4GXb7h5wZq3x/KNvr07Hh4e3h7vbtiaj1jNDolkKOGf/4OHh4e3xmtvlvNa2OzgiTp7eHh4eJd4+dKTcrk9NmYNsDzmwMPDw9vjnZSzLSMfJshL82EHDw8PD2/ESwatEljyuh0ImIURUX8PDw8P7yovv2UbVQyjhPgIqX8r4OHh4Y147TBTGx+0EW37AyAqyvHw8PCu8vJNNi+IZ+x2u4/Kdzw8PLw1XhJJ5OHv7OBpc9ekVYaHh4e3wTsPBTYi4Flzru7y4eHh4Y14bdBwEt2eDAoMQxM8PDy8Zd7dBtjzgzsHR5ExHh4e3jJvtk3PFtTi8+EtPDw8vG3eXVLemsoL9Nl9h4kLHh4eXrC2NpBtm16zIaq2jP64Kjw8PLwF3ixuOCmgz+Pgk6gCDw8P7y5vo1pvt/s2wijCCDw8PLyrvHwRtwYC6iGAeIzgqFrHw8PDK3ktux0UaNl5KR+NXuHh4eGt8ZIxrAuZx+hoGV54eHh4V3nv8opSjThiOH8cXw4zPDw8vAXeSWs/v3FywNw6nC4cIXh4eHjHlWdbUs/i2llwHD1iPDw8vDXerCzOt/h2EGF2sn2cicDDw8P7Gd5Js78dKWgfLh4eHt4v806GAPLDY9gww8PDw1vjzZpes++eD3IVjTE8PDy8Bd7wR34c1LZHxa1gAg8PD2+B9wdYtpKXjVuaMAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

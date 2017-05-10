@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/">
+    
+    
+    <title>Hadoop 的安装及配置 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="hadoop">
+    <meta name="description" content="一、概述1.1 说明虽然目前 Hadoop 的最新版本为 3.0.0，但是我安装的 Hadoop 的版本为 2.7.3。 1.2 参考资料官方文档：http://hadoop.apache.org/docs/r2.7.3/index.html 二、Hadoop 的安装2.1 Java 安装由于 Hadoop 基于 Java，需要 Java 的支持，因此，需要首先安装好 Java。 2.2 ssh">
+<meta name="keywords" content="hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop 的安装及配置">
+<meta property="og:url" content="http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述1.1 说明虽然目前 Hadoop 的最新版本为 3.0.0，但是我安装的 Hadoop 的版本为 2.7.3。 1.2 参考资料官方文档：http://hadoop.apache.org/docs/r2.7.3/index.html 二、Hadoop 的安装2.1 Java 安装由于 Hadoop 基于 Java，需要 Java 的支持，因此，需要首先安装好 Java。 2.2 ssh">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201702/797098-20170216111541019-211712252.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201702/797098-20170216111742175-141122487.png">
+<meta property="og:updated_time" content="2017-05-09T16:56:55.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hadoop 的安装及配置">
+<meta name="twitter:description" content="一、概述1.1 说明虽然目前 Hadoop 的最新版本为 3.0.0，但是我安装的 Hadoop 的版本为 2.7.3。 1.2 参考资料官方文档：http://hadoop.apache.org/docs/r2.7.3/index.html 二、Hadoop 的安装2.1 Java 安装由于 Hadoop 基于 Java，需要 Java 的支持，因此，需要首先安装好 Java。 2.2 ssh">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201702/797098-20170216111541019-211712252.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hadoop 的安装及配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hadoop 的安装及配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-16T06:12:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Big-Data/">Big Data</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-说明"><span class="post-toc-text">1.1 说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-参考资料"><span class="post-toc-text">1.2 参考资料</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、Hadoop-的安装"><span class="post-toc-text">二、Hadoop 的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-Java-安装"><span class="post-toc-text">2.1 Java 安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-ssh-的安装"><span class="post-toc-text">2.2 ssh 的安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-Hadoop-下载"><span class="post-toc-text">2.3 Hadoop 下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-Hadoop-安装"><span class="post-toc-text">2.4 Hadoop 安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、Hadoop-的配置"><span class="post-toc-text">三、Hadoop 的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-配置环境变量"><span class="post-toc-text">3.1 配置环境变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-安装测试"><span class="post-toc-text">3.2 安装测试</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、安装与配置常常出现的问题"><span class="post-toc-text">四、安装与配置常常出现的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-配置过程中，dataNode-无法启动"><span class="post-toc-text">4.1 配置过程中，dataNode 无法启动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-master-与-slaves-安装目录的问题"><span class="post-toc-text">4.2 master 与 slaves 安装目录的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-WARN-util-NativeCodeLoader-Unable-to-load-native-hadoop-library-for"><span class="post-toc-text">4.3 WARN util.NativeCodeLoader: Unable to load native-hadoop library for</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-bigdata/hadoop的安装及配置"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hadoop 的安装及配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-16 14:12:00" datetime="2017-02-16T06:12:00.000Z"  itemprop="datePublished">2017-02-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Big-Data/">Big Data</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-说明"><a href="#1-1-说明" class="headerlink" title="1.1 说明"></a>1.1 说明</h2><p>虽然目前 Hadoop 的最新版本为 3.0.0，但是我安装的 Hadoop 的版本为 2.7.3。</p>
+<h2 id="1-2-参考资料"><a href="#1-2-参考资料" class="headerlink" title="1.2 参考资料"></a>1.2 参考资料</h2><p>官方文档：<br><a href="http://hadoop.apache.org/docs/r2.7.3/index.html" target="_blank" rel="external">http://hadoop.apache.org/docs/r2.7.3/index.html</a></p>
+<h1 id="二、Hadoop-的安装"><a href="#二、Hadoop-的安装" class="headerlink" title="二、Hadoop 的安装"></a>二、Hadoop 的安装</h1><h2 id="2-1-Java-安装"><a href="#2-1-Java-安装" class="headerlink" title="2.1 Java 安装"></a>2.1 Java 安装</h2><p>由于 Hadoop 基于 Java，需要 Java 的支持，因此，需要首先安装好 Java。</p>
+<h2 id="2-2-ssh-的安装"><a href="#2-2-ssh-的安装" class="headerlink" title="2.2 ssh 的安装"></a>2.2 ssh 的安装</h2><p>Hadoop 集群需要 ssh 作支撑，因此需要安装 ssh。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install openssh-server</div><div class="line">$ sudo apt install openssh-client</div></pre></td></tr></table></figure></p>
+<h2 id="2-3-Hadoop-下载"><a href="#2-3-Hadoop-下载" class="headerlink" title="2.3 Hadoop 下载"></a>2.3 Hadoop 下载</h2><p>从 Apache 上下载 Hadoop 的安装包（是个压缩包，解压即可）<br><a href="http://www.apache.org/dyn/closer.cgi/hadoop/common/" target="_blank" rel="external">http://www.apache.org/dyn/closer.cgi/hadoop/common/</a></p>
+<h2 id="2-4-Hadoop-安装"><a href="#2-4-Hadoop-安装" class="headerlink" title="2.4 Hadoop 安装"></a>2.4 Hadoop 安装</h2><p>首先，使用 <code>tar -xzf hadoop-2.7.3.tar.gz</code> 对安装包进行解压。</p>
+<p>然后，将解压后的文件改名 <code>sudo mv hadoop-2.7.3 hadoop</code>.</p>
+<p>最后，将该安装目录放到 <code>/usr/local/</code> 目录下。<code>sudo cp hadoop /usr/local</code>.</p>
+<h1 id="三、Hadoop-的配置"><a href="#三、Hadoop-的配置" class="headerlink" title="三、Hadoop 的配置"></a>三、Hadoop 的配置</h1><p>详细配置：<br><a href="https://www.digitalocean.com/community/tutorials/how-to-install-hadoop-on-
+ubuntu-13-10" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-hadoop-on-
+ubuntu-13-10</a></p>
+<h2 id="3-1-配置环境变量"><a href="#3-1-配置环境变量" class="headerlink" title="3.1 配置环境变量"></a>3.1 配置环境变量</h2><p>进入 <code>/usr/local/hadoop/etc/hadoop/hadoop-env.sh</code> 文件，修改如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># set to the root of your Java installation</div><div class="line">export JAVA_HOME=/usr/java/latest</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170216111541019-211712252.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="3-2-安装测试"><a href="#3-2-安装测试" class="headerlink" title="3.2 安装测试"></a>3.2 安装测试</h2><p>在 <code>/usr/local/hadoop/</code> 下运行 <code>bin/hadoop</code>:<br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170216111742175-141122487.png" alt=""></p>
+<h1 id="四、安装与配置常常出现的问题"><a href="#四、安装与配置常常出现的问题" class="headerlink" title="四、安装与配置常常出现的问题"></a>四、安装与配置常常出现的问题</h1><h2 id="4-1-配置过程中，dataNode-无法启动"><a href="#4-1-配置过程中，dataNode-无法启动" class="headerlink" title="4.1 配置过程中，dataNode 无法启动"></a>4.1 配置过程中，dataNode 无法启动</h2><p>主要原因是多次 format namenode ，而 datanode 不会进行 format 操作，从而造成 namenode 和 datanode 的<br>clusterID 不一致，致使 datanode 无法启动。建议查看datanode上面的log信息。</p>
+<p>解决办法：修改每一个 datanode 上面的 CID (位于 <code>dfs/data/current/VERSION</code> 文件夹中)使两者一致。<br>或者：是删除datanode里面的dfs.datanode.data.dir目录和tmp目录，然后再启动start-dfs.sh</p>
+<h2 id="4-2-master-与-slaves-安装目录的问题"><a href="#4-2-master-与-slaves-安装目录的问题" class="headerlink" title="4.2 master 与 slaves 安装目录的问题"></a>4.2 master 与 slaves 安装目录的问题</h2><p>master 和所有的 slaves 的 hadoop 安装路径要一致，而且所有的配置文件  和  节点处不要有空格，否则会报错！</p>
+<h2 id="4-3-WARN-util-NativeCodeLoader-Unable-to-load-native-hadoop-library-for"><a href="#4-3-WARN-util-NativeCodeLoader-Unable-to-load-native-hadoop-library-for" class="headerlink" title="4.3 WARN util.NativeCodeLoader: Unable to load native-hadoop library for"></a>4.3 WARN util.NativeCodeLoader: Unable to load native-hadoop library for</h2><p>your platform… using builtin-java classes where applicable</p>
+<p>网上查了一下资料，说是32位 hadoop 部署在了64为linux上。hadoop2.2.0遇到64位操作系统平台报错，重新编译hadoop<br>：<a href="http://blog.csdn.net/bamuta/article/details/13506893" target="_blank" rel="external">http://blog.csdn.net/bamuta/article/details/13506893</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/6405471.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6405471.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/&title=《Hadoop 的安装及配置》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/&title=《Hadoop 的安装及配置》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hadoop 的安装及配置》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/17/bigdata/alluxio安装与配置/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Alluxio 安装与配置</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/16/others/ubuntu更新hostname和hosts/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu 更新 Hostname 和 hosts</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/&title=《Hadoop 的安装及配置》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/&title=《Hadoop 的安装及配置》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hadoop 的安装及配置》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/02/16/bigdata/hadoop的安装及配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3aQW7DMAwEwPz/0+m1QOpkSYpuDuNTEDiyxgUkdqnHI76eL9fv718/v/7q6v6rb97/9vCFh4eHN5568uDXEa4mffXEHPz+zvdzw8PDw9vjVSeRTChf0JPXl2wSeHh4eN/Je78BfFimY3avvMbDw8P7Zl5yf16CT8prPDw8vP/iVRfiPLCY3JO/vgNZCx4eHl7My7tI3/N5pb+Hh4eHN+6qTxbc3pj5VhSNjIeHh7fAmzSo8hi3Wjr3jiNc3omHh4e3wOsFE72DVtWw43DxjYeHhzfm5aXzpPydHM/qBcrRG8XDw8Nr8fJWVt6gqo422ZDKf0M8PDy8MS95WHI8K0FWD2bNZ4KHh4e3watuA0ksm5fgkw2mEC7j4eHhLfB6MWseFlTbXb0G2IetAg8PD+8oL1lw8yK4WnxXD3KNtgQ8PDy8Q7zJWppMdBIT9xppeHh4eHu8PGI41bLqbT+9VhweHh7e/bx8A6iW1/n4vW/KeTAeHh5ekTdf6JPoNn8FvWMEl509PDw8vKO8UwFrdZzqhKpbVNTrw8PDw2vxqst6zu5tJ/No4zKMwMPDw7uRl0e3ScRQjXRHBxHw8PDwbuRN2k7VQ1rz8hoPDw/vfl4zsSi2/6ubQTVc/kOEh4eHt8CrFtD5tlHdZpIIY3IoAQ8PD+8sLylSTzHmYW4+Hzw8PLw7eQljUvLm408Kejw8PLw7ecljerFslXrgwsPDwzvKexavvKhNXk0hKWnFvnh4eHgbvFNrbFKOVwPc/PP6FoKHh4c3bs9XQ9j8V3mUXO7s4eHh4S3wkqHnD568uMWsBQ8PD2+Z1ztElWOqhfvhjQEPDw9vuebMD5jmEUMe4ybBLh4eHt4er3rYNAkg8pbVZJwPT8HDw8Nb4FX/o580wCahw+GQAg8PD69z/w/cpHOoMFmp+AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

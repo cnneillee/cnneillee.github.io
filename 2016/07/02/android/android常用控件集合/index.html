@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/07/02/android/android常用控件集合/">
+    
+    
+    <title>Android 常用控件集合 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,gathering">
+    <meta name="description" content="一、概述大部分程序员擅长开发，但是对于设计却知之甚少。这直接导致，程序员在初期开发出来的应用（大多为兴趣或实用导向）中看不中用。因此，有必要搜集整合一些设计资源，这样既能减轻程序员在设计上所耗费的时间，又能够提供一个相对较能接受的用户界面设计。 二、资源整合2.1 icon资源网站2.2 常用的lib2.2.1 Material Design Dimenshttps://github.com/Dm">
+<meta name="keywords" content="android,gathering">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 常用控件集合">
+<meta property="og:url" content="http://cnneillee.github.io/2016/07/02/android/android常用控件集合/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述大部分程序员擅长开发，但是对于设计却知之甚少。这直接导致，程序员在初期开发出来的应用（大多为兴趣或实用导向）中看不中用。因此，有必要搜集整合一些设计资源，这样既能减轻程序员在设计上所耗费的时间，又能够提供一个相对较能接受的用户界面设计。 二、资源整合2.1 icon资源网站2.2 常用的lib2.2.1 Material Design Dimenshttps://github.com/Dm">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702224025734-1227912433.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702224036077-670712634.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702225706952-1618169226.gif">
+<meta property="og:image" content="https://camo.githubusercontent.com/ee6124cc259de10d4a4f6bfbc06ff3c06728803b/687474703a2f2f692e67697068792e636f6d2f764831715378637742424f69512e676966">
+<meta property="og:updated_time" content="2017-05-09T16:56:55.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 常用控件集合">
+<meta name="twitter:description" content="一、概述大部分程序员擅长开发，但是对于设计却知之甚少。这直接导致，程序员在初期开发出来的应用（大多为兴趣或实用导向）中看不中用。因此，有必要搜集整合一些设计资源，这样既能减轻程序员在设计上所耗费的时间，又能够提供一个相对较能接受的用户界面设计。 二、资源整合2.1 icon资源网站2.2 常用的lib2.2.1 Material Design Dimenshttps://github.com/Dm">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702224025734-1227912433.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 常用控件集合</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 常用控件集合</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-02T14:41:00.000Z" itemprop="datePublished" class="page-time">
+  2016-07-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、资源整合"><span class="post-toc-text">二、资源整合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-icon资源网站"><span class="post-toc-text">2.1 icon资源网站</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-常用的lib"><span class="post-toc-text">2.2 常用的lib</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-Material-Design-Dimens"><span class="post-toc-text">2.2.1 Material Design Dimens</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-ExpandableLayout"><span class="post-toc-text">2.2.2 ExpandableLayout</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-AdvancedTextSwitcher"><span class="post-toc-text">2.2.3 AdvancedTextSwitcher</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4-MultipleStatusView"><span class="post-toc-text">2.2.4 MultipleStatusView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-5-HorizontalWheelView"><span class="post-toc-text">2.2.5 HorizontalWheelView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-6-AndroidGradientImageView"><span class="post-toc-text">2.2.6 AndroidGradientImageView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-7-LovelyDialog"><span class="post-toc-text">2.2.7 LovelyDialog</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-8-Image-Zoomer"><span class="post-toc-text">2.2.8 Image-Zoomer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-9-LikeAnimation"><span class="post-toc-text">2.2.9 LikeAnimation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-10-TEmptyView"><span class="post-toc-text">2.2.10 TEmptyView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-11-MoneyTextView"><span class="post-toc-text">2.2.11 MoneyTextView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-12-打造最强RecyclerView-Item侧滑菜单-长按拖拽Item-滑动删除Item"><span class="post-toc-text">2.2.12 打造最强RecyclerView Item侧滑菜单 长按拖拽Item 滑动删除Item</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-13-刷新组件"><span class="post-toc-text">2.2.13 刷新组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-14-voghDev-PdfViewPager"><span class="post-toc-text">2.2.14 voghDev/PdfViewPager</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android常用控件集合"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 常用控件集合</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-02 22:41:00" datetime="2016-07-02T14:41:00.000Z"  itemprop="datePublished">2016-07-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>大部分程序员擅长开发，但是对于设计却知之甚少。这直接导致，程序员在初期开发出来的应用（大多为兴趣或实用导向）中看不中用。因此，有必要搜集整合一些设计资源，这样既能减轻程序员在设计上所耗费的时间，又能够提供一个相对较能接受的用户界面设计。</p>
+<h1 id="二、资源整合"><a href="#二、资源整合" class="headerlink" title="二、资源整合"></a>二、资源整合</h1><h2 id="2-1-icon资源网站"><a href="#2-1-icon资源网站" class="headerlink" title="2.1 icon资源网站"></a>2.1 icon资源网站</h2><h2 id="2-2-常用的lib"><a href="#2-2-常用的lib" class="headerlink" title="2.2 常用的lib"></a>2.2 常用的lib</h2><h3 id="2-2-1-Material-Design-Dimens"><a href="#2-2-1-Material-Design-Dimens" class="headerlink" title="2.2.1 Material Design Dimens"></a>2.2.1 Material Design Dimens</h3><p><a href="https://github.com/DmitryMalkovich/material-design-dimens" target="_blank" rel="external">https://github.com/DmitryMalkovich/material-design-dimens</a></p>
+<p>Default colors and dimens per Material Design guidelines and Android Design<br>guidelines inside one library.<br>能够提供一些默认的android控件的常用尺寸、配色等解决方案，再也不用在xml文件下code/design切来切去了，更无须为了查看一个控件的尺寸/颜色的调节而频繁地在将不必要的、小的代码更新提交至手机端进行检查。</p>
+<p>例如：<br><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702224025734-1227912433.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702224036077-670712634.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="2-2-2-ExpandableLayout"><a href="#2-2-2-ExpandableLayout" class="headerlink" title="2.2.2 ExpandableLayout"></a>2.2.2 ExpandableLayout</h3><p>A expandable Layout to save space and reduce jump between Activity and<br>Fragment<br>能够调节控件被展开后，激发父控件滑动以适应展开后的内容显示</p>
+<h3 id="2-2-3-AdvancedTextSwitcher"><a href="#2-2-3-AdvancedTextSwitcher" class="headerlink" title="2.2.3 AdvancedTextSwitcher"></a>2.2.3 AdvancedTextSwitcher</h3><p><a href="https://github.com/SumiMakito/AdvancedTextSwitcher" target="_blank" rel="external">https://github.com/SumiMakito/AdvancedTextSwitcher</a></p>
+<p>仿照Google+在卡片上滚动显示最新评论的TextSwitcher。<br><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702225706952-1618169226.gif" alt=""></p>
+<h3 id="2-2-4-MultipleStatusView"><a href="#2-2-4-MultipleStatusView" class="headerlink" title="2.2.4 MultipleStatusView"></a>2.2.4 MultipleStatusView</h3><p><a href="https://github.com/qyxxjd/MultipleStatusView" target="_blank" rel="external">https://github.com/qyxxjd/MultipleStatusView</a></p>
+<p>一个支持多种状态的自定义View,可以方便的切换到：加载中视图、错误视图、空数据视图、网络异常视图、内容视图。</p>
+<h3 id="2-2-5-HorizontalWheelView"><a href="#2-2-5-HorizontalWheelView" class="headerlink" title="2.2.5 HorizontalWheelView"></a>2.2.5 HorizontalWheelView</h3><p><a href="https://github.com/shchurov/HorizontalWheelView" target="_blank" rel="external">https://github.com/shchurov/HorizontalWheelView</a></p>
+<p>水平滚轮<br><img src="https://camo.githubusercontent.com/ee6124cc259de10d4a4f6bfbc06ff3c06728803b/687474703a2f2f692e67697068792e636f6d2f764831715378637742424f69512e676966" alt=""></p>
+<h3 id="2-2-6-AndroidGradientImageView"><a href="#2-2-6-AndroidGradientImageView" class="headerlink" title="2.2.6 AndroidGradientImageView"></a>2.2.6 AndroidGradientImageView</h3><p>图片颜色渐变<br><a href="https://github.com/skyfe79/AndroidGradientImageView" target="_blank" rel="external">https://github.com/skyfe79/AndroidGradientImageView</a></p>
+<h3 id="2-2-7-LovelyDialog"><a href="#2-2-7-LovelyDialog" class="headerlink" title="2.2.7 LovelyDialog"></a>2.2.7 LovelyDialog</h3><p>漂亮的dialog<br><a href="https://github.com/yarolegovich/LovelyDialog" target="_blank" rel="external">https://github.com/yarolegovich/LovelyDialog</a></p>
+<h3 id="2-2-8-Image-Zoomer"><a href="#2-2-8-Image-Zoomer" class="headerlink" title="2.2.8 Image-Zoomer"></a>2.2.8 Image-Zoomer</h3><p>点击图片，放大<br>Image zoom animations library for Android.<br><a href="https://github.com/code-crusher/Image-Zoomer" target="_blank" rel="external">https://github.com/code-crusher/Image-Zoomer</a></p>
+<h3 id="2-2-9-LikeAnimation"><a href="#2-2-9-LikeAnimation" class="headerlink" title="2.2.9 LikeAnimation"></a>2.2.9 LikeAnimation</h3><p>仿twitter的点赞效果<br><a href="https://github.com/frogermcs/LikeAnimation" target="_blank" rel="external">https://github.com/frogermcs/LikeAnimation</a></p>
+<h3 id="2-2-10-TEmptyView"><a href="#2-2-10-TEmptyView" class="headerlink" title="2.2.10 TEmptyView"></a>2.2.10 TEmptyView</h3><p>TEmptyView是一个小轮子，希望能够更简单地设置EmptyView，免除每次设置emptyView都要写xml之苦。<br>支持AdapterView(ListView/GridView等)、RecyclerView。<br>Just a Wheel——A easy way to setEmptyView to ListView、GridView or RecyclerView<br>etc..<br><a href="https://github.com/barryhappy/TEmptyView" target="_blank" rel="external">https://github.com/barryhappy/TEmptyView</a></p>
+<h3 id="2-2-11-MoneyTextView"><a href="#2-2-11-MoneyTextView" class="headerlink" title="2.2.11 MoneyTextView"></a>2.2.11 MoneyTextView</h3><p>A custom Android TextView to display amounts of money in different formats.<br><a href="https://github.com/fabiomsr/MoneyTextView" target="_blank" rel="external">https://github.com/fabiomsr/MoneyTextView</a></p>
+<h3 id="2-2-12-打造最强RecyclerView-Item侧滑菜单-长按拖拽Item-滑动删除Item"><a href="#2-2-12-打造最强RecyclerView-Item侧滑菜单-长按拖拽Item-滑动删除Item" class="headerlink" title="2.2.12 打造最强RecyclerView Item侧滑菜单 长按拖拽Item 滑动删除Item"></a>2.2.12 打造最强RecyclerView Item侧滑菜单 长按拖拽Item 滑动删除Item</h3><p><a href="http://blog.csdn.net/yanzhenjie1003/article/details/52115566" target="_blank" rel="external">http://blog.csdn.net/yanzhenjie1003/article/details/52115566</a></p>
+<h2 id="2-2-13-刷新组件"><a href="#2-2-13-刷新组件" class="headerlink" title="2.2.13 刷新组件"></a>2.2.13 刷新组件</h2><p>1、<a href="http://a.codekk.com/detail/Android/Grumoon/android-Ultra-Pull-To-Refresh%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90" target="_blank" rel="external">android-Ultra-Pull-To-Refresh 源码解析</a><br>2、google官方推的[SwipeRefreshLayout]</p>
+<h2 id="2-2-14-voghDev-PdfViewPager"><a href="#2-2-14-voghDev-PdfViewPager" class="headerlink" title="2.2.14 voghDev/PdfViewPager"></a>2.2.14 voghDev/PdfViewPager</h2><p>Android widget that can render PDF documents stored on<br>SD card, linked as assets, or downloaded from a remote URL.<br><a href="https://github.com/voghDev/PdfViewPager" target="_blank" rel="external">https://github.com/voghDev/PdfViewPager</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5636209.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5636209.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gathering/">gathering</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/&title=《Android 常用控件集合》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/&title=《Android 常用控件集合》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 常用控件集合》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/07/03/java/【转】标记接口和标记注解注解/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【转】标记接口和标记注解注解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/07/02/android/android应用市场集合/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 应用市场集合</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/&title=《Android 常用控件集合》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/&title=《Android 常用控件集合》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 常用控件集合》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/07/02/android/android常用控件集合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQW4jMQwEQP//09lrgF3H3RRlZ4HSKZjEY5YOEkPy8YjX17f195Otlbz5cWPh4eHhHYSefGXy2e+/Td6Qb2K9BXh4eHjXeM9O1Gd/k29Ee8TP4nn6HA8PD+8X8PLgkmsgfw8eHh7e/87Lk93ZxiUJOh4eHt5neXlZIf9suymzssVarQUPDw/vQhfp9/x8pb+Hh4eHd9xVb5Pj/Hl+PRxFi4eHh3eBlx+4s6Z+m/7OGmM/x4mHh4d3g3d+cOfh5gXf2ejVi43Aw8PDO+a1X5AcwXnTq92OhdYXHh4e3jFv1ljaHSOYXQNFMo2Hh4e3yrtRFMjbVHmzv40QDw8P7x7vPSXa80bXUYEYDw8Pb/Xb20JtXvBNYO1lUw8x4OHh4b2Rl5cb2kGr3cT9RVR4eHh4F3iz5tZC5bisFeTNuWimDA8PD++A1ybTUW0jPsTbND3fXDw8PLx7vK3WVFuKzZtYbVF42BLDw8PDK3nth2eDWScp+Fe58PDw8O7x8n/y86b+LGneKgE/LUbg4eHhrfKG98lBgSBpobXJ9D+ixcPDw7vGmyW+bdaaXyrtGMGLoSs8PDy8VV4e1u0SbV4EaePHw8PD2+UlJYN8MKsdOMgvjJ+RLyYj8PDw8FZ55237oqhahjJrs+VDD3h4eHgnvFlrPy/1Ju/ZaqTVQ1d4eHh4x7zzQzlp/G+lyBESDw8P7428NslOEuithDt/Jx4eHt4ubzZ01V4S+YXRJvR4eHh47+fNDtx2XGBGbQcajhYeHh5eyZuVHs7LvjNeXtjFw8PDu82bHejt4NRJ8SK/BV49wsPDw/sk7+SSaNtvw1QbDw8P7xfw2pGppHS7NigQ3RV4eHh4O7w8uDbEk4JFAoiGrvDw8PBWee0/+fnoQJs6Pz618PDw8NL1B/O1QQVy5WZOAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

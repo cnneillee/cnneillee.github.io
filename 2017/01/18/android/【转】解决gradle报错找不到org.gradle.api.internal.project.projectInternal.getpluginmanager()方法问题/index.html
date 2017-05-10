@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/">
+    
+    
+    <title>【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android-studio,gradle">
+    <meta name="description" content="源地址：http://www.mamicode.com/info-detail-1178200.html 一、概述因为本地的AndroidStudio很久没用了，所以想要研究下github上的某个代码的时候，还得重新配下环境 打开了几个项目，都是提示如下错误">
+<meta name="keywords" content="android-studio,gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题">
+<meta property="og:url" content="http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="源地址：http://www.mamicode.com/info-detail-1178200.html 一、概述因为本地的AndroidStudio很久没用了，所以想要研究下github上的某个代码的时候，还得重新配下环境 打开了几个项目，都是提示如下错误">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201701/797098-20170118093845156-1167320155.png">
+<meta property="og:updated_time" content="2017-05-09T16:56:56.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题">
+<meta name="twitter:description" content="源地址：http://www.mamicode.com/info-detail-1178200.html 一、概述因为本地的AndroidStudio很久没用了，所以想要研究下github上的某个代码的时候，还得重新配下环境 打开了几个项目，都是提示如下错误">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201701/797098-20170118093845156-1167320155.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-18T01:40:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、解决方法"><span class="post-toc-text">二、解决方法</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-18 09:40:00" datetime="2017-01-18T01:40:00.000Z"  itemprop="datePublished">2017-01-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>源地址：<a href="http://www.mamicode.com/info-detail-1178200.html" target="_blank" rel="external">http://www.mamicode.com/info-detail-1178200.html</a></p>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>因为本地的AndroidStudio很久没用了，所以想要研究下github上的某个代码的时候，还得重新配下环境</p>
+<p>打开了几个项目，都是提示如下错误</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201701/797098-20170118093845156-1167320155.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="二、解决方法"><a href="#二、解决方法" class="headerlink" title="二、解决方法"></a>二、解决方法</h1><ol>
+<li><p>访问 <a href="https://services.gradle.org/distributions/" target="_blank" rel="external">https://services.gradle.org/distributions/</a> ，并查看最新版的gradle，此文发布时是“gradle-2.10-all.zip”</p>
+</li>
+<li><p>修改项目中“gradle/wrapper/gradle-wrapper.properties”里下面属性值<br><code>...
+distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
+...</code></p>
+</li>
+<li><p>重新执行 gradlew.bat，问题解决</p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/6295607.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6295607.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/&title=《【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/&title=《【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/12/daily/【实习】实习系列文章说明/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【实习】实习系列文章说明</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/07/scripts/python引用计数/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 引用计数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/&title=《【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/&title=《【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFMUlEQVR42u3aQW7kOBAEQP//097rALPdzsxS+7AbOhmGLJFBAypm8esrvr7/uP78zas7k7/6/ut69VeX+7dnPnzhw4cPHz58bx+RDDF5WY6VjCpfnpYjec7LZ+LDhw8fPnwTXzL5fCj5ZNqhJ2VKPrZLWYYPHz58+PD9Pt+2sb/8Pim52oLsMl98+PDhw4fv03xtSXEvhrapXiIGfPjw4cOH79N8+Qc+GWgLd2mfb6FAWzY90OvAhw8fPnz4Hi0a/ks/P3zhw4cPHz58ZUM6f31eHOSjyu9pw4vLhQ8fPnz48E0aX9uU8sG1jYF7aZVH81ssgg8fPnz48N358nIkGehGf2m3X2hOxPjw4cOHD9/h67y1w7djXtuhtxyiPQrQBgr48OHDhw/fhS//eOfceZSf424Ng0sUUlR/+PDhw4cP39u3X4a1xfH5/XkYkS9eO6+oysOHDx8+fPi6jvYDH/W8AGpjiC0OyIunZ0N/fPjw4cOH7z1ffusWHyR3XkqHbUnyIuyHv8WHDx8+fPhKvnyDnRQE+RDzEuFSi12a9HkjAR8+fPjw4bvwbW3mBLq92gJoK4MuIQg+fPjw4cPX8rXx97YJvyzMUyNs/yrqbODDhw8fPnwl3+UFOWUSNLQxRBK4b6xt3IAPHz58+PDlfO2Wu21R5yXLZeveBhBPhQv48OHDhw/fhS/5kOct8xz3fqCtLYPa9v/Le/Dhw4cPH77pXfkmfIO4xASXpsK92R8VQ/jw4cOHD9+Zr217t0fN8qlukfrljXmrHh8+fPjw4Wv58k11G2rniJdiJQ/989In/2fChw8fPnz4Nr58a91GBneOvPWeNB62mb4sevDhw4cPH74DX94az1vml8NqbYHSBgR5OfXyOfjw4cOHD9/Et7W3L+F4vgBtGJGXU1vp8zJxwYcPHz58+Mr+8v1D/olW+lbi5AHENl98+PDhw4fvzne/2pLiMuGtiGnDi5weHz58+PDhy/m2A2fb8bItas9BP/4/snXv8eHDhw8fvjJw/9xbEtBLoLA17ItmOT58+PDhwzfx5bcmU/2dFnseRiQlUdKwx4cPHz58+C58ySu3j/ppJcuIfyuz2ob9v8wFHz58+PDhe5SvLSbuQfw2pWSxkyWso398+PDhw4fvw13jfCvelj7bJj9vwCct/3Zs+PDhw4cP38a3RQM5bju9DbENILYWftTlwIcPHz58+F68vd1s55v5toDIIZJRXWL97/jChw8fPnz4Wr5LO/kylLykyAP0NoBoI4YxsseHDx8+fPhe3L8d8GrLkXxz/rmSoi1rol4HPnz48OHDN/G1R7ieajm3KElkf4n160N4+PDhw4cPX8DXTvup3zzVjM8LqQvxy7Hhw4cPHz58Z76nJt9u1PPI/tON7SIywIcPHz58+Eq+NqxPAu48Jtja8O09efyRL/zYJseHDx8+fP97vnxw2/b7MsmcrI31k7Agejs+fPjw4cM38bWxe957vxQo+fY+DzXaMOKHe/Dhw4cPH74zX1uyXBrkefjeTuwyo7zMwocPHz58+Fq+rUR4tnB5/5xtSfIw4v1o7/8K+PDhw4cP39/vTT7tn57GFk9sz98Kph+a5fjw4cOHD1/Jl3/I7yXO9vy22nqqJfDDGPDhw4cPH75f4dvKkRwuP0aWAF3m+AM9Pnz48OHD92G++/G1S3DfllDbc4r+Bj58+PDhwzfxJVO6TyB58qcXZitQHmiT48OHDx8+fFNIncfx48vKzXwSarSlSbsA+PDhw4cPX8D3D6/aXi16iWf7AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

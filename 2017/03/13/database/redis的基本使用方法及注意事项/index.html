@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/">
+    
+    
+    <title>Redis 的基本使用方法及注意事项 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="setup,redis">
+    <meta name="description" content="一、概述来自官网： Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted">
+<meta name="keywords" content="setup,redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 的基本使用方法及注意事项">
+<meta property="og:url" content="http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述来自官网： Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/redis_server.JPG">
+<meta property="og:updated_time" content="2017-03-14T05:35:19.120Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis 的基本使用方法及注意事项">
+<meta name="twitter:description" content="一、概述来自官网： Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted">
+<meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/redis_server.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Redis 的基本使用方法及注意事项</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Redis 的基本使用方法及注意事项</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-13T11:31:39.000Z" itemprop="datePublished" class="page-time">
+  2017-03-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、Redis-安装"><span class="post-toc-text">二、Redis 安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、Redis-使用介绍"><span class="post-toc-text">三、Redis 使用介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-命令行使用"><span class="post-toc-text">3.1 命令行使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-程序（脚本）中使用"><span class="post-toc-text">3.2 程序（脚本）中使用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-database/redis的基本使用方法及注意事项"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Redis 的基本使用方法及注意事项</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-13 19:31:39" datetime="2017-03-13T11:31:39.000Z"  itemprop="datePublished">2017-03-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>来自官网：</p>
+<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster. <a href="https://redis.io/topics/introduction" target="_blank" rel="external">Learn more →</a></p>
+<h1 id="二、Redis-安装"><a href="#二、Redis-安装" class="headerlink" title="二、Redis 安装"></a>二、Redis 安装</h1><p>来自官网：<a href="https://redis.io/download#installation" target="_blank" rel="external">installing</a><br>Download, extract and compile Redis with:</p>
+<pre><code>$ wget http://download.redis.io/releases/redis-3.2.8.tar.gz
+$ tar xzf redis-3.2.8.tar.gz
+$ cd redis-3.2.8
+$ make
+</code></pre><p>The binaries that are now compiled are available in the src directory. Run Redis with:</p>
+<pre><code>$ src/redis-server
+You can interact with Redis using the built-in client:
+$ src/redis-cli
+redis&gt; set foo bar
+OK
+redis&gt; get foo
+&quot;bar&quot;
+</code></pre><p>Are you new to Redis? Try <a href="http://try.redis.io/" target="_blank" rel="external">our online, interactive tutorial</a>.</p>
+<h1 id="三、Redis-使用介绍"><a href="#三、Redis-使用介绍" class="headerlink" title="三、Redis 使用介绍"></a>三、Redis 使用介绍</h1><p>Redis 的使用方式大致分为两种：</p>
+<ul>
+<li>一是，命令行中使用 Redis</li>
+<li>二是，程序（脚本）中使用 Redis。</li>
+</ul>
+<h2 id="3-1-命令行使用"><a href="#3-1-命令行使用" class="headerlink" title="3.1 命令行使用"></a>3.1 命令行使用</h2><p>首先，开启 Redis server，开启 Redis client<br>执行如下命令：</p>
+<ul>
+<li><code>redis-server</code>，开启 Redis server</li>
+<li>在另一个终端上执行 <code>redis-cli</code>，开启 Redis client</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oltjxlyku.bkt.clouddn.com/redis_server.JPG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>其次，关闭 Redis client，关闭  Redis client<br>Redis client 终端下执行 <code>SHUTDOWN [NOSAVE|SAVE]</code> 则关闭 server，执行 exit，则关闭 client 终端。</p>
+{% image http://oltjxlyku.bkt.clouddn.com/redis_server_shutdown.JPG '' '' %}
+<p>常用的命令参见：<br><a href="https://redis.io/commands" target="_blank" rel="external">Redis.io/commands</a><br><a href="http://www.cnblogs.com/AlanLee/p/5927748.html" target="_blank" rel="external">Redis 键(key)相关的命令及其它命令的查看地址</a><br><a href="http://www.xuebuyuan.com/2131204.html" target="_blank" rel="external">Redis命令详解-List</a></p>
+<h2 id="3-2-程序（脚本）中使用"><a href="#3-2-程序（脚本）中使用" class="headerlink" title="3.2 程序（脚本）中使用"></a>3.2 程序（脚本）中使用</h2><p>以 Lua 为例，大致步骤为：</p>
+<ul>
+<li>编写 Lua 脚本</li>
+<li>执行命令，命令格式为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli --eval [scripts file name] key:ip , argv[...]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>在脚本中的 KEYS 对应上述命令中的 key，ARGV 对应命令中的 argv。</li>
+<li>引用下标从 1 开始，’,’前后均有空格，不可省略。</li>
+<li>诸多安全机制的限制。</li>
+</ul>
+<p>由于此方式的执行机制为将 Lua 脚本上传至 Redis server 执行，因此 Redis 对脚本的执行进行了诸多限制。</p>
+<ul>
+<li>脚本中的变量均需为 local，不允许全局变量。由于安全机制，不然会报错 Script attempted to access unexisting global variable</li>
+<li>不提供访问系统状态状态的库。由于安全机制，屏蔽了许多命令。Script attempted to access unexisting global variable</li>
+</ul>
+<p>实例</p>
+<hr>
+<p>编写 Lua 脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">-- insert.lua</div><div class="line">local function insert_list(uuidlist)</div><div class="line">	if not uuidlist then</div><div class="line">		return</div><div class="line">	end</div><div class="line">	for k,v in ipairs(uuidlist) do</div><div class="line">		print(k,v)</div><div class="line">		if v ~= nil then</div><div class="line">			redis.call(&apos;LPUSH&apos;,KEYS[1],v)</div><div class="line">		end</div><div class="line">	end</div><div class="line">	print(&quot;FINISH INSERT&quot;)</div><div class="line">end</div><div class="line"></div><div class="line">local function generate_uuid()</div><div class="line">	local seed =&#123;&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;,&apos;5&apos;,&apos;6&apos;,&apos;7&apos;,&apos;8&apos;,&apos;9&apos;,&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;,&apos;f&apos;&#125;</div><div class="line">	local d = &#123;&#125;</div><div class="line">	for i=1,32 do</div><div class="line">		table.insert(d,seed[math.random(1,16)])</div><div class="line">	end</div><div class="line">	local sid = table.concat(d)</div><div class="line">	return string.format(&apos;%s-%s-%s-%s-%s&apos;,</div><div class="line">		string.sub(sid,1,8),</div><div class="line">		string.sub(sid,9,12),</div><div class="line">		string.sub(sid,13,16),</div><div class="line">		string.sub(sid,17,20),</div><div class="line">		string.sub(sid,21,32)</div><div class="line">	)</div><div class="line">end</div><div class="line"></div><div class="line">local uuidlist = &#123;&#125;</div><div class="line">for i = 0,10</div><div class="line">do</div><div class="line">	uuidlist[i]=generate_uuid()</div><div class="line">end</div><div class="line"></div><div class="line">insert_list(uuidlist)</div></pre></td></tr></table></figure></p>
+<p>在命令行中执行 </p>
+<pre><code>$ redis-cli --eval insert.lua data_listl:127.0.0.1 , 10 3
+</code></pre><hr>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setup/">setup</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/&title=《Redis 的基本使用方法及注意事项》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/&title=《Redis 的基本使用方法及注意事项》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redis 的基本使用方法及注意事项》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/13/database/redis使用过程中遇到的几个问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Redis 使用过程中遇到的几个问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/11/others/常用编程工具破解合集/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">常用编程工具破解合集</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/&title=《Redis 的基本使用方法及注意事项》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/&title=《Redis 的基本使用方法及注意事项》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redis 的基本使用方法及注意事项》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADH0lEQVR42u3aQW7jQAwEwP3/p7PAnvZip5uUAWtUOhlOLKuYAzNN/vkTXz//rv9fb65Xd26/69UdLruwsbGxb8Ke3Xr2cPk7r749/+n7cmNjY2Ofx06a1qsvTj7VvtO+n1uwsbGxn8zO8e8bZFvWWavDxsbGxm6PIkkg1RaxJWFjY2M/mb2JhJJP5aOCzXjgI1kaNjY29tezZ4Pe73z98fk2NjY29pex92s3s2PAVYHU8MmxsbGxD2K3D/H+K/crlXlElR+WIgY2Njb2bdltQDP7rz4v92xZJ29v2NjY2Key86aSNKo8nJot9yRN95eiY2NjYx/HHn54sbjziRgracPY2NjYT2DnEX9eprwdztZuLj6BYWNjY9+KnVA3DSwZIeS/kwdhkQUbGxv7UHbCaOP+NmZqyzdcHsLGxsY+iJ2HMm300w4Y2hK0d8bGxsY+lT1bzcmbUBvit2PddkiMjY2NfRK7bTyzsW67ytOGXPURBRsbG/sg9ibo37SZTVTUjo1X9cbGxsb+evZmIaYtUBsqtUWs8zNsbGzs49hXreC0zSY/6rRFfCnFxsbGPo6dN4B87DprTrMAKy80NjY29hPYV5VgE+Unj54sDGFjY2M/h51gEtim1dXB0KbhYWNjYx/Kbh8oD+vbZvaJ5vdyUwkbGxv75uw24smD/tmRZn80KtZ6sLGxsY9gb8axbXzf7kDOxgPRa2xsbOyD2DNSHtDnEf+mZbaHImxsbOzz2LOVmmTY0MY9eQnaIQQ2Njb2E9jJoDcfGOcR0qxBbsYP2NjY2Gez8+i/PWZctRKUXPkfFRsbG/tUdnsYyJvEfhhwAQwbGxv7aHYeG+2b06aN5ZZhx8bGxsa+CfunvJLxajIkbsuULOIUowtsbGzsg9jt/+pJk9gHUu2DXnWMwcbGxr4ve9O03reiTVPZLPdEQ2tsbGzs49if6Id5Q2pXhWaNDRsbGxt7Vo4NPh8S52ud2NjY2E9mz6Kiq9pVO2b+5UmwsbGxj2PnK+xtbNRS29hoOADGxsbGPojdDnrz283GBu2fJD+orObb2NjY2N/I/gswjYzgkZ8XgAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

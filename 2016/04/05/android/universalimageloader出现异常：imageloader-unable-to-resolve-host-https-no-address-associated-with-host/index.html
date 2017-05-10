@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/">
+    
+    
+    <title>UniversalAndroidImageLoader出现异常 Unable to resolve host &quot;https&quot; No address associated with host | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,error,imageloader">
+    <meta name="description" content="一、问题描述UniversalAndroidImageLoader出现异常：ImageLoader:Unable to resolve host &amp;quot;https&amp;quot;No address associated with host使用 ImageLoader 时，出现如下错误，始终加载图片错误，显示 img_error 的图片 UniversalAndroidImageLoader 出">
+<meta name="keywords" content="android,error,imageloader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UniversalAndroidImageLoader出现异常 Unable to resolve host &quot;https&quot; No address associated with host">
+<meta property="og:url" content="http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、问题描述UniversalAndroidImageLoader出现异常：ImageLoader:Unable to resolve host &amp;quot;https&amp;quot;No address associated with host使用 ImageLoader 时，出现如下错误，始终加载图片错误，显示 img_error 的图片 UniversalAndroidImageLoader 出">
+<meta property="og:updated_time" content="2017-05-09T16:56:56.384Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UniversalAndroidImageLoader出现异常 Unable to resolve host &quot;https&quot; No address associated with host">
+<meta name="twitter:description" content="一、问题描述UniversalAndroidImageLoader出现异常：ImageLoader:Unable to resolve host &amp;quot;https&amp;quot;No address associated with host使用 ImageLoader 时，出现如下错误，始终加载图片错误，显示 img_error 的图片 UniversalAndroidImageLoader 出">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">UniversalAndroidImageLoader出现异常 Unable to resolve host &quot;https&quot; No address associated with host</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">UniversalAndroidImageLoader出现异常 Unable to resolve host &quot;https&quot; No address associated with host</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-04-04T16:33:00.000Z" itemprop="datePublished" class="page-time">
+  2016-04-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、问题描述"><span class="post-toc-text">一、问题描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、错误解决"><span class="post-toc-text">二、错误解决</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-添加权限（权限未添加）"><span class="post-toc-text">2.1 添加权限（权限未添加）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-已添加权限，但仍旧出现异常"><span class="post-toc-text">2.2 已添加权限，但仍旧出现异常</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-3-出现问题的原因"><span class="post-toc-text">2.3 出现问题的原因</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">UniversalAndroidImageLoader出现异常 Unable to resolve host "https" No address associated with host</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-04-05 00:33:00" datetime="2016-04-04T16:33:00.000Z"  itemprop="datePublished">2016-04-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p><code>UniversalAndroidImageLoader出现异常：ImageLoader:Unable to resolve host &quot;https&quot;No address associated with host</code><br>使用 ImageLoader 时，出现如下错误，始终加载图片错误，显示 img_error 的图片 UniversalAndroidImageLoader 出现异常： <code>ImageLoader:
+Unable to resolve host &quot;https&quot;: No address associated with host</code></p>
+<pre><code>E/ImageLoader: failed to connect to https/183.221.250.11 (port 443) after 5000ms: isConnected failed: ECONNREFUSED (Connection refused)
+    java.net.ConnectException: failed to connect to https/183.221.250.11 (port 443) after 5000ms: isConnected failed: ECONNREFUSED (Connection refused)
+    at libcore.io.IoBridge.isConnected(IoBridge.java:267)
+        at libcore.io.IoBridge.connectErrno(IoBridge.java:191)
+        at libcore.io.IoBridge.connect(IoBridge.java:127)
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:188)
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:461)
+        at java.net.Socket.connect(Socket.java:918)
+        at com.android.okhttp.internal.Platform.connectSocket(Platform.java:174)
+        at com.android.okhttp.Connection.connect(Connection.java:152)
+        at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:282)
+        at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:216)
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:391)
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:341)
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponseCode(HttpURLConnectionImpl.java:509)
+        at com.android.okhttp.internal.http.DelegatingHttpsURLConnection.getResponseCode(DelegatingHttpsURLConnection.java:105)
+        at com.android.okhttp.internal.http.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:25)
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStreamFromNetwork(BaseImageDownloader.java:117)
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStream(BaseImageDownloader.java:88)
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.getImageStream(BaseImageDecoder.java:98)
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.decode(BaseImageDecoder.java:74)
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.decodeImage(LoadAndDisplayImageTask.java:265)
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.tryLoadBitmap(LoadAndDisplayImageTask.java:238)
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.run(LoadAndDisplayImageTask.java:136)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+        at java.lang.Thread.run(Thread.java:818)
+    Caused by: android.system.ErrnoException: isConnected failed: ECONNREFUSED (Connection refused)
+        at libcore.io.IoBridge.isConnected(IoBridge.java:252)
+        at libcore.io.IoBridge.connectErrno(IoBridge.java:191)?
+        at libcore.io.IoBridge.connect(IoBridge.java:127)?
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:188)?                             
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:461)?
+        at java.net.Socket.connect(Socket.java:918)?
+        at com.android.okhttp.internal.Platform.connectSocket(Platform.java:174)?
+        at com.android.okhttp.Connection.connect(Connection.java:152)?
+        at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:282)?
+        at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:216)?
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:391)?
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:341)?
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponseCode(HttpURLConnectionImpl.java:509)?
+        at com.android.okhttp.internal.http.DelegatingHttpsURLConnection.getResponseCode(DelegatingHttpsURLConnection.java:105)?
+        at com.android.okhttp.internal.http.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:25)?
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStreamFromNetwork(BaseImageDownloader.java:117)?
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStream(BaseImageDownloader.java:88)?
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.getImageStream(BaseImageDecoder.java:98)?
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.decode(BaseImageDecoder.java:74)?
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.decodeImage(LoadAndDisplayImageTask.java:265)?
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.tryLoadBitmap(LoadAndDisplayImageTask.java:238)?
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.run(LoadAndDisplayImageTask.java:136)?
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)?
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)?
+        at java.lang.Thread.run(Thread.java:818)?
+</code></pre><h1 id="二、错误解决"><a href="#二、错误解决" class="headerlink" title="二、错误解决"></a>二、错误解决</h1><h2 id="2-1-添加权限（权限未添加）"><a href="#2-1-添加权限（权限未添加）" class="headerlink" title="2.1 添加权限（权限未添加）"></a>2.1 添加权限（权限未添加）</h2><pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;
+</code></pre><h2 id="2-2-已添加权限，但仍旧出现异常"><a href="#2-2-已添加权限，但仍旧出现异常" class="headerlink" title="2.2 已添加权限，但仍旧出现异常"></a>2.2 已添加权限，但仍旧出现异常</h2><ul>
+<li>android进入应用管理，清除缓存，清除数据。</li>
+<li>或者直接下载该引用，重新上载。即可解决问题。</li>
+</ul>
+<h1 id="2-3-出现问题的原因"><a href="#2-3-出现问题的原因" class="headerlink" title="2.3 出现问题的原因"></a>2.3 出现问题的原因</h1><p><strong>以后将做探讨</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5353527.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5353527.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/imageloader/">imageloader</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/&title=《UniversalAndroidImageLoader出现异常 Unable to resolve host "https" No address associated with host》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/&title=《UniversalAndroidImageLoader出现异常 Unable to resolve host "https" No address associated with host》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UniversalAndroidImageLoader出现异常 Unable to resolve host "https" No address associated with host》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/04/10/others/eclipse中添加pydev插件/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Eclipse 中添加 PyDev 插件</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/22/android/butterknife简介及generate-butterknife-injections不出现的问题解决/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ButterKnife 简介及 Generate ButterKnife Injections 不出现的问题解决</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/&title=《UniversalAndroidImageLoader出现异常 Unable to resolve host "https" No address associated with host》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/&title=《UniversalAndroidImageLoader出现异常 Unable to resolve host "https" No address associated with host》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UniversalAndroidImageLoader出现异常 Unable to resolve host "https" No address associated with host》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFTElEQVR42u3a0W4bRxQD0Pz/T7tAnwokkkjetQu0Z58MR9bOHgUQh3d+/Yqvr7+vVz//8/r9Nb+/8tX7v3+392t4dd/k9+/X9sCFDx8+fPjwBUvPl/X+gXP67ZWX9bz/eKL74sOHDx8+fBNfG1bygJIHgvaxL+EpD0YfrPDhw4cPH75v48vfdNuib/Tt+zxcPeDDhw8fPnzfHFzqTXX5SPnAoI0sl2EDPnz48OHD9yxfPqhuX5kXBHm4+flhwwOzDnz48OHDh++hA2r/vZ9/9HwfPnz48OH73/B9PXpt1fw29s7jS1voF8+LDx8+fPjwTc972QxvW/q2XNiG95eRfxFo8OHDhw8fvpjv/SNtx7/a8LHd8V583Inx4cOHDx++7+DLD4dtgeCp3+Rdel7Nf/gg8eHDhw8fvomvHSTnN86J849wKwi2ABTV9Pjw4cOHD9/Ed9+EPwuUVPwtXF4iJOvHhw8fPnz4nuJLIO4E22PnrHn02daGDx8+fPjwtXxbcbD9Ji8O7uh5BdD+Hh8+fPjw4bvwJeX1tvG+j8zb8Xzyzi3Thw8SHz58+PDhm/jaMn3b9rexIMpcQYWRs7aDBHz48OHDh2/jy8fbCfT2r/e75BGqHT98GJPjw4cPHz58Jd/9Nnn1kAeLvHDP75uXC1GYw4cPHz58+Ca+9gZtrElCwDae3wr35LkiYnz48OHDh2+aR28Pub0+35bf13Mp9Iv148OHDx8+fDHfPbgk2/KNL68PcuicO2LFhw8fPnz4pn47H5DnJfsFvR2Et391/49SE+DDhw8fPnzBF/M2SG4jRRtK2miyFfpFSYEPHz58+PAd+Not9FYctFj5YH4bqG/Piw8fPnz48LV8+Vd1/XUeh4bL47VH2e7Piw8fPnz48F34Wsrk9UndsFUPlw9yK/SLaIUPHz58+PDFfFuAuP9V/jFsYSu/Sx6YXhYH+PDhw4cPX8D3Pkz8W8X9paZPDsNtK/nD3+LDhw8fPnwTXxIp2mNe28NcqoQL8bhyfPjw4cOHb+Jrl54vLtmoP1UoJB/nhfUP74YPHz58+PCVfPmX9FNld45+r9ovpX8RaPDhw4cPH774Ndvm/16I56P3/OG3ccI2WvhQGeDDhw8fPnzBOaskslziy7bcZ0fsWyT6sBJ8+PDhw4cv5ruMt9tQ0g7Lk6JhW2072n+5Qnz48OHDh+/AlzNtw+y2xG+HAZfavX3eIg3hw4cPHz588Vd7S3Y/ypaDtutJ4OoDc/jw4cOHD9/El2/s8413XqC3kSUp7rfIlRwL+DDlwIcPHz58+OJZcx4s2oJgO9C2FRA5a3sg78N/EXz48OHDhy/g+5qu7cBZy50Pv7fBwMb64YAaPnz48OHDF/D9mq5tXP1UyNgOxuUVf1SL4MOHDx8+fCVfOyreQsw94uTD+8uBs/xeL4sDfPjw4cOHL04U28i8LdCTWJNXFfeIU8808OHDhw8fvgPffSlbfZA/QB5xtsIi+eA/JD58+PDhw4ev5Hv/GJcjYk8V9+2Zu7y2OI0o8OHDhw8fvjNfy5REkzwktVv3tg7IR+ZFZYAPHz58+PBNZX0eGi6I+aGxdjSejxPyYLStAR8+fPjw4Xu/hq0iz4955aHhEiDygqMdn38AxYcPHz58+Ca+fHE54rOb8GSdW7Rqawh8+PDhw4fv5/ku2/itIt+iT1vQ5xEHHz58+PDh+26+rVx4HyDaeJSUC+0Bu3Zgjw8fPnz48N358jfKo0lbKGzH2lq4PAZFQ3p8+PDhw4ev5Lts0e9FeVIltPVEOzZ4dvCADx8+fPjwvbj+Aslf1PyZuLCuAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

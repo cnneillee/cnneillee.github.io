@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/">
+    
+    
+    <title>Android 中 versionCode &amp; versionName | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android">
+    <meta name="description" content="原文来自：http://blog.csdn.net/wh_19910525/article/details/8660416 ，略有修改 一、概述Android的版本可以在androidmainfest.xml中定义，主要有android:versionCode和android:versionName 二、解析1、简要区分 android:versionCode: 主要是用于版本升级所用，是INT类">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 中 versionCode &amp; versionName">
+<meta property="og:url" content="http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="原文来自：http://blog.csdn.net/wh_19910525/article/details/8660416 ，略有修改 一、概述Android的版本可以在androidmainfest.xml中定义，主要有android:versionCode和android:versionName 二、解析1、简要区分 android:versionCode: 主要是用于版本升级所用，是INT类">
+<meta property="og:updated_time" content="2017-05-09T16:56:55.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 中 versionCode &amp; versionName">
+<meta name="twitter:description" content="原文来自：http://blog.csdn.net/wh_19910525/article/details/8660416 ，略有修改 一、概述Android的版本可以在androidmainfest.xml中定义，主要有android:versionCode和android:versionName 二、解析1、简要区分 android:versionCode: 主要是用于版本升级所用，是INT类">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 中 versionCode &amp; versionName</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 中 versionCode &amp; versionName</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-04-16T07:50:00.000Z" itemprop="datePublished" class="page-time">
+  2016-04-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、解析"><span class="post-toc-text">二、解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、简要区分"><span class="post-toc-text">1、简要区分</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、举例"><span class="post-toc-text">2、举例</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、拓展"><span class="post-toc-text">三、拓展</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？"><span class="post-toc-text">1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1取manifest-xml"><span class="post-toc-text">1.1取manifest.xml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2在里面定义"><span class="post-toc-text">1.2在里面定义</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android中versioncode-versionname"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 中 versionCode & versionName</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-04-16 15:50:00" datetime="2016-04-16T07:50:00.000Z"  itemprop="datePublished">2016-04-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>原文来自：<a href="http://blog.csdn.net/wh_19910525/article/details/8660416" target="_blank" rel="external">http://blog.csdn.net/wh_19910525/article/details/8660416</a> ，略有修改</p>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Android的版本可以在androidmainfest.xml中定义，主要有android:versionCode和android:versionName</p>
+<h1 id="二、解析"><a href="#二、解析" class="headerlink" title="二、解析"></a>二、解析</h1><h2 id="1、简要区分"><a href="#1、简要区分" class="headerlink" title="1、简要区分"></a>1、简要区分</h2><ul>
+<li><code>android:versionCode</code>: 主要是用于版本升级所用，是INT类型的，第一个版本定义为1，以后递增，这样只要判断该值就能确定是否需要升级，该值不显示给用户。</li>
+<li><code>android:versionName</code>: 这个是我们常说明的版本号，由三部分组成..,该值是个字符串，可以显示给用户。</li>
+</ul>
+<h1 id="2、举例"><a href="#2、举例" class="headerlink" title="2、举例"></a>2、举例</h1><p>关于版本号有两个值，如下面的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">	package=&quot;com.xxx.xxx&quot;</div><div class="line">	android:versionCode=&quot;2&quot;</div><div class="line">	android:versionName=&quot;1.1&quot;&gt;</div><div class="line">	......</div></pre></td></tr></table></figure>
+<p>versionCode 是给设备程序识别版本(升级)用的，必须是一个 interger 值，整数，代表 app 更新过多少次</p>
+<p>versionName 是给用户看的，可以写1.1 , 1.2等等版本</p>
+<h1 id="三、拓展"><a href="#三、拓展" class="headerlink" title="三、拓展"></a>三、拓展</h1><h2 id="1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？"><a href="#1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？" class="headerlink" title="1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？"></a>1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？</h2><h3 id="1-1取manifest-xml"><a href="#1-1取manifest-xml" class="headerlink" title="1.1取manifest.xml"></a>1.1取manifest.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PackageManager pm = context.getPackageManager();//context为当前Activity上下文 </div><div class="line">PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);</div><div class="line">version = pi.versionName;</div></pre></td></tr></table></figure>
+<p>待查实：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);	这里的Flag为0是有问题的吧，源码解释Flag包括：</div><div class="line">GET_ACTIVITIES, GET_GIDS, GET_CONFIGURATIONS, GET_INSTRUMENTATION, GET_PERMISSIONS, GET_PROVIDERS, GET_RECEIVERS, GET_SERVICES, GET_SIGNATURES, GET_UNINSTALLED_PACKAGES，并且查看源码，所有的Flag没有为0的情况。同时使用0做测试，是得不到versionCode</div></pre></td></tr></table></figure></p>
+<h3 id="1-2在里面定义"><a href="#1-2在里面定义" class="headerlink" title="1.2在里面定义"></a>1.2在里面定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:[versionName=&quot;@string/app_versionName](mailto:versionName=%22@string/app_versionName)&quot;</div></pre></td></tr></table></figure>
+<p>然后在 res/values/strings.xml 里定义一个同名 string item ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;string name=&quot;app_versionName&quot;&gt;1.1&lt;/string&gt;</div></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5398576.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5398576.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/&title=《Android 中 versionCode & versionName》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/&title=《Android 中 versionCode & versionName》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 中 versionCode & versionName》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/04/17/android/android中的各类bar/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 中的各类 Bar</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/04/16/android/android夜间模式实现/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 夜间模式实现</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/&title=《Android 中 versionCode & versionName》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/&title=《Android 中 versionCode & versionName》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 中 versionCode & versionName》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/16/android/android中versioncode-versionname/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3aQXKDMAwF0Nz/0u22My3kS7JSFo9VhgHjxwIrX3694uPr15Fc+fNMcuXv65NxDhx4eHh446lfTbH6sOrI968vueuPe/Hw8PDWeMlw93ddnem9iOp8Ls/j4eHhPYY3L3nz11ct0/Hw8PCexsuL4GTByEfGw8PDexpvMvTkE98r2VeyFjw8PLyYNyl//+v3Sn8PDw8Pb9xVz5thvadUw9zybPHw8PAWeJNNAL2iuVf+9hppeHh4eJ/kJeFCNcLI491qG+zNc/Hw8PDWeL2NApNtVb0XUWh94eHh4S3w5qFqNT7oJa5JYf2mmMbDw8M7yqt+oPfi3UnxPVrx8PDw8Fq8yce9uq2qGnbkYUTU38PDw8Mb8Caf3UmhnCN7r/jAqoKHh4d3m3MmS8Kk/V+d1jwUxsPDw9vm5WtIdSpJBDyfyeXIeHh4eAu8PNidLA95y6oaEyfBBx4eHt5ZXu9jXS3HqxsRjjXt8PDw8BZ4SWRQ/RxPthTk26qi1hceHh7eGi+puE9tIMhH6/0naG4dwMPDw4t5+SSq7fx5aJuHEZfzwcPDw1vmJVNMCuK8CM63AvSejoeHh7fBy5vx+dC9MKJasufzx8PDw/sML/nQV+/NG2PVdlf0dDw8PLyjvLzBP2lZvYIj2YBVDkfw8PDw1nh5CVuddFJqVzcElPdE4OHh4a3xksdPSvBj/wByJB4eHt4ar1f+zoPXvAlXLcrx8PDwNni9ojaJAPJm1eR1vCnc8fDw8BZ4vShhL4yoJgmvUwceHh5ekVddDKpBQzJywqgGu3h4eHjbvEnn6OxiMF/AyvU7Hh4e3jKvGjHMC/f7ePfNc/Hw8PAewMtj3PszSUl9IBDBw8PDW+PlkUGvYdZ7WfmCVNh0hYeHhzfmVf/kzyPdXpt/I7zAw8PDK/K+AVKLILVuhOuBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

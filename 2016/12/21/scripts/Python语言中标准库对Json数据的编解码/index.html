@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/">
+    
+    
+    <title>Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,json">
+    <meta name="description" content="一、概述1.1 关于JSON数据格式JSON (JavaScript Object Notation), specified by RFC 7159 (which obsoletes RFC4627) and by ECMA-404, is a lightweight data interchange format inspired byJavaScript object literal synt">
+<meta name="keywords" content="python,json">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library">
+<meta property="og:url" content="http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述1.1 关于JSON数据格式JSON (JavaScript Object Notation), specified by RFC 7159 (which obsoletes RFC4627) and by ECMA-404, is a lightweight data interchange format inspired byJavaScript object literal synt">
+<meta property="og:updated_time" content="2017-05-09T16:56:56.284Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library">
+<meta name="twitter:description" content="一、概述1.1 关于JSON数据格式JSON (JavaScript Object Notation), specified by RFC 7159 (which obsoletes RFC4627) and by ECMA-404, is a lightweight data interchange format inspired byJavaScript object literal synt">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-12-21T07:52:53.000Z" itemprop="datePublished" class="page-time">
+  2016-12-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-关于JSON数据格式"><span class="post-toc-text">1.1 关于JSON数据格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-关于json库"><span class="post-toc-text">1.2 关于json库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-json库官网地址"><span class="post-toc-text">1.3 json库官网地址</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、学习历程"><span class="post-toc-text">二、学习历程</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-scripts/Python语言中标准库对Json数据的编解码"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-12-21 15:52:53" datetime="2016-12-21T07:52:53.000Z"  itemprop="datePublished">2016-12-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-关于JSON数据格式"><a href="#1-1-关于JSON数据格式" class="headerlink" title="1.1 关于JSON数据格式"></a>1.1 关于JSON数据格式</h2><p>JSON (JavaScript Object Notation), specified by RFC 7159 (which obsoletes RFC<br>4627) and by ECMA-404, is a lightweight data interchange format inspired by<br>JavaScript object literal syntax (although it is not a strict subset of<br>JavaScript [1] ).</p>
+<h2 id="1-2-关于json库"><a href="#1-2-关于json库" class="headerlink" title="1.2 关于json库"></a>1.2 关于json库</h2><p>json exposes an API familiar to users of the standard library marshal and<br>pickle modules.</p>
+<h2 id="1-3-json库官网地址"><a href="#1-3-json库官网地址" class="headerlink" title="1.3 json库官网地址"></a>1.3 json库官网地址</h2><p>json是a Python Standard<br>Library，官网地址为：<a href="https://docs.python.org/3/library/json.html" target="_blank" rel="external">https://docs.python.org/3/library/json.html</a></p>
+<h1 id="二、学习历程"><a href="#二、学习历程" class="headerlink" title="二、学习历程"></a>二、学习历程</h1><p>中文：<a href="http://www.ziqiangxuetang.com/python/python-json.html" target="_blank" rel="external">http://www.ziqiangxuetang.com/python/python-json.html</a><br>英文：<a href="https://docs.python.org/3/library/json.html" target="_blank" rel="external">https://docs.python.org/3/library/json.html</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/6207996.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6207996.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/&title=《Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/&title=《Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/12/21/others/喜马拉雅fm抓包之旅/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">喜马拉雅FM抓包之旅</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/12/21/scripts/python操作mysql数据库时sql语句的格式问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 操作 Mysql 数据库时 SQL 语句的格式问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/&title=《Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/&title=《Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADMElEQVR42u3aQW7jMAwF0Nz/0p3tAK2VT9IBEuZ5FbiupCcvaJJ6POLr57/r/Ner6/fzv3+f75xnf7ziwsbGxv4QdrLcM+Dq+TM1mSsZMxn5j63BxsbGXsc+B4bzIs4BJgkzk/HPW3N5HxsbG/uL2fmnfz5CNQRiY2NjY98VwJLAM0la8g3FxsbGxk4KPXmCUQ1yE/zLa2nY2NjYb8/uJRXv+fsl/W1sbGzsN2b/jK88ncjbuvlxn54CGxsbexO7V5rPP/Srhad5s7mQkGBjY2MvYveO0eQN4EkIzO9XNxEbGxt7E7u69Op/5Qs6z9J7MYVGLzY2NvYHspOg0gtaPXy1qt97BhsbG3s3u9fczQNYXpyqBrzCONjY2NhL2dWmadJ8zeeaNB7KbQlsbGzspezqlD1Mr/Tf413ewcbGxl7HzkNR9dBMtQiVjN8b4Y/2ADY2NvYKdrU0Py/l37Vl1ZSm15DAxsbG/hR2tbR0VyP23o0orxwbGxt7EbsatO5KSKpFpWqa1AzA2NjY2B/LzidLJu41G6pjJq/hiQUbGxt7BTv/WO+1b/NgM8ckz2NjY2NvYudDJ4NOivU5aRIaH9UdxcbGxn579qRAn7d185BWLSRNAiQ2Njb2N7DLOU3rv3ot216gxcbGxt7Hnhf0e0Hu3vtJ+LysomFjY2OvYCctgeQgThJ+8uNBZ0zekL4MYNjY2NhL2XnTt1fiqTYYqqWl6IVhY2NjL2XnIepncCWLy8Nbr1WMjY2NvYl918d9dVkJcp5+PNl6bGxs7BXsXjKQpBbVrRmV+6upFDY2NvYidj5ckpY042exdFVtLV+uExsbG3sFO//oT8LMK1KXajshepHY2NjYi9jzwtCr75QxcejFxsbG3sGetGl75fu7kopedSjKkLCxsbE/it0LAJMiVLUtUW0D39A2wMbGxv5AdkKa8PIGcD5jvllRRQ0bGxt7BXtS1q8mLXnaM0kwnrw8bGxs7K9k563ZZKG9FnK+xecZsbGxsb+TXRi02BK4q51cSGawsbGx17GrYaN6xKe3EckI1cQJGxsbex87L9BU04ZqET8nzcMnNjY29gr2P9uAv4OtvEiYAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/">
+    
+    
+    <title>Android 开发环境搭建 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,android-studio,setup">
+    <meta name="description" content="android studio下载介绍android SDK介绍、获取、更新">
+<meta name="keywords" content="android,android-studio,setup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 开发环境搭建">
+<meta property="og:url" content="http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="android studio下载介绍android SDK介绍、获取、更新">
+<meta property="og:updated_time" content="2017-05-09T15:18:15.429Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 开发环境搭建">
+<meta name="twitter:description" content="android studio下载介绍android SDK介绍、获取、更新">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 开发环境搭建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 开发环境搭建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-03-16T09:34:28.000Z" itemprop="datePublished" class="page-time">
+  2016-03-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、IDE-下载及安装"><span class="post-toc-text">一、IDE 下载及安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-下载路径："><span class="post-toc-text">1.1 下载路径：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-Android-Studio-下载后无需安装"><span class="post-toc-text">1.2 Android Studio 下载后无需安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、Android-SDK"><span class="post-toc-text">二、Android SDK</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-用途："><span class="post-toc-text">2.1 用途：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-获取方式："><span class="post-toc-text">2.2 获取方式：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-更新："><span class="post-toc-text">2.3 更新：</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android开发环境搭建"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 开发环境搭建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-03-16 17:34:28" datetime="2016-03-16T09:34:28.000Z"  itemprop="datePublished">2016-03-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>android studio下载介绍<br>android SDK介绍、获取、更新<br><a id="more"></a></p>
+<h1 id="一、IDE-下载及安装"><a href="#一、IDE-下载及安装" class="headerlink" title="一、IDE 下载及安装"></a>一、IDE 下载及安装</h1><p>首先进行集成开发环境（IDE）的下载。推荐使用 Android Studio 这款 IDE 进行开发。</p>
+<h2 id="1-1-下载路径："><a href="#1-1-下载路径：" class="headerlink" title="1.1 下载路径："></a>1.1 下载路径：</h2><blockquote>
+<p>需要翻墙 –&gt; <a href="http://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="external">developer.android官网下载</a><br>无需翻墙 –&gt; <a href="http://www.android-studio.org/" target="_blank" rel="external">android-studio中文社区(官网)</a></p>
+</blockquote>
+<h2 id="1-2-Android-Studio-下载后无需安装"><a href="#1-2-Android-Studio-下载后无需安装" class="headerlink" title="1.2 Android Studio 下载后无需安装"></a>1.2 Android Studio 下载后无需安装</h2><ul>
+<li>下载后找到 <code>studio.exe</code> [32位操作系统]， <code>studio64.exe</code> [64位操作系统]</li>
+<li>这两个可执行文件，这两个可执行文件就是软件的入口</li>
+</ul>
+<h1 id="二、Android-SDK"><a href="#二、Android-SDK" class="headerlink" title="二、Android SDK"></a>二、Android SDK</h1><h2 id="2-1-用途："><a href="#2-1-用途：" class="headerlink" title="2.1 用途："></a>2.1 用途：</h2><p>它是 Android 开发的重要开发包，Android Studio 只是集成开发环境（IDE），SDK才是真正的灵魂。</p>
+<p>类比 Java 开发环境的搭建：</p>
+<ul>
+<li>Android &lt;==&gt; Java </li>
+<li>JDK &lt;==&gt; SDK </li>
+<li>Eclipse &lt;==&gt; Android Studio </li>
+</ul>
+<h2 id="2-2-获取方式："><a href="#2-2-获取方式：" class="headerlink" title="2.2 获取方式："></a>2.2 获取方式：</h2><ul>
+<li>1、Android Studio 下载官网上可选与 Android Studio 一同下载</li>
+<li>2、Android Studio 中文组也提供了 SDK 的下载地址</li>
+</ul>
+<h2 id="2-3-更新："><a href="#2-3-更新：" class="headerlink" title="2.3 更新："></a>2.3 更新：</h2><p>由于 Android SDK 是 Android 应用软件开发包，针对不同的 Android 版本需要下载相应的 SDK</p>
+<blockquote>
+<p>类比书包和书：<br>上学肯定要带书    [Android 应用软件开发需要具体版本的 SDK 支持]<br>但是书要用书包来装    [具体版本的 SDK 放在 Android SDK 内]<br>上什么样的课，就得带什么课的书    [想要开发那个版本的应用就得下载相应版本的 SDK]</p>
+</blockquote>
+<p>更新途径：</p>
+<ul>
+<li>1、<a href="http://www.android-studio.org/" target="_blank" rel="external">android-studio中文组网站</a> 有提供更新包及使用方法</li>
+<li>2、<a href="http://www.androiddevtools.cn/" target="_blank" rel="external">androiddevtools网站</a> 提供在 Android SDK 上设置镜像代理，从而下载更新，跟用VPN差不多.网站上也附了更新方法</li>
+</ul>
+<p><strong>上面的两个网站里也有相关的学习android资料，有时间可以看一哈</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setup/">setup</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/&title=《Android 开发环境搭建》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/&title=《Android 开发环境搭建》 — Neil Lee's blog&source=android studio下载介绍android SDK介绍、获取、更新" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 开发环境搭建》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/03/16/others/博客搜罗/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">博客搜罗</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/16/java/java开发环境搭建教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java 开发环境搭建教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/&title=《Android 开发环境搭建》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/&title=《Android 开发环境搭建》 — Neil Lee's blog&source=android studio下载介绍android SDK介绍、获取、更新" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 开发环境搭建》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/16/android/android开发环境搭建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3aQW7DMAwEwP7/0y3Qa2tnSYpuCoxPQeA4Gh1EYumPj/j6/L6uPl9dV0+4f2b+zbELDw8Pr7X0+yXeL+Xnc6r/eL+hk23Fw8PD2+PlxeAKc39PUlryjcg3BQ8PD+9veVVMvil5OcHDw8P7X7zeEvNDP2/l8fDw8N6Bl/zN/fHdY+QFZj1rwcPDw4t58wHY858fne/h4eHhFY/sSRRbXdCkGPzyKzw8PLwFXjVIPTsAmzTuhYKBh4eHt8A7dTRXg4n5EK4ai+Dh4eHt8ZIgIHktICf1XjIo4/Hw8PDGvOTWJIzoHf3zEGRUBvDw8PAGvF4Im4+skhhiskEvCgMeHh7eUd72kT0Pbavn/IvGGg8PD2/Mqy60OujKnzbZpvJ+4OHh4Q14pxrivLQkAe58y/Dw8PCe4SXN7naTnQTKZTweHh7eUV7vx9USUl1oXkhePB8PDw9vgZcPn3olJA9BcmSyNYX2Gg8PD6/ImwQKvVjh1BZE/4KHh4e3wOuN+ZOFToZehYi2Oh7Dw8PDG/Pui8HZ4VYeapyKffHw8PA2eNWWtxqh9sKFaNHxPXh4eHjP8HrLLfzlYMuqozg8PDy8PV4e7Cbf5K35BBxFvXh4eHgLvF6Ae18YkuLRe5Wq+X4EHh4e3jJvu9nNfzu/Bw8PD2+Dlx/xvTggKQzV0pKsBA8PD2+bVx3eV4OJamBRhV2uBA8PD+8obxKM5gOwaqtdvfNym/Dw8PAWeL1Kkre8SZlJilA+nOsVEjw8PLwqLx8y9Q7rXmPdu//yzQg8PDy8Bd7k5adqtNorJ9UBHh4eHt678XovIlSjisnz8fDw8N6Blze7eSicB8fNooKHh4e3xqsuIgkCkuB1Ek+Ue208PDy8Q7zyW1pxg3vq6O99g4eHh7fA+wKXtYi9zn39OwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/">
+    
+    
+    <title>安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="error,python">
+    <meta name="description" content="一、概述lxml介绍http://lxml.de/ 二、问题ERROR: ‘xslt-config’ 不是内部或外部命令，也不是可运行的程序 三、解决方法Scrapy在Windows上的安装笔记http://blog.csdn.net/changdejie/article/details/17997299 四、拓展http://www.lfd.uci.edu/~gohlke/pythonlibs/">
+<meta name="keywords" content="error,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序">
+<meta property="og:url" content="http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述lxml介绍http://lxml.de/ 二、问题ERROR: ‘xslt-config’ 不是内部或外部命令，也不是可运行的程序 三、解决方法Scrapy在Windows上的安装笔记http://blog.csdn.net/changdejie/article/details/17997299 四、拓展http://www.lfd.uci.edu/~gohlke/pythonlibs/">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201609/797098-20160924185555887-993694305.png">
+<meta property="og:updated_time" content="2017-05-09T16:56:56.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序">
+<meta name="twitter:description" content="一、概述lxml介绍http://lxml.de/ 二、问题ERROR: ‘xslt-config’ 不是内部或外部命令，也不是可运行的程序 三、解决方法Scrapy在Windows上的安装笔记http://blog.csdn.net/changdejie/article/details/17997299 四、拓展http://www.lfd.uci.edu/~gohlke/pythonlibs/">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201609/797098-20160924185555887-993694305.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-09-24T10:59:00.000Z" itemprop="datePublished" class="page-time">
+  2016-09-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、问题"><span class="post-toc-text">二、问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、解决方法"><span class="post-toc-text">三、解决方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、拓展"><span class="post-toc-text">四、拓展</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-09-24 18:59:00" datetime="2016-09-24T10:59:00.000Z"  itemprop="datePublished">2016-09-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>lxml介绍<a href="http://lxml.de/" target="_blank" rel="external">http://lxml.de/</a></p>
+<h1 id="二、问题"><a href="#二、问题" class="headerlink" title="二、问题"></a>二、问题</h1><p>ERROR: ‘xslt-config’ 不是内部或外部命令，也不是可运行的程序<br><img src="http://images2015.cnblogs.com/blog/797098/201609/797098-20160924185555887-993694305.png" alt=""></p>
+<h1 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h1><p><a href="http://www.biaodianfu.com/install-scrapy-on-
+windows.html" target="_blank" rel="external">Scrapy在Windows上的安装笔记</a><br><a href="http://blog.csdn.net/changdejie/article/details/17997299" target="_blank" rel="external">http://blog.csdn.net/changdejie/article/details/17997299</a></p>
+<h1 id="四、拓展"><a href="#四、拓展" class="headerlink" title="四、拓展"></a>四、拓展</h1><p><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5903856.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5903856.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/&title=《安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/&title=《安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/10/02/daily/新入手的raspberry-pi3拼装日志/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">新入手的Raspberry Pi3拼装日志</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/08/15/android/【工具】云手机的网站/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【工具】云手机的网站</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/&title=《安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/&title=《安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFPUlEQVR42u3dQW7cMBAEQP//087VQSKpe4YyDLj2ZMRriiwusMMeAvn4iF+fX15X/37122SEf3++n8PVKxn5alb3T1+98OHDhw8fvnhaV4ufLTVZQPLOZJOSv71fXbJJ+PDhw4cP34zvatD2PQlr/pT9BuSlTLtefPjw4cOH73v4kiUlpcysiGkJNlECPnz48OHD9zP5kuJjNt192bGJGPDhw4cPH773+E6hzKKHvMRpR8jHfL3XgQ8fPnz48JW3sH7Pz4df+PDhw4cPX/D1fP+Fnb/nvkQ49c626Plcv/Dhw4cPH76ZxqlD+CZiaIuGvKGeb/zMAR8+fPjw4Wv5ksZw+8hN/L0pcdqgP3/6AzE+fPjw4cMXjDD72t4/+OwBPpltvj3FxuDDhw8fPnwLvpxsE+Vv4on8MlwbT9w/63JMfPjw4cOHb8SXtJ83Bceppc6i+bbMKtIAfPjw4cOH7wW+dtJtWJBHEm27fTPbqG2PDx8+fPjwlXx5ybK5LpaPnIcFeQm1KZgiGXz48OHDh29SM9QFxJ4yeX87WrvUDTo+fPjw4cO34UvKghw0KQ7yLcyfktPkJVT0V/jw4cOHD1/8V7NmeXvAbpfRhhf7i2jHPnf48OHDhw/fqGTZh+ZJIXL2CtpsI2dFDD58+PDhw9fynYXYhO/tJbZ2zFk88VC+4MOHDx8+fCO+WbGSH8s375+N05Y7+V/99e/48OHDhw9fyZcP0V75ytvb+9B8VnLlDYMirMeHDx8+fPiCu1U50ybabjdg1boOVpcHCpdzwIcPHz58+EZ8+0JhdlBvy5f86W0QXwQEX8fEhw8fPnz4Sr62pHjjvNw+d1bctGFBUa7hw4cPHz58sc/ZEiRvaSexeF6g7Jv9qwY5Pnz48OHD151/D19Em7Wo31hk+7GYzRAfPnz48OFr+dpD+Ob9LegbUftmYw5kGPjw4cOH79fztde22oKmuPIVP3dGOXvuw0zw4cOHDx++km92YM5LmU0xkcfx+dM3W1h/pvDhw4cPH75gWpvAfd9Qnx31NyHILFbAhw8fPnz4Znxt8zu/NJYUK5sRzl6Dqz86+PDhw4cP36TqWP0nSW0RczZ62ATx7aov54wPHz58+PCVfHkDexa+50VMUlgcWF6wSQf6Hvjw4cOHD9+izztrom9i9NmVtXbObQsBHz58+PDh2/Dlzeb8wUnp0xIny5uF+HlJ9PBbfPjw4cOHL+DLj9ybpnJe7szi/rYpvglNoroJHz58+PDhi0+77bWwTcnSnrvzOGCWqx8IC/Dhw4cPH774+3of0G9KkFm83kYJs02KYg58+PDhw4fvEF8bqefLmAUBbYHS/nZ4wQ4fPnz48OEL+GYDzXZpU1gkR/c8iG+b8cUnDh8+fPjw4Qv42uAguRy2CQ5eWeqo5f8wW3z48OHDh6/k23zxtw31fNJ5oD8rdNpYJBoZHz58+PDhC/iSaGBWrJxaWFKa5O32TaDwn/Hx4cOHDx++EV8brO8XMwsONk2CooLLW/j48OHDhw/fmq890s8ChWQDZrF7G+5vrgLgw4cPHz58Ld/s8Hxf0LSt63zMNg5oy6PN5QB8+PDhw4cv59sH9Geb2aeCjFk0UBcu+PDhw4cP34iv/SLPj/ftFbSzi9y0yaPZ4sOHDx8+fC/z5eVOXrjkZcps8zYBxEPpgw8fPnz48H0L3+bxZy/GbUqfvLXf1DL48OHDhw9fdwjfXClrJ9q2t/N4YhPQF817fPjw4cOHr+SbhdSzC2eb9vYMLtmq9uIaPnz48OHDN+L7A2L4xNRhHJIaAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

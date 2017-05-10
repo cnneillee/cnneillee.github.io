@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/">
+    
+    
+    <title>新入手的Raspberry Pi3拼装日志 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="daily,linux">
+    <meta name="description" content="一、概述2016年暑假某宝入手Raspberry Pi 3，装机清单：  树莓派主板 亚克力外壳 小风扇 散热片 30G SD card 螺丝若干颗  因机型问题，可能与你的机器有微小差异 二、装机过程2.1 开箱一览树莓派主板（塑料袋装） + 安全指南 + 快速开始指南 + 包装纸盒 树莓派主板正反面">
+<meta name="keywords" content="daily,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新入手的Raspberry Pi3拼装日志">
+<meta property="og:url" content="http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述2016年暑假某宝入手Raspberry Pi 3，装机清单：  树莓派主板 亚克力外壳 小风扇 散热片 30G SD card 螺丝若干颗  因机型问题，可能与你的机器有微小差异 二、装机过程2.1 开箱一览树莓派主板（塑料袋装） + 安全指南 + 快速开始指南 + 包装纸盒 树莓派主板正反面">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073125273-441602176.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073231059-1875333534.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073254248-1333331790.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073325407-1124008772.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002082713478-1550693708.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002082946660-304352000.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083027023-1750879758.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083114713-1251466776.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083158873-81468586.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083222375-464585796.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083259127-571675613.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083316847-421614736.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002084613417-1387797780.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002090157156-1065272343.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002090950001-351913569.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091023363-350167658.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091054787-1218227761.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091349175-333570786.jpg">
+<meta property="og:updated_time" content="2017-05-09T16:56:57.100Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新入手的Raspberry Pi3拼装日志">
+<meta name="twitter:description" content="一、概述2016年暑假某宝入手Raspberry Pi 3，装机清单：  树莓派主板 亚克力外壳 小风扇 散热片 30G SD card 螺丝若干颗  因机型问题，可能与你的机器有微小差异 二、装机过程2.1 开箱一览树莓派主板（塑料袋装） + 安全指南 + 快速开始指南 + 包装纸盒 树莓派主板正反面">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073125273-441602176.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">新入手的Raspberry Pi3拼装日志</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">新入手的Raspberry Pi3拼装日志</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-10-02T01:23:00.000Z" itemprop="datePublished" class="page-time">
+  2016-10-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、装机过程"><span class="post-toc-text">二、装机过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-开箱一览"><span class="post-toc-text">2.1 开箱一览</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-亚克力外壳拼装及主板内嵌"><span class="post-toc-text">2.2 亚克力外壳拼装及主板内嵌</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-内嵌后四周展示"><span class="post-toc-text">2.3 内嵌后四周展示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-安装风扇时特别注意"><span class="post-toc-text">2.4 安装风扇时特别注意</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、系统安装过程"><span class="post-toc-text">三、系统安装过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-系统烧写"><span class="post-toc-text">3.1 系统烧写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-1-插入一张内存大小大于4G的内存卡"><span class="post-toc-text">3.1.1 插入一张内存大小大于4G的内存卡</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-2-使用针对特定平台的软件对sd卡进行格式化"><span class="post-toc-text">3.1.2 使用针对特定平台的软件对sd卡进行格式化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-3-从官网下载NOOBS"><span class="post-toc-text">3.1.3 从官网下载NOOBS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-4-将NOOBS-zip解压"><span class="post-toc-text">3.1.4 将NOOBS zip解压</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-5-将-3-1-4-中解压得到的所有文件拷贝到-3-1-2-中正确格式化了的SD卡内"><span class="post-toc-text">3.1.5 将 3.1.4 中解压得到的所有文件拷贝到 3.1.2 中正确格式化了的SD卡内</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-6-烧写成功"><span class="post-toc-text">3.1.6 烧写成功</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-系统安装"><span class="post-toc-text">3.2 系统安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-1-将-3-1-将经过-3-1-系列步骤得到的SD卡插入你的树莓派上"><span class="post-toc-text">3.2.1 将 3.1 将经过 3.1 系列步骤得到的SD卡插入你的树莓派上</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-2-连接好显示器，接通电源，等待显示器出现画面"><span class="post-toc-text">3.2.2 连接好显示器，接通电源，等待显示器出现画面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-3-如果不出现故障，即可按屏幕显示的内容完成系统的安装"><span class="post-toc-text">3.2.3 如果不出现故障，即可按屏幕显示的内容完成系统的安装</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、参考"><span class="post-toc-text">四、参考</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-daily/新入手的raspberry-pi3拼装日志"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">新入手的Raspberry Pi3拼装日志</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-10-02 09:23:00" datetime="2016-10-02T01:23:00.000Z"  itemprop="datePublished">2016-10-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>2016年暑假某宝入手Raspberry Pi 3，装机清单：</p>
+<ul>
+<li>树莓派主板</li>
+<li>亚克力外壳</li>
+<li>小风扇</li>
+<li>散热片</li>
+<li>30G SD card</li>
+<li>螺丝若干颗</li>
+</ul>
+<p>因机型问题，可能与你的机器有微小差异</p>
+<h1 id="二、装机过程"><a href="#二、装机过程" class="headerlink" title="二、装机过程"></a>二、装机过程</h1><h2 id="2-1-开箱一览"><a href="#2-1-开箱一览" class="headerlink" title="2.1 开箱一览"></a>2.1 开箱一览</h2><p>树莓派主板（塑料袋装） + 安全指南 + 快速开始指南 + 包装纸盒<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073125273-441602176.jpg" alt=""></p>
+<p>树莓派主板正反面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073231059-1875333534.jpg" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073254248-1333331790.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>亚克力外壳 + 小风扇<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073325407-1124008772.jpg" alt=""></p>
+<h2 id="2-2-亚克力外壳拼装及主板内嵌"><a href="#2-2-亚克力外壳拼装及主板内嵌" class="headerlink" title="2.2 亚克力外壳拼装及主板内嵌"></a>2.2 亚克力外壳拼装及主板内嵌</h2><p>由于主板是内嵌进外壳的，因此需要在拼装外壳的同时，将主板同步嵌入其中。</p>
+<p>由于亚克力外壳是被拆分成块的，相互之间的拼接完全是靠不同块儿之间的凹槽相互作用（卡住）而包裹主板的，因此需要明确不同块儿的位置和块儿及其上凹槽、镂空的作用才能真正拼好外壳，拼装过程宜缓而轻，切记一时用力过度就将外壳或者主板弄坏。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002082713478-1550693708.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="2-3-内嵌后四周展示"><a href="#2-3-内嵌后四周展示" class="headerlink" title="2.3 内嵌后四周展示"></a>2.3 内嵌后四周展示</h2><p>上面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002082946660-304352000.jpg" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083027023-1750879758.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>下面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083114713-1251466776.jpg" alt=""></p>
+<p>左面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083158873-81468586.jpg" alt=""></p>
+<p>右面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083222375-464585796.jpg" alt=""></p>
+<p>前面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083259127-571675613.jpg" alt=""></p>
+<p>后面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083316847-421614736.jpg" alt=""></p>
+<h2 id="2-4-安装风扇时特别注意"><a href="#2-4-安装风扇时特别注意" class="headerlink" title="2.4 安装风扇时特别注意"></a>2.4 安装风扇时特别注意</h2><p>首先，风扇扇叶的正反面切勿装反，不然起不到吹风的效果</p>
+<p>其次，风扇引脚插入切勿错误<br>红线（正极）4脚，黑线（负极）6脚</p>
+<p>附引脚标号图（具体朝向：图片左边为主板主体，下方为usb接口等）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002084613417-1387797780.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="三、系统安装过程"><a href="#三、系统安装过程" class="headerlink" title="三、系统安装过程"></a>三、系统安装过程</h1><h2 id="3-1-系统烧写"><a href="#3-1-系统烧写" class="headerlink" title="3.1 系统烧写"></a>3.1 系统烧写</h2><h3 id="3-1-1-插入一张内存大小大于4G的内存卡"><a href="#3-1-1-插入一张内存大小大于4G的内存卡" class="headerlink" title="3.1.1 插入一张内存大小大于4G的内存卡"></a>3.1.1 插入一张内存大小大于4G的内存卡</h3><h3 id="3-1-2-使用针对特定平台的软件对sd卡进行格式化"><a href="#3-1-2-使用针对特定平台的软件对sd卡进行格式化" class="headerlink" title="3.1.2 使用针对特定平台的软件对sd卡进行格式化"></a>3.1.2 使用针对特定平台的软件对sd卡进行格式化</h3><ul>
+<li>a. Windows i. 从 <a href="https://www.sdcard.org/downloads/formatter_4/eula_windows/" target="_blank" rel="external">https://www.sdcard.org/downloads/formatter_4/eula_windows/</a> 下载SD卡格式化辅助工具 ii. 在你的机器（PC机）上安装并运行格式化辅助工具 iii. 在 “Options” 菜单中，将 “FORMAT SIZE ADJUSTMENT” 选项设置为 “ON” iv. 检查工具中选中的SD卡是你插入的待烧制系统的sd卡 v. 点击 “Format” 按钮</li>
+<li><p>b. Mac i. 从 <a href="https://www.sdcard.org/downloads/formatter_4/eula_mac/" target="_blank" rel="external">https://www.sdcard.org/downloads/formatter_4/eula_mac/</a> 下载SD卡格式化辅助工具 ii. 在你的机器（PC机）上安装并运行格式化辅助工具 iii. 选择 “Overwrite Format”<br>iv.检查工具中选中的SD卡是你插入的待烧制系统的sd卡 v. 点击 “Format” 按钮</p>
+</li>
+<li><p>c. Linux i. 我们推荐使用 gparted (或者是命令行版本的 parted) ii. 将整张硬盘格式化为 FAT 格式</p>
+</li>
+</ul>
+<h3 id="3-1-3-从官网下载NOOBS"><a href="#3-1-3-从官网下载NOOBS" class="headerlink" title="3.1.3 从官网下载NOOBS"></a>3.1.3 从官网下载NOOBS</h3><p><a href="https://www.raspberrypi.org/downloads/noobs/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/noobs/</a></p>
+<h3 id="3-1-4-将NOOBS-zip解压"><a href="#3-1-4-将NOOBS-zip解压" class="headerlink" title="3.1.4 将NOOBS zip解压"></a>3.1.4 将NOOBS zip解压</h3><p>以下为 NOOBS_v1_9_2.zip 解压得到的文件，其他版本可能会有差异<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002090157156-1065272343.png" alt=""></p>
+<h3 id="3-1-5-将-3-1-4-中解压得到的所有文件拷贝到-3-1-2-中正确格式化了的SD卡内"><a href="#3-1-5-将-3-1-4-中解压得到的所有文件拷贝到-3-1-2-中正确格式化了的SD卡内" class="headerlink" title="3.1.5 将 3.1.4 中解压得到的所有文件拷贝到 3.1.2 中正确格式化了的SD卡内"></a>3.1.5 将 3.1.4 中解压得到的所有文件拷贝到 3.1.2 中正确格式化了的SD卡内</h3><p>注意：有时可能会将 zip 解压成一个文件夹，但是要注意，请将里面的文件（有许多文件）拷贝到格式化了的SD卡中</p>
+<h3 id="3-1-6-烧写成功"><a href="#3-1-6-烧写成功" class="headerlink" title="3.1.6 烧写成功"></a>3.1.6 烧写成功</h3><h2 id="3-2-系统安装"><a href="#3-2-系统安装" class="headerlink" title="3.2 系统安装"></a>3.2 系统安装</h2><h3 id="3-2-1-将-3-1-将经过-3-1-系列步骤得到的SD卡插入你的树莓派上"><a href="#3-2-1-将-3-1-将经过-3-1-系列步骤得到的SD卡插入你的树莓派上" class="headerlink" title="3.2.1 将 3.1 将经过 3.1 系列步骤得到的SD卡插入你的树莓派上"></a>3.2.1 将 3.1 将经过 3.1 系列步骤得到的SD卡插入你的树莓派上</h3><h3 id="3-2-2-连接好显示器，接通电源，等待显示器出现画面"><a href="#3-2-2-连接好显示器，接通电源，等待显示器出现画面" class="headerlink" title="3.2.2 连接好显示器，接通电源，等待显示器出现画面"></a>3.2.2 连接好显示器，接通电源，等待显示器出现画面</h3><h3 id="3-2-3-如果不出现故障，即可按屏幕显示的内容完成系统的安装"><a href="#3-2-3-如果不出现故障，即可按屏幕显示的内容完成系统的安装" class="headerlink" title="3.2.3 如果不出现故障，即可按屏幕显示的内容完成系统的安装"></a>3.2.3 如果不出现故障，即可按屏幕显示的内容完成系统的安装</h3><p>debian系统安装界面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002090950001-351913569.jpg" alt=""></p>
+<p>桌面一览<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091023363-350167658.jpg" alt=""></p>
+<p>menu一览<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091054787-1218227761.jpg" alt=""></p>
+<p>wifi列表一览<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091349175-333570786.jpg" alt=""></p>
+<h1 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h1><p>1、树莓派官网 <a href="https://www.raspberrypi.org/" target="_blank" rel="external">https://www.raspberrypi.org/</a><br>2、树莓派下载频道 <a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5927171.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5927171.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/daily/">daily</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/&title=《新入手的Raspberry Pi3拼装日志》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/&title=《新入手的Raspberry Pi3拼装日志》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《新入手的Raspberry Pi3拼装日志》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/10/02/others/【转】【raspberry-pi】unix-network-programming-配置unp.h头文件环境/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【转】【Raspberry Pi】Unix NetWork Programming：配置unp.h头文件环境</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">安装 Python 第三方库 lxml 时遇到问题 ERROR:xslt-config 不是内部或外部命令，也不是可运行的程序</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/&title=《新入手的Raspberry Pi3拼装日志》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/&title=《新入手的Raspberry Pi3拼装日志》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《新入手的Raspberry Pi3拼装日志》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/10/02/daily/新入手的raspberry-pi3拼装日志/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqElEQVR42u3aQY7DMAgF0N7/0p11NUr6ARN18bKqNKnt50rGA7xe8fO+eP7/Nf9uMs7V58MPHh4e3qGlX018/2ayrJyUfOt+JXh4eHh7vGS4/J0vUxbn6m0BHh4e3q/x7kNCbzvOBg88PDy8X+Ply73fguSi3FsPHh4e3jYvH7p3Oa4GkjxUHMu14OHh4cW8+aKf/7xS38PDw8MbV9Xzi2+1vSBpMjiwWjw8PLwFXn7gzpsJqumGnP3lTTw8PLxl3j1jnsDN0w3VWS7nxcPDwzvKyw/iUfG+1RzQe7OwFDw8PLw1XnXKPD1xKuN6KcLDw8Nb4CXBIF/opPxfPeHL4+Dh4eEd5d03QvXY+XU8mb2XSsbDw8Pb5vXSDcnhPmlBmFzx8fDw8J7kVa/OyVU4H6e3ZXh4eHjP8DaCQfUi3ps32jg8PDy8NV4+3GiyYjq4ugVR0xUeHh7eIV4yRC8k9JoP8qv5qKaHh4eHN+BV/+GfFMzy4NH7Mb5U9vDw8PAWeNUjuJcCTsJGbzs+xsTDw8N7hJenXPMiWS+t0GvewsPDw9vm5c8khCRhY770JgwPDw+vyDsVGPIlTq7j+Zrx8PDwnuH1hq5enfPNSt4vJCPw8PDwDvGqB3213JW/kydnq61aeHh4eHu8akvTJIWaJybyQHU5Lx4eHt4yLz+UqwWwXuNUNXUbJXPx8PDwlnmTon4SWvJt6hXq8PDw8M7y3sWner1OYHl3Q3k9eHh4eAu86oGbX23nLQiTREmzpwwPDw8v5iXBoFBwGqRuq2Ww6AfAw8PDW+PNC2PVJEWyiZMwhoeHh/c7vN4VvBo8Jpf1UWDAw8PDW+NVS1aTZoK8noWHh4f3JG/eQjpJIlRbCsqdEXh4eHhHedWv9SabJ4LzwIOHh4e3xvsDvgYDJ0ZWC9AAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

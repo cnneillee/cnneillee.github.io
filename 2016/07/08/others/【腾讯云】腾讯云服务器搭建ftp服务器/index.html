@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/">
+    
+    
+    <title>【腾讯云】腾讯云服务器搭建ftp服务器 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,ftp">
+    <meta name="description" content="一、硬件描述1.1 云服务器：腾讯云云主机操作系统：Ubuntu Server 14.04.1 LTS 32位CPU：1核内存：1GB系统盘：20GB(本地磁盘)数据盘：0GB公网带宽：1Mbps 1.2 本地配置操作系统：windows 8.1 二、远程登陆服务器（ubuntu为例）2.1 操作教程官方文档：如何远程登录linux服务器 2.2 踩过的坑需要特别注意的是，在使用ssh与putty">
+<meta name="keywords" content="linux,ftp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【腾讯云】腾讯云服务器搭建ftp服务器">
+<meta property="og:url" content="http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、硬件描述1.1 云服务器：腾讯云云主机操作系统：Ubuntu Server 14.04.1 LTS 32位CPU：1核内存：1GB系统盘：20GB(本地磁盘)数据盘：0GB公网带宽：1Mbps 1.2 本地配置操作系统：windows 8.1 二、远程登陆服务器（ubuntu为例）2.1 操作教程官方文档：如何远程登录linux服务器 2.2 踩过的坑需要特别注意的是，在使用ssh与putty">
+<meta property="og:image" content="https://mccdn.qcloud.com/img56397115cb2c1.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708134551686-1064505686.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png">
+<meta property="og:updated_time" content="2017-05-09T16:56:56.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【腾讯云】腾讯云服务器搭建ftp服务器">
+<meta name="twitter:description" content="一、硬件描述1.1 云服务器：腾讯云云主机操作系统：Ubuntu Server 14.04.1 LTS 32位CPU：1核内存：1GB系统盘：20GB(本地磁盘)数据盘：0GB公网带宽：1Mbps 1.2 本地配置操作系统：windows 8.1 二、远程登陆服务器（ubuntu为例）2.1 操作教程官方文档：如何远程登录linux服务器 2.2 踩过的坑需要特别注意的是，在使用ssh与putty">
+<meta name="twitter:image" content="https://mccdn.qcloud.com/img56397115cb2c1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【腾讯云】腾讯云服务器搭建ftp服务器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【腾讯云】腾讯云服务器搭建ftp服务器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-07T18:34:00.000Z" itemprop="datePublished" class="page-time">
+  2016-07-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、硬件描述"><span class="post-toc-text">一、硬件描述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-云服务器：腾讯云"><span class="post-toc-text">1.1 云服务器：腾讯云</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-本地配置"><span class="post-toc-text">1.2 本地配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、远程登陆服务器（ubuntu为例）"><span class="post-toc-text">二、远程登陆服务器（ubuntu为例）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-操作教程"><span class="post-toc-text">2.1 操作教程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-踩过的坑"><span class="post-toc-text">2.2 踩过的坑</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、搭建vsftpd服务器"><span class="post-toc-text">三、搭建vsftpd服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-下载vsftpd"><span class="post-toc-text">3.1 下载vsftpd</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）"><span class="post-toc-text">3.2 关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-开启ftp服务"><span class="post-toc-text">3.3 开启ftp服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-ftp用户管理"><span class="post-toc-text">3.4 ftp用户管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-通过对-vsftpd-配置文件的修改实现对vsftpd的精细化配置"><span class="post-toc-text">3.5 通过对 vsftpd 配置文件的修改实现对vsftpd的精细化配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、踩过的坑"><span class="post-toc-text">四、踩过的坑</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-不同系统配置文件的目录不同"><span class="post-toc-text">4.1 不同系统配置文件的目录不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-明确vsftpd-conf-文件中几个参数的作用"><span class="post-toc-text">4.2 明确vsftpd.conf 文件中几个参数的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-记得打开21端口的安全组"><span class="post-toc-text">4.3 记得打开21端口的安全组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside"><span class="post-toc-text">4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5-写文件时遇到-bash-data1-txt-Permission-denied"><span class="post-toc-text">4.5 写文件时遇到-bash: data1.txt: Permission denied</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、参考文献"><span class="post-toc-text">五、参考文献</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-others/【腾讯云】腾讯云服务器搭建ftp服务器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【腾讯云】腾讯云服务器搭建ftp服务器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-08 02:34:00" datetime="2016-07-07T18:34:00.000Z"  itemprop="datePublished">2016-07-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、硬件描述"><a href="#一、硬件描述" class="headerlink" title="一、硬件描述"></a>一、硬件描述</h1><h2 id="1-1-云服务器：腾讯云"><a href="#1-1-云服务器：腾讯云" class="headerlink" title="1.1 云服务器：腾讯云"></a>1.1 云服务器：腾讯云</h2><p><strong>云主机</strong><br>操作系统：Ubuntu Server 14.04.1 LTS 32位<br>CPU：1核<br>内存：1GB<br>系统盘：20GB(本地磁盘)<br>数据盘：0GB<br>公网带宽：1Mbps</p>
+<h2 id="1-2-本地配置"><a href="#1-2-本地配置" class="headerlink" title="1.2 本地配置"></a>1.2 本地配置</h2><p>操作系统：windows 8.1</p>
+<h1 id="二、远程登陆服务器（ubuntu为例）"><a href="#二、远程登陆服务器（ubuntu为例）" class="headerlink" title="二、远程登陆服务器（ubuntu为例）"></a>二、远程登陆服务器（ubuntu为例）</h1><h2 id="2-1-操作教程"><a href="#2-1-操作教程" class="headerlink" title="2.1 操作教程"></a>2.1 操作教程</h2><p>官方文档：<a href="https://www.qcloud.com/help/%E5%A6%82%E4%BD%95%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95linux%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="external">如何远程登录linux服务器</a></p>
+<h2 id="2-2-踩过的坑"><a href="#2-2-踩过的坑" class="headerlink" title="2.2 踩过的坑"></a>2.2 踩过的坑</h2><p><em>需要特别注意的是，在使用ssh与putty保存session登陆时，有一个坑！</em><br><img src="https://mccdn.qcloud.com/img56397115cb2c1.png" alt=""><br><strong>保存的session名称应避免与用户名冲突</strong></p>
+<h1 id="三、搭建vsftpd服务器"><a href="#三、搭建vsftpd服务器" class="headerlink" title="三、搭建vsftpd服务器"></a>三、搭建vsftpd服务器</h1><h2 id="3-1-下载vsftpd"><a href="#3-1-下载vsftpd" class="headerlink" title="3.1 下载vsftpd"></a>3.1 下载vsftpd</h2><p><em>redhat、centos等使用rpm包的发行版：</em></p>
+<blockquote>
+<p>使用命令安装：yum install vsftpd<br> 使用下载包安装：rpm -ivh vsftpd*.rpm</p>
+</blockquote>
+<p>Debian、Ubuntu等使用DEB包党的发行版：</p>
+<blockquote>
+<p>使用命令安装：apt-get install vsftpd</p>
+</blockquote>
+<p><strong>若权限不足，则在命令前加 sudo ，下同</strong></p>
+<h2 id="3-2-关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）"><a href="#3-2-关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）" class="headerlink" title="3.2 关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）"></a>3.2 关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）</h2><p>由于ftp涉及到端口开放的问题，所以我们把selinux关闭。</p>
+<p>selinux的介绍见博文——<a href="http://blog.csdn.net/myarrow/article/details/9856095/" target="_blank" rel="external">SELinux深入理解</a><br>ftp命令连接使用21端口，数据连接则有两种方式，即主动ftp和被动ftp。详细见博文——<a href="http://www.softbar.com/blog/post/117.html" target="_blank" rel="external">FTP两种工作模式介绍</a></p>
+<p><strong>一般在redhat、centos等使用rpm包的发行版默认安装有selinux，而Debian、Ubuntu等使用DEB包的发行版不默认安装</strong></p>
+<p>故对于Debian、Ubuntu等使用DEB包的服务器：</p>
+<blockquote>
+<p>临时关闭(重启后，selinux会被打开)：setenforce 0<br> 开启：setenforce 1<br> 永久关闭：修改/etc/selinux/config文件，将SELINUX=enforcing改成SELINUX=disabled，重启机器</p>
+</blockquote>
+<h2 id="3-3-开启ftp服务"><a href="#3-3-开启ftp服务" class="headerlink" title="3.3 开启ftp服务"></a>3.3 开启ftp服务</h2><blockquote>
+<p>service vsftpd start/stop/restart</p>
+</blockquote>
+<p>对于服务操作的一些命令：</p>
+<blockquote>
+<p>service [service名] [对service的操作如：start/stop/restart/status]</p>
+</blockquote>
+<h2 id="3-4-ftp用户管理"><a href="#3-4-ftp用户管理" class="headerlink" title="3.4 ftp用户管理"></a>3.4 ftp用户管理</h2><p>出于安全考虑，一般不会使用系统用户来做登陆ftp的操作，因而大部分情况下会新建一个linux用户（单纯的一个用户，不具备bash），并用此用户进行ftp的登陆等操作</p>
+<p>对于ftp用户的管理，其遵循linux的用户管理，根据/etc/passwd和etc/group来进行管理</p>
+<p>新建用户：</p>
+<blockquote>
+<p>useradd test，passwd test</p>
+</blockquote>
+<p><strong>此处的useradd仅仅只是创建用户，而可替换为adduser（创建用户家目录\home\test）</strong><br>二者具体的区别在<a href="http://blog.csdn.net/deit_aaron/article/details/9984701" target="_blank" rel="external">useradd<br>与adduser的区别</a>有介绍</p>
+<h2 id="3-5-通过对-vsftpd-配置文件的修改实现对vsftpd的精细化配置"><a href="#3-5-通过对-vsftpd-配置文件的修改实现对vsftpd的精细化配置" class="headerlink" title="3.5 通过对 vsftpd 配置文件的修改实现对vsftpd的精细化配置"></a>3.5 通过对 vsftpd 配置文件的修改实现对vsftpd的精细化配置</h2><p>对于vsftpd具体的一些配置可通过修改配置文件来进行实现。</p>
+<p>常见的配置文件有：<br><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708134551686-1064505686.png" alt=""></p>
+<p>对于主配置文件，一些常用的配置：</p>
+<blockquote>
+<p>anonymous_enable=YES #是否开启匿名登陆<br> local_enable=YES #是否允许本地用户(即linux系统中的用户帐号)登录FTP服务器，默认设置为YES允许<br> write_enable=YES #是否允许本地用户对FTP服务器文件具有写权限，默认设置为YES允许</p>
+</blockquote>
+<p><strong>一项比较重要的配置：（文字不重要，重点看图）</strong></p>
+<blockquote>
+<p>用户登录FTP服务器后是否具有访问自己目录以外的其他文件的权限<br> 设置为YES时，用户被锁定在自己的home目录中，vsftpd将在下面chroot_list_file选项值的位置寻找chroot_list文件<br> 必须与下面的设置项配合<br> chroot_list_enable=YES<br> 被列入此文件的用户，在登录后将不能切换到自己目录以外的其他目录<br> 从而有利于FTP服务器的安全管理和隐私保护。此文件需自己建立<br> chroot_list_file=/etc/vsftpd/chroot_list</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>关于主配置文件的使用，<a href="http://os.51cto.com/art/201008/221842.htm" target="_blank" rel="external">史上最详细的vsftpd配置文件讲解(1)</a><br>这篇文章写得很详细</p>
+<h1 id="四、踩过的坑"><a href="#四、踩过的坑" class="headerlink" title="四、踩过的坑"></a>四、踩过的坑</h1><h2 id="4-1-不同系统配置文件的目录不同"><a href="#4-1-不同系统配置文件的目录不同" class="headerlink" title="4.1 不同系统配置文件的目录不同"></a>4.1 不同系统配置文件的目录不同</h2><p>ubuntu不同于centos，ubuntu的配置文件目录不在 /etc/vsftpd/vsftpd.conf 而是在 /etc/vsftpd.conf</p>
+<h2 id="4-2-明确vsftpd-conf-文件中几个参数的作用"><a href="#4-2-明确vsftpd-conf-文件中几个参数的作用" class="headerlink" title="4.2 明确vsftpd.conf 文件中几个参数的作用"></a>4.2 明确vsftpd.conf 文件中几个参数的作用</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="4-3-记得打开21端口的安全组"><a href="#4-3-记得打开21端口的安全组" class="headerlink" title="4.3 记得打开21端口的安全组"></a>4.3 记得打开21端口的安全组</h2><p>购买云主机的时候，在做最初配置时，有引导安全组的配置。因为之前选了默认的打开“Linux安全组放通22端口”，而没打开ftp的21端口。<br>所以，在配置完成ftp服务器时发现只能在服务器上登陆ftp，而通过外网无法访问ftp。这是一个比较容易被忽略的问题！（这是一个大坑）</p>
+<p>官方文档：<a href="https://www.qcloud.com/doc/product/213/500" target="_blank" rel="external">如何配置安全组？</a></p>
+<h2 id="4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside"><a href="#4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside" class="headerlink" title="4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside"></a>4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside</h2><p>chroot()</p>
+<p>如果启用chroot,必须保证ftp根目录不可写,这样对于ftp根直接为网站根目录的用户不方便,所以建议假如ftp根目录是/home/${cjh},则将访问权限改写如下<br>chmod a-w /home/cjh</p>
+<h2 id="4-5-写文件时遇到-bash-data1-txt-Permission-denied"><a href="#4-5-写文件时遇到-bash-data1-txt-Permission-denied" class="headerlink" title="4.5 写文件时遇到-bash: data1.txt: Permission denied"></a>4.5 写文件时遇到-bash: data1.txt: Permission denied</h2><blockquote>
+<p>sudo sh -c “echo a &gt; 1.txt”</p>
+</blockquote>
+<p><a href="http://blog.csdn.net/hejinjing_tom_com/article/details/7767127" target="_blank" rel="external">避免’sudo echo x &gt;’ 时’Permission<br>denied’</a></p>
+<h1 id="五、参考文献"><a href="#五、参考文献" class="headerlink" title="五、参考文献"></a>五、参考文献</h1><p>1、qcloud文档中心， <a href="https://www.qcloud.com/doc/product" target="_blank" rel="external">https://www.qcloud.com/doc/product</a><br>2、专题：vsftpd入门——安装、配置、案例与常见问题。玩转vsftpd服务器的四大高级配置，<br><a href="http://os.51cto.com/art/201008/222036.htm" target="_blank" rel="external">http://os.51cto.com/art/201008/222036.htm</a><br>3、FTP两种工作模式介绍， <a href="http://www.softbar.com/blog/post/117.html" target="_blank" rel="external">http://www.softbar.com/blog/post/117.html</a><br>4、SELinux深入理解， <a href="http://blog.csdn.net/myarrow/article/details/9856095/" target="_blank" rel="external">http://blog.csdn.net/myarrow/article/details/9856095/</a><br>5、useradd 与adduser的区别，<br><a href="http://blog.csdn.net/deit_aaron/article/details/9984701" target="_blank" rel="external">http://blog.csdn.net/deit_aaron/article/details/9984701</a><br>5、史上最详细的vsftpd配置文件讲解(1)， <a href="http://os.51cto.com/art/201008/221842.htm" target="_blank" rel="external">http://os.51cto.com/art/201008/221842.htm</a><br>6、避免’sudo echo x &gt;’ 时’Permission denied’，<br><a href="http://blog.csdn.net/hejinjing_tom_com/article/details/7767127" target="_blank" rel="external">http://blog.csdn.net/hejinjing_tom_com/article/details/7767127</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5652063.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5652063.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ftp/">ftp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/07/13/android/android新手容易遇到的error-retrieving-parent-for-item-no-resource-found-that-matches-the-given-name-'Theme.AppCompat.Light'.Theme出错的问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 新手容易遇到的 Error retrieving parent for item No resource found that matches the given name  &#39;Theme.AppCompat.Light&#39;.Theme 出错的问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/07/03/java/【转】标记接口和标记注解注解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【转】标记接口和标记注解注解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/&title=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【腾讯云】腾讯云服务器搭建ftp服务器》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADOElEQVR42u3aQXLjMAwEwPz/097rHiJ7BpSrbKR1SjmKxKYPEwD8+Ymvx39Xfs/V/Vf3XD0hv//mCxsbG/tL2I+n18kLZltw9cnVGpL7f3k7NjY29jr2yaLzl7WftxuaWLCxsbGxc+qLCLl4+6wgwcbGxsaehUTSZspbVMkn520sbGxs7K3sJIruKh7yplLeeHpjLw0bGxv749l3NXE+4ee3zLexsbGxP5j9KK+kYGj/9vl62sImUmBjY2MvYucBkDfok9Ll3rHubP3Y2NjYm9jJePWoEX9Tg6kNv2hbsbGxsb+cPVv6SQidFD95jA2LEGxsbOyvZSeHIxPkeWHQNpVmJRA2Njb2JvZ5LOVlQ0JtNygvQl6UJdjY2Nhfy84LgOS3M2RefrStriK0sLGxsVew29h4x5GdWXQlMXwZYNjY2Njr2OdBMltWcjTnp7yi8QA2Njb2CnYeDyex0Tb9k+fk24SNjY39F9jnodIevsnHzLNC5fJObGxs7HXsvFWU/LsfNejLZ7aF04vfYmNjYy9inxQk+Wtmg+Q2Juu2FDY2NvZS9vPIOR8PJ88/KY2KETU2Njb2IvbsEfnSi8M0wdvblbxYJzY2NvYidv7KNrpmBcZJfOZfITY2NvYO9mwoezL0zY/XtO2tYlCBjY2NvYKdH4ipmzVxA6g9mnNSJmFjY2PvY99VZrTbkTeeZoOEPPawsbGxd7DzIqGNlrZoScIsHx4P+2fY2NjYX8XOhwEnLaf8+M7JaLk44oONjY29iN22h9p4u+s5s68kWhU2Njb2InYydp01+pN2T1tmnJQo2NjY2PvYs6ZSuwVtGZOUN3m8YWNjY/8F9qx//vyvzsubdsxcBxg2Njb2InZ7BCcPldmi86Z/ezAIGxsbexN7Vga0w912YJB8Gc/XEw0DsLGxsVew2wBoY2k2fJ21lpIDOvVGYGNjY38JOw+tnDdr2Z8XRfkWYGNjY+9j50dh2uMybWEzGzbk0YuNjY2N3UZa3mZqi5nhiBcbGxsbO3jObMvyQUIbab/cj42Njb2O3baKktZP/pzzWGqfjI2Njb2JnQdAHhJJmLVj45MDOsO2FDY2Nvans/8BWXjEcOjLg0YAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

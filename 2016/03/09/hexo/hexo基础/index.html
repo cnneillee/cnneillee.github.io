@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/03/09/hexo/hexo基础/">
+    
+    
+    <title>Hexo 基础 —— Hexo 的原理、配置及基本使用方法 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="gathering,hexo">
+    <meta name="description" content="Hexo 参考文档 Hexo 常见配置及基本使用方法~~">
+<meta name="keywords" content="gathering,hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 基础 —— Hexo 的原理、配置及基本使用方法">
+<meta property="og:url" content="http://cnneillee.github.io/2016/03/09/hexo/hexo基础/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="Hexo 参考文档 Hexo 常见配置及基本使用方法~~">
+<meta property="og:updated_time" content="2017-03-14T05:58:02.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo 基础 —— Hexo 的原理、配置及基本使用方法">
+<meta name="twitter:description" content="Hexo 参考文档 Hexo 常见配置及基本使用方法~~">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hexo 基础 —— Hexo 的原理、配置及基本使用方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hexo 基础 —— Hexo 的原理、配置及基本使用方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-03-09T13:09:46.000Z" itemprop="datePublished" class="page-time">
+  2016-03-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概要"><span class="post-toc-text">一、概要</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-0-先修"><span class="post-toc-text">1.0 先修</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-描述"><span class="post-toc-text">1.1 描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-功能"><span class="post-toc-text">1.2 功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-理解"><span class="post-toc-text">1.3 理解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-Hexo-安装后的目录结构"><span class="post-toc-text">1.4 Hexo 安装后的目录结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-原理"><span class="post-toc-text">1.4 原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、安装步骤"><span class="post-toc-text">二、安装步骤</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、Themes"><span class="post-toc-text">三、Themes</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、Hexo-Front-matter"><span class="post-toc-text">四、Hexo Front-matter</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、常用的-Hexo-命令"><span class="post-toc-text">五、常用的 Hexo 命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六、参考文章"><span class="post-toc-text">六、参考文章</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#七、奇淫逸巧"><span class="post-toc-text">七、奇淫逸巧</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-hexo/hexo基础"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hexo 基础 —— Hexo 的原理、配置及基本使用方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-03-09 21:09:46" datetime="2016-03-09T13:09:46.000Z"  itemprop="datePublished">2016-03-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Hexo 参考文档<br></p>
+<p>Hexo 常见配置及基本使用方法~~</p>
+<a id="more"></a>
+<p><em>关于 hexo 进阶用法，参照另一篇文章 <a href="http://cnneillee.github.io/2016/03/09/hexo进阶">你可能还不知道的 Hexo 拓展用法 —— Hexo 进阶</a></em></p>
+<h1 id="一、概要"><a href="#一、概要" class="headerlink" title="一、概要"></a>一、概要</h1><h2 id="1-0-先修"><a href="#1-0-先修" class="headerlink" title="1.0 先修"></a>1.0 先修</h2><p>使用 Hexo 之前，掌握如下工具的基本使用有助于你快速地掌握 Hexo 的基本原理和使用方法。</p>
+<ul>
+<li>Github</li>
+<li>npm</li>
+<li>markdown</li>
+</ul>
+<h2 id="1-1-描述"><a href="#1-1-描述" class="headerlink" title="1.1 描述"></a>1.1 描述</h2><blockquote>
+<p><em>A fast, simple &amp; powerful blog framework</em></p>
+<p><em><a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io</a></em></p>
+</blockquote>
+<h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><p>轻量、便捷、灵活地搭建你的静态网站。</p>
+<h2 id="1-3-理解"><a href="#1-3-理解" class="headerlink" title="1.3 理解"></a>1.3 理解</h2><p>我从接触 Hexo 到如今，已有一年的时间。在使用 Hexo 的这一年时间里，经历过它给写作带来的轻快感和新鲜感，体验过重装系统几乎丢失大部分数据的绝望，也在几易博客主题中享受到了Hexo 的灵活性，近日还修改了 Github 名折腾了一下。</p>
+<p>总的来说，不是新手的我对 Hexo 的原理有一定的理解。</p>
+<h2 id="1-4-Hexo-安装后的目录结构"><a href="#1-4-Hexo-安装后的目录结构" class="headerlink" title="1.4 Hexo 安装后的目录结构"></a>1.4 Hexo 安装后的目录结构</h2><ul>
+<li><code>.deploy_git/</code>，类似 github/git 的 <code>.git</code> 目录，存放一些功能性信息</li>
+<li><code>node_modules/</code>，nodejs 的一些库</li>
+<li><code>public/</code>，Hexo 生成的 html 内容</li>
+<li><code>scaffords/</code>，post、draft、page 模板</li>
+<li><code>source/</code>，用户撰写的 MD 源文件</li>
+<li><code>themes/</code>，主题目录</li>
+<li><code>.npmignore</code>，类似 <code>.gitignore</code> 文件，存放 npm 的忽略策略</li>
+<li><code>_config.yml</code>，整个 Hexo 的配置文件</li>
+<li><code>db.json</code></li>
+<li><code>package.json</code></li>
+<li><code>Post.txt</code></li>
+</ul>
+<h2 id="1-4-原理"><a href="#1-4-原理" class="headerlink" title="1.4 原理"></a>1.4 原理</h2><ol>
+<li><code>Hexo n &quot;文章标题&quot;</code>    —&gt;        <code>source/_post/</code> 文件夹下，新建名为 “文章标题”（对特殊符号会做处理） 的 MD 文件，文件模板位于 <code>scaffolds/</code> 文件夹下。</li>
+<li><code>hexo p [layout]</code>    —&gt;        发布草稿，将 <code>source/_draft/</code> 文件夹下的文件挪到 <code>source/_post/</code> 文件夹下。</li>
+<li><code>hexo g</code>                —&gt;        将所有 MD 文件，依照 <code>theme</code> 和 <code>hexo config.yml</code> 下的规则，生成一系列的 html 页面，存放在 <code>public</code> 文件夹下，最终发布到 github 上的也是此文件夹的这些文件，你可以在构建完成后，比较 github 的博客仓库与该目录的区别。</li>
+<li><code>hexo s</code>                —&gt;        在本地开启服务器，通过 <code>localhost:4000</code> 预览修改后的结果，<em>注意：此时你对 MD 及配置文件的修改，通过刷新页面都能够即时生效</em>。</li>
+<li><code>hexo d</code>                —&gt;        发布，将最近一次在 <code>public</code> 文件夹下生成的内容，发布到 github 上。</li>
+</ol>
+<h1 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h1><ul>
+<li>安装 <a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></li>
+<li>安装及配置 <a href="https://github.com/" target="_blank" rel="external">Github</a></li>
+<li>安装及配置 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a></li>
+</ul>
+<h1 id="三、Themes"><a href="#三、Themes" class="headerlink" title="三、Themes"></a>三、Themes</h1><p>Hexo 有各种主题供使用者进行使用，同时，众多程序员也加入到 Hexo 主题的开发进程中。你可以从你能找到地方下载并安装你喜欢的 Hexo 主题，从而开始你的博客搭建之旅。</p>
+<p>本站使用到的主题为  <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="external">Material</a>。</p>
+<h1 id="四、Hexo-Front-matter"><a href="#四、Hexo-Front-matter" class="headerlink" title="四、Hexo Front-matter"></a>四、Hexo Front-matter</h1><p>Front-matter 内容被放在正文的头部，用于 Hexo 进行解析。</p>
+<p>官网介绍：<a href="https://hexo.io/zh-cn/docs/front-matter.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/front-matter.html</a><br>Hexo 通用的 Front-matter：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>布局</td>
+<td>-</td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+<td>-</td>
+</tr>
+<tr>
+<td>date</td>
+<td>建立日期</td>
+<td>文件建立日期</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>更新日期</td>
+<td>文件更新日期</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>开启文章的评论功能</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签（不适用于分页）</td>
+<td>-</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类（不适用于分页）</td>
+<td>-</td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>覆盖文章网址</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>material 主题专属的 Front-matter：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>thumbnail</td>
+<td>缩略图地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>toc    显示</td>
+<td>TOC 按钮</td>
+<td>true</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>显示评论</td>
+<td>true</td>
+</tr>
+<tr>
+<td>notag</td>
+<td>不生成标签按钮</td>
+<td>false</td>
+</tr>
+<tr>
+<td>top</td>
+<td>置顶</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h1 id="五、常用的-Hexo-命令"><a href="#五、常用的-Hexo-命令" class="headerlink" title="五、常用的 Hexo 命令"></a>五、常用的 Hexo 命令</h1><blockquote>
+<p>hexo n “我的博文” == hexo new “我的博文” #新建文章</p>
+<p>hexo p == hexo publish</p>
+<p>hexo g == hexo generate        #生成</p>
+<p>hexo s == hexo server         #启动服务预览</p>
+<p>hexo d == hexo deploy        #部署</p>
+</blockquote>
+<p><a href="https://segmentfault.com/a/1190000002632530" target="_blank" rel="external">点击查看更多 Hexo 命令</a></p>
+<h1 id="六、参考文章"><a href="#六、参考文章" class="headerlink" title="六、参考文章"></a>六、参考文章</h1><p><a href="http://wsgzao.github.io/post/hexo-guide/" target="_blank" rel="external">1、使用 GitHub 和 Hexo 搭建免费静态 Blog </a></p>
+<p><a href="http://luuman.github.io/2015/12/27/Hexo-plug/" target="_blank" rel="external">2、Hexo 插件安装</a></p>
+<p><a href="http://luuman.github.io/2015/12/25/Hexo/" target="_blank" rel="external">3、Hexo 的使用介绍</a></p>
+<p><a href="http://luuman.github.io/2015/11/27/HexoBug/" target="_blank" rel="external">4、HexoBug</a></p>
+<p><a href="http://luuman.github.io/2015/12/21/GitHub+Hexo/" target="_blank" rel="external">5、使用 GitHub 搭建 Hexo 博客</a></p>
+<h1 id="七、奇淫逸巧"><a href="#七、奇淫逸巧" class="headerlink" title="七、奇淫逸巧"></a>七、奇淫逸巧</h1><p><em>关于 hexo 进阶用法，参照另一篇文章 <a href="http://cnneillee.github.io/2016/03/09/hexo进阶">你可能还不知道的 Hexo 拓展用法 —— Hexo 进阶</a></em></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gathering/">gathering</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/&title=《Hexo 基础 —— Hexo 的原理、配置及基本使用方法》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/&title=《Hexo 基础 —— Hexo 的原理、配置及基本使用方法》 — Neil Lee's blog&source=Hexo 参考文档
+Hexo 常见配置及基本使用方法~~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo 基础 —— Hexo 的原理、配置及基本使用方法》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/03/12/android/dialog在show-方法调用时抛出异常的解决方案/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Dialog 在 show() 方法调用时抛出异常的解决方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/09/hexo/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/&title=《Hexo 基础 —— Hexo 的原理、配置及基本使用方法》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/&title=《Hexo 基础 —— Hexo 的原理、配置及基本使用方法》 — Neil Lee's blog&source=Hexo 参考文档
+Hexo 常见配置及基本使用方法~~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo 基础 —— Hexo 的原理、配置及基本使用方法》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/09/hexo/hexo基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3awY7DIAxF0fz/T6frURtyn512BNysoikNnIzkYuzjwNc5vPj4q5Hv3zq+ccmQIWNaBlni+C8EM17o+5j49cmQIWMDBgmF43sSQMeMq/HjtcmQIUPGeLlkShKI+bwyZMiQkW7X0o3geHv3D78bMmTImIpBktiUwQ/RfpqLy5AhY0IG38z9/v4r9Q0ZMmRMxTjDK01Knyo53DxHhgwZSzN4gGull432i+DFyZAhY2lGeljGt49pmOYlz6P/UBkyZEzC6Ac+HpTJ1pA84cNcMmTI2IbRP+6vHeinZU4ZMmTIINs+nprWlpjOKEOGjLUZJAXtpLVXY3gbR9xgIUOGjOUY/GCLFylrp33pVvLPvQwZMrZkdFLTWlBuhWYZMmQszXiquFhrpEiT2OJuV4YMGZMzxgGun7j2my3QjDJkyNiAQRYaJ5aNVox4vAwZMpZmdCZI09FayYEnwDJkyFiVkX65dsRWO5IjabAMGTJ2YKThtVbIrIXmuJtChgwZGzB4Ets5XEufT16rDBky9mTwY/pOM1n6Om5CuQwZMjZj8KXXJo67PwhGhgwZizLO8OLlTL5Q/nz0f5AhQ8ZyjDTM8TaytBWDh+linVaGDBmTM3iQ7Sy9lsoGAVeGDBkbMGpH+Z3tXe0X4GafK0OGDBntZJWweVh/LODKkCFjUcazZYNay8UDAVeGDBlTMdJiAG+Y4OPTgqgMGTL2YaSpI9nMpZ/ytLZVyJQhQ8Z8jBeqTyLgDlwKkAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

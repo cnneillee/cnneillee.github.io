@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/02/13/git/github的其他用法/">
+    
+    
+    <title>Github 的其他用法 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="github/git">
+    <meta name="description" content="一、概述Github 除了作为代码托管库外，有趣的程序员们还利用它解锁了有趣的新姿势。 二、新姿势2.1 Github Pages可以为项目建立静态主页(即gh-pages分支),也可以建立命名特殊的repo(http://username.github.io)来建立个人静态网站%E6%9D%A5%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80">
+<meta name="keywords" content="github&#x2F;git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github 的其他用法">
+<meta property="og:url" content="http://cnneillee.github.io/2017/02/13/git/github的其他用法/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述Github 除了作为代码托管库外，有趣的程序员们还利用它解锁了有趣的新姿势。 二、新姿势2.1 Github Pages可以为项目建立静态主页(即gh-pages分支),也可以建立命名特殊的repo(http://username.github.io)来建立个人静态网站%E6%9D%A5%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80">
+<meta property="og:updated_time" content="2017-05-09T16:56:55.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Github 的其他用法">
+<meta name="twitter:description" content="一、概述Github 除了作为代码托管库外，有趣的程序员们还利用它解锁了有趣的新姿势。 二、新姿势2.1 Github Pages可以为项目建立静态主页(即gh-pages分支),也可以建立命名特殊的repo(http://username.github.io)来建立个人静态网站%E6%9D%A5%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Github 的其他用法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Github 的其他用法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-13T09:20:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Version-Control/">Version Control</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、新姿势"><span class="post-toc-text">二、新姿势</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-Github-Pages"><span class="post-toc-text">2.1 Github Pages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-GitHub-Resume"><span class="post-toc-text">2.2 GitHub Résumé</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-Gists"><span class="post-toc-text">2.3 Gists</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-Wiki"><span class="post-toc-text">2.4 Wiki</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-News-Feed"><span class="post-toc-text">2.5 News Feed</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、Github-桌面版"><span class="post-toc-text">三、Github 桌面版</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git/github的其他用法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Github 的其他用法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-13 17:20:00" datetime="2017-02-13T09:20:00.000Z"  itemprop="datePublished">2017-02-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Version-Control/">Version Control</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Github 除了作为代码托管库外，有趣的程序员们还利用它解锁了有趣的新姿势。</p>
+<h1 id="二、新姿势"><a href="#二、新姿势" class="headerlink" title="二、新姿势"></a>二、新姿势</h1><h2 id="2-1-Github-Pages"><a href="#2-1-Github-Pages" class="headerlink" title="2.1 Github Pages"></a>2.1 Github Pages</h2><p>可以为项目建立静态主页(即gh-pages分支),<br>也可以建立命名特殊的repo(<a href="http://username.github.io\" target="_blank" rel="external">http://username.github.io)来建立个人静态网站</a>%E6%9D%A5%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99).</p>
+<p>Hexo + GithubPages 搭建静态博客</p>
+<h2 id="2-2-GitHub-Resume"><a href="#2-2-GitHub-Resume" class="headerlink" title="2.2 GitHub Résumé"></a>2.2 GitHub Résumé</h2><p><a href="http://resume.github.io/" target="_blank" rel="external">http://resume.github.io/</a><br><a href="https://github.com/hit9/GhResume" target="_blank" rel="external">https://github.com/hit9/GhResume</a><br>感觉并没有什么卵用。</p>
+<h2 id="2-3-Gists"><a href="#2-3-Gists" class="headerlink" title="2.3 Gists"></a>2.3 Gists</h2><p><a href="https://gist.github.com/" target="_blank" rel="external">https://gist.github.com/</a><br>管理代码片段，可插入到网页中。</p>
+<h2 id="2-4-Wiki"><a href="#2-4-Wiki" class="headerlink" title="2.4 Wiki"></a>2.4 Wiki</h2><p>为项目写Wiki文档。</p>
+<h2 id="2-5-News-Feed"><a href="#2-5-News-Feed" class="headerlink" title="2.5 News Feed"></a>2.5 News Feed</h2><h1 id="三、Github-桌面版"><a href="#三、Github-桌面版" class="headerlink" title="三、Github 桌面版"></a>三、Github 桌面版</h1><p><a href="https://zhuanlan.zhihu.com/p/24461753?refer=dreawer" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/24461753?refer=dreawer</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/6394671.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6394671.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-git/">github/git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/&title=《Github 的其他用法》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/&title=《Github 的其他用法》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/02/13/git/github的其他用法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Github 的其他用法》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/16/others/ubuntu更新hostname和hosts/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Ubuntu 更新 Hostname 和 hosts</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/12/git/git与github使用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Git 与 Github 使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/&title=《Github 的其他用法》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/&title=《Github 的其他用法》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/02/13/git/github的其他用法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Github 的其他用法》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/02/13/git/github的其他用法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACw0lEQVR42u3awU5jMQwFUP7/pzvSbEvbe+0EhHSyQvD6yMkidm1/fcXr8X+9/83z7x9P69Xzz888XqyvGwsPDw9vtPX3r8ufeX4+J+UHmuwHDw8P7zYvv+JbTB4A8tCSHwoeHh7e7/KSSzlZSdKcBAY8PDy8v8LL0+JNsGn3g4eHh/fzvPaazpPp2QG1qfaBWgseHh5ezJtd6L/788X+Hh4eHt6iqz5rU21aa7N218v34+Hh4V3gHWsyxalzkjS3rbUPT+Lh4eEd5c2GBtpsNj+CvPCRlCrw8PDwfoa3KQq06XI+qpUf+jffGPDw8PCO8toGfzsatRkmyEsh9R7w8PDwLvCSYDC79NsCxIy36unh4eHhxby8EZWHhGSj+bWev+dDrRoPDw9vzZsNm+ZFik1IaMNA0QbDw8PDO8Rrm0xRI6osQ7RFig/lXTw8PLyjvGEDKR4OyK/+U80tPDw8vNu8fEOzq3xzEJskGw8PD+8ebz8EkDf7Z42ufGThQ9zDw8PDO8TLCxBn212zANOONeDh4eHd4yUPbQYI2tZaGwaKYgQeHh7emre/pt+HgXbT+Rui1BwPDw/vAi9PmmdTCfkVn4eQ4dAVHh4e3gVenkwXJdT4U/lIVj7IhYeHh3eDl49Y5U2vtsE/a25Fe8bDw8O7wJtVfPNUu22DtQWRInjg4eHhHeLlV3PyZPupNgC0x42Hh4d3m7dp5O8LtWePCQ8PD+8er/3C3/51k0znRYficPHw8PDWvEe5khGBTdiY/ZfiGwMeHh7emrdPeduSa/vZfeEDDw8P7wZvHwzOJuWb0auXnT08PDy8C7w2GLTDWLNhr9kz3wQGPDw8vF/iteNWs6Gu/YEOAwMeHh7eZd7ZoFJc9G0pGQ8PD+8aLy9GzNpmeTI9a7ANBwjw8PDwRry2AbZplc0aY22xo154eHh4Ke8fosxK321rgpkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

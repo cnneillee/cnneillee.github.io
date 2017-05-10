@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/01/07/scripts/python引用计数/">
+    
+    
+    <title>Python 引用计数 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python">
+    <meta name="description" content="一、概述要保持追踪内存中的对象，Python使用了引用计数这一简单的技术。 二、引用计数的增减2.1 增加引用计数当对象被创建并（将其引用）赋值给变量时，该对象的引用计数被设置为1。 对象的引用计数增加的情况：  对象被创建：x = 3.14 另外的别名被创建：y = x 被作为参数传递给函数（新的本地引用）：foobar(x) 成为容器对象的一个元素：myList = [123, x, ‘xyz">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 引用计数">
+<meta property="og:url" content="http://cnneillee.github.io/2017/01/07/scripts/python引用计数/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述要保持追踪内存中的对象，Python使用了引用计数这一简单的技术。 二、引用计数的增减2.1 增加引用计数当对象被创建并（将其引用）赋值给变量时，该对象的引用计数被设置为1。 对象的引用计数增加的情况：  对象被创建：x = 3.14 另外的别名被创建：y = x 被作为参数传递给函数（新的本地引用）：foobar(x) 成为容器对象的一个元素：myList = [123, x, ‘xyz">
+<meta property="og:updated_time" content="2017-05-09T16:56:56.240Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 引用计数">
+<meta name="twitter:description" content="一、概述要保持追踪内存中的对象，Python使用了引用计数这一简单的技术。 二、引用计数的增减2.1 增加引用计数当对象被创建并（将其引用）赋值给变量时，该对象的引用计数被设置为1。 对象的引用计数增加的情况：  对象被创建：x = 3.14 另外的别名被创建：y = x 被作为参数传递给函数（新的本地引用）：foobar(x) 成为容器对象的一个元素：myList = [123, x, ‘xyz">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 引用计数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 引用计数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-07T07:56:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、引用计数的增减"><span class="post-toc-text">二、引用计数的增减</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-增加引用计数"><span class="post-toc-text">2.1 增加引用计数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-减少引用计数"><span class="post-toc-text">2.2 减少引用计数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-del语句"><span class="post-toc-text">2.3 del语句</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-scripts/python引用计数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 引用计数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-07 15:56:00" datetime="2017-01-07T07:56:00.000Z"  itemprop="datePublished">2017-01-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>要保持追踪内存中的对象，Python使用了引用计数这一简单的技术。</p>
+<h1 id="二、引用计数的增减"><a href="#二、引用计数的增减" class="headerlink" title="二、引用计数的增减"></a>二、引用计数的增减</h1><h2 id="2-1-增加引用计数"><a href="#2-1-增加引用计数" class="headerlink" title="2.1 增加引用计数"></a>2.1 增加引用计数</h2><p>当对象被创建并（将其引用）赋值给变量时，该对象的引用计数被设置为1。</p>
+<p>对象的引用计数增加的情况：</p>
+<ul>
+<li>对象被创建：x = 3.14</li>
+<li>另外的别名被创建：y = x</li>
+<li>被作为参数传递给函数（新的本地引用）：foobar(x)</li>
+<li>成为容器对象的一个元素：myList = [123, x, ‘xyz’]</li>
+</ul>
+<h2 id="2-2-减少引用计数"><a href="#2-2-减少引用计数" class="headerlink" title="2.2 减少引用计数"></a>2.2 减少引用计数</h2><p>对象的引用计数减少的情况：</p>
+<ul>
+<li>一个本地引用离开了其作用范围。如foobar()函数结束时</li>
+<li>对象的别名被显式销毁：del y</li>
+<li>对象的一个别名被赋值给其他对象：x = 123</li>
+<li>对象被从一个窗口对象中移除：myList.remove(x)</li>
+<li>窗口对象本身被销毁：del myList</li>
+</ul>
+<h2 id="2-3-del语句"><a href="#2-3-del语句" class="headerlink" title="2.3 del语句"></a>2.3 del语句</h2><p>Del语句会删除对象的一个引用，它的语法如下：del obj[, obj2[, …objN]]</p>
+<p>例如，在上例中执行del y会产生两个结果：</p>
+<ul>
+<li>从现在的名称空间中删除y</li>
+<li>x的引用计数减1</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/6259590.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6259590.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/&title=《Python 引用计数》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/&title=《Python 引用计数》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 引用计数》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【转】解决Gradle报错找不到 org.gradle.api.internal.project.ProjectInternal.getPluginManager() 方法问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/12/21/others/编程工具整合/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">编程工具整合</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/&title=《Python 引用计数》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/&title=《Python 引用计数》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 引用计数》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/01/07/scripts/python引用计数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aMW4DMQwEQP//00md4pxdSoRdjKvgcFY4MiAKJF+v+PPz8Hl65/zJ+5Uvf/Dw8PAuhf7+XybffWIkKyffSjYdDw8Pb4/3tHRyfOchJmkm2YgkZjw8PLxv4yXP25TQphk8PDy87+fl1+tZEaFdGQ8PD++zvPyamwSUbFCSTvJkc6HWgoeHhxfz2iP7G/5e6e/h4eHhHXfV82O3vUyfJKEiTjw8PLwFXnsoz1pT+Tp5KTlvzuHh4eFt8+4GlDe68rRRpyI8PDy8NV5x1MZHdkIqWlmzUgUeHh7eVV5yxM9Gsm4lj9kKf2oteHh4eAu8k0GB2YU7aWWdFIKjXISHh4c34uVH/KxB1a4/a7lFvyEeHh7eVV5eCJiVCdoWWp6cChIeHh7eJd5sFGB2yb52Rc7jx8PDw1vgzTpms1GDqPAabGLbSMPDw8Pb5rVjASeA/P1Z4QMPDw9vj5cczW0Qs5ZYu3IRPx4eHt5VXrt08q225No+z+PHw8PDu8tr+2Mrjfw46IT05zkeHh7eGi9vXJ23889HBxJeXV3Gw8PDi3ntq/ng1Pt3km3NG2NRlQUPDw/vEi8fh8oTSV5sbQuydbMNDw8Pb5nXXmfzoM9HsoYbioeHh7fGm7Xwh/f3URFk1n7Dw8PD2+DlYbXH9IULcZmKXie7joeHhxfz8gLryZO2wJFv0D/pBA8PD2+BNyut5skgT0KzbYrSGx4eHt5V3uyovfV+0vQ6mQTAw8PD2+DNDvQ2lNlwVV6AmKUoPDw8vBNee7jPkkpSdGgTTPQD4OHh4a3x8mJrO3rVJoOid5dc2fHw8PA+ymuLrbPBgpMBhceKCx4eHt6HeOcTTbNBrhkSDw8Pb5s3K0bcvYi3hYkoNjw8PLwF3ix5nJQeTpJEvpV4eHh4C7xf4dL5PjiVruYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

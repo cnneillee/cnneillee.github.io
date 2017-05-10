@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/">
+    
+    
+    <title>Android Studio 的下载及更新 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android-studio">
+    <meta name="description" content="截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本不稳定等问题，造成AS的更新遇上不小障碍。正是基于这几点，编者决定撰写一篇更新教程，以免开发者的Android开发受阻于工具更新阶段。">
+<meta name="keywords" content="android-studio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio 的下载及更新">
+<meta property="og:url" content="http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本不稳定等问题，造成AS的更新遇上不小障碍。正是基于这几点，编者决定撰写一篇更新教程，以免开发者的Android开发受阻于工具更新阶段。">
+<meta property="og:updated_time" content="2017-03-13T06:32:22.328Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio 的下载及更新">
+<meta name="twitter:description" content="截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本不稳定等问题，造成AS的更新遇上不小障碍。正是基于这几点，编者决定撰写一篇更新教程，以免开发者的Android开发受阻于工具更新阶段。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android Studio 的下载及更新</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android Studio 的下载及更新</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-03-18T07:50:38.000Z" itemprop="datePublished" class="page-time">
+  2016-03-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、-Android-Studio-概述"><span class="post-toc-text">一、 Android Studio 概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、-Android-Studio-下载更新方法"><span class="post-toc-text">二、 Android Studio 下载更新方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-下载"><span class="post-toc-text">2.1 下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-1-官网下载"><span class="post-toc-text">2.1.1 官网下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-2-国内镜像"><span class="post-toc-text">2.1.2 国内镜像</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-更新"><span class="post-toc-text">2.2 更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-直接在AS的菜单栏选择-help-gt-Check-for-updates"><span class="post-toc-text">2.2.1 直接在AS的菜单栏选择 help->Check for updates</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-上一种方法失败时："><span class="post-toc-text">2.2.2 上一种方法失败时：</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android-studio的下载及更新"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android Studio 的下载及更新</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-03-18 15:50:38" datetime="2016-03-18T07:50:38.000Z"  itemprop="datePublished">2016-03-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本不稳定等问题，造成AS的更新遇上不小障碍。正是基于这几点，编者决定撰写一篇更新教程，以免开发者的Android开发受阻于工具更新阶段。<br><a id="more"></a></p>
+<h1 id="一、-Android-Studio-概述"><a href="#一、-Android-Studio-概述" class="headerlink" title="一、 Android Studio 概述"></a>一、 Android Studio 概述</h1><blockquote>
+<p>Android Studio 是 Google 官方在 2013 Google I/O 大会（2013 年5月）上发布的全新 Andrid 开发 IDE（基于 Intellij IDEA），在 2014 年12 月发布第一个稳定版（1.0），目前最新版本为1.2 Beta 3；依托与 Intellij IDEA，它更智能，提示功能更强，默认使用 Gradle 构建，布局文件实时预览等等。</p>
+</blockquote>
+<h1 id="二、-Android-Studio-下载更新方法"><a href="#二、-Android-Studio-下载更新方法" class="headerlink" title="二、 Android Studio 下载更新方法"></a>二、 Android Studio 下载更新方法</h1><h2 id="2-1-下载"><a href="#2-1-下载" class="headerlink" title="2.1 下载"></a>2.1 下载</h2><h3 id="2-1-1-官网下载"><a href="#2-1-1-官网下载" class="headerlink" title="2.1.1 官网下载"></a>2.1.1 官网下载</h3><p>官网网址：[<a href="http://tools.android.com/download/studio][http://tools.android.com/download/studio" target="_blank" rel="external">http://tools.android.com/download/studio][http://tools.android.com/download/studio</a>]<br>需要翻墙。关于翻墙：由于这一点不是本文的重点，所以，请不会翻墙、但是想要直接上官网下载的朋友 自行[百度][<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>]</p>
+<h3 id="2-1-2-国内镜像"><a href="#2-1-2-国内镜像" class="headerlink" title="2.1.2 国内镜像"></a>2.1.2 国内镜像</h3><p>更新略有延迟<br>网址：</p>
+<ul>
+<li>[<a href="https://github.com/inferjay/AndroidDevTools][https://github.com/inferjay/AndroidDevTools" target="_blank" rel="external">https://github.com/inferjay/AndroidDevTools][https://github.com/inferjay/AndroidDevTools</a>]</li>
+<li>[<a href="http://www.android-studio.org/][http://www.android-studio.org/" target="_blank" rel="external">http://www.android-studio.org/][http://www.android-studio.org/</a>]</li>
+</ul>
+<h2 id="2-2-更新"><a href="#2-2-更新" class="headerlink" title="2.2 更新"></a>2.2 更新</h2><h3 id="2-2-1-直接在AS的菜单栏选择-help-gt-Check-for-updates"><a href="#2-2-1-直接在AS的菜单栏选择-help-gt-Check-for-updates" class="headerlink" title="2.2.1 直接在AS的菜单栏选择 help-&gt;Check for updates"></a>2.2.1 直接在AS的菜单栏选择 <code>help-&gt;Check for updates</code></h3><h3 id="2-2-2-上一种方法失败时："><a href="#2-2-2-上一种方法失败时：" class="headerlink" title="2.2.2 上一种方法失败时："></a>2.2.2 上一种方法失败时：</h3><ul>
+<li>检查 Http Connection</li>
+<li>使用增量包<br>具体方法：请参阅此博客-[<a href="http://blog.csdn.net/xuqingfeng77/article/details/49767651][http://blog.csdn.net/xuqingfeng77/article/details/49767651" target="_blank" rel="external">http://blog.csdn.net/xuqingfeng77/article/details/49767651][http://blog.csdn.net/xuqingfeng77/article/details/49767651</a>]</li>
+</ul>
+<ul>
+<li>~\androidstudio&gt;</li>
+<li><code>java -classpath D:\a\AI-141.2117773-141.2180789-patch-win.jar com.intellij.updater.Runner install .</code></li>
+<li>Android Studio 安装目录下，进入命令行，键入 <code>java -classpath</code> 增量包全路径 <code>com.intellij.updater.Runner install .</code></li>
+</ul>
+<p><code>Attention：</code></p>
+<ul>
+<li>最好将增量包放在非 Android Studio 安装目录的纯净目录下</li>
+<li>install后面的点切莫忘掉</li>
+<li>此过程分两步，<code>validating update + backing...</code>,耐心等待</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/&title=《Android Studio 的下载及更新》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/&title=《Android Studio 的下载及更新》 — Neil Lee's blog&source=截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio 的下载及更新》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/03/20/android/baseadapter数据已经加载但是listview不显示的解决方案/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">BaseAdapter 数据已经加载但 ListView 不显示的解决方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/17/daily/近期技术工作总结/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">近期(2016.3.8-2016.3.18)技术工作总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/&title=《Android Studio 的下载及更新》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/&title=《Android Studio 的下载及更新》 — Neil Lee's blog&source=截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio 的下载及更新》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/03/18/android/android-studio的下载及更新/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3ay24cMQwEQP//TyfnIJndblKyN0DtyTDmoZqDKDT59RX/fv31S658uvf1c56uef3e1Q8PDw9vvfTNEvNP8LTo5JnFJ8PDw8O7xssXMaNuwLNr8PDw8D6H9xq5X+LrD4qHh4f3//KSF7cFIyfh4eHhfQIv3+jPktonXMxa8PDw8LquU9RF+py/r/T38PDw8NZd9U1Ee/au4Wrx8PDwLvDyDbcdt8p5p97+eCUeHh7eUV4+8JQEpnlDK/nP60GrKA7Gw8PD+xZePiiQtMFmUW8eixzo7OHh4eEd6qrnAwQtdXOAzqMKPDw8vO/h7YPU/AmziKEtIXh4eHg3eHvA5njdbvTJc958Mjw8PLxDvFPH3DaSaCPgvOR8tTUEDw8PbxHjzpY4+67DY3E+goCHh4d3gbdvO21+m4JRtNbw8PDwjvLyuHYWre4P4u0Y1h8rwcPDw7vGmwWseUNrf6SeBRx4eHh4N3jJFt8OByQFph3tStpddeKCh4eHN+K1g6RtOdkc2dvj+2MYgYeHh3eB1267ybLObv3JYfofd+Hh4eFd4G0igGTRmyHX691/PDw8vBEveeisSMw+TVts3nxoPDw8vGu8zQbdHnDzMYI22ogmI/Dw8PDWvLxZlWzKbUtstt0Pwwg8PDy8o7w8MM0Pynn00Ban/C14eHh4P8Xbv2x/bzuCUBQGPDw8vAWvGGaKD7ttS6zu0SWBLx4eHt5R3n7E6mx40ZaQN0/Gw8PDu8Brt9rNaFRSWjbXH6gkeHh4eDGvbdvvm/rtSEEb/j5mLXh4eHhHeUnbvs45RiHvJph4nInAw8PD+1FeHiLkY1h5iWrXhoeHh/c5vHbjPvWx6oYZHh4e3jXebPhpPxTVNt7a4Vc8PDy8G7x9xLApAFdGAfDw8PBu8X4DKWiwJbXEK7kAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

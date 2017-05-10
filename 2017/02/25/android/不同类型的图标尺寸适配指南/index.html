@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/">
+    
+    
+    <title>不同类型的图标尺寸适配指南 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android">
+    <meta name="description" content="一、概述1.1 ICON在 Android 的 ui 设计与开发过程中，图标（ICON）的地位显得尤为重要。ICON 大致分为 7 类：  Launcher Icons Menu Icons Action Bar Icons Status Bar Icons Tab Icons Dialog Icons List View Icons  1.2 支持多种屏幕参见：https://developer">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不同类型的图标尺寸适配指南">
+<meta property="og:url" content="http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述1.1 ICON在 Android 的 ui 设计与开发过程中，图标（ICON）的地位显得尤为重要。ICON 大致分为 7 类：  Launcher Icons Menu Icons Action Bar Icons Status Bar Icons Tab Icons Dialog Icons List View Icons  1.2 支持多种屏幕参见：https://developer">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/resources_configuration.png">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/all_icons.JPG">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/icons_naming.JPG">
+<meta property="og:updated_time" content="2017-03-09T03:08:30.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="不同类型的图标尺寸适配指南">
+<meta name="twitter:description" content="一、概述1.1 ICON在 Android 的 ui 设计与开发过程中，图标（ICON）的地位显得尤为重要。ICON 大致分为 7 类：  Launcher Icons Menu Icons Action Bar Icons Status Bar Icons Tab Icons Dialog Icons List View Icons  1.2 支持多种屏幕参见：https://developer">
+<meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/resources_configuration.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">不同类型的图标尺寸适配指南</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">不同类型的图标尺寸适配指南</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-25T15:22:26.927Z" itemprop="datePublished" class="page-time">
+  2017-02-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-ICON"><span class="post-toc-text">1.1 ICON</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-支持多种屏幕"><span class="post-toc-text">1.2 支持多种屏幕</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-drawable-与-mipmap-的区别"><span class="post-toc-text">1.3 drawable 与 mipmap 的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、ICONS-适配"><span class="post-toc-text">二、ICONS 适配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-配置限定符"><span class="post-toc-text">2.1 配置限定符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-图片尺寸与密度对应关系"><span class="post-toc-text">2.2 图片尺寸与密度对应关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-图片命名规则"><span class="post-toc-text">2.3 图片命名规则</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/不同类型的图标尺寸适配指南"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">不同类型的图标尺寸适配指南</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-25 23:22:26" datetime="2017-02-25T15:22:26.927Z"  itemprop="datePublished">2017-02-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-ICON"><a href="#1-1-ICON" class="headerlink" title="1.1 ICON"></a>1.1 ICON</h2><p>在 Android 的 ui 设计与开发过程中，图标（ICON）的地位显得尤为重要。ICON 大致分为 7 类：</p>
+<ul>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html" target="_blank" rel="external">Launcher Icons</a></li>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_menu.html" target="_blank" rel="external">Menu Icons</a></li>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_action_bar.html" target="_blank" rel="external">Action Bar Icons</a></li>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_status_bar.html" target="_blank" rel="external">Status Bar Icons</a></li>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_tab.html" target="_blank" rel="external">Tab Icons</a></li>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_dialog.html" target="_blank" rel="external">Dialog Icons</a></li>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_list.html" target="_blank" rel="external">List View Icons</a></li>
+</ul>
+<h2 id="1-2-支持多种屏幕"><a href="#1-2-支持多种屏幕" class="headerlink" title="1.2 支持多种屏幕"></a>1.2 支持多种屏幕</h2><p>参见：<a href="https://developer.android.com/guide/practices/screens_support.html" target="_blank" rel="external">https://developer.android.com/guide/practices/screens_support.html</a></p>
+<p>由于 Android 系统运行在不同屏幕尺寸和密度的设备上，Android 为了适应这种情况，为用户提供良好的界面显示，从底层向上提供一致的开发环境。</p>
+<p>屏幕支持分类：</p>
+<ul>
+<li><p>四种通用尺寸：小、正常、 大 和超大</p>
+</li>
+<li><p>六种通用的密度：</p>
+<ul>
+<li>ldpi（低）~120dpi</li>
+<li>mdpi（中）~160dpi</li>
+<li>hdpi（高）~240dpi</li>
+<li>xhdpi（超高）~320dpi</li>
+<li>xxhdpi（超超高）~480dpi</li>
+<li>xxxhdpi（超超超高）~640dpi</li>
+</ul>
+</li>
+</ul>
+<p>故而，支持多种屏幕有如下几种方式：</p>
+<ul>
+<li>在清单中显式声明您的应用 支持哪些屏幕尺寸</li>
+<li>为不同屏幕尺寸提供不同的布局<br>layout-xxx：small、normal、large 和 xlarge</li>
+<li>为不同屏幕密度提供不同的位图可绘制对象<br>  drawable-xxx： ldpi（低）、mdpi（中）、 hdpi（高）、xhdpi（超高）、xxhdpi （超超高）和 xxxhdpi（超超超高）</li>
+</ul>
+<h2 id="1-3-drawable-与-mipmap-的区别"><a href="#1-3-drawable-与-mipmap-的区别" class="headerlink" title="1.3 drawable 与 mipmap 的区别"></a>1.3 drawable 与 mipmap 的区别</h2><p><a href="https://segmentfault.com/q/1010000002603418" target="_blank" rel="external">https://segmentfault.com/q/1010000002603418</a></p>
+<h1 id="二、ICONS-适配"><a href="#二、ICONS-适配" class="headerlink" title="二、ICONS 适配"></a>二、ICONS 适配</h1><h2 id="2-1-配置限定符"><a href="#2-1-配置限定符" class="headerlink" title="2.1 配置限定符"></a>2.1 配置限定符</h2><p>用于为不同屏幕配置提供特殊资源的配置限定符<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oltjxlyku.bkt.clouddn.com/resources_configuration.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="2-2-图片尺寸与密度对应关系"><a href="#2-2-图片尺寸与密度对应关系" class="headerlink" title="2.2 图片尺寸与密度对应关系"></a>2.2 图片尺寸与密度对应关系</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oltjxlyku.bkt.clouddn.com/all_icons.JPG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><a href="http://oltjxlyku.bkt.clouddn.com/icon_for_all_size_screen.xlsx" target="_blank" rel="external">xlsx表格下载地址</a></p>
+<p><strong>备注：</strong></p>
+<p>参考了多个项目发现，大部分项目（即时是 Google 提供的官方项目）均未按上述标准进行开发。</p>
+<ul>
+<li>mdpi:32*32(32bit Color)</li>
+<li>hdpi:48*48(32bit Color)</li>
+<li>xhdpi:64*64(32bit Color)</li>
+<li>xxhdpi:92*92(32bit Color)</li>
+</ul>
+<p><strong>例如：</strong></p>
+<p>从<strong>官方文章中</strong>下载的“操作栏图标包”及“示例应用”显示：</p>
+<p><a href="https://developer.android.com/training/implementing-navigation/nav-drawer.html" target="_blank" rel="external">https://developer.android.com/training/implementing-navigation/nav-drawer.html</a></p>
+<p>Launcher Icons：<br>m –&gt; xxh 符合规范</p>
+<ul>
+<li>l：36*36</li>
+<li>m：48*48</li>
+<li>h：72*72</li>
+<li>xh：96*96</li>
+<li>xxhh：144*144</li>
+</ul>
+<p>ActionBar Icons：<br>与规范不符</p>
+<ul>
+<li>m：32*32</li>
+<li>h：48*48</li>
+<li>xh：64*64</li>
+<li>xxhh：96*96</li>
+</ul>
+<p>Menu Icons：<br>与规范不符</p>
+<ul>
+<li>m：32*32</li>
+<li>h：48*48</li>
+<li>xh：64*64</li>
+</ul>
+<h2 id="2-3-图片命名规则"><a href="#2-3-图片命名规则" class="headerlink" title="2.3 图片命名规则"></a>2.3 图片命名规则</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oltjxlyku.bkt.clouddn.com/icons_naming.JPG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/&title=《不同类型的图标尺寸适配指南》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/&title=《不同类型的图标尺寸适配指南》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《不同类型的图标尺寸适配指南》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/26/daily/2017年的第一个五月计划/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2017年的第一个五月计划</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/24/hexo/2017年启用hexo博客/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2017年启用 Hexo 博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/&title=《不同类型的图标尺寸适配指南》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/&title=《不同类型的图标尺寸适配指南》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《不同类型的图标尺寸适配指南》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/02/25/android/不同类型的图标尺寸适配指南/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADQUlEQVR42u3ay27jQAwEQP//T2uvAbKWuzkyIE1KpyDwY4o5dEjO6xU/x4/n9+/z3xy/nvPvevdpyedc8GBjY2M/hH2cPvlxz6nnr8lJbVnfnhkbGxt7O/bs6Ofxlhzl3aFnZ8tLjI2NjY3dRshK25MUCxsbGxu7DYk8hOomITjbSuBhY2Nj78puQyIZ+uQHOn9l3q58ZZaGjY2NfXt23h7c/+ev7LexsbGxb8w+yie/WDNrFfIQXVJgY2Njb8TOAyD/535lFNUWrr1ChI2Njb0fewZeKcRshdC2HB8GXtjY2NjbsduRer7WzVcL+cohXxgM9yHY2NjYj2KvBFU7TpoFWBuESeuCjY2NvRM7+ejZiGclwIqmYlYybGxs7K3Z7eHOU3G9TPnZ8s/HxsbG3omdX7hsI60t1izY2vUANjY29n7sq2DJZ7bNw8q7PhQUGxsbeyN2spSdDYxmY/225Si2H+ejJWxsbOzHsq+6HLMyxGlDNAmtD4XAxsbG3oh91agoudDT/rweY3WJsbGxsR/IvrYlWAmt9RVC3XthY2Njb8f+MEyPFwB5yM1K374LGxsbe292fvQ8VGaRFq1m4yHXZeMkbGxs7Nuz83/xV474jQVAW+L/3FTCxsbG3oKdXLXJv2a2AJ61Iu0loawS2NjY2M9jzy64zFqO84Zh9t5Z6bGxsbF3Ys8Cpi3NCilf4tZrYGxsbOyN2LNDz1qXfHmcXw/KCzfsybCxsbFvzM4PlFzHSQIjX9PO2o8otLCxsbG3Zs8uyiSxl1yvSYJtNueP9tvY2NjYD2S3bUkbdW07kY+T8oVxDcbGxsZ+IDsf9KwMgNpGIvn2NjKxsbGx92a3Y/12lDNreNYbkmJJgI2Njf1w9mvhma1g85gsrt3kq2tsbGzsLdhH+eSBtDI8ylcRszUwNjY29k7sq5YEydFnK+G8NMPrO9jY2NhbsJPQmsVMHpPt36dtcur0xsbGxn4gOx/rtA1AXqBv3DlaurKDjY2N/QfYK2OmlTZjVuhoK4KNjY39B9jtWL9dAOctzcoSGhsbG3s/dhst6+VoVwt5UaLQxcbGxt6IncdAfpR2DdBe6GzXybOBFDY2Nvbt2f8AkPGwvCE1QLYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

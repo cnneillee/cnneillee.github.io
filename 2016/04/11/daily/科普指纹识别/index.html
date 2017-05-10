@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/">
+    
+    
+    <title>科普指纹识别 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="指纹识别发展史参考文章：细聊指纹识别发展史 应用实例 西门子 1998 年(指纹技术来自 Bromba 公司,世界上首款搭载指纹识别技术的手机，只是一部原型机，并没有量产) SAGEM MC 959 2000 年(意法半导体的指纹技术) Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（PFC）) 富士通 F505i 2003 年(技术来自后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科普指纹识别">
+<meta property="og:url" content="http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="指纹识别发展史参考文章：细聊指纹识别发展史 应用实例 西门子 1998 年(指纹技术来自 Bromba 公司,世界上首款搭载指纹识别技术的手机，只是一部原型机，并没有量产) SAGEM MC 959 2000 年(意法半导体的指纹技术) Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（PFC）) 富士通 F505i 2003 年(技术来自后">
+<meta property="og:updated_time" content="2017-05-09T16:56:57.139Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="科普指纹识别">
+<meta name="twitter:description" content="指纹识别发展史参考文章：细聊指纹识别发展史 应用实例 西门子 1998 年(指纹技术来自 Bromba 公司,世界上首款搭载指纹识别技术的手机，只是一部原型机，并没有量产) SAGEM MC 959 2000 年(意法半导体的指纹技术) Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（PFC）) 富士通 F505i 2003 年(技术来自后">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cnneillee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">科普指纹识别</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">科普指纹识别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-04-11T10:40:00.000Z" itemprop="datePublished" class="page-time">
+  2016-04-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/趣味与常识/">趣味与常识</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#指纹识别发展史"><span class="post-toc-text">指纹识别发展史</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用实例"><span class="post-toc-text">应用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#技术支持"><span class="post-toc-text">技术支持</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-daily/科普指纹识别"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">科普指纹识别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-04-11 18:40:00" datetime="2016-04-11T10:40:00.000Z"  itemprop="datePublished">2016-04-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/趣味与常识/">趣味与常识</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="指纹识别发展史"><a href="#指纹识别发展史" class="headerlink" title="指纹识别发展史"></a>指纹识别发展史</h1><p>参考文章：<a href="http://zhuanlan.zhihu.com/p/20734554" target="_blank" rel="external">细聊指纹识别发展史</a></p>
+<h2 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h2><ul>
+<li>西门子 1998 年(指纹技术来自 Bromba 公司,<em>世界上首款搭载指纹识别技术的手机，只是一部原型机，并没有量产</em>)</li>
+<li>SAGEM MC 959 2000 年(意法半导体的指纹技术)</li>
+<li>Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（PFC）)</li>
+<li>富士通 F505i 2003 年(技术来自后来名声大震的 Authentec)</li>
+<li>MOTO MB860 2011 年(<em>第一部具备指纹识别的大屏智能机</em>,指纹技术同样来自 AuthenTec)</li>
+<li>iPhone5s 2013 年 9 月(首款搭载正面按压式指纹识别的手机)</li>
+</ul>
+<h2 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h2><ul>
+<li>FPC 和 AuthenTec<br>FPC 来自瑞典，老牌指纹识别技术公司，成立于 1997 年。AuthenTec 来自美国，也是一家老牌指纹识别技术公司，成立于 1998 年。</li>
+</ul>
+<p>12年初，AuthenTec 终于研发出来了正面按压式的指纹技术，并且向LG、富士、三星、诺基亚、苹果等大客户展示，然而最终只有苹果感兴趣。</p>
+<p>现在好了，AuthenTec 被苹果这么一收购，从今往后，FingerPrint Card 在指纹识别的市场上就是直挂云帆济沧海。</p>
+<ul>
+<li><p>悲情英雄——富士通<br>一直采用 AuthenTec 的技术，由于采用刮擦式，指纹功能叫好不叫座</p>
+</li>
+<li><p>HTC One Max 2012 年 10 月<br>Max 的指纹技术来自美国的老牌触控 IC 供应商 Synaptics（Validity），依旧是刮擦式，而且还是在背面</p>
+</li>
+<li><p>魅族 MX4 Pro 2014 年 12 月<br>技术支持Goodix（汇顶）</p>
+</li>
+<li><p>三星 S6 2015 年 4 月<br>使用的技术仍然是三星老相好 Synaptics</p>
+</li>
+<li><p>魅蓝 note3 2016 年 4 月</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/5379573.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5379573.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/&title=《科普指纹识别》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/&title=《科普指纹识别》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《科普指纹识别》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/04/11/android/fragment/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Fragment</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/04/10/scripts/python使用mysql数据库/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 使用 MySQL 数据库</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/&title=《科普指纹识别》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/&title=《科普指纹识别》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《科普指纹识别》 — Neil Lee's blog&url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2016/04/11/daily/科普指纹识别/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACoElEQVR42u3aQY7CMAwFUO5/aWY7EqJ82zHTkV5WqNC0L4vE2H484vH8NV6vv7vyelf++frK4YGHh4c3ePXXkTwgYSTfVpfj+l48PDy8bd67l84PgARzvXv3Pn+w4OHh4d2Ml2/l8/nx8PDw/i8vedhkaSYLh4eHh/dNXnXqPDVw/ctJ2H0414KHh4cX8/Iq0n0+r9T38PDw8MZV9esNN0k0VGfupSfezomHh4e3wKuGs0lLQS/92mv5in6Jh4eHt8BL/uqfKupP0hajZgU8PDy8o7xeGjQPqefNWKN58PDw8I7Ok5CqRazqFt9rKUhaFvDw8PD2eAl10jqQz5Pv7dEBhoeHh7fAm5eaqnP2Cl2jZcXDw8Nb4FVTsUnAXd3i80A5P7rw8PDw9njzxEEv1dtrICg3KODh4eEd5SXbdPXbamn/ORgfDhI8PDy8NV718XlAPGnbmgTreHh4eHu8vMg0aX7KFyUpdBWarvDw8PAWeL1if/Xeatri1Dx4eHh4G7xJ2rTXFnAqWdxLPePh4eFt8JKEaTW12gugq0E8Hh4e3h14ecK0WhjLFy4PlKMTDw8PD2+B1wtqe/geqXodDw8Pb4NXTTGcah2oLlbviXh4eHgbvGrZqQqoJjiqiY8ouMfDw8M7yuslEXoPy5O51fLYh5AaDw8Pb41XLVMlV75TKvvQWYaHh4e3zJunXCfNAfPcMx4eHt4e71kcp6ptk7uSFgE8PDy8Pd6pBoLrELk6Q3XmAwMPDw+vyEsOgzzwzTf3PNdabeHCw8PD+w4vrxxNDo9JG9aBXAseHh7en/J6rzhpU2img/Hw8PBuz6vONmmxipYPDw8Pb42XBL7Jg6slqx61UPrCw8PDW+D1bus1rUaJ19abjCp+eHh4eOk8PyPBK/BSJ3PPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
