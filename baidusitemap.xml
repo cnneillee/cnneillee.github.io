@@ -147,11 +147,11 @@
         <title>将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行</title>
         <pubTime>2016-11-14T14:41:00.000Z</pubTime>
         
-        <tag>linux</tag>
-         
         <tag>solution</tag>
          
         <tag>java</tag>
+         
+        <tag>linux</tag>
          
          
            
@@ -301,11 +301,11 @@
         <title>使用 MySQL 出现错误 MySQLSyntaxErrorException</title>
         <pubTime>2016-06-28T17:35:00.000Z</pubTime>
         
+        <tag>exception</tag>
+         
         <tag>mysql</tag>
          
         <tag>database</tag>
-         
-        <tag>exception</tag>
          
          
            
@@ -675,9 +675,9 @@
         <title>Ubuntu 更新 Hostname 和 hosts</title>
         <pubTime>2017-02-16T01:13:00.000Z</pubTime>
         
-        <tag>linux</tag>
-         
         <tag>solution</tag>
+         
+        <tag>linux</tag>
          
          
            
@@ -790,9 +790,9 @@
         <title>Python 操作 Mysql 数据库时 SQL 语句的格式问题</title>
         <pubTime>2016-12-21T02:53:48.000Z</pubTime>
         
-        <tag>mysql</tag>
-         
         <tag>solution</tag>
+         
+        <tag>mysql</tag>
          
         <tag>database</tag>
          
@@ -1068,9 +1068,9 @@
         
         <tag>error</tag>
          
-        <tag>mysql</tag>
-         
         <tag>solution</tag>
+         
+        <tag>mysql</tag>
          
          
            
@@ -1338,9 +1338,9 @@
         <title>Github 提交失败并报错java.io.IOException Authentication failed</title>
         <pubTime>2016-06-11T12:04:00.000Z</pubTime>
         
-        <tag>git/github</tag>
-         
         <tag>android-studio</tag>
+         
+        <tag>git/github</tag>
          
          
            
@@ -1738,9 +1738,9 @@
         <title>Alluxio 安装与配置</title>
         <pubTime>2017-02-17T09:30:00.000Z</pubTime>
         
-        <tag>alluxio</tag>
-         
         <tag>setup</tag>
+         
+        <tag>alluxio</tag>
          
          
            
@@ -1786,9 +1786,9 @@
         
         <tag>android</tag>
          
-        <tag>setup</tag>
-         
         <tag>android-studio</tag>
+         
+        <tag>setup</tag>
          
          
            
@@ -1858,9 +1858,9 @@
         <title>【书单】2017.03书单及阅读情况汇总</title>
         <pubTime>2017-03-14T02:44:39.000Z</pubTime>
         
-        <tag>readinglist</tag>
-         
         <tag>daily</tag>
+         
+        <tag>readinglist</tag>
          
          
            
@@ -1985,9 +1985,9 @@
         
         <tag>solution</tag>
          
-        <tag>redis</tag>
-         
         <tag>gathering</tag>
+         
+        <tag>redis</tag>
          
          
            
@@ -2281,9 +2281,9 @@
         <title>Android Studio 项目与 Github</title>
         <pubTime>2016-03-16T13:37:27.000Z</pubTime>
         
-        <tag>git/github</tag>
-         
         <tag>android-studio</tag>
+         
+        <tag>git/github</tag>
          
          
            

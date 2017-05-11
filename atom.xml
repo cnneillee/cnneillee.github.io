@@ -225,9 +225,34 @@
       <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
     
     
+      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
+    
       <category term="readinglist" scheme="http://cnneillee.github.io/tags/readinglist/"/>
     
-      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
+  </entry>
+  
+  <entry>
+    <title>Redis 使用过程中遇到的几个问题</title>
+    <link href="http://cnneillee.github.io/2017/03/13/database/redis%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
+    <id>http://cnneillee.github.io/2017/03/13/database/redis使用过程中遇到的几个问题/</id>
+    <published>2017-03-13T11:31:39.000Z</published>
+    <updated>2017-03-14T05:36:09.387Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;最近在公司项目中，使用 Lua 脚本操作 Redis 数据库。期间遇到了一些问题，特辟文以记之，望给诸君以参考。&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
+    
+    
+      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
+    
+      <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
+    
+      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
     
   </entry>
   
@@ -251,31 +276,6 @@
       <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
     
       <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis 使用过程中遇到的几个问题</title>
-    <link href="http://cnneillee.github.io/2017/03/13/database/redis%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
-    <id>http://cnneillee.github.io/2017/03/13/database/redis使用过程中遇到的几个问题/</id>
-    <published>2017-03-13T11:31:39.000Z</published>
-    <updated>2017-03-14T05:36:09.387Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;最近在公司项目中，使用 Lua 脚本操作 Redis 数据库。期间遇到了一些问题，特辟文以记之，望给诸君以参考。&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
-    
-    
-      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
-    
-      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
-    
-      <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
     
   </entry>
   
