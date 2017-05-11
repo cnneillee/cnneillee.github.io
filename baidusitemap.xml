@@ -4,6 +4,22 @@
 
     
   <url>
+    <loc>http://cnneillee.github.io/2017/05/10/brief_of_my_github/</loc>
+    <lastmod>2017-05-10T16:11:22.113Z</lastmod>
+    <data>
+        <display>
+        <title>Brief of My Github</title>
+        <pubTime>2017-05-10T14:57:20.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://cnneillee.github.io/2017/05/10/hexo/Hexo%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/</loc>
     <lastmod>2017-05-10T02:26:28.278Z</lastmod>
     <data>
@@ -18,21 +34,6 @@
              
               <breadCrumb title="Hexo" url="http://cnneillee.github.io/categories/Hexo/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://cnneillee.github.io/2017/05/10/hexo/hexo/</loc>
-    <lastmod>2017-05-10T02:20:44.356Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo进阶——添加站点地图</title>
-        <pubTime>2017-05-10T02:20:44.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -146,11 +147,11 @@
         <title>将 Java 项目打包成可运行的 Jar 包（main 函数带参数），并上传到 Linux 服务器上运行</title>
         <pubTime>2016-11-14T14:41:00.000Z</pubTime>
         
-        <tag>java</tag>
+        <tag>linux</tag>
          
         <tag>solution</tag>
          
-        <tag>linux</tag>
+        <tag>java</tag>
          
          
            
@@ -236,9 +237,9 @@
         <title>在 Python 中调用 Mysql 出问题 ImportError:No module named MySQLdb.constants</title>
         <pubTime>2016-10-07T13:16:00.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>database</tag>
+         
+        <tag>python</tag>
          
          
            
@@ -300,11 +301,11 @@
         <title>使用 MySQL 出现错误 MySQLSyntaxErrorException</title>
         <pubTime>2016-06-28T17:35:00.000Z</pubTime>
         
-        <tag>exception</tag>
-         
         <tag>mysql</tag>
          
         <tag>database</tag>
+         
+        <tag>exception</tag>
          
          
            
@@ -674,9 +675,9 @@
         <title>Ubuntu 更新 Hostname 和 hosts</title>
         <pubTime>2017-02-16T01:13:00.000Z</pubTime>
         
-        <tag>solution</tag>
-         
         <tag>linux</tag>
+         
+        <tag>solution</tag>
          
          
            
@@ -720,9 +721,9 @@
         
         <tag>error</tag>
          
-        <tag>java</tag>
-         
         <tag>solution</tag>
+         
+        <tag>java</tag>
          
          
            
@@ -789,13 +790,13 @@
         <title>Python 操作 Mysql 数据库时 SQL 语句的格式问题</title>
         <pubTime>2016-12-21T02:53:48.000Z</pubTime>
         
-        <tag>python</tag>
+        <tag>mysql</tag>
          
         <tag>solution</tag>
          
-        <tag>mysql</tag>
-         
         <tag>database</tag>
+         
+        <tag>python</tag>
          
          
            
@@ -855,13 +856,13 @@
         <title>Python 使用 MySQL 数据库</title>
         <pubTime>2016-04-10T12:41:00.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>setup</tag>
          
         <tag>mysql</tag>
          
         <tag>database</tag>
+         
+        <tag>python</tag>
          
          
            
@@ -1067,9 +1068,9 @@
         
         <tag>error</tag>
          
-        <tag>solution</tag>
-         
         <tag>mysql</tag>
+         
+        <tag>solution</tag>
          
          
            
@@ -1337,9 +1338,9 @@
         <title>Github 提交失败并报错java.io.IOException Authentication failed</title>
         <pubTime>2016-06-11T12:04:00.000Z</pubTime>
         
-        <tag>android-studio</tag>
-         
         <tag>git/github</tag>
+         
+        <tag>android-studio</tag>
          
          
            
@@ -1693,9 +1694,9 @@
         <title>Android Studio 使用问题归结</title>
         <pubTime>2016-06-11T12:31:00.000Z</pubTime>
         
-        <tag>android-studio</tag>
-         
         <tag>gathering</tag>
+         
+        <tag>android-studio</tag>
          
          
            
@@ -1785,9 +1786,9 @@
         
         <tag>android</tag>
          
-        <tag>android-studio</tag>
-         
         <tag>setup</tag>
+         
+        <tag>android-studio</tag>
          
          
            
@@ -1857,9 +1858,9 @@
         <title>【书单】2017.03书单及阅读情况汇总</title>
         <pubTime>2017-03-14T02:44:39.000Z</pubTime>
         
-        <tag>daily</tag>
-         
         <tag>readinglist</tag>
+         
+        <tag>daily</tag>
          
          
            
@@ -1923,9 +1924,9 @@
         <title>Java 开发环境搭建教程</title>
         <pubTime>2016-03-16T09:02:23.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>setup</tag>
+         
+        <tag>java</tag>
          
          
            
@@ -1984,9 +1985,9 @@
         
         <tag>solution</tag>
          
-        <tag>gathering</tag>
-         
         <tag>redis</tag>
+         
+        <tag>gathering</tag>
          
          
            
@@ -2280,9 +2281,9 @@
         <title>Android Studio 项目与 Github</title>
         <pubTime>2016-03-16T13:37:27.000Z</pubTime>
         
-        <tag>android-studio</tag>
-         
         <tag>git/github</tag>
+         
+        <tag>android-studio</tag>
          
          
            
@@ -2302,9 +2303,9 @@
         <title>解决 Android Studio 新建项目时只有一个 drawable 目录的问题</title>
         <pubTime>2016-04-14T12:53:54.000Z</pubTime>
         
-        <tag>android-studio</tag>
-         
         <tag>solution</tag>
+         
+        <tag>android-studio</tag>
          
          
            
@@ -2417,8 +2418,6 @@
     </data>
     </url>
 
-    
-    
     
     
 </urlset>

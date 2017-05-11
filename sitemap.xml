@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cnneillee.github.io/2017/05/10/hexo/Hexo%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/</loc>
+    <loc>http://cnneillee.github.io/2017/05/10/brief_of_my_github/</loc>
     
-    <lastmod>2017-05-10T02:26:28.278Z</lastmod>
+    <lastmod>2017-05-10T16:11:22.113Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cnneillee.github.io/2017/05/10/hexo/hexo/</loc>
+    <loc>http://cnneillee.github.io/404.html</loc>
     
-    <lastmod>2017-05-10T02:20:44.356Z</lastmod>
+    <lastmod>2017-05-10T03:06:09.047Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cnneillee.github.io/2017/05/10/hexo/Hexo%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/</loc>
+    
+    <lastmod>2017-05-10T02:26:28.278Z</lastmod>
     
   </url>
   
@@ -852,20 +859,6 @@
     <loc>http://cnneillee.github.io/AndroidRes/index.html</loc>
     
     <lastmod>2016-03-09T13:08:52.123Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cnneillee.github.io/works/index.html</loc>
-    
-    <lastmod>2016-03-09T12:38:28.308Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cnneillee.github.io/Home/index.html</loc>
-    
-    <lastmod>2016-03-09T12:20:06.274Z</lastmod>
     
   </url>
   
