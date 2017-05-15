@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/">
+    
+    
+    <title>【转】《数据之巅》读书笔记 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="daily">
+    <meta name="description" content="本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。  本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。 个人觉得，这本书是《大数据》的延伸和拓展。 作者从大数据的角度，将美国历史分割为：历史小数据（初数时代、内战时代、镀金时代、进步时代、抽样时代）、崛起大数据（开放时代、大数据时代、智慧城市）。较前一本书来说，论述更有力，自成系统。">
+<meta name="keywords" content="daily">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】《数据之巅》读书笔记">
+<meta property="og:url" content="http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。  本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。 个人觉得，这本书是《大数据》的延伸和拓展。 作者从大数据的角度，将美国历史分割为：历史小数据（初数时代、内战时代、镀金时代、进步时代、抽样时代）、崛起大数据（开放时代、大数据时代、智慧城市）。较前一本书来说，论述更有力，自成系统。">
+<meta property="og:updated_time" content="2017-05-15T08:43:08.706Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】《数据之巅》读书笔记">
+<meta name="twitter:description" content="本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。  本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。 个人觉得，这本书是《大数据》的延伸和拓展。 作者从大数据的角度，将美国历史分割为：历史小数据（初数时代、内战时代、镀金时代、进步时代、抽样时代）、崛起大数据（开放时代、大数据时代、智慧城市）。较前一本书来说，论述更有力，自成系统。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【转】《数据之巅》读书笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【转】《数据之巅》读书笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-13T15:45:18.000Z" itemprop="datePublished" class="page-time">
+  2017-05-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Daily/">Daily</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#缘起"><span class="post-toc-text">缘起</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#内容"><span class="post-toc-text">内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Part1-小数据之历史-27-372"><span class="post-toc-text">Part1 小数据之历史 27/372</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap1-初数时代：奠基共和-29-372"><span class="post-toc-text">chap1 初数时代：奠基共和 29/372</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap2-内战时代：终结奴隶制的灯塔-65-372"><span class="post-toc-text">chap2 内战时代：终结奴隶制的灯塔 65/372</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap3-爆发：镀金时代的三重崛起-107-372"><span class="post-toc-text">chap3 爆发：镀金时代的三重崛起 107/372</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap4-量化：进步时代的数据大潮-161-372"><span class="post-toc-text">chap4 量化：进步时代的数据大潮 161/372</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap5-抽样时代：统计革命的福祉-203-372"><span class="post-toc-text">chap5 抽样时代：统计革命的福祉 203/372</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Part2-大数据的崛起-239-372"><span class="post-toc-text">Part2 大数据的崛起 239/372</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap6-开放时代：内开放的历程-241-372"><span class="post-toc-text">chap6 开放时代：内开放的历程 241/372</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap7-大数据时代：通往计算型的智能社-281-372"><span class="post-toc-text">chap7 大数据时代：通往计算型的智能社 281/372</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chap8-智慧城市：正在拍打世界的浪潮-329-372"><span class="post-toc-text">chap8 智慧城市：正在拍打世界的浪潮 329/372</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结语：把握后发优势：把科技符号变成文化符号-361-372"><span class="post-toc-text">结语：把握后发优势：把科技符号变成文化符号 361/372</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记：蝴蝶振翅-367-372"><span class="post-toc-text">后记：蝴蝶振翅 367/372</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#收获"><span class="post-toc-text">收获</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-daily/【转】《数据之巅》读书笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【转】《数据之巅》读书笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-13 23:45:18" datetime="2017-05-13T15:45:18.000Z"  itemprop="datePublished">2017-05-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Daily/">Daily</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。</p>
+<blockquote>
+<p>本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。</p>
+<p>个人觉得，这本书是《大数据》的延伸和拓展。</p>
+<p>作者从大数据的角度，将美国历史分割为：<strong>历史小数据（初数时代、内战时代、镀金时代、进步时代、抽样时代）、崛起大数据（开放时代、大数据时代、智慧城市）</strong>。较前一本书来说，论述更有力，自成系统。在《大数据》基础上进行了延伸和拓展，算是升级版吧！<br>—— 见<a href="http://cnneillee.github.io/2017/05/13/daily/【书单】2017-03-2017-05书单及阅读情况汇总">【书单】2017-03-2017-05书单及阅读情况汇总</a></p>
+</blockquote>
+<p><em>以下内容摘要转自：<a href="http://www.jianshu.com/p/a69a9927005f" target="_blank" rel="external">20170202《数据之巅》-jianshu/im天行</a></em></p>
+<hr>
+<h1 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h1><p>•2015年之前可能就知道这本书，而且2016年上还是2015年上还听过作者的一次线上讲课。<br>•2017-01-25开始看，一个番茄钟30页左右，全书370页，共需要12个左右番茄钟。<br>•2017-02-02全书读完。</p>
+<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><h2 id="Part1-小数据之历史-27-372"><a href="#Part1-小数据之历史-27-372" class="headerlink" title="Part1 小数据之历史 27/372"></a>Part1 小数据之历史 27/372</h2><h3 id="chap1-初数时代：奠基共和-29-372"><a href="#chap1-初数时代：奠基共和-29-372" class="headerlink" title="chap1 初数时代：奠基共和 29/372"></a>chap1 初数时代：奠基共和 29/372</h3><ul>
+<li>克服民主的劣势：用数据分权</li>
+<li><p>1787年7月16日，大州和小州之间终于达成妥协。◦众议院的席位按人口比例在各州分配，体现了民主原则。</p>
+<ul>
+<li>参议院的议席每州两台，平均分配，体现了共和精神。</li>
+<li>任何一项法案，都必须在参、众两院同时以多数通过才能生效。</li>
+</ul>
+</li>
+<li><p>统计学的三大重要命题</p>
+<ul>
+<li>1、对一个国家来说，统计什么，不统计什么，是个政治问题。</li>
+<li>2、要统计一件东西，必须要有清晰的边界。</li>
+<li>3、如何提高数据的真实性。 </li>
+</ul>
+</li>
+<li><p>亚拉巴马悖论： 指总议席增加反而导致某些州的议席减少。</p>
+</li>
+<li>十进制在亚里士多德时代就被发明了，但美国是全世界第一个在货币体系中普及十进制的国家。几年后，法国也跟进。</li>
+<li>1831年，法国历史学家 托克维尔 《论美国的民主》</li>
+<li>其实，在整个19世纪，几乎一切数学和统计学的重大发明和进步都起源于欧州。</li>
+<li>商秧提出“强国知十三数”。现代意义上的人口普查在中国直到1900年才出现。（ 但没有普查成功 ）</li>
+</ul>
+<h3 id="chap2-内战时代：终结奴隶制的灯塔-65-372"><a href="#chap2-内战时代：终结奴隶制的灯塔-65-372" class="headerlink" title="chap2 内战时代：终结奴隶制的灯塔 65/372"></a>chap2 内战时代：终结奴隶制的灯塔 65/372</h3><ul>
+<li>1860年，是第八次认可普查年，也是大选年。林肯当总统，联邦正式解体，1861年3月，南方7个州宣布独立。萨姆特要塞，南北战争爆发。</li>
+<li>既然全国的青壮年兵力都集中在北方，那南方为什么敢主动挑起战火呢？答案是棉花。</li>
+<li>谢尔曼是南北战争中的一代名将，也是北方阵营中除林肯总统、格兰特司令外的第3号人物。</li>
+<li>谢尔曼声明： “如果被提名，我不会接受；如果被选上，我不会就职”</li>
+<li>政治家必须直面和解决一个个具体的社会问题。</li>
+<li>林肯解放的只是黑奴经济上的自由权，而关于黑奴的政治权利，只字未提。</li>
+<li>美国共和党强调经济自由，民主党注重政治平等。</li>
+</ul>
+<h3 id="chap3-爆发：镀金时代的三重崛起-107-372"><a href="#chap3-爆发：镀金时代的三重崛起-107-372" class="headerlink" title="chap3 爆发：镀金时代的三重崛起 107/372"></a>chap3 爆发：镀金时代的三重崛起 107/372</h3><ul>
+<li>在镀金时代的30多年间，美国的数据文化相继完成了思维、组织和技术的三重崛起。</li>
+<li>这三重崛起的起点，是1869年。国会人口普查委员会的主席加菲尔德 </li>
+<li>人类的政治史，说到底，就是各种利益不断调整的斗争史。</li>
+<li><strong>人口重心</strong>：</li>
+<li>因为加菲尔德前10年没有破解当时的利益格局，等到后来当上总统后，重用了之前觉得不错的沃克同志，让统计工作有了革命性变化。然后沃克由于政治事件中，被迫辞职，去MIT当了16年的第3任校长，后来他的工作被Herman Hollerith给做成了。</li>
+<li>1883年，美国国会通过了《彭德尔顿法》，规定政治和行政两相分开。</li>
+<li>霍尔瑞斯的自己创办的公司，就是IBM的前身。（1911年，霍尔瑞斯的公司与其它公司合并，成立了CTR，请了大名鼎鼎的托马斯.沃森当职业经理人，1924年，CTR更名为IBM。）</li>
+<li>检视人类的创新史，有一点可以肯定，市场的需求才是真正的创新动力， 当需求成为越来越迫切的现实，重大的技术突破就一定会产生。</li>
+<li>136/372</li>
+<li>劳工统计局：只提供事实和数据，不提供对事实的理论解释，也不介入政策的制定。</li>
+<li>1894年，美国的工业总产值超过英国，跃居世界第一位，成为世界上最庞大的经济体。</li>
+<li>农业统计局、普查局和劳工统计局，堪称美国统计领域的三驾马车。</li>
+<li>隐私观念的成熟，数据安全管理制度的完善</li>
+<li>中国在数据可视化方面的先驱人物，是地理学家陈正祥，他的著作《大学生活四十年》需要看一看。</li>
+</ul>
+<h3 id="chap4-量化：进步时代的数据大潮-161-372"><a href="#chap4-量化：进步时代的数据大潮-161-372" class="headerlink" title="chap4 量化：进步时代的数据大潮 161/372"></a>chap4 量化：进步时代的数据大潮 161/372</h3><ul>
+<li>通过对数学的学习，也唯有通过对数学的学习，我们才能对什么是真正的科学获得真实、深入的理解。—奥古斯特.孔德</li>
+<li>镀金时代虽然见证了经济的迅猛发展、城市的急剧膨胀，但同时也是一个问题丛生、动荡不安的时代，这也是称为“镀金”的原因，即光鲜的外表下掩盖着重生危机和大量矛盾。</li>
+<li>正因为进步主义者的杰出贡献，从19世纪90年代到20世纪20年代，这前后30多年被后人称为“进步时代”。</li>
+<li>匹兹堡调查</li>
+<li>成本收益分析方法</li>
+<li>大众因为恐惧、无知，常常做出和理性分析结果完全不同的决定。换句话说，民主的质量依赖于大众的理性思考水平。</li>
+<li>道伊调查福特公司的平托汽车情况，来进行人生命价值的量化。（本章到目前所讲的内容。）</li>
+</ul>
+<h3 id="chap5-抽样时代：统计革命的福祉-203-372"><a href="#chap5-抽样时代：统计革命的福祉-203-372" class="headerlink" title="chap5 抽样时代：统计革命的福祉 203/372"></a>chap5 抽样时代：统计革命的福祉 203/372</h3><ul>
+<li>直到20世纪30年代，抽样的科学性才成为学术界的共识。</li>
+<li>1939年1月，等到盖洛普的调查全部完成，《乱世佳人》电影才开机拍摄。拍摄方在重大问题决策上，几乎全部听取了盖洛普的意见。</li>
+<li>换句话说，由于调查行为的介入，被调查现象的本身将遭受扭曲。民意调查是不是存在这种“副作用”呢？</li>
+<li>戴明（物理学博士）是盖洛普（数学博士）的朋友，盖洛普曾经就如何抽样、如何设计问题，不断向他征询意见。</li>
+<li>我认识到，优秀的人才并不少见，公司最需要的，是能够不断学习、永远进步的人。—戴明回忆起在西电工作时拿到耶鲁的博士项目通知书要不要去读时，后来回忆这段时说的。</li>
+<li>1947年，在麦克阿瑟的邀请下，戴明搭乘军用飞机抵达日本。戴明的主要任务，就是利用抽样的技术，帮助日本开展战后的第一次人口普查。</li>
+<li>1950年，在日本科学与工程联盟的邀请下，戴明又来到日本。</li>
+<li>石川一郎</li>
+<li>美国人针对戴明的拍了一部记录片 《日本行，为什么我们不行》 </li>
+</ul>
+<h2 id="Part2-大数据的崛起-239-372"><a href="#Part2-大数据的崛起-239-372" class="headerlink" title="Part2 大数据的崛起 239/372"></a>Part2 大数据的崛起 239/372</h2><h3 id="chap6-开放时代：内开放的历程-241-372"><a href="#chap6-开放时代：内开放的历程-241-372" class="headerlink" title="chap6 开放时代：内开放的历程 241/372"></a>chap6 开放时代：内开放的历程 241/372</h3><ul>
+<li>开放，主要是指信息的自由流动，广义的开放，还包括人、财、物的自由流动。</li>
+<li>LEHD系统的真正强大这处，还在于其数据分析的粒度，经可以按地区，邮编，选区，学区，人口普查的片区等各层级单位对数据进行层层下钻。</li>
+<li><p>OnTheMap 美国的网站，可以查阅数据</p>
+<ul>
+<li>人工合成数据（开放数据使用、同时保护数据隐私的重要方法）的两种方式：◦完全合成数据</li>
+<li>部分合成数据</li>
+</ul>
+</li>
+<li><p>内开放3.0：用数据推动创新 270/372</p>
+<ul>
+<li>data.gov（奥在台时推动的）</li>
+<li>数据开放 不等于 数据公开</li>
+</ul>
+</li>
+</ul>
+<h3 id="chap7-大数据时代：通往计算型的智能社-281-372"><a href="#chap7-大数据时代：通往计算型的智能社-281-372" class="headerlink" title="chap7 大数据时代：通往计算型的智能社 281/372"></a>chap7 大数据时代：通往计算型的智能社 281/372</h3><ul>
+<li>数据最早来源于测量。</li>
+<li>普适计算 认为：计算机发明以后，要经历三个阶段。</li>
+<li>数据挖掘已经不是大数据的前沿和热点，取而代之的是机器学习。</li>
+<li>通过计算来解决社会问题，正变得越来越普遍。</li>
+<li>3D打印：通过逐层叠加、不断增加材料的方式、一次性完成生产过程，所以被称为“加式制造”。</li>
+<li>例如，中，印，韩等国不允许谷歌在自己国家为其地图收集数据，这也意味着，谷歌的无人驾驶汽车未来根本不可能进入这些国家，因为没有数据！*</li>
+<li>算法是运用数学和统计学的方法和技巧，解决某一类问题的特定步骤，其核心是建立模型。但建模首先需要的就是数据。</li>
+<li>下一代人机交互界面的核心技术是自然语言处理、语音识别、声音合成等，即实现文本和声音这两种数据之间的转换。</li>
+</ul>
+<h3 id="chap8-智慧城市：正在拍打世界的浪潮-329-372"><a href="#chap8-智慧城市：正在拍打世界的浪潮-329-372" class="headerlink" title="chap8 智慧城市：正在拍打世界的浪潮 329/372"></a>chap8 智慧城市：正在拍打世界的浪潮 329/372</h3><ul>
+<li><p>2008年11月，IBM提出“smart city”这个概念。</p>
+<ul>
+<li>政策配套</li>
+<li>市场参与</li>
+<li>技术支持</li>
+</ul>
+</li>
+<li><p>中国已经有了不少电子商务的平台，但还没有一个城市生活、公共服务的平台。—神州数码郭为。</p>
+</li>
+<li><p>SeeClickFix.com是个公益网站，Nextdoor.com是个商业网站。◦本质都是让大众来发现并解决城市生活的问题；（众包技术）</p>
+</li>
+<li><p>346</p>
+</li>
+<li>作者认为：物联网（普适计算）、云、大数据是智慧城市的三大核心技术。 </li>
+</ul>
+<h2 id="结语：把握后发优势：把科技符号变成文化符号-361-372"><a href="#结语：把握后发优势：把科技符号变成文化符号-361-372" class="headerlink" title="结语：把握后发优势：把科技符号变成文化符号 361/372"></a>结语：把握后发优势：把科技符号变成文化符号 361/372</h2><ul>
+<li>人类知识的唯一来源，是对过去经验的记录和整理。</li>
+</ul>
+<h2 id="后记：蝴蝶振翅-367-372"><a href="#后记：蝴蝶振翅-367-372" class="headerlink" title="后记：蝴蝶振翅 367/372"></a>后记：蝴蝶振翅 367/372</h2><ul>
+<li>2013年5月，接到中信银行信用卡中心的大数据方面的培训。</li>
+<li>纵观世界名国的历史，我相信有一条真理颠扑不破，那就是学习改变命运。</li>
+<li>作者意识到要追求工作中的使命感，又要保持个人生活的平衡，我还需要修炼–很多人都需要。</li>
+<li>2014年3月18日，写完。</li>
+</ul>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ul>
+<li>2017-01-30看了2个番茄钟</li>
+<li>chap5讲的是盖洛普和戴明的故事。</li>
+<li><p>chap4讲的是道伊调查福特公司的平托汽车情况，来进行人生命价值的量化，以及不保局的和其它机构的成本收益分析方法，最重要的概念就是量化。</p>
+</li>
+<li><p>2017-02-02看了2个番茄钟◦两个番茄钟大多数时间给了chap3，美帝的各种数据技术，而国内的一片空白。</p>
+</li>
+<li><p>chap2只是进行了补充阅读。</p>
+</li>
+<li><p>Part2与Part1方面有点不太搭，但也是能看一看的。</p>
+</li>
+<li>章节独立性比较强，但连贯起来有点欠缺。</li>
+<li>全书以数据文化和科技在美国的发展为主线，讲了不少历史知识。</li>
+</ul>
+<hr>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/daily/">daily</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/&title=《【转】《数据之巅》读书笔记》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/&title=《【转】《数据之巅》读书笔记》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】《数据之巅》读书笔记》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/15/daily/【书单】2017-03-2017-05书单及阅读情况汇总/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【书单】2017.03-2017.05书单及阅读情况汇总</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/10/brief_of_my_github/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Brief of My Github</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/&title=《【转】《数据之巅》读书笔记》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/&title=《【转】《数据之巅》读书笔记》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】《数据之巅》读书笔记》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACo0lEQVR42u3aW24CMQwFUPa/abqAduD6kYFKh6+K0kxOKsXG9uMRv54Xr9+fufp8vlq+ztoLDw8Pb2nr1e1Wj+M15uq3+Z7x8PDwTvOSB0+2lVN7+7l8Hw8PD+9reMmGklx3fnx4eHh4/4s3SbirIQQPDw/v23i9pfOiQK8EnJeJF2oteHh4eDFvkv5+6ucj/T08PDy8cVd9q/0/CQ+j3eLh4eEd4OUXbt7iqr6TlEUm+8TDw8Pb5SVjVb3PTMJDrwH2x2/x8PDwDvB6jaU8PEwKtVvhBA8PD2+Xlw8E9Gqk1TBQXecNFQ8PD+92Xl4USEoPeYKeP7E5TYaHh4e3xMsfvFtKyNfPQ8VlrQUPDw/vFl6+oV4LLQ8MefDAw8PDO8ebXNP5Vb41KJAXJvDw8PBO83pDTnna3Uu4q2XicpEFDw8Pr8WbXPp5IElWrv5t4RsDHh4e3iqvOhRVHbrK1+m11gppNB4eHt4qL0+LkwS3WqTID7o3ZICHh4e3y8u/8OejVPn7k9ZXdAR4eHh4x3i9Aut8Q5PyboLEw8PDO8GbpK2Twm617DsazMLDw8Nb5VUX7TW08mPK213lKgseHh7eEm/ymByfDEjl4SRPrPHw8PDu5yUPyFPkwoZabbByMQIPDw9vzMsT1uZjiqElH02IUmo8PDy8W3jVdPZcCSM5pjcVFzw8PLzDvPw67l3ovbJv84WHh4e3ynsWX0kpoRc8eg2zN/8wPDw8vAO8E3ds3rWflBs+FkLw8PDwBi2r3ikm6+dF3uhrAB4eHt4xXvVSruLzQLJcXsHDw8P7Gl6eu1ZbVssHgYeHh/dlvPzqzw+rd3zNoSs8PDy8Aa9Xcu1d8dUR1aTpdYnEw8PDO8Cr5qWTLfZGAV4DFkoYeHh4eCnvB7V4K/AuLZzeAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

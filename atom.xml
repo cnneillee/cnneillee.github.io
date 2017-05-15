@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-05-10T16:11:22.113Z</updated>
+  <updated>2017-05-15T09:05:00.078Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【书单】2017.03-2017.05书单及阅读情况汇总</title>
+    <link href="http://cnneillee.github.io/2017/05/15/daily/%E3%80%90%E4%B9%A6%E5%8D%95%E3%80%912017-03-2017-05%E4%B9%A6%E5%8D%95%E5%8F%8A%E9%98%85%E8%AF%BB%E6%83%85%E5%86%B5%E6%B1%87%E6%80%BB/"/>
+    <id>http://cnneillee.github.io/2017/05/15/daily/【书单】2017-03-2017-05书单及阅读情况汇总/</id>
+    <published>2017-05-15T07:16:33.000Z</published>
+    <updated>2017-05-15T09:05:00.078Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;本次书单时间跨度为 2017.03.15 - 2017.05.15，约两个月。由于近两个月事情比较多，所以阅读的书籍不多。&lt;
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
+    
+    
+      <category term="readinglist" scheme="http://cnneillee.github.io/tags/readinglist/"/>
+    
+      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【转】《数据之巅》读书笔记</title>
+    <link href="http://cnneillee.github.io/2017/05/13/daily/%E3%80%90%E8%BD%AC%E3%80%91%E3%80%8A%E6%95%B0%E6%8D%AE%E4%B9%8B%E5%B7%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/</id>
+    <published>2017-05-13T15:45:18.000Z</published>
+    <updated>2017-05-15T08:43:08.706Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。&lt;/p&gt;
+&lt;p&gt;个人觉得，这本书是《大数据》的延伸和拓展。&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
+    
+    
+      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
+    
+  </entry>
   
   <entry>
     <title>Brief of My Github</title>
@@ -186,29 +232,6 @@
   </entry>
   
   <entry>
-    <title>【纪录片】201702-201703观看的纪录片</title>
-    <link href="http://cnneillee.github.io/2017/03/27/daily/%E3%80%90%E7%BA%AA%E5%BD%95%E7%89%87%E3%80%91201702-201703%E8%A7%82%E7%9C%8B%E7%9A%84%E7%BA%AA%E5%BD%95%E7%89%87/"/>
-    <id>http://cnneillee.github.io/2017/03/27/daily/【纪录片】201702-201703观看的纪录片/</id>
-    <published>2017-03-26T17:03:46.000Z</published>
-    <updated>2017-03-27T00:52:49.838Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大概从去年12月份就开始看纪录片了，前期看的不多。从20170206-至今，这段时间看的纪录片蛮多的。&lt;/p&gt;
-&lt;p&gt;我是在
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
-    
-    
-      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
-    
-      <category term="videolist" scheme="http://cnneillee.github.io/tags/videolist/"/>
-    
-  </entry>
-  
-  <entry>
     <title>【书单】2017.03书单及阅读情况汇总</title>
     <link href="http://cnneillee.github.io/2017/03/14/daily/%E3%80%90%E4%B9%A6%E5%8D%95%E3%80%912017-03%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95%E5%8F%8A%E6%83%85%E5%86%B5%E6%B1%87%E6%80%BB/"/>
     <id>http://cnneillee.github.io/2017/03/14/daily/【书单】2017-03阅读书单及情况汇总/</id>
@@ -225,9 +248,9 @@
       <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
     
     
-      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
-    
       <category term="readinglist" scheme="http://cnneillee.github.io/tags/readinglist/"/>
+    
+      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
     
   </entry>
   
@@ -418,26 +441,6 @@
     
       <category term="资源与工具" scheme="http://cnneillee.github.io/categories/%E8%B5%84%E6%BA%90%E4%B8%8E%E5%B7%A5%E5%85%B7/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>【工具】PC 端调试手机端 Html 页面的工具</title>
-    <link href="http://cnneillee.github.io/2017/02/22/android/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91pc%E7%AB%AF%E8%B0%83%E8%AF%95%E6%89%8B%E6%9C%BA%E7%AB%AFhtml%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%B7%A5%E5%85%B7/"/>
-    <id>http://cnneillee.github.io/2017/02/22/android/【工具】pc端调试手机端html页面的工具/</id>
-    <published>2017-02-22T02:06:00.000Z</published>
-    <updated>2017-05-09T16:56:56.472Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;有一个项目需要在手机端显示一个 web 页面，而每次把应用 launch 后，从手机端看比较麻烦，因此搜罗了几种在 PC 端
-    
-    </summary>
-    
-      <category term="资源与工具" scheme="http://cnneillee.github.io/categories/%E8%B5%84%E6%BA%90%E4%B8%8E%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="html" scheme="http://cnneillee.github.io/tags/html/"/>
     
   </entry>
   
