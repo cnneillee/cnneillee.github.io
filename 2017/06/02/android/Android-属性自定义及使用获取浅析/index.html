@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/">
+    
+    
+    <title>Android 属性自定义及使用获取浅析 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android">
+    <meta name="description" content="一、概述相信你已经知道，Android 可使用 XML 标签语言进行界面的定义。每个标签中有一个一个的属性，这些属性有相应的属性值。例如：1234567&amp;lt;cn.neillee.composedmenu.RotatingArcMenu	android:id=&amp;quot;@+id/ram2&amp;quot;	android:layout_width=&amp;quot;wrap_content&amp;quot;	a">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 属性自定义及使用获取浅析">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述相信你已经知道，Android 可使用 XML 标签语言进行界面的定义。每个标签中有一个一个的属性，这些属性有相应的属性值。例如：1234567&amp;lt;cn.neillee.composedmenu.RotatingArcMenu	android:id=&amp;quot;@+id/ram2&amp;quot;	android:layout_width=&amp;quot;wrap_content&amp;quot;	a">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/android_theme_attr_day_barBgColor.jpg">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/android_theme_attr_night_barBgColor.jpg">
+<meta property="og:updated_time" content="2017-06-02T02:06:03.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 属性自定义及使用获取浅析">
+<meta name="twitter:description" content="一、概述相信你已经知道，Android 可使用 XML 标签语言进行界面的定义。每个标签中有一个一个的属性，这些属性有相应的属性值。例如：1234567&amp;lt;cn.neillee.composedmenu.RotatingArcMenu	android:id=&amp;quot;@+id/ram2&amp;quot;	android:layout_width=&amp;quot;wrap_content&amp;quot;	a">
+<meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/android_theme_attr_day_barBgColor.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 属性自定义及使用获取浅析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 属性自定义及使用获取浅析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-02T01:58:47.000Z" itemprop="datePublished" class="page-time">
+  2017-06-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、详细介绍"><span class="post-toc-text">二、详细介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-自定义属性"><span class="post-toc-text">2.1 自定义属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-获取系统属性"><span class="post-toc-text">2.2 获取系统属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-关于-TypedValue"><span class="post-toc-text">2.3 关于 TypedValue</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/Android-属性自定义及使用获取浅析"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 属性自定义及使用获取浅析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-02 09:58:47" datetime="2017-06-02T01:58:47.000Z"  itemprop="datePublished">2017-06-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>相信你已经知道，Android 可使用 XML 标签语言进行界面的定义。每个标签中有一个一个的属性，这些属性有相应的属性值。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;cn.neillee.composedmenu.RotatingArcMenu</div><div class="line">	android:id=&quot;@+id/ram2&quot;</div><div class="line">	android:layout_width=&quot;wrap_content&quot;</div><div class="line">	android:layout_height=&quot;wrap_content&quot;</div><div class="line">	android:background=&quot;?attr/barBgColor&quot;</div><div class="line">	app:position=&quot;left_bottom&quot;</div><div class="line">	app:radius=&quot;150dp&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p>有两点可以注意到：</p>
+<ul>
+<li><p>其一，在某个自定义 ViewGroup 中，有两个自定义属性 <code>position</code>、<code>radius</code>，与其他属性不同的是，这两个属性的命名空间为 <code>app</code>。</p>
+</li>
+<li><p>其二，系统属性 <code>background</code> 的属性值为 <code>?attr/barBgColor</code>。</p>
+</li>
+</ul>
+<h1 id="二、详细介绍"><a href="#二、详细介绍" class="headerlink" title="二、详细介绍"></a>二、详细介绍</h1><h2 id="2-1-自定义属性"><a href="#2-1-自定义属性" class="headerlink" title="2.1 自定义属性"></a>2.1 自定义属性</h2><p>这里介绍<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:position=&quot;left_bottom&quot;</div><div class="line">app:radius=&quot;150dp&quot;</div></pre></td></tr></table></figure></p>
+<p>的使用。</p>
+<p>自定义属性常见于自定义的 View 中，让我们还是以概述中的代码作为例子。自定义属性及其属性值在 <code>/values/attr.xml</code> 中有如下定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line"></div><div class="line">    &lt;attr name=&quot;position&quot;&gt;</div><div class="line">        &lt;enum name=&quot;left_top&quot; value=&quot;0&quot;/&gt;</div><div class="line">        &lt;enum name=&quot;left_bottom&quot; value=&quot;1&quot;/&gt;</div><div class="line">        &lt;enum name=&quot;right_top&quot; value=&quot;2&quot;/&gt;</div><div class="line">        &lt;enum name=&quot;right_bottom&quot; value=&quot;3&quot;/&gt;</div><div class="line">    &lt;/attr&gt;</div><div class="line">    &lt;attr name=&quot;radius&quot; format=&quot;dimension&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;declare-styleable name=&quot;ComposedMenu&quot;&gt;</div><div class="line">        &lt;attr name=&quot;position&quot;/&gt;</div><div class="line">        &lt;attr name=&quot;radius&quot;/&gt;</div><div class="line">    &lt;/declare-styleable&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
+<p>在该文件中，枚举了 <code>position</code> 有四个属性值，并为每个属性值提供了不同的 value 值作区分。而 <code>radius</code> 定义为 <code>dimension</code> 引用，表示其值须为  <code>dimension</code> 类型的值。类似地，还有如有其他类型，参考文章 <a href="http://www.cnblogs.com/rayray/p/3442026.html" target="_blank" rel="external">【Android】Android自定义属性，attr format取值类型</a></p>
+<p>接下来如何获取自定义属性值就成了关键。我在自定义 ViewGroup 中使用如下代码获取到用户在 layout 文件中，自定义 ViewGroup 标签下使用到的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private static final int LEFT_TOP = 0;</div><div class="line">private static final int LEFT_BOTTOM = 1;</div><div class="line">private static final int RIGHT_TOP = 2;</div><div class="line">private static final int RIGHT_BOTTOM = 3;</div><div class="line"></div><div class="line">protected static final int DEFAULT_RADIUS = 150;</div><div class="line">protected static final int DEFAULT_POSITION = RIGHT_BOTTOM;</div><div class="line"></div><div class="line">protected int mRadius;</div><div class="line"></div><div class="line">...</div><div class="line">public RotatingArcMenu(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">	TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ComposedMenu, defStyleAttr, 0);</div><div class="line">	int pos = a.getInt(R.styleable.ComposedMenu_position, DEFAULT_POSITION);</div><div class="line">	mRadius = (int) a.getDimension(R.styleable.ComposedMenu_radius, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_RADIUS, getResources().getDisplayMetrics()));</div><div class="line">	a.recycle();// 使用完后记得回收</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2-2-获取系统属性"><a href="#2-2-获取系统属性" class="headerlink" title="2.2 获取系统属性"></a>2.2 获取系统属性</h2><p>这里介绍 <code>android:background=&quot;?attr/barBgColor&quot;</code> 属性的定义与获取。</p>
+<p>我之所以如此定义，是为了使得 <strong>背景色</strong> 能够随着应用的主题切换而变化，最简单的例子就是 <em>夜间模式</em>。<br>首先，我在 <code>values/attr.xml</code> 文件中对 <code>barBgColor</code> 进行定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line">	...</div><div class="line">    &lt;attr name=&quot;barBgColor&quot; format=&quot;color&quot;/&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
+<p>其次，在 <code>values/styles.xml</code> 中对该属性值进行了定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line"></div><div class="line">    &lt;style name=&quot;AppDayTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;barBgColor&quot;&gt;@color/ZHIHUBlue&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">	&lt;style name=&quot;AppNightTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;barBgColor&quot;&gt;#263238&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
+<p>最后，我在控件的属性中对该属性值进行了使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;cn.neillee.composedmenu.RotatingArcMenu</div><div class="line">	android:id=&quot;@+id/ram2&quot;</div><div class="line">	android:layout_width=&quot;wrap_content&quot;</div><div class="line">	android:layout_height=&quot;wrap_content&quot;</div><div class="line">	android:background=&quot;?attr/barBgColor&quot;</div><div class="line">	app:position=&quot;left_bottom&quot;</div><div class="line">	app:radius=&quot;150dp&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p>需要说明的是，可以不再控件属性中使用自定义的属性值，可在代码中进行获取与设置。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TypedValue typedValue = new TypedValue();</div><div class="line">mContext.getTheme().resolveAttribute(R.attr.barBgColor, typedValue, true);</div><div class="line">mRotatingArcMenu.setBackgroundColor(typedValue.data);</div></pre></td></tr></table></figure></p>
+<p>这里使用到了 <code>TypedValue</code> 这个类。</p>
+<h2 id="2-3-关于-TypedValue"><a href="#2-3-关于-TypedValue" class="headerlink" title="2.3 关于 TypedValue"></a>2.3 关于 TypedValue</h2><p>详细介绍见官网：<br><a href="https://developer.android.com/reference/android/util/TypedValue.html" target="_blank" rel="external">https://developer.android.com/reference/android/util/TypedValue.html</a></p>
+<p>此处我仅对我在上一小节中的使用做简单介绍。在使用过程中，我观察到在不同主题下，TypedValue 读取到的值如下：</p>
+<p>在 DayTheme 中，由于我定义的是 <code>@color/ZHIHUBlue</code> ，对color的引用即 resourceId。因此，typedValue.resourceId 有值，且直接等效于 <code>R.color.ZHIHUBlue</code>，typedValue.type=TYPE_INT_COLOR_RGB8，表示 typedValue.data 有值，为8位的颜色代码值（#rrggbb）。<br><img src="http://oltjxlyku.bkt.clouddn.com/android_theme_attr_day_barBgColor.jpg" alt=""></p>
+<p>在 NightTheme 中，由于我定义的是 <code>#263238</code>，颜色代码值。因此，TypedValue.resourceId 无值，但 typedValue.type=TYPE_INT_COLOR_RGB8，表示 typedValue.data 有值，为8位的颜色代码（#rrggbb）。<br><img src="http://oltjxlyku.bkt.clouddn.com/android_theme_attr_night_barBgColor.jpg" alt=""></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/6931954.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6931954.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/&title=《Android 属性自定义及使用获取浅析》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/&title=《Android 属性自定义及使用获取浅析》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 属性自定义及使用获取浅析》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/12/basic/Word中设置图、表、公式、代码要与正文之间行间距/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Word中设置图、表、公式、代码要与正文之间行间距</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/15/daily/【书单】2017-03-2017-05书单及阅读情况汇总/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【书单】2017.03-2017.05书单及阅读情况汇总</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/&title=《Android 属性自定义及使用获取浅析》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/&title=《Android 属性自定义及使用获取浅析》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 属性自定义及使用获取浅析》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/02/android/Android-属性自定义及使用获取浅析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3awU7rQAwFUP7/p3nbJ5WUe+0gkeFkhdIymeMuHNvz8RFfn/9dr/fzO6+fvq7/er1f52rNGy5sbGzsh7DbR+b/9R7//vt54N6vfPkUbGxs7OPY7cPePyYB5NRNUC7vY2NjY/959lXayIOShzJPgdjY2NjYbfGQlAGzFJW0sbCxsbGx26ZSMgyYNaGSUCbUH+mlYWNjY/969qZx89v+/pH5NjY2NvYvZn+W16YB9L7MSJ44O+7zxZrY2NjYB7E3R3by7HDXqGAW0MvAYWNjYx/ETl702zIgb+W0A+NZIvymo4aNjY19EHtfQuSj4nad2Ujgmx8AGxsb+yD2ZkA7KzzyZ80Kj6KIwsbGxn4suz3Okmz93uFBmyCjYQM2Njb2QewZLxnBtilq0zbKix9sbGzsv8AuRqRxgNqB8Wy00DbIsLGxsc9j55vewPJPN6VO3UXDxsbGfji7bbvnLZs2ZLOxbt6owsbGxj6Vfe9GNyvMvrMCY2NjYz+cvXmVb9v6m/HArGiJGknY2NjYx7HzbeXFwKZc2SdCbGxs7LPZs9Fp+8jNoHcWshtGBdjY2NgPYbdL58XGLKXlraIkBJe7xcbGxj6Onb+rt8do9uB8J8V9bGxs7IPYSctmn6JmG22rhmHVhY2Njf1wdv66P0tLdx30mY0ZLr+DjY2NfRw7P1jTjmlnodwc34lCgI2NjX0ou0gAZTu+aNzH9VNe9mBjY2OfzW6TwaaR1LaZ8uDmiqjNhI2Njf0odvsSf2+ZkYd4dpzo8g42Njb2Qez2mE6yrbyEaIcByfihHRJjY2Njn8Tep658WDt77m0tJGxsbOzj2G0rJ0lvbdTz788Gz1/8FzY2NvZx7FnZkDf92yKn3VsdLGxsbOwj2LNxbF5+zJJfy07CjY2NjX0qe5YANklr1szaNLw2BRI2Njb2U9jtscgNfpP8kpFw8dtiY2NjH8eebSt/9W+LgVmJUgyesbGxsbHjY44zalvMtIeKsLGxsbGTMmNT5Gx4t823sbGxsR/Fzje3b+jMVtuUQ1/sBxsbG/sgdp4A2juz+5sQtOUNNjY29sPZ/wCxXlPvVXzd/gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

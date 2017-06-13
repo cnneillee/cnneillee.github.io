@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/">
+    
+    
+    <title>TabLayout与ViewPager同步后Tab的标题不显示 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,exception">
+    <meta name="description" content="一、概述1.1 问题描述TabLayout+ViewPager后，TabLayout的TabItem不显示的问题： 1.2 截图 二、结论 mTabs.setupWithViewPager(mViewPager); 语句的功能是：  将 TabLayout、ViewPager 的监听事件同步 对 TabLayout 的适配器进行重置 对 TabLayout 的 TabItem 进行重置 从 Vie">
+<meta name="keywords" content="android,exception">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TabLayout与ViewPager同步后Tab的标题不显示">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述1.1 问题描述TabLayout+ViewPager后，TabLayout的TabItem不显示的问题： 1.2 截图 二、结论 mTabs.setupWithViewPager(mViewPager); 语句的功能是：  将 TabLayout、ViewPager 的监听事件同步 对 TabLayout 的适配器进行重置 对 TabLayout 的 TabItem 进行重置 从 Vie">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/tablayout_no_text.png">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/tablayout_no_text_solved.png">
+<meta property="og:updated_time" content="2017-06-13T08:27:07.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TabLayout与ViewPager同步后Tab的标题不显示">
+<meta name="twitter:description" content="一、概述1.1 问题描述TabLayout+ViewPager后，TabLayout的TabItem不显示的问题： 1.2 截图 二、结论 mTabs.setupWithViewPager(mViewPager); 语句的功能是：  将 TabLayout、ViewPager 的监听事件同步 对 TabLayout 的适配器进行重置 对 TabLayout 的 TabItem 进行重置 从 Vie">
+<meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/tablayout_no_text.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">TabLayout与ViewPager同步后Tab的标题不显示</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">TabLayout与ViewPager同步后Tab的标题不显示</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-13T08:20:29.000Z" itemprop="datePublished" class="page-time">
+  2017-06-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-问题描述"><span class="post-toc-text">1.1 问题描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-截图"><span class="post-toc-text">1.2 截图</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、问题探究"><span class="post-toc-text">三、问题探究</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-设置的代码"><span class="post-toc-text">3.1 设置的代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-查看-TabLayout-的相关源码"><span class="post-toc-text">3.2 查看 TabLayout 的相关源码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-跳转到-PagerAdapter-的源码"><span class="post-toc-text">3.4 跳转到 PagerAdapter 的源码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-结论"><span class="post-toc-text">3.4 结论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-解决方案"><span class="post-toc-text">3.5 解决方案</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/TabLayout与ViewPager同步后Tab的标题不显示"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">TabLayout与ViewPager同步后Tab的标题不显示</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-13 16:20:29" datetime="2017-06-13T08:20:29.000Z"  itemprop="datePublished">2017-06-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-问题描述"><a href="#1-1-问题描述" class="headerlink" title="1.1 问题描述"></a>1.1 问题描述</h2><p>TabLayout+ViewPager后，TabLayout的TabItem不显示的问题：</p>
+<h2 id="1-2-截图"><a href="#1-2-截图" class="headerlink" title="1.2 截图"></a>1.2 截图</h2><p><img src="http://oltjxlyku.bkt.clouddn.com/tablayout_no_text.png" alt="tablayout_no_text.png"></p>
+<p>二、结论</p>
+<p><code>mTabs.setupWithViewPager(mViewPager);</code> 语句的功能是：</p>
+<ul>
+<li>将 TabLayout、ViewPager 的监听事件同步</li>
+<li>对 TabLayout 的适配器进行重置</li>
+<li>对 TabLayout 的 TabItem 进行重置</li>
+<li>从 ViewPager 的 Adapter 中读取到每一页的标题，并为之创建 TabItem 添加到 TabLayout 中</li>
+</ul>
+<p>解决方案是：<br>重写在 mViewPager 的 Adapter 中的如下方法，将每页的 Title 设置好：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) &#123;</div><div class="line">       @Override</div><div class="line">       public Fragment getItem(int position) &#123;</div><div class="line">		return mFragmentList.get(position);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int getCount() &#123;</div><div class="line">		return mFragmentList.size();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public CharSequence getPageTitle(int position) &#123;</div><div class="line">		return mTitle[position];</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><img src="http://oltjxlyku.bkt.clouddn.com/tablayout_no_text_solved.png" alt="tablayout_no_text_solved.png"></p>
+<h1 id="三、问题探究"><a href="#三、问题探究" class="headerlink" title="三、问题探究"></a>三、问题探究</h1><h2 id="3-1-设置的代码"><a href="#3-1-设置的代码" class="headerlink" title="3.1 设置的代码"></a>3.1 设置的代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mFragmentList.add(longFragment);</div><div class="line">mFragmentList.add(shortFragment);</div><div class="line">mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) &#123;</div><div class="line">	@Override</div><div class="line">	public Fragment getItem(int position) &#123;</div><div class="line">		return mFragmentList.get(position);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int getCount() &#123;</div><div class="line">		return mFragmentList.size();</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line">mTabs.setupWithViewPager(mViewPager);</div></pre></td></tr></table></figure>
+<p>上面是非常常见的一段代码，主要逻辑是，将承载两个Fragment的ViewPager与TabLayout同步起来。<br>其中，核心语句是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mTabs.setupWithViewPager(mViewPager);</div></pre></td></tr></table></figure></p>
+<h2 id="3-2-查看-TabLayout-的相关源码"><a href="#3-2-查看-TabLayout-的相关源码" class="headerlink" title="3.2 查看 TabLayout 的相关源码"></a>3.2 查看 TabLayout 的相关源码</h2><p>进入源码查看到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">public void setupWithViewPager(@Nullable final ViewPager viewPager) &#123;</div><div class="line">       if (mViewPager != null &amp;&amp; mPageChangeListener != null) &#123;</div><div class="line">           // If we&apos;ve already been setup with a ViewPager, remove us from it</div><div class="line">           mViewPager.removeOnPageChangeListener(mPageChangeListener);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       if (viewPager != null) &#123;</div><div class="line">           final PagerAdapter adapter = viewPager.getAdapter();</div><div class="line">           if (adapter == null) &#123;</div><div class="line">               throw new IllegalArgumentException(&quot;ViewPager does not have a PagerAdapter set&quot;);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           mViewPager = viewPager;</div><div class="line"></div><div class="line">           // Add our custom OnPageChangeListener to the ViewPager</div><div class="line">           if (mPageChangeListener == null) &#123;</div><div class="line">               mPageChangeListener = new TabLayoutOnPageChangeListener(this);</div><div class="line">           &#125;</div><div class="line">           mPageChangeListener.reset();</div><div class="line">           viewPager.addOnPageChangeListener(mPageChangeListener);</div><div class="line"></div><div class="line">           // Now we&apos;ll add a tab selected listener to set ViewPager&apos;s current item</div><div class="line">           setOnTabSelectedListener(new ViewPagerOnTabSelectedListener(viewPager));</div><div class="line"></div><div class="line">           // Now we&apos;ll populate ourselves from the pager adapter</div><div class="line">           setPagerAdapter(adapter, true);</div><div class="line">       &#125; else &#123;</div><div class="line">           // We&apos;ve been given a null ViewPager so we need to clear out the internal state,</div><div class="line">           // listeners and observers</div><div class="line">           mViewPager = null;</div><div class="line">           setOnTabSelectedListener(null);</div><div class="line">           setPagerAdapter(null, true);</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>也比较明了，无非是先做一系列的判断，然后修改 TabLayout与ViewPager的各种监听事件。</p>
+<p>进入 <code>setPagerAdapter</code> 查看到如下方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">private void setPagerAdapter(@Nullable final PagerAdapter adapter, final boolean addObserver) &#123;</div><div class="line">       if (mPagerAdapter != null &amp;&amp; mPagerAdapterObserver != null) &#123;</div><div class="line">           // If we already have a PagerAdapter, unregister our observer</div><div class="line">           mPagerAdapter.unregisterDataSetObserver(mPagerAdapterObserver);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       mPagerAdapter = adapter;</div><div class="line"></div><div class="line">       if (addObserver &amp;&amp; adapter != null) &#123;</div><div class="line">           // Register our observer on the new adapter</div><div class="line">           if (mPagerAdapterObserver == null) &#123;</div><div class="line">               mPagerAdapterObserver = new PagerAdapterObserver();</div><div class="line">           &#125;</div><div class="line">           adapter.registerDataSetObserver(mPagerAdapterObserver);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       // Finally make sure we reflect the new adapter</div><div class="line">       populateFromPagerAdapter();</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>该方法的主要功能是设置TabLayout的适配器，<code>populateFromPagerAdapter();</code>方法引人注目。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private void populateFromPagerAdapter() &#123;</div><div class="line">       removeAllTabs();</div><div class="line"></div><div class="line">       if (mPagerAdapter != null) &#123;</div><div class="line">           final int adapterCount = mPagerAdapter.getCount();</div><div class="line">           for (int i = 0; i &lt; adapterCount; i++) &#123;</div><div class="line">			// 从 PagerAdapter 中获取到标题，并新建 Tab 加入到空的 TabLayout 中</div><div class="line">               addTab(newTab().setText(mPagerAdapter.getPageTitle(i)), false);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           // Make sure we reflect the currently set ViewPager item</div><div class="line">           if (mViewPager != null &amp;&amp; adapterCount &gt; 0) &#123;</div><div class="line">               final int curItem = mViewPager.getCurrentItem();</div><div class="line">               if (curItem != getSelectedTabPosition() &amp;&amp; curItem &lt; getTabCount()) &#123;</div><div class="line">                   selectTab(getTabAt(curItem));</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125; else &#123;</div><div class="line">           removeAllTabs();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>该方法中<code>removeAllTabs();</code>将所有的Tabs移除了，找到问题的关键！<br>同时，<code>addTab(newTab().setText(mPagerAdapter.getPageTitle(i)), false);</code>给了我们答案。</p>
+<h2 id="3-4-跳转到-PagerAdapter-的源码"><a href="#3-4-跳转到-PagerAdapter-的源码" class="headerlink" title="3.4 跳转到 PagerAdapter 的源码"></a>3.4 跳转到 PagerAdapter 的源码</h2><p>再仔细看看 getPageTitle 这个方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public CharSequence getPageTitle(int position) &#123;</div><div class="line">       return null;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>所以，知道为什么为空了吧！</p>
+<h2 id="3-4-结论"><a href="#3-4-结论" class="headerlink" title="3.4 结论"></a>3.4 结论</h2><p>综上，<code>mTabs.setupWithViewPager(mViewPager);</code>语句的功能是：</p>
+<ul>
+<li>将 TabLayout、ViewPager 的监听事件同步</li>
+<li>对 TabLayout 的适配器进行重置</li>
+<li>对 TabLayout 的 TabItem 进行重置</li>
+<li>从 ViewPager 的 Adapter 中读取到每一页的标题，并为之创建 TabItem 添加到 TabLayout 中</li>
+</ul>
+<h2 id="3-5-解决方案"><a href="#3-5-解决方案" class="headerlink" title="3.5 解决方案"></a>3.5 解决方案</h2><p>重写 getPageTitle 方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) &#123;</div><div class="line">       @Override</div><div class="line">       public Fragment getItem(int position) &#123;</div><div class="line">		return mFragmentList.get(position);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int getCount() &#123;</div><div class="line">		return mFragmentList.size();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public CharSequence getPageTitle(int position) &#123;</div><div class="line">		return mTitle[position];</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/7001976.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/7001976.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exception/">exception</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/&title=《TabLayout与ViewPager同步后Tab的标题不显示》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/&title=《TabLayout与ViewPager同步后Tab的标题不显示》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TabLayout与ViewPager同步后Tab的标题不显示》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Word 为标题设置段前段后间距设置与异常</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/&title=《TabLayout与ViewPager同步后Tab的标题不显示》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/&title=《TabLayout与ViewPager同步后Tab的标题不显示》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TabLayout与ViewPager同步后Tab的标题不显示》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADOElEQVR42u3aQW7bUAwE0Nz/0inQVYHG8gy/WkTM0ypIbEvve8EMyY+P+Pr8fb36/Z/X369P3pv8NbnXzRc2Njb2Q9ifl9f5o7evTA7u+jmvLdjY2Nhb2flDtwUjeX17QLNiiY2NjY09iwQ5KT84bGxsbOy7Cth1SMgfOjmO9uvBxsbG/mnspKmUXEn8uP78u2LMbb00bGxs7G/PbsPAd/75H863sbGxsb8l+7O87ooo7dB3Vq5e3hEbGxt7ETtp+py0mfKWUxsbksj05hCxsbGxV7DzpvxsFTLHJ0fQLoC+/A02Njb2OvZ5g6ktObOezyz8fPFXbGxs7HXs8zSTl5a2tXTybHUvDRsbG/ux7OSDZks5J3ElP9C6oGJjY2OvY8/GuidtnbypdNJOejMPwcbGxl7Bno0BTspMtEwzqjuzBhk2Njb2DnbRWA8Wd5JW/uxY28jx5miwsbGxV7BnJeGu1Zw8otQDgOuvEBsbG3sd+2QdJy9+5wWsHR6/DFfY2NjYi9jtiswsqMxa/wk+vyM2Njb2Vnb75jwq5M2mPMacPMnw/LCxsbEfyD4PA+2jt8tDsyd5U8CwsbGxV7CL1DJa90k+rV3EmZVGbGxs7E3skze3B9QeTd7YyvPFF5tK2NjY2A9n5ysv7fAgjxz593NbjMHGxsZex24XcWbhoY0Z7eAhL7rY2NjY+9gn/+K3xa9dD2oHFdHxYWNjYy9itzEgb+tft5PyUtS2t4ovBhsbG3sFO48Qs7XIvGnVFrwZO/qWsLGxsR/FbgexbWxoR7Czu7dRChsbG3sT+/z25wVp1sA6GUJjY2Njb2LPbnAyvk0CTxtjhqNlbGxs7BXs9kNn7Zu8dZWPbJPwEzWSsLGxsVewk85T+9D5YPiudZxCh42Njb2OfT6g/T8j2/Ze0SQEGxsb++HsWTE4L055A2g2SL6tHGJjY2M/hD0bl7bj3lnxOymWb8IJNjY29jp2/u9+XoRO6ue9FfhlDsPGxsb+YeyTMXBbrpL3toNkbGxsbOz8ZkkTKn/NvWNmbGxs7K3sfLGyKBJlw+gkxrStKGxsbOxN7GFTpgwJyRh4RsqXjbCxsbHXsX8B/Adt8et/q7sAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

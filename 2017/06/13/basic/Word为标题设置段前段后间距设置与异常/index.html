@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/">
+    
+    
+    <title>Word 为标题设置段前段后间距设置与异常 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="office">
+    <meta name="description" content="一、概述在进行Word文档写作时，常常要求我们对（节）标题设置段前段后间距。例如：123456（2）按照标题的不同，分别采用不同的段前段后间距：   标题级别							段前段后间距   章标题								30磅   一级节标题							18磅   二级节标题							12磅   三级节标题							 6磅 做法为：选中需要设置的文本，点击鼠标右键，段落-&amp;gt;缩进与间距-&amp;g">
+<meta name="keywords" content="office">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Word 为标题设置段前段后间距设置与异常">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述在进行Word文档写作时，常常要求我们对（节）标题设置段前段后间距。例如：123456（2）按照标题的不同，分别采用不同的段前段后间距：   标题级别							段前段后间距   章标题								30磅   一级节标题							18磅   二级节标题							12磅   三级节标题							 6磅 做法为：选中需要设置的文本，点击鼠标右键，段落-&amp;gt;缩进与间距-&amp;g">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/title_gap_comparison.png">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/title_gap_fixing_error.png">
+<meta property="og:updated_time" content="2017-06-13T08:15:20.246Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Word 为标题设置段前段后间距设置与异常">
+<meta name="twitter:description" content="一、概述在进行Word文档写作时，常常要求我们对（节）标题设置段前段后间距。例如：123456（2）按照标题的不同，分别采用不同的段前段后间距：   标题级别							段前段后间距   章标题								30磅   一级节标题							18磅   二级节标题							12磅   三级节标题							 6磅 做法为：选中需要设置的文本，点击鼠标右键，段落-&amp;gt;缩进与间距-&amp;g">
+<meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/title_gap_comparison.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Word 为标题设置段前段后间距设置与异常</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Word 为标题设置段前段后间距设置与异常</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-13T08:05:50.000Z" itemprop="datePublished" class="page-time">
+  2017-06-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Basic/">Basic</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、异常情况"><span class="post-toc-text">二、异常情况</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、解决方案"><span class="post-toc-text">三、解决方案</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-basic/Word为标题设置段前段后间距设置与异常"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Word 为标题设置段前段后间距设置与异常</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-13 16:05:50" datetime="2017-06-13T08:05:50.000Z"  itemprop="datePublished">2017-06-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Basic/">Basic</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>在进行Word文档写作时，常常要求我们对（节）标题设置段前段后间距。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">（2）按照标题的不同，分别采用不同的段前段后间距：</div><div class="line">   标题级别							段前段后间距</div><div class="line">   章标题								30磅</div><div class="line">   一级节标题							18磅</div><div class="line">   二级节标题							12磅</div><div class="line">   三级节标题							 6磅</div></pre></td></tr></table></figure></p>
+<p>做法为：<code>选中需要设置的文本，点击鼠标右键，段落-&gt;缩进与间距-&gt;间距-&gt;段前/段后</code></p>
+<h1 id="二、异常情况"><a href="#二、异常情况" class="headerlink" title="二、异常情况"></a>二、异常情况</h1><p>有时，会遇到异常。比如：当该（节）标题位于一页的第一行，那么设置的段前间距可能就不生效了。如下图所示：<br><img src="http://oltjxlyku.bkt.clouddn.com/title_gap_comparison.png" alt=""></p>
+<h1 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h1><p><code>选中需要设置的文本，点击鼠标右键，段落-&gt;换行和分页-&gt;勾选段前分页</code><br><img src="http://oltjxlyku.bkt.clouddn.com/title_gap_fixing_error.png" alt=""></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/7001891.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/7001891.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/office/">office</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/&title=《Word 为标题设置段前段后间距设置与异常》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/&title=《Word 为标题设置段前段后间距设置与异常》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Word 为标题设置段前段后间距设置与异常》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">TabLayout与ViewPager同步后Tab的标题不显示</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/12/basic/Word中将正文中的参考文件标号链接到参考文献具体条目/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Word 中将正文中的参考文件标号链接到参考文献具体条目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/&title=《Word 为标题设置段前段后间距设置与异常》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/&title=《Word 为标题设置段前段后间距设置与异常》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Word 为标题设置段前段后间距设置与异常》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADPklEQVR42u3aQW5iQQwE0Nz/0ow0q5EyfKpskKB5fxWRQPdrFo5d/fMTP7e/z+9X/n2u3/X7L++9cm+V60/+ecWDjY2N/SHs2+WTIK/x7SrXR3C9n2QVbGxs7FPZbfnJN5S/tz2yvJhhY2NjY1//nGwoQeYrtm0JNjY2NnbbGCTDoKRQbQ4IGxsb+9vY7b/77WgpHwC1wcDLZ2nY2NjYb89ug953/vmF+TY2Njb2W7Jv5ZOHvnmbkZeu/PLQAwU2Njb2QexkQ/um4llRcX49KFoXGxsb+yD2pjw8IXBdxMD7coiNjY19BrstWnlzUrcHZUuz+qqwsbGxj2C3H9FuYhYb7wdVD/aPjY2NfRA7Xzi/rJOPjdqLOM8ab2FjY2OfxG5LSzvKzwdM0fczioH/8zo2Njb2QexkKJ9vdxYAtFeFZjt5MEvDxsbGPoLdjpM24cEsJMivBBWpCDY2NvaHs2dL7puEtkTN4oe778XGxsb+AvZstDQ7rHww1K7+YJyEjY2NfQQ7/9PN2GgzTppdyol2i42NjX0Euy1OyUWZ2eWeNk5e7QcbGxv7IPasDLRF5RWANpyIkg1sbGzsD2Tvxzf7Qf/sW8p/O7yjhI2Njf0h7FmIm2x0FifkY6lk5PSg0GJjY2Mfwc4biWSBTYj7rEOJPgcbGxv7OPYm6M0HQO3R7IOEu2UMGxsb+yB2PrKfNSSzUVTbiiTF7EEZw8bGxv5w9qwl2ITEeWQ7O6w6csDGxsb+WHZ+/SWJENo4ITnuzaDqQQeGjY2NfRA7+Re/3foMkJTDfSHExsbGPom9aTOSd+0DgLw5aWNgbGxs7DPYz2oY8hKYH8qsUEUHio2Njf0F7LwJqQc6i4NIdhg1TtjY2NgHsdtGIlmyLWP5e9txVR1vYGNjY38g+1Y+ydaTsU5bFJMGqYgusLGxsQ9ib67F5PlDC2sbiXwIhY2NjX0qOy9aswghLz+zI5gVWmxsbOzz2HlhyBuG9ijbtWbTfmxsbOxvZl9vPW9pZr1Re3BRyo2NjY39lew2GGjHPZtylRdFbGxs7PPYedsw2+hmMNQWvOJeEjY2NvYR7DbobTPkdkg0+20+5MLGxsY+iP0HH3Obp82kHT0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
