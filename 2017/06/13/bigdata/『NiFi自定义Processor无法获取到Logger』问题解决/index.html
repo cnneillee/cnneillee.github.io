@@ -38,7 +38,7 @@ ga('send', 'pageview');
 <meta property="og:url" content="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi自定义Processor无法获取到Logger』问题解决/index.html">
 <meta property="og:site_name" content="Neil Lee&#39;s blog">
 <meta property="og:description" content="一、概述自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，getLogger() 方法位于 AbstractSessionFactoryProcessor 类中。123protected final ProcessorLog getLogger() &amp;#123;">
-<meta property="og:updated_time" content="2017-06-13T15:17:37.276Z">
+<meta property="og:updated_time" content="2017-06-13T15:35:43.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="『NiFi 自定义 Processor 无法获取到 Logger』问题解决">
 <meta name="twitter:description" content="一、概述自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，getLogger() 方法位于 AbstractSessionFactoryProcessor 类中。123protected final ProcessorLog getLogger() &amp;#123;">
@@ -198,7 +198,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、问题解决"><span class="post-toc-text">二、问题解决</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、问题解决"><span class="post-toc-text">二、问题解决</span></a></li></ol>
         </nav>
     </aside>
     
@@ -223,7 +223,7 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>一、概述<br>自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，<code>getLogger()</code> 方法位于 AbstractSessionFactoryProcessor 类中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">protected final ProcessorLog getLogger() &#123;</div><div class="line">    return this.logger;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，<code>getLogger()</code> 方法位于 AbstractSessionFactoryProcessor 类中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">protected final ProcessorLog getLogger() &#123;</div><div class="line">    return this.logger;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><p>该问题出现的原因是随着版本的更新， NiFi API 弃用了部分类。在早期版本中，存在 <code>ProcessorLog</code>，而在最新版本的 API 里， <code>ProcessorLog</code> 取而代之。</p>
 
         </div>
@@ -308,21 +308,14 @@ ga('send', 'pageview');
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2017/06/13/database/『NiFi学习之路』入门——下载、安装与简单使用/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">No title</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/" id="post-next" class="post-nav-link">
+      <a href="/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">『NiFi 学习之路』自定义 —— 组件的自定义及使用</h4>
+        <h4 class="title">『NiFi 学习之路』入门 —— 下载、安装与简单使用</h4>
       </a>
     </div>
   
