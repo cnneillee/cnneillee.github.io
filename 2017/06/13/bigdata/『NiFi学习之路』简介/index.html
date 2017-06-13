@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/">
+    
+    
+    <title>『NiFi 学习之路』简介 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="nifi">
+    <meta name="description" content="『NiFi 学习之路』简介 『NiFi 学习之路』入门 —— 下载、安装与简单使用 『NiFi 学习之路』资源 —— 资料汇总 『NiFi 学习之路』把握 —— 架构及主要组件 『NiFi 学习之路』使用 —— 主要组件的使用 『NiFi 学习之路』自定义 —— 组件的自定义及使用 『NiFi 学习之路』感悟 —— 我对 NiFi 的理解  NiFi 这个东西到底有哪些应用场景？这些功能特性是如">
+<meta name="keywords" content="nifi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『NiFi 学习之路』简介">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="『NiFi 学习之路』简介 『NiFi 学习之路』入门 —— 下载、安装与简单使用 『NiFi 学习之路』资源 —— 资料汇总 『NiFi 学习之路』把握 —— 架构及主要组件 『NiFi 学习之路』使用 —— 主要组件的使用 『NiFi 学习之路』自定义 —— 组件的自定义及使用 『NiFi 学习之路』感悟 —— 我对 NiFi 的理解  NiFi 这个东西到底有哪些应用场景？这些功能特性是如">
+<meta property="og:updated_time" content="2017-06-13T15:06:19.484Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『NiFi 学习之路』简介">
+<meta name="twitter:description" content="『NiFi 学习之路』简介 『NiFi 学习之路』入门 —— 下载、安装与简单使用 『NiFi 学习之路』资源 —— 资料汇总 『NiFi 学习之路』把握 —— 架构及主要组件 『NiFi 学习之路』使用 —— 主要组件的使用 『NiFi 学习之路』自定义 —— 组件的自定义及使用 『NiFi 学习之路』感悟 —— 我对 NiFi 的理解  NiFi 这个东西到底有哪些应用场景？这些功能特性是如">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">『NiFi 学习之路』简介</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">『NiFi 学习之路』简介</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-13T14:23:36.000Z" itemprop="datePublished" class="page-time">
+  2017-06-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、NiFi-功能"><span class="post-toc-text">二、NiFi 功能</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-bigdata/『NiFi学习之路』简介"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">『NiFi 学习之路』简介</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><a href="#">『NiFi 学习之路』简介</a></li>
+<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用">『NiFi 学习之路』入门 —— 下载、安装与简单使用</a></li>
+<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总">『NiFi 学习之路』资源 —— 资料汇总</a></li>
+<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要组件">『NiFi 学习之路』把握 —— 架构及主要组件</a></li>
+<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用">『NiFi 学习之路』使用 —— 主要组件的使用</a></li>
+<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用">『NiFi 学习之路』自定义 —— 组件的自定义及使用</a></li>
+<li>『NiFi 学习之路』感悟 —— 我对 NiFi 的理解</li>
+</ul>
+<p>NiFi 这个东西到底有哪些应用场景？这些功能特性是如何在使用过程中发挥作用的？这些功能特性的底层实现是如何的？</p>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>2017 年的 2 月初到写就这篇文章的 5 月 11 日，藕断丝连地跟 NiFi 打了近 3 个月的交道。从最初的屁事儿不懂，到现在的略知皮毛，期间的过程可谓十分“有趣”。</p>
+<blockquote>
+<p>2015年7月20日，Apache 基金会通过其博客宣布Apache NiFi顺利孵化完成称为Apache的顶级项目之一。</p>
+</blockquote>
+<p>由于 NiFi 开源时间较短，再加之国内对 NiFi 应用不多。中文的相关文章多停留在对 NiFi 的泛泛而谈，没有系统且深入的对 NiFi 进行介绍。唯一能够参考的也只有官网和 google 了。因此，学习之路还是蛮吃力的。</p>
+<p>本人将这一艰辛的学习之路，整理成文，供各位参考。如有错误，烦请批评指正。</p>
+<h1 id="二、NiFi-功能"><a href="#二、NiFi-功能" class="headerlink" title="二、NiFi 功能"></a>二、NiFi 功能</h1><p>Apache NiFi 是一个易于使用、功能强大而且可靠的数据处理和分发系统。Apache NiFi 是为数据流设计。它支持高度可配置的指示图的数据路由、转换和系统中介逻辑。</p>
+<p>来自 <a href="https://www.oschina.net/p/nifi" target="_blank" rel="external">Apache NiFi 详细介绍/OSChina</a> 的介绍，内容翻译自 NiFi 官网</p>
+<blockquote>
+<p>关键特性包括:</p>
+<ul>
+<li>基于web的用户界面<br>无缝体验设计、控制和监视</li>
+<li>高度可配置的<br>数据丢失容错和保证交付<br>低延迟和高吞吐量<br>动态优先级<br>流可以在运行时修改<br>背压 Back presure</li>
+<li>数据来源<br>从始至终跟踪数据流</li>
+<li>为扩展设计<br>构建自己数据处理器<br>支持快速开发和有效的测试</li>
+<li>安全<br>SSL,SSH,HTTPS加密内容,等等……<br>可插拔的基于角色的验证/授权</li>
+</ul>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/&title=《『NiFi 学习之路』简介》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/&title=《『NiFi 学习之路』简介》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《『NiFi 学习之路』简介》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">『NiFi 学习之路』把握 —— 架构及主要组件</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">『NiFi 学习之路』资源 —— 资料汇总</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/&title=《『NiFi 学习之路』简介》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/&title=《『NiFi 学习之路』简介》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《『NiFi 学习之路』简介》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpElEQVR42u3aQW7jMBAEQP//09nr7sFy95CTBIvSyXAUiqUA5KSHr1d8fT1ef9/z7v72nudnXb7w8PDw1qZ+MolnZHtn8XQ8PDy8NV4+ofyefEFvx0nmg4eHh/d7eDnjGZaPiYeHh/d/8E6QbQwx26jw8PDwtnkbQyeA9vUtZi14eHh4C12k3/N5pb+Hh4eHd9xVf15wk3bXbMw2nng7Mh4eHt4CL19wZ6VwXlK3m1MyTzw8PLw93q3INYkqZhtPu5Hg4eHh7fGKNlLZ+sq/mQXB0TaDh4eHt8DLJ52XwglsVhYPwxE8PDy8Bd5JLDsMBcpgItlChu8MDw8Pb8RrC9Y8Tp3lIkn8UWxdeHh4eFd5behwd6towXV7DA8PD2+Nlz84f+RwQmUrLtrx8PDw8JZ5M3AeZLTHAtpDA8PTCnh4eHgxbza589ZXGzfMxsfDw8Pb4yUDnYQRJ6HD7PBW1AbDw8PDO+CdlLb5Qp8HHPnGEJXXeHh4eGu82QI9i3rztlnbEvtwMgIPDw/vmNcu1u1BqJMQYRZV/PMZDw8Pb4F3lF4cN6vyllgbeRR1Oh4eHl7Ja8viW2FEGwTnrxgPDw9vm5cfAmhjglsl+OyneHh4eNu8doikIG7BeQiSF+V4eHh427yT4njW3Jq91rzQx8PDw/se3gyf/1Ye5r4Org8nI/Dw8PAu8drooW38t4cS2nC2+I8BDw8P74D3VV6z4wJ5lXterOPh4eFt89oitY0Gkq0i//7kWBgeHh7eXd5Jqyn/Jn/WeZsNDw8P73t458t9fgggiTMu72l4eHh4P8rLy+7ZyLN499rGgIeHh7dWc7aLeB4rtAdYP/wB8PDw8NZ4yS+3zae2kXbUxHqHxMPDw1vgnS/rSeF7l3ENhoeHh9fx/gDvTBbbK943NQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

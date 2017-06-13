@@ -191,11 +191,11 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-android/android中的各类bar"
+            <article id="post-android/recyclerview使用时遇到的问题"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2016-04-17 20:39:00" datetime="2016-04-17T12:39:00.000Z"  itemprop="datePublished">2016-04-17</time>
+        <time class="post-time" title="2016-05-09 00:26:00" datetime="2016-05-08T16:26:00.000Z"  itemprop="datePublished">2016-05-09</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
@@ -211,7 +211,7 @@ ga('send', 'pageview');
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/17/android/android中的各类bar/">Android 中的各类 Bar</a>
+      <a class="post-title-link" href="/2016/05/09/android/recyclerview使用时遇到的问题/">RecyclerView使用时遇到的问题</a>
     </h3>
   
 
@@ -221,11 +221,61 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、ToolBar1.1 概述Google在2015的IO大会上发布了系列的MaterialDesign风格的控件。其中ToolBar是替代ActionBar的控件。由于ActionBar在各个安卓版本和定制Rom中的效果表现不一，导致严重的碎片化问题，ToolBar应运而生。
-与ActionBar区别显示效果跟ActionBar并没有区别。优点：自定义视图的操作更加简单，状态栏的颜色可以调...
+        一、概述二、常见问题：1、如何为RecyclerView的Item设置点击事件？1.1 问题描述类似于下列方法1RecyclerView.setOnItemClickListener(OnClickListener)
+1.2 解决措施：a、在相应的ViewHolder中添加getItemView()123456789View itemView;	//添加成员变量public MyViewHo...
     
 
-        <a href="/2016/04/17/android/android中的各类bar/" class="post-more waves-effect waves-button">
+        <a href="/2016/05/09/android/recyclerview使用时遇到的问题/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solution/">solution</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-android/materialcalendarview使用时遇到的问题"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-05-07 01:18:00" datetime="2016-05-06T17:18:00.000Z"  itemprop="datePublished">2016-05-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/05/07/android/materialcalendarview使用时遇到的问题/">MaterialCalendarView使用时遇到的问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述MaterialCalendarView是一个开源项目。功能强大支持多选、单选、标注等。
+二、问题1、其继承自ViewGroup，故与CalendarView半毛钱关系都没有，完全是一个新的类2、其子类CalendarDay是经过调整的1234CalendarDay date = new CalendarDay();......Log.e(LOG_TAG, &quot;Date选中日...
+    
+
+        <a href="/2016/05/07/android/materialcalendarview使用时遇到的问题/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -241,11 +291,11 @@ ga('send', 'pageview');
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-android/android中versioncode-versionname"
+            <article id="post-android/android开发期间使用真机调试但系统无法识别出真机"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2016-04-16 15:50:00" datetime="2016-04-16T07:50:00.000Z"  itemprop="datePublished">2016-04-16</time>
+        <time class="post-time" title="2016-05-04 17:05:00" datetime="2016-05-04T09:05:00.000Z"  itemprop="datePublished">2016-05-04</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
@@ -261,7 +311,7 @@ ga('send', 'pageview');
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/16/android/android中versioncode-versionname/">Android 中 versionCode &amp; versionName</a>
+      <a class="post-title-link" href="/2016/05/04/android/android开发期间使用真机调试但系统无法识别出真机/">Android 开发期间使用真机调试但系统无法识别出真机</a>
     </h3>
   
 
@@ -271,13 +321,16 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        原文来自：http://blog.csdn.net/wh_19910525/article/details/8660416 ，略有修改
-一、概述Android的版本可以在androidmainfest.xml中定义，主要有android:versionCode和android:versionName
-二、解析1、简要区分
-android:versionCode: 主要是用于版本升级所用，是I...
+        一、前言前些天重装了系统，好不容易把所有的软件装好，结果发现打开android studio真机调试却出了问题。
+二、症状：2.1 手机端设置完全没问题（打开了调试模式……）2.2 电脑端右下角不出现插入设备的图标（安全删除硬件并弹出媒体）
+                
+                    
+                    
+                
+...
     
 
-        <a href="/2016/04/16/android/android中versioncode-versionname/" class="post-more waves-effect waves-button">
+        <a href="/2016/05/04/android/android开发期间使用真机调试但系统无法识别出真机/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -293,11 +346,66 @@ android:versionCode: 主要是用于版本升级所用，是I...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-android/android夜间模式实现"
+            <article id="post-git/github的git-exe的目录所在"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2016-04-16 14:08:00" datetime="2016-04-16T06:08:00.000Z"  itemprop="datePublished">2016-04-16</time>
+        <time class="post-time" title="2016-04-30 15:26:00" datetime="2016-04-30T07:26:00.000Z"  itemprop="datePublished">2016-04-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Version-Control/">Version Control</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/04/30/git/github的git-exe的目录所在/">github的git.exe的目录所在</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Github 的 git.exe 位于1C:\Users\【username】\AppData\Local\GitHub\PortableGit_25d850739bc178b2eb13c3e2a9faafea2f9143c0\cmd\git.exe
+详见图片
+
+                
+                    
+                    
+      ...
+    
+
+        <a href="/2016/04/30/git/github的git-exe的目录所在/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-github/">git/github</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/log打印日志遇到的问题"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-24 23:44:00" datetime="2016-04-24T15:44:00.000Z"  itemprop="datePublished">2016-04-24</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
@@ -313,7 +421,7 @@ android:versionCode: 主要是用于版本升级所用，是I...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/16/android/android夜间模式实现/">Android 夜间模式实现</a>
+      <a class="post-title-link" href="/2016/04/24/java/log打印日志遇到的问题/">Log 打印日志遇到的问题</a>
     </h3>
   
 
@@ -323,15 +431,62 @@ android:versionCode: 主要是用于版本升级所用，是I...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述android夜间模式实现分为两大类
+        Log日志打印出现空指针问题
+AndroidRuntime(372): Caused by: java.lang.NullPointerException: println needsa message使用Log.e(TAG,object)打印日志，由于object为null，Log内部调用object.toString()方法时，产生空指针问题
 
-重启activity的实现
-不重启activity的实现
-
-二、正文2.1 重启activity实现夜间模式【在界面文件中的实现部分】2.1.1 在attrs.xml文件中定义如下属性12345678910111213&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;...
     
 
-        <a href="/2016/04/16/android/android夜间模式实现/" class="post-more waves-effect waves-button">
+        <a href="/2016/04/24/java/log打印日志遇到的问题/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-android/android中的dialog"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-22 15:58:00" datetime="2016-04-22T07:58:00.000Z"  itemprop="datePublished">2016-04-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/04/22/android/android中的dialog/">Android 中的 Dialog 的使用方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、Dialog概述二、使用系统自带的Dialog1、新建BuilderAlertDialog.Builder builder = new AlertDialog.Builder(StoryActivity.this);dialog.show();
+2、通过builder创建dialog123456AlertDialog dialog = builder.setView(view).setT...
+    
+
+        <a href="/2016/04/22/android/android中的dialog/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -347,11 +502,11 @@ android:versionCode: 主要是用于版本升级所用，是I...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题"
+            <article id="post-android/alertdialog使用时遇到问题"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2016-04-14 20:53:54" datetime="2016-04-14T12:53:54.000Z"  itemprop="datePublished">2016-04-14</time>
+        <time class="post-time" title="2016-04-21 14:49:00" datetime="2016-04-21T06:49:00.000Z"  itemprop="datePublished">2016-04-21</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
@@ -367,7 +522,7 @@ android:versionCode: 主要是用于版本升级所用，是I...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/">解决 Android Studio 新建项目时只有一个 drawable 目录的问题</a>
+      <a class="post-title-link" href="/2016/04/21/android/alertdialog使用时遇到问题/">AlertDialog 使用时遇到问题</a>
     </h3>
   
 
@@ -377,17 +532,17 @@ android:versionCode: 主要是用于版本升级所用，是I...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法
+        1、其内 de 子控件高宽度为 0？1234567AlertDialog.Builder builder = new AlertDialog.Builder(StoryActivity.this);View view = LayoutInflater.from(StoryActivity.this).inflate(R.layout.dialog_qr_display, null, fals...
     
 
-        <a href="/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" class="post-more waves-effect waves-button">
+        <a href="/2016/04/21/android/alertdialog使用时遇到问题/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android-studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solution/">solution</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gathering/">gathering</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solution/">solution</a></li></ul>
 
     </div>
     
@@ -396,11 +551,11 @@ android:versionCode: 主要是用于版本升级所用，是I...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-android/多种方式实现在android手机上抓包"
+            <article id="post-android/view保存为图片"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2016-04-12 00:28:00" datetime="2016-04-11T16:28:00.000Z"  itemprop="datePublished">2016-04-12</time>
+        <time class="post-time" title="2016-04-19 11:14:00" datetime="2016-04-19T03:14:00.000Z"  itemprop="datePublished">2016-04-19</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
@@ -416,7 +571,7 @@ android:versionCode: 主要是用于版本升级所用，是I...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/12/android/多种方式实现在android手机上抓包/">多种方式实现在 Android 手机上抓包</a>
+      <a class="post-title-link" href="/2016/04/19/android/view保存为图片/">Android 中将 View 保存为图片</a>
     </h3>
   
 
@@ -426,227 +581,11 @@ android:versionCode: 主要是用于版本升级所用，是I...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、素材来源https://www.zhihu.com/question/20467503
-二、方法整理2.1 方式1：Packet Capture + HTTP Injector使用于在手机端操作，可满足简单需求，无需root
-2.2 方式2：tcpdumphttps://www.zhihu.com/question/20467503/answer/86760222答案里演示的感觉很极客，...
+        一、概述简书、微博、便签等都有将文章保存为图片的功能。笔者臆测，此功能的实现原理如下。
+二、实现　2.1将View保存成Bitmap对象方法1（亲测有效）12345678910private Bitmap makingView2Bitmap(View view) &#123;	if (view == null) &#123;		return null;	&#125;	Bitmap scree...
     
 
-        <a href="/2016/04/12/android/多种方式实现在android手机上抓包/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-others/http协议之状态码"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-11 23:49:00" datetime="2016-04-11T15:49:00.000Z"  itemprop="datePublished">2016-04-11</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Network/">Network</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/11/others/http协议之状态码/">HTTP协议之状态码</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        HTTP协议之状态码
-
-    
-
-        <a href="/2016/04/11/others/http协议之状态码/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-others/抓包教程"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-11 23:47:00" datetime="2016-04-11T15:47:00.000Z"  itemprop="datePublished">2016-04-11</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Network/">Network</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/11/others/抓包教程/">抓包教程</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        网络方面的博客：http://www.cnblogs.com/TankXiao
-wireshark
-Wireshark基本介绍和学习TCP三次握手
-wireshark抓包图解 TCP三次握手/四次挥手详解
-
-Fiddler 教程(来自tankxiao)由于tankxiao的cnblogs中，此系列教程有部分确实，故贴上转载的文章地址
-Fiddler (一) 教程(http://kb.cnbl...
-    
-
-        <a href="/2016/04/11/others/抓包教程/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-android/android-api汇集"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-11 20:02:00" datetime="2016-04-11T12:02:00.000Z"  itemprop="datePublished">2016-04-11</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/11/android/android-api汇集/">Android API 汇集</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        参考文章：
-
-知乎-想写个 App 练手，有什么有趣的 API 接口推荐吗？
-使用 Espresso 和 Dagger 测试网络服务
-http://developer.simsimi.com/apps
-ProjectOxford-ClientSDK
-请问如何抓取知乎专栏？
-聚合数据开启数据免费时代
-
-API 设计的七宗罪
-
-    
-
-        <a href="/2016/04/11/android/android-api汇集/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gathering/">gathering</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-android/lrucache"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-11 19:02:00" datetime="2016-04-11T11:02:00.000Z"  itemprop="datePublished">2016-04-11</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/11/android/lrucache/">LruCache</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        参考文章：
-LruCache源码解析
-
-    
-
-        <a href="/2016/04/11/android/lrucache/" class="post-more waves-effect waves-button">
+        <a href="/2016/04/19/android/view保存为图片/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -662,11 +601,11 @@ LruCache源码解析
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-android/fragment"
+            <article id="post-android/arrays.xml文件中添加drawable数组的问题"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2016-04-11 18:57:00" datetime="2016-04-11T10:57:00.000Z"  itemprop="datePublished">2016-04-11</time>
+        <time class="post-time" title="2016-04-18 23:40:00" datetime="2016-04-18T15:40:00.000Z"  itemprop="datePublished">2016-04-18</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
@@ -682,7 +621,7 @@ LruCache源码解析
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/11/android/fragment/">Fragment</a>
+      <a class="post-title-link" href="/2016/04/18/android/arrays.xml文件中添加drawable数组的问题/">arrays.xml文件中添加drawable数组的问题</a>
     </h3>
   
 
@@ -692,27 +631,68 @@ LruCache源码解析
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        fragment与activity的关系参考文章：Android 使用 Fragment 构建 Presenter
-重构方面
-细化视图／布局
-细化逻辑（Activity 中的逻辑）
-无限细化
-
-MVP用于构建Presenter好处：
-
-能够同步 Activity 的生命周期，在生命周期内进行逻辑操作
-能够很好地处理系统重建视图时（例如屏幕旋转）的现场恢复问题
-它也能够在系统重建视图时不销毁实...
+        一、问题描述今天遇到一个需求，将java中的数组搬进arrays.xml文件中1234567R.drawable.menu_share_pic_item,R.drawable.menu_share_wechat_item,R.drawable.menu_share_friendcircle_item,R.drawable.menu_share_qzone_item,R.drawable.me...
     
 
-        <a href="/2016/04/11/android/fragment/" class="post-more waves-effect waves-button">
+        <a href="/2016/04/18/android/arrays.xml文件中添加drawable数组的问题/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solution/">solution</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/HashMap封装的数据用循环快速添加进list中产生的数据集全部相同的问题"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-18 23:23:00" datetime="2016-04-18T15:23:00.000Z"  itemprop="datePublished">2016-04-18</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/04/18/java/HashMap封装的数据用循环快速添加进list中产生的数据集全部相同的问题/">HashMap 封装的数据用循环快速添加进 list 中产生的数据集全部相同的问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、问题概述在一次使用SimpleAdapter时，Data需要使用传入一条数据（Image、Text），该数据条使用HashMap封装。在用HashMap封装的数据用循环快速添加进list中产生了数据集全部相同的问题
+二、问题解决观察下面两段代码,发现只是map的声明位置不同，但是运行出的结果却相去甚远。
+123456789101112131415161718//代码一List&lt;Ha...
+    
+
+        <a href="/2016/04/18/java/HashMap封装的数据用循环快速添加进list中产生的数据集全部相同的问题/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap/">hashmap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 
     </div>
     
@@ -725,7 +705,7 @@ MVP用于构建Presenter好处：
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/9/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/9/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/">下一页</a>
     </div>
 </nav>
 

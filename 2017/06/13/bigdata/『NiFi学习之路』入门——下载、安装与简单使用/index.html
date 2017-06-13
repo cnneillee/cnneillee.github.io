@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/">
+    
+    
+    <title>『NiFi 学习之路』入门 —— 下载、安装与简单使用 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="nifi">
+    <meta name="description" content="一、概述“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。 实践是最好的老师。那就让我们试用一下 NiFi 吧！ 二、安装由于我的整个学习和使用过程都是在 Linux 下完成，所以，整个教程也是面向 Linux 用户的。 其他系统下的使用方法类似，如有其他系统的用户，那么还请有选择性的进行参考本教程。 NiFi 是免安装地，仅需从官网下载压缩包">
+<meta name="keywords" content="nifi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『NiFi 学习之路』入门 —— 下载、安装与简单使用">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。 实践是最好的老师。那就让我们试用一下 NiFi 吧！ 二、安装由于我的整个学习和使用过程都是在 Linux 下完成，所以，整个教程也是面向 Linux 用户的。 其他系统下的使用方法类似，如有其他系统的用户，那么还请有选择性的进行参考本教程。 NiFi 是免安装地，仅需从官网下载压缩包">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/nifi_install_ls.png">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/diagram_word_count.png">
+<meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/telltale_heart_wordcount.png">
+<meta property="og:updated_time" content="2017-06-13T15:09:18.440Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『NiFi 学习之路』入门 —— 下载、安装与简单使用">
+<meta name="twitter:description" content="一、概述“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。 实践是最好的老师。那就让我们试用一下 NiFi 吧！ 二、安装由于我的整个学习和使用过程都是在 Linux 下完成，所以，整个教程也是面向 Linux 用户的。 其他系统下的使用方法类似，如有其他系统的用户，那么还请有选择性的进行参考本教程。 NiFi 是免安装地，仅需从官网下载压缩包">
+<meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/nifi_install_ls.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">『NiFi 学习之路』入门 —— 下载、安装与简单使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">『NiFi 学习之路』入门 —— 下载、安装与简单使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-13T14:23:36.000Z" itemprop="datePublished" class="page-time">
+  2017-06-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、安装"><span class="post-toc-text">二、安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、配置"><span class="post-toc-text">三、配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、启动"><span class="post-toc-text">四、启动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、简单使用"><span class="post-toc-text">五、简单使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-0-先修：操作面板与-Processor"><span class="post-toc-text">5.0 先修：操作面板与 Processor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-涉及到的组件"><span class="post-toc-text">5.1 涉及到的组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-2-部署组件"><span class="post-toc-text">5.2 部署组件</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-bigdata/『NiFi学习之路』入门——下载、安装与简单使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">『NiFi 学习之路』入门 —— 下载、安装与简单使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。</p>
+<p>实践是最好的老师。那就让我们试用一下 NiFi 吧！</p>
+<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>由于我的整个学习和使用过程都是在 Linux 下完成，所以，整个教程也是面向 Linux 用户的。</p>
+<p>其他系统下的使用方法类似，如有其他系统的用户，那么还请有选择性的进行参考本教程。</p>
+<p>NiFi 是免安装地，仅需从官网下载压缩包，然后解压，旋即完成了整个安装过程。</p>
+<ul>
+<li>官网下载压缩包：<a href="http://nifi.apache.org/download.html" target="_blank" rel="external">nifi.apache.org/download</a>，如何压缩包的选择参考文章 <a href="http://www.cnblogs.com/rethink-east/p/6396744.html" target="_blank" rel="external">Apache NiFi 二进制包和源码包安装介绍</a></li>
+<li><code>tar -xzf nifi-x.x.x-bin.tar.gz</code> 命令解压 ，关于解命令烦请参考文章 <a href="http://www.jb51.net/LINUXjishu/43356.html" target="_blank" rel="external">Linux 下tar.gz、tar、bz2、zip 等解压缩、压缩命令小结</a></li>
+<li>解压结束即完成整个安装过程</li>
+</ul>
+<p><img src="http://oltjxlyku.bkt.clouddn.com/nifi_install_ls.png" alt="nifi_install_ls"></p>
+<h1 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h1><p>我们需要对 NiFi 的配置文件（存放在 <code>[nifi_install_location]/config</code> ）进行个性化配置。</p>
+<p>由于目前我们只是简单的上手，所以大部分配置项都选择了默认的配置。我们仅对 NiFi 进行基本的配置。</p>
+<p><code>nifi.properties</code> 文件针对的是 NiFi 的配置，仅需做如下修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># web properties #</div><div class="line">nifi.web.war.directory=./lib</div><div class="line">nifi.web.http.host=192.168.203.7 # 设置成本机的 ip</div><div class="line">nifi.web.http.port=9191</div><div class="line">nifi.web.https.host=</div><div class="line">nifi.web.https.port=</div><div class="line">nifi.web.jetty.working.directory=./work/jetty</div><div class="line">nifi.web.jetty.threads=200</div></pre></td></tr></table></figure>
+<p>其他文件在本教程场景下无需修改。</p>
+<h1 id="四、启动"><a href="#四、启动" class="headerlink" title="四、启动"></a>四、启动</h1><p>通过 <code>[nifi_install_location]/bin/nifi.sh</code> 进行 <code>start</code>、<code>restart</code>、<code>stop</code>、<code>status</code> 等操作。</p>
+<ul>
+<li><code>./bin/nifi.sh start</code> 启动 nifi。</li>
+<li>浏览器中访问 <code>192.168.203.7:9191/nifi</code>（此处的ip与端口同你的配置项相关）</li>
+<li>即可出现 nifi 的操作界面</li>
+</ul>
+<p>由于 nifi 加载配置信息较慢，稍作等待。</p>
+<h1 id="五、简单使用"><a href="#五、简单使用" class="headerlink" title="五、简单使用"></a>五、简单使用</h1><p>设定一个这样的场景：</p>
+<blockquote>
+<p>统计每次收到的消息中，单词出现的频次。WORD COUNT!!!</p>
+</blockquote>
+<h2 id="5-0-先修：操作面板与-Processor"><a href="#5-0-先修：操作面板与-Processor" class="headerlink" title="5.0 先修：操作面板与 Processor"></a>5.0 先修：操作面板与 Processor</h2><p>熟悉操作面板的各个组件。如何添加、启动、停止、删除一个 Processor，如何对 Processor 进行基本配置？</p>
+<p>对于上述问题，请自行在界面上进行尝试和练习。</p>
+<p>官网上也提供了一些 Youtube 上的教学视频，请参考这里 <a href="http://nifi.apache.org/videos.html" target="_blank" rel="external">nifi.apache.org/videos</a></p>
+<h2 id="5-1-涉及到的组件"><a href="#5-1-涉及到的组件" class="headerlink" title="5.1 涉及到的组件"></a>5.1 涉及到的组件</h2><ul>
+<li>GenerateFlowFile</li>
+<li>ExecuteScript</li>
+<li>PutFile</li>
+</ul>
+<h2 id="5-2-部署组件"><a href="#5-2-部署组件" class="headerlink" title="5.2 部署组件"></a>5.2 部署组件</h2><p>从 Processor 拖取上述组件到操作面板上，依照描述的数据流动方式将组件串起。</p>
+<p>串联组件时，有时需要对组件进行关系的选择。即选择上一组件分发的正确/错误消息分发到下一组件。</p>
+<p>同时，末端的组件你需要在它的 setting pannel 指定自己处理 Success、Failure。</p>
+<p>对 Processor 的配置如下：</p>
+<ul>
+<li><p>GenerateFlowFile</p>
+<ul>
+<li><p>Profile -&gt; Custom Text 填入需要统计单词频次的文章/内容<br>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic. Some of the high-level capabilities and objectives of Apache NiFi include:</div></pre></td></tr></table></figure>
+</li>
+<li><p>Scheduling -&gt; Run Duration 调节至 2s，放缓数据生成的速度</p>
+</li>
+</ul>
+</li>
+<li><p>ExecuteScript</p>
+<ul>
+<li>Profile -&gt; ScriptEngine 选择 Groovy</li>
+<li>ScriptBody 填入如下 Groovy 代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"># Code from http://funnifi.blogspot.com/2016/02/executescript-processor-replacing-flow.html</div><div class="line">import org.apache.commons.io.IOUtils</div><div class="line">import java.nio.charset.*</div><div class="line"></div><div class="line">def flowFile = session.get()</div><div class="line">if(!flowFile) return</div><div class="line"></div><div class="line">flowFile = session.write(flowFile, &#123;inputStream, outputStream -&gt;</div><div class="line">   def wordCount = [:]</div><div class="line"></div><div class="line">   def tellTaleHeart = IOUtils.toString(inputStream, StandardCharsets.UTF_8)</div><div class="line">   def words = tellTaleHeart.split(/(!|\?|-|\.|\&quot;|:|;|,|\s)+/)*.toLowerCase()</div><div class="line"></div><div class="line">   words.each &#123; word -&gt;</div><div class="line">   def currentWordCount = wordCount.get(word)</div><div class="line">   if(!currentWordCount) &#123;</div><div class="line">		  wordCount.put(word, 1)</div><div class="line">   &#125;</div><div class="line">   else &#123;</div><div class="line">		  wordCount.put(word, currentWordCount + 1)</div><div class="line">   &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   def outputMapString = wordCount.inject(&quot;&quot;, &#123;k,v -&gt; k += &quot;$&#123;v.key&#125;: $&#123;v.value&#125;\n&quot;&#125;)</div><div class="line">  </div><div class="line">   outputStream.write(outputMapString.getBytes(StandardCharsets.UTF_8))</div><div class="line">&#125; as StreamCallback)</div><div class="line"></div><div class="line">flowFile = session.putAttribute(flowFile, &apos;filename&apos;, &apos;telltale_heart_wordcount&apos;)</div><div class="line">session.transfer(flowFile, REL_SUCCESS)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>PutFile</p>
+<ul>
+<li>Profile -&gt; Directory 填入存放结果的文件夹，如 <code>/home/lbh/logs/result</code></li>
+</ul>
+</li>
+</ul>
+<p>启动各个 Processor 后，就能清晰地看到数据在 Processors 之间流动。<br><img src="http://oltjxlyku.bkt.clouddn.com/diagram_word_count.png" alt=""></p>
+<p>查看 PutFile 中设置的文件存放目录，能够看到存放着统计结果的文件 <code>telltale_heart_wordcount</code></p>
+<p>打开 <code>telltale_heart_wordcount</code> 文件，查看到统计结果如下：<br><img src="http://oltjxlyku.bkt.clouddn.com/telltale_heart_wordcount.png" alt=""></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/&title=《『NiFi 学习之路』入门 —— 下载、安装与简单使用》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/&title=《『NiFi 学习之路』入门 —— 下载、安装与简单使用》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《『NiFi 学习之路』入门 —— 下载、安装与简单使用》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">『NiFi 学习之路』资源 —— 资料汇总</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/&title=《『NiFi 学习之路』入门 —— 下载、安装与简单使用》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/&title=《『NiFi 学习之路』入门 —— 下载、安装与简单使用》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《『NiFi 学习之路』入门 —— 下载、安装与简单使用》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD4UlEQVR42u3bwY4aQQwEUP7/p4mUW7RhqLJ7WCG9OUUEZrofB2N37eMRX8+/189Xfr7+839fXdd3u37/9bNerfnYhQMHDhw4gq1eLzrZUo7VQj/ja3YHHDhw4MBxB8f1Qtvt5ZQtWcuX7xEHDhw4cHyeo2Xa8F0/K1kDDhw4cOD4Lo52YJeP6pKSvC/POHDgwIHjbo680cqZ2qOpzXnQbLiJAwcOHDju4GgDDd/47xvzHThw4MCBY1G69sdCeRhuUzKHJRkHDhw4cKw58mHcqUHe7LdAQrYPXuDAgQMHjrMcyQM2sYPNEVG+hiTc8Ob9OHDgwIFjwTFrq/LIQv7+liNv2/KCjQMHDhw4znK0t24jaPXi1sW4jlPgwIEDB441R77QzVJaiLylTNaQfD04cODAgeMsR3vmsnl83oYlY8Tk9dlqceDAgQPHjGNW8NqmqP1OZg1kHmJ4SY8DBw4cOG7gyLdRVO9RIdy3Z3nZfnMKhwMHDhw4So6kdLVxhE1Ioo3WbaJy/2nhcODAgQPHIY5k88lN28OqTdO4gXsZlcOBAwcOHAuO9qZ5cZ0BbSDa6MNjc+HAgQMHjji+0C56EzvIW8R2JXk4DwcOHDhwfIbj1JVHE+pBXlzsi/vjwIEDB44z9y/+YKZtzGbRus1obzZexIEDBw4cn+Roj5dmw8FZ3C3fZHF/HDhw4MBxlGMTtm7Puzah6n1Y/M3hEw4cOHDgGHHcMVzLww37OEX+VSX3xIEDBw4cZzny7bWHSV8TlcCBAwcOHIc42qhZDpQPHDebT4aJ0ZgSBw4cOHAc4kgeMBv2nSrDOXHy4+DlXnDgwIEDx1GOfJDXHi8ldz52hlaGIf55Dw4cOHDgWHPMDniSdi4nmI328iZzFbnDgQMHDhwlR9sa5Q9uB4Kbre5bvsfmYzhw4MCBo4wOtEvcjA73m2yPtaJ8Bw4cOHDgOMSRhwxm7dNmbNcGGiI4HDhw4MCx5thsb1jMgg3MGrbNj4AD3zYOHDhw4Ag+ltwiKZ/tctvnJpRRScaBAwcOHIc49nUnb7o2pTqPXOSBidWsFAcOHDhwvKh9+fCuHQLOho/JqpIjq9VwEAcOHDhwjDie5ZUvejYEPIterx8HDhw4cKw5NiGGtkDOBnzJpzZtGw4cOHDguIMjL2ZJs7cJLsyw2pFl0dHiwIEDB44FR14I83KYDBzzkEQOsfrpgAMHDhw4PsjRhtJyiFnhbEeK0dpw4MCBA8cvcczeM6OZjf/anwU4cODAgeMsx2w4OGvtZnybRq4YTeLAgQMHjjVHO0rbhN7aMETb2m1GjThw4MCBY83xBypekQPmHkGeAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

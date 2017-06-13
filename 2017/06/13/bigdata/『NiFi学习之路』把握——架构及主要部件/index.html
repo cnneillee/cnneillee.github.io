@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/">
+    
+    
+    <title>『NiFi 学习之路』把握 —— 架构及主要组件 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="nifi">
+    <meta name="description" content="一、概述通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。 数据处理和分发系统 是什么概念？ NiFi 系统中数据的传递方式是怎样的？ NiFi 的重要 Processor 有哪些？ Processor 间是以何种方式进行协作的？ 上述问题对于阅读并练习了前几章内容的你来说，应该都不难理解。 那么对于更加深层次的问题诸如：各个 Processor 是如何运行的？ExecuteScr">
+<meta name="keywords" content="nifi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『NiFi 学习之路』把握 —— 架构及主要组件">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。 数据处理和分发系统 是什么概念？ NiFi 系统中数据的传递方式是怎样的？ NiFi 的重要 Processor 有哪些？ Processor 间是以何种方式进行协作的？ 上述问题对于阅读并练习了前几章内容的你来说，应该都不难理解。 那么对于更加深层次的问题诸如：各个 Processor 是如何运行的？ExecuteScr">
+<meta property="og:image" content="http://nifi.apache.org/docs/nifi-docs/html/images/zero-master-node.png">
+<meta property="og:image" content="http://nifi.apache.org/docs/nifi-docs/html/images/zero-master-cluster.png">
+<meta property="og:updated_time" content="2017-06-13T15:09:06.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『NiFi 学习之路』把握 —— 架构及主要组件">
+<meta name="twitter:description" content="一、概述通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。 数据处理和分发系统 是什么概念？ NiFi 系统中数据的传递方式是怎样的？ NiFi 的重要 Processor 有哪些？ Processor 间是以何种方式进行协作的？ 上述问题对于阅读并练习了前几章内容的你来说，应该都不难理解。 那么对于更加深层次的问题诸如：各个 Processor 是如何运行的？ExecuteScr">
+<meta name="twitter:image" content="http://nifi.apache.org/docs/nifi-docs/html/images/zero-master-node.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">『NiFi 学习之路』把握 —— 架构及主要组件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">『NiFi 学习之路』把握 —— 架构及主要组件</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-13T14:23:36.000Z" itemprop="datePublished" class="page-time">
+  2017-06-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、核心概念"><span class="post-toc-text">二、核心概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、NiFi-架构"><span class="post-toc-text">三、NiFi 架构</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-bigdata/『NiFi学习之路』把握——架构及主要部件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">『NiFi 学习之路』把握 —— 架构及主要组件</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。</p>
+<p><code>数据处理和分发系统</code> 是什么概念？</p>
+<p>NiFi 系统中数据的传递方式是怎样的？</p>
+<p>NiFi 的重要 Processor 有哪些？</p>
+<p>Processor 间是以何种方式进行协作的？</p>
+<p>上述问题对于阅读并练习了前几章内容的你来说，应该都不难理解。</p>
+<p>那么对于更加深层次的问题诸如：各个 Processor 是如何运行的？ExecuteScript 是如何对脚本初始化的？整个系统是如何实现对数据进行存储、分发和处理的？应该更能勾起你的兴趣。</p>
+<p>本文，就尝试从架构的简单剖析给您建立起 NiFi 的进一步的理解。</p>
+<h1 id="二、核心概念"><a href="#二、核心概念" class="headerlink" title="二、核心概念"></a>二、核心概念</h1><p><a href="http://nifi.apache.org/docs/nifi-docs/html/overview.html#the-core-concepts-of-nifi" target="_blank" rel="external">http://nifi.apache.org/docs/nifi-docs/html/overview.html#the-core-concepts-of-nifi</a><br>NiFi’s fundamental design concepts closely relate to the main ideas of Flow Based Programming [fbp]. Here are some of the main NiFi concepts and how they map to FBP:</p>
+<p>NiFi Term    FBP Term    Description<br>FlowFile<br>Information Packet<br>A FlowFile represents each object moving through the system and for each one, NiFi keeps track of a map of key/value pair attribute strings and its associated content of zero or more bytes.<br>FlowFile Processor<br>Black Box<br>Processors actually perform the work. In [eip] terms a processor is doing some combination of data routing, transformation, or mediation between systems. Processors have access to attributes of a given FlowFile and its content stream. Processors can operate on zero or more FlowFiles in a given unit of work and either commit that work or rollback.<br>Connection<br>Bounded Buffer<br>Connections provide the actual linkage between processors. These act as queues and allow various processes to interact at differing rates. These queues can be prioritized dynamically and can have upper bounds on load, which enable back pressure.<br>Flow Controller<br>Scheduler<br>The Flow Controller maintains the knowledge of how processes connect and manages the threads and allocations thereof which all processes use. The Flow Controller acts as the broker facilitating the exchange of FlowFiles between processors.<br>Process Group<br>subnet<br>A Process Group is a specific set of processes and their connections, which can receive data via input ports and send data out via output ports. In this manner, process groups allow creation of entirely new components simply by composition of other components.<br>This design model, also similar to [seda], provides many beneficial consequences that help NiFi to be a very effective platform for building powerful and scalable dataflows. A few of these benefits include:</p>
+<p>Lends well to visual creation and management of directed graphs of processors</p>
+<p>Is inherently asynchronous which allows for very high throughput and natural buffering even as processing and flow rates fluctuate</p>
+<p>Provides a highly concurrent model without a developer having to worry about the typical complexities of concurrency</p>
+<p>Promotes the development of cohesive and loosely coupled components which can then be reused in other contexts and promotes testable units</p>
+<p>The resource constrained connections make critical functions such as back-pressure and pressure release very natural and intuitive</p>
+<p>Error handling becomes as natural as the happy-path rather than a coarse grained catch-all</p>
+<p>The points at which data enters and exits the system as well as how it flows through are well understood and easily tracked</p>
+<h1 id="三、NiFi-架构"><a href="#三、NiFi-架构" class="headerlink" title="三、NiFi 架构"></a>三、NiFi 架构</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://nifi.apache.org/docs/nifi-docs/html/images/zero-master-node.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><em>图片来源：<a href="http://nifi.apache.org/docs.html" target="_blank" rel="external">http://nifi.apache.org/docs.html</a></em></p>
+<p>根据上面的架构图可知，NiFi 有如下主要部件：<br>（我就直接粘贴官网的介绍了，因为我觉得官网说得已经很详细了～翻译起来反倒更难理解）</p>
+<ul>
+<li><p>WebServer<br>The purpose of the web server is to host NiFi’s HTTP-based command and control API.</p>
+</li>
+<li><p>Flow Controller<br>The flow controller is the brains of the operation. It provides threads for extensions to run on, and manages the schedule of when extensions receive resources to execute.</p>
+</li>
+<li><p>Extensions<br>There are various types of NiFi extensions which are described in other documents. The key point here is that extensions operate and execute within the JVM.</p>
+</li>
+<li><p>FlowFile Repository<br>The FlowFile Repository is where NiFi keeps track of the state of what it knows about a given FlowFile that is presently active in the flow. The implementation of the repository is pluggable. The default approach is a persistent Write-Ahead Log located on a specified disk partition.</p>
+</li>
+<li><p>Content Repository<br>The Content Repository is where the actual content bytes of a given FlowFile live. The implementation of the repository is pluggable. The default approach is a fairly simple mechanism, which stores blocks of data in the file system. More than one file system storage location can be specified so as to get different physical partitions engaged to reduce contention on any single volume.</p>
+</li>
+<li><p>Provenance Repository<br>The Provenance Repository is where all provenance event data is stored. The repository construct is pluggable with the default implementation being to use one or more physical disk volumes. Within each location event data is indexed and searchable.</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://nifi.apache.org/docs/nifi-docs/html/images/zero-master-cluster.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Starting with the NiFi 1.0 release, a Zero-Master Clustering paradigm is employed. Each node in a NiFi cluster performs the same tasks on the data, but each operates on a different set of data. Apache ZooKeeper elects a single node as the Cluster Coordinator, and failover is handled automatically by ZooKeeper. All cluster nodes report heartbeat and status information to the Cluster Coordinator. The Cluster Coordinator is responsible for disconnecting and connecting nodes. Additionally, every cluster has one Primary Node, also elected by ZooKeeper. As a DataFlow manager, you can interact with the NiFi cluster through the user interface (UI) of any node. Any change you make is replicated to all nodes in the cluster, allowing for multiple entry points.</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/&title=《『NiFi 学习之路』把握 —— 架构及主要组件》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/&title=《『NiFi 学习之路』把握 —— 架构及主要组件》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《『NiFi 学习之路』把握 —— 架构及主要组件》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">『NiFi 学习之路』自定义 —— 组件的自定义及使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/13/bigdata/『NiFi学习之路』简介/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">『NiFi 学习之路』简介</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/&title=《『NiFi 学习之路』把握 —— 架构及主要组件》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/&title=《『NiFi 学习之路』把握 —— 架构及主要组件》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《『NiFi 学习之路』把握 —— 架构及主要组件》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADG0lEQVR42u3ay27iQBAF0Pz/TzPbLAa4t8pIuHO8QmDafRoplXr8/MTX49f1+p7Zt37f8+yd/LmXXdjY2Ng3YT9eXs/uyanP7vnEcScWbGxs7FPZyXKvH5PHiOSAkgCWhzpsbGxs7ISdr3PVcbQHhI2NjY29SRvahGRTkMLGxsb+m+wkqHyu0p4Ewjy8XVxLw8bGxv56dl6m//7XH+lvY2NjY38x+1FemyJRe6z7JsTTXWFjY2MfxJ4VjPJSfgvbJB51wQsbGxv7CHYbopIjaHOBdsTngp8HGxsb+zj2tW3X2YhPnmy0YzpvOtvY2NjYR7BfN0TzYLNHbvBFkoONjY19EPt1EEo+fQ3YtxA2P0YRgLGxsbFvzs4bqLOmbPvdPPht2sPY2NjYZ7D3Jf624bpp0F62PjY2NvZB7Fkpp20JtO2ENkHKj+w/qQg2Njb2zdmzEk97z+xArz10bGxs7FPZs+JOUujZjFfu149CIDY2NvYR7GTp5MGbwNYOAyVN5TefYmNjYx/Kzv/Fn4WWWbl/djRvjgMbGxv7IHZRgonDQxv22kbCKnRhY2NjH8puh3hmYzR5QzcvG+XpSj3jg42NjX0T9iZQteWhawtDebB809/GxsbGPo7dLlc/sgxaebDMm77Y2NjYf4d9bSknOdyENBvcKQIYNjY29q3YszLNfhMz0qwx/CaMYWNjY9+c3W60HZ1pk5yW15aZsLGxsU9l78d3ZkFodoj5T/L0idjY2NgHsdtFPxfq2uma2ewNNjY29qnstiiTh6W2RJUfUB5Wk8QGGxsb++7sWbLx6cbw5p1ob9jY2NiHsvfFo9kgTr7pWfisMzBsbGzsg9jJNQtCnxsDKjaNjY2NfXP2o7xmh5UEubqgP8opsLGxsc9j7//mt82Gtn2bJDbtSBA2Njb2eexZeWhWpk82l685a1FgY2Njn8reN2jbMZrXacmnS13Y2NjY2HnK0YbJzafFzrGxsbGxF6X5tq2bpDT5U7CxsbFPZbft2Hb8sX0n2nrZGMbGxsY+lb0p0LRjPW1TNklI2rIXNjY29kHsfxNWDDceX4q6AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-06-13T08:27:07.570Z</updated>
+  <updated>2017-06-13T14:34:24.504Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -14,6 +14,176 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://cnneillee.github.io/2017/06/13/database/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/database/『NiFi学习之路』入门——下载、安装与简单使用/</id>
+    <published>2017-06-13T14:35:38.461Z</published>
+    <updated>2017-06-13T14:34:24.504Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;title: 『NiFi 学习之路』入门 —— 下载、安装与简单使用&lt;br&gt;date: 2017-06-13 22:23:36&lt;br&gt;catagories: [Big Data]&lt;br&gt;tags: [nifi]&lt;br&gt;cnblogsLink: &lt;a href=&quot;http:/
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 自定义 Processor 无法获取到 Logger』问题解决</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%87%AA%E5%AE%9A%E4%B9%89Processor%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E5%88%B0Logger%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi自定义Processor无法获取到Logger』问题解决/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:17:37.276Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一、概述&lt;br&gt;自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，&lt;code&gt;getLogger()&lt;/code&gt; 方法位于 Abstr
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』自定义 —— 组件的自定义及使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:20:06.965Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;许多业务仅仅使用官方提供的组件不能够满足性能上的需求，往往要通过高度可定制的组件来完成特定的业务需求。&lt;/p&gt;
+&lt;p&gt;而 N
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』把握 —— 架构及主要组件</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E6%8A%8A%E6%8F%A1%E2%80%94%E2%80%94%E6%9E%B6%E6%9E%84%E5%8F%8A%E4%B8%BB%E8%A6%81%E9%83%A8%E4%BB%B6/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:09:06.432Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;数据处理和分发系统&lt;/code
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』简介</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E7%AE%80%E4%BB%8B/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:06:19.484Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;『NiFi 学习之路』简介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用&quot;&gt;『NiFi 学习之路』
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』资源 —— 资料汇总</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%B5%84%E6%BA%90%E2%80%94%E2%80%94%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:19:47.113Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。&lt;/p&gt;
+&lt;p&gt;加之，大家都知道，国内的那么些个教程，原创都
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』入门 —— 下载、安装与简单使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:09:18.440Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。&lt;/p&gt;
+&lt;p&gt;实践
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%8A%82%E7%82%B9%E6%9C%AC%E5%9C%B0%E6%B5%81%E4%B8%8E%E9%9B%86%E7%BE%A4%E6%B5%81%E4%B8%8D%E4%B8%80%E8%87%B4%E5%AF%BC%E8%87%B4%E9%9B%86%E7%BE%A4%E5%8A%A0%E5%85%A5%E5%A4%B1%E8%B4%A5%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:07:58.168Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;在某些极端情况下，某些 NiFi 节点信息会由于用户强行 disconnect from cluster ，而出现 loca
+    
+    </summary>
+    
+    
+      <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+      <category term="sollution" scheme="http://cnneillee.github.io/tags/sollution/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』使用 —— 主要组件的使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:09:27.207Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
   
   <entry>
     <title>TabLayout与ViewPager同步后Tab的标题不显示</title>
@@ -237,211 +407,6 @@
     
     
       <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 中全局变量的实现</title>
-    <link href="http://cnneillee.github.io/2017/05/09/scripts/Python%E4%B8%AD%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://cnneillee.github.io/2017/05/09/scripts/Python中全局变量的实现/</id>
-    <published>2017-05-09T05:58:45.000Z</published>
-    <updated>2017-05-09T16:56:56.163Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;Python 中全局变量的使用场景不多，但偶尔也有用武之处。&lt;/p&gt;
-&lt;p&gt;如在函数中的初始化，有时需要从外部传入一个全局变
-    
-    </summary>
-    
-      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
-    
-    
-      <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SLF4J 日志系统在项目导入时频现的问题</title>
-    <link href="http://cnneillee.github.io/2017/05/09/others/SLF4J%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E5%9C%A8%E9%A1%B9%E7%9B%AE%E5%AF%BC%E5%85%A5%E6%97%B6%E9%A2%91%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
-    <id>http://cnneillee.github.io/2017/05/09/others/SLF4J日志系统在项目导入时频现的一个问题/</id>
-    <published>2017-05-08T16:12:49.000Z</published>
-    <updated>2017-05-09T16:56:56.326Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;近期在导入一个已有的项目时，日志系统出现了一个问题。错误信息如下：&lt;/p&gt;
-&lt;p&gt;SLF4J问题&lt;br&gt;&lt;figure cl
-    
-    </summary>
-    
-      <category term="Basic" scheme="http://cnneillee.github.io/categories/Basic/"/>
-    
-      <category term="Java" scheme="http://cnneillee.github.io/categories/Basic/Java/"/>
-    
-    
-      <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
-    
-      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
-    
-      <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android MVP Presenter 中引发的空指针异常</title>
-    <link href="http://cnneillee.github.io/2017/05/03/android/Android-MVP-Presenter-%E4%B8%AD%E5%BC%95%E5%8F%91%E7%9A%84%E7%A9%BA%E6%8C%87%E9%92%88%E5%BC%82%E5%B8%B8/"/>
-    <id>http://cnneillee.github.io/2017/05/03/android/Android-MVP-Presenter-中引发的空指针异常/</id>
-    <published>2017-05-03T02:59:42.000Z</published>
-    <updated>2017-05-03T03:02:57.276Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;最近对 &lt;a href=&quot;https://github.com/googlesamples/android-architec
-    
-    </summary>
-    
-      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
-    
-    
-      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
-    
-      <category term="mvp" scheme="http://cnneillee.github.io/tags/mvp/"/>
-    
-      <category term="android-architecture" scheme="http://cnneillee.github.io/tags/android-architecture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github的git.exe的目录所在</title>
-    <link href="http://cnneillee.github.io/2017/03/29/git/github%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/"/>
-    <id>http://cnneillee.github.io/2017/03/29/git/github你必须要知道的几个点/</id>
-    <published>2017-03-29T07:26:00.000Z</published>
-    <updated>2017-03-29T15:31:14.522Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于项目需要，我近期较为频繁的使用 Github 对代码进行管理。&lt;/p&gt;
-&lt;p&gt;非常险的一次是，在进行某个新功能的开发时，
-    
-    </summary>
-    
-      <category term="Version Control" scheme="http://cnneillee.github.io/categories/Version-Control/"/>
-    
-    
-      <category term="git/github" scheme="http://cnneillee.github.io/tags/git-github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【书单】2017.03书单及阅读情况汇总</title>
-    <link href="http://cnneillee.github.io/2017/03/14/daily/%E3%80%90%E4%B9%A6%E5%8D%95%E3%80%912017-03%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95%E5%8F%8A%E6%83%85%E5%86%B5%E6%B1%87%E6%80%BB/"/>
-    <id>http://cnneillee.github.io/2017/03/14/daily/【书单】2017-03阅读书单及情况汇总/</id>
-    <published>2017-03-14T02:44:39.000Z</published>
-    <updated>2017-03-27T00:54:53.947Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;本学期开始推行的书单计划，是从 03 月份开始实施的。此次是第一次写文章进行记录。&lt;/p&gt;
-&lt;p&gt;在过去一周的时间里，我看得
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
-    
-    
-      <category term="readinglist" scheme="http://cnneillee.github.io/tags/readinglist/"/>
-    
-      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis 使用过程中遇到的几个问题</title>
-    <link href="http://cnneillee.github.io/2017/03/13/database/redis%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
-    <id>http://cnneillee.github.io/2017/03/13/database/redis使用过程中遇到的几个问题/</id>
-    <published>2017-03-13T11:31:39.000Z</published>
-    <updated>2017-03-14T05:36:09.387Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;最近在公司项目中，使用 Lua 脚本操作 Redis 数据库。期间遇到了一些问题，特辟文以记之，望给诸君以参考。&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
-    
-    
-      <category term="solution" scheme="http://cnneillee.github.io/tags/solution/"/>
-    
-      <category term="gathering" scheme="http://cnneillee.github.io/tags/gathering/"/>
-    
-      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis 的基本使用方法及注意事项</title>
-    <link href="http://cnneillee.github.io/2017/03/13/database/redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
-    <id>http://cnneillee.github.io/2017/03/13/database/redis的基本使用方法及注意事项/</id>
-    <published>2017-03-13T11:31:39.000Z</published>
-    <updated>2017-03-14T05:35:19.120Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;来自官网：&lt;/p&gt;
-&lt;p&gt;Redis is an open source (BSD licensed), in-memory
-    
-    </summary>
-    
-      <category term="Scripts" scheme="http://cnneillee.github.io/categories/Scripts/"/>
-    
-    
-      <category term="setup" scheme="http://cnneillee.github.io/tags/setup/"/>
-    
-      <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用编程工具破解合集</title>
-    <link href="http://cnneillee.github.io/2017/03/11/others/%E5%B8%B8%E7%94%A8%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7%E7%A0%B4%E8%A7%A3%E5%90%88%E9%9B%86/"/>
-    <id>http://cnneillee.github.io/2017/03/11/others/常用编程工具破解合集/</id>
-    <published>2017-03-11T02:40:59.000Z</published>
-    <updated>2017-03-14T05:41:26.416Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;本文主要搜集一些我在编程过程中积累的工具破解方法及资源。&lt;/p&gt;
-&lt;p&gt;破解方法可能会因工具的版本升级等原因而不能生效，故而
-    
-    </summary>
-    
-      <category term="资源与工具" scheme="http://cnneillee.github.io/categories/%E8%B5%84%E6%BA%90%E4%B8%8E%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="tools" scheme="http://cnneillee.github.io/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>逆向——解析AndroidManifest</title>
-    <link href="http://cnneillee.github.io/2017/03/06/android/%E9%80%86%E5%90%91%E8%A7%A3%E6%9E%90AndroidManifest/"/>
-    <id>http://cnneillee.github.io/2017/03/06/android/逆向解析AndroidManifest/</id>
-    <published>2017-03-06T09:10:10.492Z</published>
-    <updated>2017-03-14T05:48:22.357Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;h2 id=&quot;1-1-APK-文件结构&quot;&gt;&lt;a href=&quot;#1-1-APK-文件结构&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
-    
-    
-      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
   </entry>
   
