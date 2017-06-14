@@ -4,6 +4,119 @@
 
     
   <url>
+    <loc>http://cnneillee.github.io/2017/06/14/others/Ubuntu%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%88%B0sudoer/</loc>
+    <lastmod>2017-06-14T08:34:56.604Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu 添加用户到 sudoer</title>
+        <pubTime>2017-06-14T08:27:29.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://cnneillee.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cnneillee.github.io/2017/06/14/database/Redis%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2017-06-14T05:20:03.406Z</lastmod>
+    <data>
+        <display>
+        <title>Redis 监控方案</title>
+        <pubTime>2017-06-14T06:27:29.000Z</pubTime>
+        
+        <tag>database</tag>
+         
+        <tag>redis</tag>
+         
+        <tag>monitoring</tag>
+         
+         
+           
+             
+              <breadCrumb title="Database" url="http://cnneillee.github.io/categories/Database/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cnneillee.github.io/2017/06/14/java/Java%E5%92%8CPython%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81key%E7%9A%84JSON%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2017-06-14T05:10:49.207Z</lastmod>
+    <data>
+        <display>
+        <title>Java 和 Python 解析动态 key 的 JSON 数据</title>
+        <pubTime>2017-06-14T06:27:29.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>json</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://cnneillee.github.io/categories/Java/"/>
+          
+             
+              <breadCrumb title="Scripts" url="http://cnneillee.github.io/categories/Java/Scripts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cnneillee.github.io/2017/06/14/bigdata/Kylo%E5%85%A5%E5%9D%91%E8%AE%B0/</loc>
+    <lastmod>2017-06-14T03:32:34.343Z</lastmod>
+    <data>
+        <display>
+        <title>Kylo ���Ӽ�</title>
+        <pubTime>2017-06-14T03:27:29.000Z</pubTime>
+        
+        <tag>kylo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Big Data" url="http://cnneillee.github.io/categories/Big-Data/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2017-06-14T03:24:26.327Z</lastmod>
+    <data>
+        <display>
+        <title>NiFi REST API ��ʹ��</title>
+        <pubTime>2017-06-14T02:27:29.000Z</pubTime>
+        
+        <tag>api</tag>
+         
+        <tag>nifi</tag>
+         
+         
+           
+             
+              <breadCrumb title="Big Data" url="http://cnneillee.github.io/categories/Big-Data/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%87%AA%E5%AE%9A%E4%B9%89Processor%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E5%88%B0Logger%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
     <lastmod>2017-06-13T15:35:43.095Z</lastmod>
     <data>
@@ -612,9 +725,9 @@
         
         <tag>exception</tag>
          
-        <tag>mysql</tag>
-         
         <tag>database</tag>
+         
+        <tag>mysql</tag>
          
          
            
@@ -1077,9 +1190,9 @@
         <title>Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library</title>
         <pubTime>2016-12-21T07:52:53.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>json</tag>
+         
+        <tag>python</tag>
          
          
            
@@ -1101,9 +1214,9 @@
         
         <tag>solution</tag>
          
-        <tag>mysql</tag>
-         
         <tag>database</tag>
+         
+        <tag>mysql</tag>
          
         <tag>python</tag>
          
@@ -1167,9 +1280,9 @@
         
         <tag>setup</tag>
          
-        <tag>mysql</tag>
-         
         <tag>database</tag>
+         
+        <tag>mysql</tag>
          
         <tag>python</tag>
          

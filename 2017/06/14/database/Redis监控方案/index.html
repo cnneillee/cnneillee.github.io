@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/14/database/Redis监控方案/">
+    
+    
+    <title>Redis 监控方案 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="database,redis,monitoring">
+    <meta name="description" content="一、概述近些天，遇到Redis监控的应用场景，从网上搜罗了一些文章，做了整理。 二、工具列表2.1 redis-faina见参考文章1 2.2 redis-live见参考文章1 2.3 redis-stat见参考文章1 2.4 redis-monitor见参考文章1 三、实践试用了里面的几款工具。占坑待续 参考文章  Redis监控方案-https://my.oschina.net/guol/bl">
+<meta name="keywords" content="database,redis,monitoring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 监控方案">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/14/database/Redis监控方案/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述近些天，遇到Redis监控的应用场景，从网上搜罗了一些文章，做了整理。 二、工具列表2.1 redis-faina见参考文章1 2.2 redis-live见参考文章1 2.3 redis-stat见参考文章1 2.4 redis-monitor见参考文章1 三、实践试用了里面的几款工具。占坑待续 参考文章  Redis监控方案-https://my.oschina.net/guol/bl">
+<meta property="og:updated_time" content="2017-06-14T05:20:03.406Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis 监控方案">
+<meta name="twitter:description" content="一、概述近些天，遇到Redis监控的应用场景，从网上搜罗了一些文章，做了整理。 二、工具列表2.1 redis-faina见参考文章1 2.2 redis-live见参考文章1 2.3 redis-stat见参考文章1 2.4 redis-monitor见参考文章1 三、实践试用了里面的几款工具。占坑待续 参考文章  Redis监控方案-https://my.oschina.net/guol/bl">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Redis 监控方案</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Redis 监控方案</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-14T06:27:29.000Z" itemprop="datePublished" class="page-time">
+  2017-06-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Database/">Database</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、工具列表"><span class="post-toc-text">二、工具列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-redis-faina"><span class="post-toc-text">2.1 redis-faina</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-redis-live"><span class="post-toc-text">2.2 redis-live</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-redis-stat"><span class="post-toc-text">2.3 redis-stat</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-redis-monitor"><span class="post-toc-text">2.4 redis-monitor</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、实践"><span class="post-toc-text">三、实践</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-database/Redis监控方案"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Redis 监控方案</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-14 14:27:29" datetime="2017-06-14T06:27:29.000Z"  itemprop="datePublished">2017-06-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Database/">Database</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>近些天，遇到Redis监控的应用场景，从网上搜罗了一些文章，做了整理。</p>
+<h1 id="二、工具列表"><a href="#二、工具列表" class="headerlink" title="二、工具列表"></a>二、工具列表</h1><h2 id="2-1-redis-faina"><a href="#2-1-redis-faina" class="headerlink" title="2.1 redis-faina"></a>2.1 redis-faina</h2><p>见参考文章1</p>
+<h2 id="2-2-redis-live"><a href="#2-2-redis-live" class="headerlink" title="2.2 redis-live"></a>2.2 redis-live</h2><p>见参考文章1</p>
+<h2 id="2-3-redis-stat"><a href="#2-3-redis-stat" class="headerlink" title="2.3 redis-stat"></a>2.3 redis-stat</h2><p>见参考文章1</p>
+<h2 id="2-4-redis-monitor"><a href="#2-4-redis-monitor" class="headerlink" title="2.4 redis-monitor"></a>2.4 redis-monitor</h2><p>见参考文章1</p>
+<h1 id="三、实践"><a href="#三、实践" class="headerlink" title="三、实践"></a>三、实践</h1><p>试用了里面的几款工具。<br><strong>占坑待续</strong></p>
+<p>参考文章</p>
+<ol>
+<li><a href="https://my.oschina.net/guol/blog/182265" target="_blank" rel="external">Redis监控方案-https://my.oschina.net/guol/blog/182265</a></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/7008312.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/7008312.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/monitoring/">monitoring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/&title=《Redis 监控方案》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/&title=《Redis 监控方案》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redis 监控方案》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/14/others/Ubuntu添加用户到sudoer/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Ubuntu 添加用户到 sudoer</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/14/java/Java和Python解析动态key的JSON数据/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java 和 Python 解析动态 key 的 JSON 数据</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/&title=《Redis 监控方案》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/&title=《Redis 监控方案》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redis 监控方案》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/14/database/Redis监控方案/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aS27DMAwFwNz/0inQVRd1+viRkwKjlZHGssYBRJbU4xGP5/f4ef1zXH3z9WxXM/S+ORp4eHh4raVfjde8q3mSu/InJq/48hXg4eHhHeMlwaC69ybzvN70c/zl53h4eHhv5VU37mqCnr9iPDw8vP/Cqy79RJUADw8P73N4yWPmD8uT4ySlXq614OHh4cW8XgPsvdfH+3t4eHh4raQ2GcmmXy03JC20aG14eHh4B3hJIbW39+bliUJZoZWU4+Hh4Z3gVZPavBlWbXRNChyFWjUeHh7emDffmicVgOQF5YGn2d/Dw8PDa52GyksJ1SVOaqpJwaKc++Ph4eGt8qrbdP7XPIGevz48PDy8c7xke+2VFebz5AewLn8ePDw8vAO8aitrXqToZbwHD2Dh4eHhjXnzRecvKAkM83CCh4eHt8tLigKTrXzSZqsWf/Hw8PDu5E3aXck3k0BSLShHBWI8PDy8w7zXN1eLs72WVd5mi8B4eHh4B3i9rb+69DwVrh5fiAISHh4e3iovX24veEyKvI/i+GVmPDw8vAO8XmLda19NDgRUwwkeHh7eOV7vtjzt7i20+vkfvxseHh7eKq93LGDrk94RroVn4eHh4Q141dvycsB8Z56Eq/JEeHh4eLVzUKP8s3dEIE+U8xBSTqzx8PDwlnj3HK7aCg/lwICHh4e3xJvHkHzrz69HiTIeHh7eLbx5Cz/ZsvMDrDksCgx4eHh4S7xncfRaU/m9SSApHF/Aw8PDO8Cb94mSxHfrYFZevFhrg+Hh4eG1Ms9qEaHXxJok9IX/GPDw8PBWeb1DA3mZoBcYJtVaPDw8vE/j9dpmWwXcwr14eHh4b+XNST1wdTY8PDy8e3h5y7/6ak6EllFej4eHhzfm9RpgeVI73/onPwAeHh7eKu8LsAbY7saqhwAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
