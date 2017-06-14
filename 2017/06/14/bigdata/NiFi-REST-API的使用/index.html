@@ -24,25 +24,25 @@ ga('send', 'pageview');
     <link rel="canonical" href="http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/">
     
     
-    <title>NiFi REST API ��ʹ�� | Neil Lee&#39;s blog</title>
+    <title>NiFi REST API 的使用 | Neil Lee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="api,nifi">
-    <meta name="description" content="һ������Ϊ�����û�ʹ�� NiFi ���ж��ο�����NiFi Ϊ�������ṩ�� NIFI REST API�� ���� API ����ϸ���ܣ����μ����� NIFI REST API������������һЩע����Сϸ�ڡ� ����ע������2.1 REST API �� URLAPI �ĵ��У�ֻ������ÿ�� API ������·��">
+    <meta name="description" content="一、概述为方便用户使用 NiFi 进行二次开发，NiFi 为开发者提供了 NIFI REST API。 关于 API 的详细介绍，请参见官网 NIFI REST API。这里仅给出一些注意的小细节。 二、注意事项2.1 REST API 的 URLAPI 文档中，只给出了每个 API 的相对路径，并没有给出关于完整地址的 URL 说明。 URL 地址应该为：http://[ip]:[port]/n">
 <meta name="keywords" content="api,nifi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NiFi REST API ��ʹ��">
+<meta property="og:title" content="NiFi REST API 的使用">
 <meta property="og:url" content="http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/index.html">
 <meta property="og:site_name" content="Neil Lee&#39;s blog">
-<meta property="og:description" content="һ������Ϊ�����û�ʹ�� NiFi ���ж��ο�����NiFi Ϊ�������ṩ�� NIFI REST API�� ���� API ����ϸ���ܣ����μ����� NIFI REST API������������һЩע����Сϸ�ڡ� ����ע������2.1 REST API �� URLAPI �ĵ��У�ֻ������ÿ�� API ������·��">
+<meta property="og:description" content="一、概述为方便用户使用 NiFi 进行二次开发，NiFi 为开发者提供了 NIFI REST API。 关于 API 的详细介绍，请参见官网 NIFI REST API。这里仅给出一些注意的小细节。 二、注意事项2.1 REST API 的 URLAPI 文档中，只给出了每个 API 的相对路径，并没有给出关于完整地址的 URL 说明。 URL 地址应该为：http://[ip]:[port]/n">
 <meta property="og:image" content="http://oltjxlyku.bkt.clouddn.com/nifi_rest_api_using_example.png">
-<meta property="og:updated_time" content="2017-06-14T03:24:26.327Z">
+<meta property="og:updated_time" content="2017-06-14T15:59:49.580Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NiFi REST API ��ʹ��">
-<meta name="twitter:description" content="һ������Ϊ�����û�ʹ�� NiFi ���ж��ο�����NiFi Ϊ�������ṩ�� NIFI REST API�� ���� API ����ϸ���ܣ����μ����� NIFI REST API������������һЩע����Сϸ�ڡ� ����ע������2.1 REST API �� URLAPI �ĵ��У�ֻ������ÿ�� API ������·��">
+<meta name="twitter:title" content="NiFi REST API 的使用">
+<meta name="twitter:description" content="一、概述为方便用户使用 NiFi 进行二次开发，NiFi 为开发者提供了 NIFI REST API。 关于 API 的详细介绍，请参见官网 NIFI REST API。这里仅给出一些注意的小细节。 二、注意事项2.1 REST API 的 URLAPI 文档中，只给出了每个 API 的相对路径，并没有给出关于完整地址的 URL 说明。 URL 地址应该为：http://[ip]:[port]/n">
 <meta name="twitter:image" content="http://oltjxlyku.bkt.clouddn.com/nifi_rest_api_using_example.png">
     
         <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
@@ -155,7 +155,7 @@ ga('send', 'pageview');
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">NiFi REST API ��ʹ��</div>
+        <div class="flex-col header-title ellipsis">NiFi REST API 的使用</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -177,7 +177,7 @@ ga('send', 'pageview');
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">NiFi REST API ��ʹ��</h1>
+        <h1 class="title">NiFi REST API 的使用</h1>
         <h5 class="subtitle">
             
                 <time datetime="2017-06-14T02:27:29.000Z" itemprop="datePublished" class="page-time">
@@ -202,7 +202,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#һ������"><span class="post-toc-text">һ������</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#����ע������"><span class="post-toc-text">����ע������</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-REST-API-��-URL"><span class="post-toc-text">2.1 REST API �� URL</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-ʹ��ʾ��"><span class="post-toc-text">2.2 ʹ��ʾ��</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、注意事项"><span class="post-toc-text">二、注意事项</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-REST-API-的-URL"><span class="post-toc-text">2.1 REST API 的 URL</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-使用示例"><span class="post-toc-text">2.2 使用示例</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -210,7 +210,7 @@ ga('send', 'pageview');
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">NiFi REST API ��ʹ��</h1>
+        <h1 class="post-card-title">NiFi REST API 的使用</h1>
         <div class="post-meta">
             <time class="post-time" title="2017-06-14 10:27:29" datetime="2017-06-14T02:27:29.000Z"  itemprop="datePublished">2017-06-14</time>
 
@@ -229,14 +229,14 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="һ������"><a href="#һ������" class="headerlink" title="һ������"></a>һ������</h1><p>Ϊ�����û�ʹ�� NiFi ���ж��ο�����NiFi Ϊ�������ṩ�� <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NIFI REST API</a>��</p>
-<p>���� API ����ϸ���ܣ����μ����� <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NIFI REST API</a>������������һЩע����Сϸ�ڡ�</p>
-<h1 id="����ע������"><a href="#����ע������" class="headerlink" title="����ע������"></a>����ע������</h1><h2 id="2-1-REST-API-��-URL"><a href="#2-1-REST-API-��-URL" class="headerlink" title="2.1 REST API �� URL"></a>2.1 REST API �� URL</h2><p>API �ĵ��У�ֻ������ÿ�� API ������·������û�и�������������ַ�� URL ˵����</p>
-<p><strong>URL ��ַӦ��Ϊ��<code>http://[ip]:[port]/nifi-api[path]</code></strong></p>
-<p>�� <code>GET    /flow/about    Retrieves details about this NiFi to put in the About dialog</code> Ϊ����</p>
-<p>url Ϊ��<code>http://192.168.203.12:8080/nifi-api/flow/about</code></p>
-<p>POSTMAN ����ʾ����<br><img src="http://oltjxlyku.bkt.clouddn.com/nifi_rest_api_using_example.png" alt=""></p>
-<h2 id="2-2-ʹ��ʾ��"><a href="#2-2-ʹ��ʾ��" class="headerlink" title="2.2 ʹ��ʾ��"></a>2.2 ʹ��ʾ��</h2><p><strong>ռ�Ӵ���</strong></p>
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>为方便用户使用 NiFi 进行二次开发，NiFi 为开发者提供了 <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NIFI REST API</a>。</p>
+<p>关于 API 的详细介绍，请参见官网 <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NIFI REST API</a>。这里仅给出一些注意的小细节。</p>
+<h1 id="二、注意事项"><a href="#二、注意事项" class="headerlink" title="二、注意事项"></a>二、注意事项</h1><h2 id="2-1-REST-API-的-URL"><a href="#2-1-REST-API-的-URL" class="headerlink" title="2.1 REST API 的 URL"></a>2.1 REST API 的 URL</h2><p>API 文档中，只给出了每个 API 的相对路径，并没有给出关于完整地址的 URL 说明。</p>
+<p><strong>URL 地址应该为：<code>http://[ip]:[port]/nifi-api[path]</code></strong></p>
+<p>以 <code>GET    /flow/about    Retrieves details about this NiFi to put in the About dialog</code> 为例：</p>
+<p>url 为：<code>http://192.168.203.12:8080/nifi-api/flow/about</code></p>
+<p>POSTMAN 请求示例：<br><img src="http://oltjxlyku.bkt.clouddn.com/nifi_rest_api_using_example.png" alt=""></p>
+<h2 id="2-2-使用示例"><a href="#2-2-使用示例" class="headerlink" title="2.2 使用示例"></a>2.2 使用示例</h2><p><strong>占坑待续</strong></p>
 
         </div>
 
@@ -275,7 +275,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API ��ʹ��》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API 的使用》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -285,7 +285,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API ��ʹ��》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API 的使用》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -295,7 +295,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NiFi REST API ��ʹ��》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&via=http://cnneillee.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NiFi REST API 的使用》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&via=http://cnneillee.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -325,16 +325,16 @@ ga('send', 'pageview');
     <div class="waves-block waves-effect prev">
       <a href="/2017/06/14/bigdata/Kylo入坑记/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Kylo ���Ӽ�</h4>
+        <h4 class="title">Kylo 入坑记</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/" id="post-next" class="post-nav-link">
+      <a href="/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">『NiFi 学习之路』资源 —— 资料汇总</h4>
+        <h4 class="title">『NiFi 学习之路』入门 —— 下载、安装与简单使用</h4>
       </a>
     </div>
   
@@ -435,7 +435,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API ��ʹ��》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API 的使用》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -445,7 +445,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API ��ʹ��》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&title=《NiFi REST API 的使用》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -455,7 +455,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NiFi REST API ��ʹ��》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&via=http://cnneillee.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NiFi REST API 的使用》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/NiFi-REST-API的使用/&via=http://cnneillee.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

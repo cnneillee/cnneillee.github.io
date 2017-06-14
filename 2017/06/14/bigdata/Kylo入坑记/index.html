@@ -24,24 +24,24 @@ ga('send', 'pageview');
     <link rel="canonical" href="http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/">
     
     
-    <title>Kylo ���Ӽ� | Neil Lee&#39;s blog</title>
+    <title>Kylo 入坑记 | Neil Lee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="kylo">
-    <meta name="description" content="һ������ Kylo����Ϊһ������ Spark �� NiFi �Ŀ�Դ���ݺ����ſ��ܣ����������ݺ���ȡ����������֪�ͼ���֧�ֵ��������⡣Kylo �����ݺ��ĺܶ๦���Զ������������ݽ��롢׼�����������֡�Profiling �͹����ȵȡ�Kylo �ṩ�˷���ҵ��������Ա˼·�� GUI ��">
+    <meta name="description" content="一、概述 Kylo，作为一个基于 Spark 和 NiFi 的开源数据湖编排框架，解决对数据湖获取、治理、感知和技术支持等诸多问题。Kylo 将数据湖的很多功能自动化，包括数据接入、准备、分析发现、Profiling 和管理等等。Kylo 提供了符合业务分析人员思路的 GUI 界面以及 IT 运营和数据科学等模块。 通过 Kylo 的 GUI 界面，业务人员可以按照他们关心的方式来操作数据，包括:">
 <meta name="keywords" content="kylo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kylo ���Ӽ�">
+<meta property="og:title" content="Kylo 入坑记">
 <meta property="og:url" content="http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/index.html">
 <meta property="og:site_name" content="Neil Lee&#39;s blog">
-<meta property="og:description" content="һ������ Kylo����Ϊһ������ Spark �� NiFi �Ŀ�Դ���ݺ����ſ��ܣ����������ݺ���ȡ����������֪�ͼ���֧�ֵ��������⡣Kylo �����ݺ��ĺܶ๦���Զ������������ݽ��롢׼�����������֡�Profiling �͹����ȵȡ�Kylo �ṩ�˷���ҵ��������Ա˼·�� GUI ��">
-<meta property="og:updated_time" content="2017-06-14T03:32:34.343Z">
+<meta property="og:description" content="一、概述 Kylo，作为一个基于 Spark 和 NiFi 的开源数据湖编排框架，解决对数据湖获取、治理、感知和技术支持等诸多问题。Kylo 将数据湖的很多功能自动化，包括数据接入、准备、分析发现、Profiling 和管理等等。Kylo 提供了符合业务分析人员思路的 GUI 界面以及 IT 运营和数据科学等模块。 通过 Kylo 的 GUI 界面，业务人员可以按照他们关心的方式来操作数据，包括:">
+<meta property="og:updated_time" content="2017-06-14T16:00:26.052Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kylo ���Ӽ�">
-<meta name="twitter:description" content="һ������ Kylo����Ϊһ������ Spark �� NiFi �Ŀ�Դ���ݺ����ſ��ܣ����������ݺ���ȡ����������֪�ͼ���֧�ֵ��������⡣Kylo �����ݺ��ĺܶ๦���Զ������������ݽ��롢׼�����������֡�Profiling �͹����ȵȡ�Kylo �ṩ�˷���ҵ��������Ա˼·�� GUI ��">
+<meta name="twitter:title" content="Kylo 入坑记">
+<meta name="twitter:description" content="一、概述 Kylo，作为一个基于 Spark 和 NiFi 的开源数据湖编排框架，解决对数据湖获取、治理、感知和技术支持等诸多问题。Kylo 将数据湖的很多功能自动化，包括数据接入、准备、分析发现、Profiling 和管理等等。Kylo 提供了符合业务分析人员思路的 GUI 界面以及 IT 运营和数据科学等模块。 通过 Kylo 的 GUI 界面，业务人员可以按照他们关心的方式来操作数据，包括:">
     
         <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
     
@@ -153,7 +153,7 @@ ga('send', 'pageview');
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Kylo ���Ӽ�</div>
+        <div class="flex-col header-title ellipsis">Kylo 入坑记</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -175,7 +175,7 @@ ga('send', 'pageview');
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Kylo ���Ӽ�</h1>
+        <h1 class="title">Kylo 入坑记</h1>
         <h5 class="subtitle">
             
                 <time datetime="2017-06-14T03:27:29.000Z" itemprop="datePublished" class="page-time">
@@ -200,7 +200,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#һ������"><span class="post-toc-text">һ������</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#������װ"><span class="post-toc-text">������װ</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-˵��"><span class="post-toc-text">2.1 ˵��</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-����"><span class="post-toc-text">2.2 ����</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-С��"><span class="post-toc-text">2.3 С��</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#��������"><span class="post-toc-text">��������</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-�����l�"><span class="post-toc-text">3.1 �����ļ�</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-��־�l�"><span class="post-toc-text">3.2 ��־�ļ�</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-Kylo-�����l��޸�"><span class="post-toc-text">3.3 Kylo �����ļ��޸�</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#�g���-NiFi-������"><span class="post-toc-text">�ġ��� NiFi ������</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-0-kylo-�е�-nifi"><span class="post-toc-text">4.0 kylo �е� nifi</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-nifi-��ַ"><span class="post-toc-text">4.1 nifi ��ַ</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-�������쳣"><span class="post-toc-text">4.2 �������쳣</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、安装"><span class="post-toc-text">二、安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-说明"><span class="post-toc-text">2.1 说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-历程"><span class="post-toc-text">2.2 历程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-小结"><span class="post-toc-text">2.3 小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、配置"><span class="post-toc-text">三、配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-配置文件"><span class="post-toc-text">3.1 配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-日志文件"><span class="post-toc-text">3.2 日志文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-Kylo-配置文件修改"><span class="post-toc-text">3.3 Kylo 配置文件修改</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、与-NiFi-的配合"><span class="post-toc-text">四、与 NiFi 的配合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-0-kylo-中的-nifi"><span class="post-toc-text">4.0 kylo 中的 nifi</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-nifi-地址"><span class="post-toc-text">4.1 nifi 地址</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-遇到的异常"><span class="post-toc-text">4.2 遇到的异常</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -208,7 +208,7 @@ ga('send', 'pageview');
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Kylo ���Ӽ�</h1>
+        <h1 class="post-card-title">Kylo 入坑记</h1>
         <div class="post-meta">
             <time class="post-time" title="2017-06-14 11:27:29" datetime="2017-06-14T03:27:29.000Z"  itemprop="datePublished">2017-06-14</time>
 
@@ -227,49 +227,49 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="һ������"><a href="#һ������" class="headerlink" title="һ������"></a>һ������</h1><blockquote>
-<p>Kylo����Ϊһ������ Spark �� NiFi �Ŀ�Դ���ݺ����ſ��ܣ����������ݺ���ȡ����������֪�ͼ���֧�ֵ��������⡣Kylo �����ݺ��ĺܶ๦���Զ������������ݽ��롢׼�����������֡�Profiling �͹����ȵȡ�Kylo �ṩ�˷���ҵ��������Ա˼·�� GUI �����Լ� IT ��Ӫ�����ݿ�ѧ��ģ�顣</p>
-<p>ͨ�� Kylo �� GUI ���棬ҵ����Ա���԰������ǹ��ĵķ�ʽ���������ݣ�����: ������ ��Դ���������ݼ��ء�����Ԥ������ת����������Ŀ��ϵͳ����Ϊ����Ҫ�����κδ��룬Ҳ����Ҫ���� IT ���ţ�ҵ����Ա�����˶���Ŀ����ȫ�ƿأ��Ӷ������ļ�����������Ŀ������ʱ�䡣</p>
-<p>�����м������������ݿ�ѧ�ҡ����ݹܼҼ� IT ��Ӫ��Ա��˵��Kylo �ṩ����Ԫ���ݹ��������ʵ����ݼ��ؼ����� Goolgle �ļ�������������Ϊҵ��������Ա���費ͬ��Ȩ�ޡ��ṩ��ʱ���õ�ģ�壬��������ʹ�á����ز��������ݺ��ķ��� SLA��</p>
-<p>��Ȼ�������鵤(�ر��Ƕ�����Щӵ�л����������ݺ�����ҵ��˵), Kylo ������ Kylo �Ĳ�Ʒ���Ƿǳ��������ģ���Ϊ���ü�����Ա��ҵ����Ա���ܹ����������ݣ���ƽ�˴����ݼ�����������ʹ��֮���ĺ蹵�� ҵ����Ա���Ը����Ļ������ݶ��죬IT ��Ա������רע�ڹ��̼����ݼܹ����⣬�����Ǳ�д���롣<br>From <a href="https://zhuanlan.zhihu.com/p/25436075" target="_blank" rel="external">zhuanlan.zhihu.com Ϊ��ҵ�������ݷ�������: ���ڿ�Դ���ݺ�����ϵͳKylo��ҵ������</a></p>
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><blockquote>
+<p>Kylo，作为一个基于 Spark 和 NiFi 的开源数据湖编排框架，解决对数据湖获取、治理、感知和技术支持等诸多问题。Kylo 将数据湖的很多功能自动化，包括数据接入、准备、分析发现、Profiling 和管理等等。Kylo 提供了符合业务分析人员思路的 GUI 界面以及 IT 运营和数据科学等模块。</p>
+<p>通过 Kylo 的 GUI 界面，业务人员可以按照他们关心的方式来操作数据，包括: 创建数 据源、定义数据加载、数据预处理、转换，发布到目标系统。因为不需要部署任何代码，也不需要依赖 IT 部门，业务人员做到了对项目的完全掌控，从而极大的减少了类似项目所需的时间。</p>
+<p>对于有技术能力的数据科学家、数据管家及 IT 运营人员来说，Kylo 提供包括元数据管理、合适的数据加载及类似 Goolgle 的检索能力，可以为业务分析人员赋予不同的权限、提供随时可用的模板，帮助他们使用、监控并提升数据湖的服务 SLA。</p>
+<p>虽然不是万灵丹(特别是对于那些拥有混乱无序数据湖的企业来说), Kylo 及类似 Kylo 的产品还是非常有意义的，因为它让技术人员和业务人员都能够操作大数据，填平了大数据技术与大数据使用之间的鸿沟。 业务人员可以更快的获得数据洞察，IT 人员则可以专注在工程及数据架构问题，而不是编写代码。<br>From <a href="https://zhuanlan.zhihu.com/p/25436075" target="_blank" rel="external">zhuanlan.zhihu.com 为企业级的数据分析赋能: 基于开源数据湖管理系统Kylo的业务分析</a></p>
 </blockquote>
-<h1 id="������װ"><a href="#������װ" class="headerlink" title="������װ"></a>������װ</h1><h2 id="2-1-˵��"><a href="#2-1-˵��" class="headerlink" title="2.1 ˵��"></a>2.1 ˵��</h2><p>������<a href="http://kylo.readthedocs.io/en/latest/installation/KyloSetupWizardDeploymentGuide.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/installation/KyloSetupWizardDeploymentGuide.html</a><br><a href="http://kylo.readthedocs.io/en/latest/installation/KyloManualDeploymentGuide.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/installation/KyloManualDeploymentGuide.html</a></p>
-<p>�ο����ģ�<a href="http://www.treselle.com/blog/kylo-setup-for-data-lake-management/" target="_blank" rel="external">http://www.treselle.com/blog/kylo-setup-for-data-lake-management/</a></p>
-<h2 id="2-2-����"><a href="#2-2-����" class="headerlink" title="2.2 ����"></a>2.2 ����</h2><p>���̺ܼ���������<br>����Ҳѧϰ���˺ܶ�����֪ʶ��</p>
+<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><h2 id="2-1-说明"><a href="#2-1-说明" class="headerlink" title="2.1 说明"></a>2.1 说明</h2><p>官网：<a href="http://kylo.readthedocs.io/en/latest/installation/KyloSetupWizardDeploymentGuide.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/installation/KyloSetupWizardDeploymentGuide.html</a><br><a href="http://kylo.readthedocs.io/en/latest/installation/KyloManualDeploymentGuide.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/installation/KyloManualDeploymentGuide.html</a></p>
+<p>参考博文：<a href="http://www.treselle.com/blog/kylo-setup-for-data-lake-management/" target="_blank" rel="external">http://www.treselle.com/blog/kylo-setup-for-data-lake-management/</a></p>
+<h2 id="2-2-历程"><a href="#2-2-历程" class="headerlink" title="2.2 历程"></a>2.2 历程</h2><p>过程很艰辛！！！<br>不过也学习到了很多基础知识！</p>
 <ol>
-<li><p>���ڹٷ������ṩ rpm ���������Գ��Խ� rpm ��ת���� deb �������߱���Դ���õ� rpm �� deb ����</p>
+<li><p>由于官方仅仅提供 rpm 包，你可以尝试将 rpm 包转化成 deb 包，或者编译源码得到 rpm 和 deb 包。</p>
 </li>
-<li><p>�ڰ�װ�����У�����ʹ�� offline �ķ�ʽ�����õķ�ʽ�����Ƚ����������������ٸ��ݽű���ָ��ȥ�������ã�Ҳ�����޸Ľű������Զ������á�</p>
+<li><p>在安装过程中，尽量使用 offline 的方式。最好的方式就是先将软件下载下来，再根据脚本的指导去进行配置，也可以修改脚本进行自动化配置。</p>
 </li>
 </ol>
-<h2 id="2-3-С��"><a href="#2-3-С��" class="headerlink" title="2.3 С��"></a>2.3 С��</h2><p>������֮ǰʹ�ù� nifi ��һ����Ӧ�ã���ô���� kylo ����һ�����ѵ����顣���� nifi ��kylo Ҳ�ṩ��һ�� ui ���潨�����û���ϵͳ�Ľ�����</p>
-<p>������ nifi ʹ�� Processor ���ⲿ�������������ӣ� Kylo ��ѡ���˼��ɲ��ַ�����ʹ���Լ���Ϊ׳����<br>�ڰ�װ kylo ʱ���㱻Ҫ����װ����������</p>
+<h2 id="2-3-小结"><a href="#2-3-小结" class="headerlink" title="2.3 小结"></a>2.3 小结</h2><p>如果你之前使用过 nifi 这一类的应用，那么上手 kylo 不是一件很难的事情。类似 nifi ，kylo 也提供了一个 ui 界面建立起用户与系统的交互。</p>
+<p>相对于 nifi 使用 Processor 与外部服务建立起连接， Kylo 则选择了集成部分服务，使得自己更为壮大。<br>在安装 kylo 时，你被要求安装如下软件：</p>
 <ul>
 <li>Kylo Applications - /opt/kylo</li>
 <li>Java 8 - /opt/java/current</li>
 <li>NiFi - /opt/nifi/current</li>
 <li>ActiveMQ - /opt/activemq</li>
-<li>Elasticsearch - RPM installation default location<br>�������ˣ�</li>
+<li>Elasticsearch - RPM installation default location<br>还包括了：</li>
 <li>MySQL</li>
 </ul>
-<p>���ѿ�����kylo ������ NiFi ʵ�����Ƕ� NiFi ����չ������ Elasticsearch ����ȫ������������ ActiveMQ ������Ϣͨ�ţ�RPC��……</p>
-<h1 id="��������"><a href="#��������" class="headerlink" title="��������"></a>��������</h1><h2 id="3-1-�����l�"><a href="#3-1-�����l�" class="headerlink" title="3.1 �����ļ�"></a>3.1 �����ļ�</h2><p>�����ļ�λ�ã�</p>
+<p>不难看出，kylo 集成了 NiFi 实际上是对 NiFi 的扩展。集成 Elasticsearch 用于全文搜索，集成 ActiveMQ 用于消息通信（RPC）……</p>
+<h1 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h1><h2 id="3-1-配置文件"><a href="#3-1-配置文件" class="headerlink" title="3.1 配置文件"></a>3.1 配置文件</h2><p>配置文件位置：</p>
 <ul>
-<li>kylo-services��<code>/opt/kylo/kylo-services/conf</code></li>
-<li>kylo-ui��<code>/opt/kylo/kylo-ui/conf</code></li>
+<li>kylo-services：<code>/opt/kylo/kylo-services/conf</code></li>
+<li>kylo-ui：<code>/opt/kylo/kylo-ui/conf</code></li>
 </ul>
-<h2 id="3-2-��־�l�"><a href="#3-2-��־�l�" class="headerlink" title="3.2 ��־�ļ�"></a>3.2 ��־�ļ�</h2><p>��־�ļ�λ�ã�</p>
+<h2 id="3-2-日志文件"><a href="#3-2-日志文件" class="headerlink" title="3.2 日志文件"></a>3.2 日志文件</h2><p>日志文件位置：</p>
 <ul>
-<li>kylo-services��<code>/var/log/kylo-services</code></li>
-<li>kylo-ui��<code>/var/log/kylo-ui</code></li>
+<li>kylo-services：<code>/var/log/kylo-services</code></li>
+<li>kylo-ui：<code>/var/log/kylo-ui</code></li>
 </ul>
-<h2 id="3-3-Kylo-�����l��޸�"><a href="#3-3-Kylo-�����l��޸�" class="headerlink" title="3.3 Kylo �����ļ��޸�"></a>3.3 Kylo �����ļ��޸�</h2><p>�����ļ�һ���޸ĺ�����Ҫ���� Kylo ����ʹ���޸ĵ�������Ч��</p>
-<p><strong>��һ���� nifi һ�����ԣ���������Ҫ�ȴ��ϳ���һ��ʱ�䣬��ʵ��������Լ�� 10 �������ҡ�</strong></p>
-<h1 id="�g���-NiFi-������"><a href="#�g���-NiFi-������" class="headerlink" title="�ġ��� NiFi ������"></a>�ġ��� NiFi ������</h1><h2 id="4-0-kylo-�е�-nifi"><a href="#4-0-kylo-�е�-nifi" class="headerlink" title="4.0 kylo �е� nifi"></a>4.0 kylo �е� nifi</h2><p>Kylo ͨ�� <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NiFi REST API</a> ʵ�ֶ� NiFi ��һЩ����������</p>
-<h2 id="4-1-nifi-��ַ"><a href="#4-1-nifi-��ַ" class="headerlink" title="4.1 nifi ��ַ"></a>4.1 nifi ��ַ</h2><p>nifi �ĵ�ַ�� <code>/opt/kylo/kylo-services/conf/application.properties</code> �н����޸�</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nifi.rest.host=192.168.203.12 # ǧ��ע�⣬���ﲻ��ʹ�� localhost</div><div class="line">nifi.rest.port=8080</div></pre></td></tr></table></figure>
-<h2 id="4-2-�������쳣"><a href="#4-2-�������쳣" class="headerlink" title="4.2 �������쳣"></a>4.2 �������쳣</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The Reporting task does not exist. A com.think big analytics.nifi.provenance.reporting.KyloProvenanceEvent Reporting Task needs to be RUNNING to process jobs in Kylo</div></pre></td></tr></table></figure>
-<p>����ԭ����<br>The reporting task sends events about what is happening in NiFi back to Kylo for reporting��<br>from <a href="https://groups.google.com/forum/#!topic/kylo-community/dACLQHjniRU" target="_blank" rel="external">https://groups.google.com/forum/#!topic/kylo-community/dACLQHjniRU</a><br>����������<br><a href="http://kylo.readthedocs.io/en/latest/how-to-guides/NiFiKyloProvenanceReportingTask.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/how-to-guides/NiFiKyloProvenanceReportingTask.html</a></p>
+<h2 id="3-3-Kylo-配置文件修改"><a href="#3-3-Kylo-配置文件修改" class="headerlink" title="3.3 Kylo 配置文件修改"></a>3.3 Kylo 配置文件修改</h2><p>配置文件一旦修改后，需要重启 Kylo 才能使得修改的配置生效。</p>
+<p><strong>这一点跟 nifi 一个尿性，重启后需要等待较长的一段时间，我实际体验大约是 10 分钟左右。</strong></p>
+<h1 id="四、与-NiFi-的配合"><a href="#四、与-NiFi-的配合" class="headerlink" title="四、与 NiFi 的配合"></a>四、与 NiFi 的配合</h1><h2 id="4-0-kylo-中的-nifi"><a href="#4-0-kylo-中的-nifi" class="headerlink" title="4.0 kylo 中的 nifi"></a>4.0 kylo 中的 nifi</h2><p>Kylo 通过 <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NiFi REST API</a> 实现对 NiFi 的一些基本操作，</p>
+<h2 id="4-1-nifi-地址"><a href="#4-1-nifi-地址" class="headerlink" title="4.1 nifi 地址"></a>4.1 nifi 地址</h2><p>nifi 的地址在 <code>/opt/kylo/kylo-services/conf/application.properties</code> 中进行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nifi.rest.host=192.168.203.12 # 千万注意，这里不能使用 localhost</div><div class="line">nifi.rest.port=8080</div></pre></td></tr></table></figure>
+<h2 id="4-2-遇到的异常"><a href="#4-2-遇到的异常" class="headerlink" title="4.2 遇到的异常"></a>4.2 遇到的异常</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The Reporting task does not exist. A com.think big analytics.nifi.provenance.reporting.KyloProvenanceEvent Reporting Task needs to be RUNNING to process jobs in Kylo</div></pre></td></tr></table></figure>
+<p>问题原因：<br>The reporting task sends events about what is happening in NiFi back to Kylo for reporting。<br>from <a href="https://groups.google.com/forum/#!topic/kylo-community/dACLQHjniRU" target="_blank" rel="external">https://groups.google.com/forum/#!topic/kylo-community/dACLQHjniRU</a><br>解决方案：<br><a href="http://kylo.readthedocs.io/en/latest/how-to-guides/NiFiKyloProvenanceReportingTask.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/how-to-guides/NiFiKyloProvenanceReportingTask.html</a></p>
 
         </div>
 
@@ -308,7 +308,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo ���Ӽ�》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo 入坑记》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -318,7 +318,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo ���Ӽ�》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo 入坑记》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -328,7 +328,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kylo ���Ӽ�》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&via=http://cnneillee.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kylo 入坑记》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&via=http://cnneillee.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -367,7 +367,7 @@ ga('send', 'pageview');
     <div class="waves-block waves-effect next">
       <a href="/2017/06/14/bigdata/NiFi-REST-API的使用/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">NiFi REST API ��ʹ��</h4>
+        <h4 class="title">NiFi REST API 的使用</h4>
       </a>
     </div>
   
@@ -468,7 +468,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo ���Ӽ�》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo 入坑记》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -478,7 +478,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo ���Ӽ�》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&title=《Kylo 入坑记》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -488,7 +488,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kylo ���Ӽ�》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&via=http://cnneillee.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kylo 入坑记》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/14/bigdata/Kylo入坑记/&via=http://cnneillee.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

@@ -191,101 +191,6 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-bigdata/『NiFi学习之路』使用——主要组件的使用"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/">『NiFi 学习之路』使用 —— 主要组件的使用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、概述大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供的 Porcessor 进行介绍。
-二、Processor如果你没有修改 Processor 的存放目录的话，Processor 被存放在 [nifi_install_location]/libs 目录下，NiFi 被启动时，都会将该目录下的组件加载到系统中，供...
-    
-
-        <a href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-bigdata/『NiFi自定义Processor无法获取到Logger』问题解决"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi自定义Processor无法获取到Logger』问题解决/">『NiFi 自定义 Processor 无法获取到 Logger』问题解决</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        一、概述自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，getLogger() 方法位于 AbstractSessionFactoryProcessor 类中。123protected final ProcessorLog getLogger() &#1...
-    
-
-        <a href="/2017/06/13/bigdata/『NiFi自定义Processor无法获取到Logger』问题解决/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-bigdata/『NiFi学习之路』自定义——组件的自定义及使用"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -322,6 +227,102 @@ ga('send', 'pageview');
     
 
         <a href="/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+        
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/">『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述在某些极端情况下，某些 NiFi 节点信息会由于用户强行 disconnect from cluster ，而出现 local flow 与 cluster 的 flow 不同步的问题。
+此后，该问题节点再也无法正常同 cluster 建立连接，并且频繁报错：Failed to connect node to cluster because local flow is differe...
+    
+
+        <a href="/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sollution/">sollution</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-bigdata/『NiFi学习之路』使用——主要组件的使用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+        
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/">『NiFi 学习之路』使用 —— 主要组件的使用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供的 Porcessor 进行介绍。
+二、Processor如果你没有修改 Processor 的存放目录的话，Processor 被存放在 [nifi_install_location]/libs 目录下，NiFi 被启动时，都会将该目录下的组件加载到系统中，供...
+    
+
+        <a href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
