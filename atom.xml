@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-06-14T08:34:56.604Z</updated>
+  <updated>2017-06-15T03:20:36.792Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 中的 Service</title>
+    <link href="http://cnneillee.github.io/2017/06/15/others/Linux%E4%B8%AD%E7%9A%84service/"/>
+    <id>http://cnneillee.github.io/2017/06/15/others/Linux中的service/</id>
+    <published>2017-06-15T02:27:49.000Z</published>
+    <updated>2017-06-15T03:20:36.792Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/xiaofan21/archive/2013/05/24/3097269.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cnblogs.com/xi
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://cnneillee.github.io/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://cnneillee.github.io/tags/linux/"/>
+    
+      <category term="service" scheme="http://cnneillee.github.io/tags/service/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu 添加用户到 sudoer</title>
@@ -81,9 +105,9 @@
     
       <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
     
-      <category term="json" scheme="http://cnneillee.github.io/tags/json/"/>
-    
       <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
+    
+      <category term="json" scheme="http://cnneillee.github.io/tags/json/"/>
     
   </entry>
   
@@ -125,6 +149,62 @@
     
     
       <category term="api" scheme="http://cnneillee.github.io/tags/api/"/>
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』资源 —— 资料汇总</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%B5%84%E6%BA%90%E2%80%94%E2%80%94%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:19:47.113Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。&lt;/p&gt;
+&lt;p&gt;加之，大家都知道，国内的那么些个教程，原创都
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』使用 —— 主要组件的使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:09:27.207Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』自定义 —— 组件的自定义及使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:20:06.965Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;许多业务仅仅使用官方提供的组件不能够满足性能上的需求，往往要通过高度可定制的组件来完成特定的业务需求。&lt;/p&gt;
+&lt;p&gt;而 N
+    
+    </summary>
+    
     
       <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
     
@@ -207,44 +287,6 @@
   </entry>
   
   <entry>
-    <title>『NiFi 学习之路』资源 —— 资料汇总</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%B5%84%E6%BA%90%E2%80%94%E2%80%94%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:19:47.113Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。&lt;/p&gt;
-&lt;p&gt;加之，大家都知道，国内的那么些个教程，原创都
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 学习之路』自定义 —— 组件的自定义及使用</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:20:06.965Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;许多业务仅仅使用官方提供的组件不能够满足性能上的需求，往往要通过高度可定制的组件来完成特定的业务需求。&lt;/p&gt;
-&lt;p&gt;而 N
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
     <title>『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</title>
     <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%8A%82%E7%82%B9%E6%9C%AC%E5%9C%B0%E6%B5%81%E4%B8%8E%E9%9B%86%E7%BE%A4%E6%B5%81%E4%B8%8D%E4%B8%80%E8%87%B4%E5%AF%BC%E8%87%B4%E9%9B%86%E7%BE%A4%E5%8A%A0%E5%85%A5%E5%A4%B1%E8%B4%A5%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/</id>
@@ -261,24 +303,6 @@
       <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
     
       <category term="sollution" scheme="http://cnneillee.github.io/tags/sollution/"/>
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 学习之路』使用 —— 主要组件的使用</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:09:27.207Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供
-    
-    </summary>
-    
     
       <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
     
@@ -403,30 +427,6 @@
     
     
       <category term="readinglist" scheme="http://cnneillee.github.io/tags/readinglist/"/>
-    
-      <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【转】《数据之巅》读书笔记</title>
-    <link href="http://cnneillee.github.io/2017/05/13/daily/%E3%80%90%E8%BD%AC%E3%80%91%E3%80%8A%E6%95%B0%E6%8D%AE%E4%B9%8B%E5%B7%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    <id>http://cnneillee.github.io/2017/05/13/daily/【转】《数据之巅》读书笔记/</id>
-    <published>2017-05-13T15:45:18.000Z</published>
-    <updated>2017-05-15T09:09:57.018Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。&lt;/p&gt;
-&lt;p&gt;个人觉得，这本书是《大数据》的延伸和拓展。&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://cnneillee.github.io/categories/Daily/"/>
-    
     
       <category term="daily" scheme="http://cnneillee.github.io/tags/daily/"/>
     

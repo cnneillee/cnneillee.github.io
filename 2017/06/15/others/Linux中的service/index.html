@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/15/others/Linux中的service/">
+    
+    
+    <title>Linux 中的 Service | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,service">
+    <meta name="description" content="参考：  cnblogs.com/xiaofan21 - linux service和daemon cnblogs.com/xuange306 - linux service命令常见使用方法 cnblogs.com/lidabo - linux中service  start与直接运行/usr/bin/的区别  一、概述1.1 service 和 daemon达成某个 service 是需要一支 d">
+<meta name="keywords" content="linux,service">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 中的 Service">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/15/others/Linux中的service/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="参考：  cnblogs.com/xiaofan21 - linux service和daemon cnblogs.com/xuange306 - linux service命令常见使用方法 cnblogs.com/lidabo - linux中service  start与直接运行/usr/bin/的区别  一、概述1.1 service 和 daemon达成某个 service 是需要一支 d">
+<meta property="og:updated_time" content="2017-06-15T03:20:36.792Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 中的 Service">
+<meta name="twitter:description" content="参考：  cnblogs.com/xiaofan21 - linux service和daemon cnblogs.com/xuange306 - linux service命令常见使用方法 cnblogs.com/lidabo - linux中service  start与直接运行/usr/bin/的区别  一、概述1.1 service 和 daemon达成某个 service 是需要一支 d">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux 中的 Service</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux 中的 Service</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-15T02:27:49.000Z" itemprop="datePublished" class="page-time">
+  2017-06-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-service-和-daemon"><span class="post-toc-text">1.1 service 和 daemon</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-service-命令"><span class="post-toc-text">1.2 service 命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、使用到的文件"><span class="post-toc-text">二、使用到的文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、linux-中-service-start-与直接运行-usr-bin-的区别"><span class="post-toc-text">三、linux 中 service *** start 与直接运行 /usr/bin/*** 的区别</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-others/Linux中的service"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux 中的 Service</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-15 10:27:49" datetime="2017-06-15T02:27:49.000Z"  itemprop="datePublished">2017-06-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>参考：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/xiaofan21/archive/2013/05/24/3097269.html" target="_blank" rel="external">cnblogs.com/xiaofan21 - linux service和daemon</a></li>
+<li><a href="http://www.cnblogs.com/xuange306/p/6072724.html" target="_blank" rel="external">cnblogs.com/xuange306 - linux service命令常见使用方法</a></li>
+<li><a href="http://www.cnblogs.com/lidabo/p/6226307.html" target="_blank" rel="external">cnblogs.com/lidabo - linux中service <strong><em> start与直接运行/usr/bin/</em></strong>的区别</a></li>
+</ul>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-service-和-daemon"><a href="#1-1-service-和-daemon" class="headerlink" title="1.1 service 和 daemon"></a>1.1 service 和 daemon</h2><p>达成某个 service 是需要一支 daemon 在运行的。</p>
+<p>没有这支 daemon 就不会有 service.</p>
+<p>daemon分为两种：</p>
+<ul>
+<li>stand_alone<br>独立启动，自行启动不透过其他机制，daemon 启动并加载到内存后就一直占用内存与系统资源。</li>
+</ul>
+<p>最大的优点就是：因为是一直存在内存内持续的提供服务，因此对于发生客户端的要求时，stand alone 的 daemon 响应速度较快。</p>
+<p>常见的 stand alone daemon 有 WWW 的 daemon (httpd)、FTP 的 daemon (vsftpd) 等等。</p>
+<ul>
+<li>super daemon<br>启动方式则是藉由一个统一的 daemon 来负责唤起服务！</li>
+</ul>
+<p>它的好处是：自行启动服务不用的时候自行关闭服务，节约内存资源,telnet 就是这样的</p>
+<h2 id="1-2-service-命令"><a href="#1-2-service-命令" class="headerlink" title="1.2 service 命令"></a>1.2 service 命令</h2><p>service命令，顾名思义，就是用于管理 Linux 操作系统中服务的命令。</p>
+<p>注意：</p>
+<ol>
+<li>声明：这个命令不是在所有的linux发行版本中都有。主要是在redhat、fedora、mandriva和centos中。</li>
+<li>此命令位于/sbin目录下，用file命令查看此命令会发现它是一个脚本命令。</li>
+<li>分析脚本可知此命令的作用是去/etc/init.d目录下寻找相应的服务，进行开启和关闭等操作。</li>
+<li>开启httpd服务器：service httpd start<br>start可以换成restart表示重新启动，stop表示关闭，reload表示重新载入配置。</li>
+<li>关闭mysql服务器：service mysqld stop</li>
+<li>强烈建议大家将service命令替换为/etc/init.d/mysqld stop （因为有一些linux的版本不支持service）</li>
+</ol>
+<p>Usage: <code>service &lt; option &gt; | --status-all | [ service_name [ command | --full-restart ] ]</code></p>
+<p>例如：</p>
+<ul>
+<li><p>示例一 网络重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">当修改了主机名、ip地址等信息时，经常需要把网络重启使之生效。</div><div class="line">[root@node34 root]# service network </div><div class="line">用法：/etc/init.d/network &#123;start|stop|restart|reload|status&#125; </div><div class="line">[root@node34 root]# service network status </div><div class="line">配置设备： </div><div class="line">lo eth0 </div><div class="line">当前的活跃设备： </div><div class="line">lo eth0 </div><div class="line">[root@node34 root]# service network restart </div><div class="line">正在关闭接口 eth0：                                        [  确定  ] </div><div class="line">关闭环回接口：                                             [  确定  ] </div><div class="line">设置网络参数：                                             [  确定  ] </div><div class="line">弹出环回接口：                                             [  确定  ] </div><div class="line">弹出界面 eth0：                                            [  确定  ]</div></pre></td></tr></table></figure>
+</li>
+<li><p>示例二 重启 MySQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@node34 root]# service mysql</div><div class="line">mysql: unrecognized service</div><div class="line">[root@node34 root]# service mysqld</div><div class="line">用法：/etc/init.d/mysqld &#123;start|stop|status|condrestart|restart&#125;</div><div class="line">[root@node34 root]# service mysqld status</div><div class="line">mysqld (pid 1638) 正在运行...</div><div class="line">[root@node34 root]# service mysqld restart</div><div class="line">停止 MySQL：                                               [  确定  ]</div><div class="line">启动 MySQL：                                               [  确定  ]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="https://www.bbsmax.com/A/GBJrV18BJ0/" target="_blank" rel="external">https://www.bbsmax.com/A/GBJrV18BJ0/</a></p>
+<h1 id="二、使用到的文件"><a href="#二、使用到的文件" class="headerlink" title="二、使用到的文件"></a>二、使用到的文件</h1><p><code>/etc/init.d/*</code> ：启动脚本放置处.我们的 CentOS 实际上放置在 /etc/rc.d/init.d/ 啦！ 不过还是有配置连结档到 /etc/init.d/ 的！</p>
+<p><code>/etc/sysconfig/*</code> ：各服务的初始化环境配置文件</p>
+<p><code>/etc/*</code> ：各服务各自的配置文件</p>
+<p><code>/var/lib/*</code> ：各服务产生的数据库</p>
+<p>`/var/run/*`` ：各服务的程序之 PID 记录处</p>
+<h1 id="三、linux-中-service-start-与直接运行-usr-bin-的区别"><a href="#三、linux-中-service-start-与直接运行-usr-bin-的区别" class="headerlink" title="三、linux 中 service *** start 与直接运行 /usr/bin/*** 的区别"></a>三、linux 中 <code>service *** start</code> 与直接运行 <code>/usr/bin/***</code> 的区别</h1><p>在linux想要运行启动一个服务有两种方法：</p>
+<p>1，运行/etc/init.d/目录下的shell脚本，还可以有快捷方式，service <em>*</em> start/ stop/restart /status，</p>
+<p>2，直接运行/usr/bin目录下的服务文件；</p>
+<p>第一种方法启动的程序可以通过service命令来管理，比如说查看状态 service –status-all</p>
+<p>查看/etc/init.d目录，发现下面都是shell脚本，脚本里面运行的程序最终还是指向了/usr/bin下面的程序，只不过在shell脚本中可能直接对程序的一些运行参数继续进行了设置；</p>
+<p>第二种方法，直接运行/usr/bin/<strong><strong>,如果运行时有配置文件的话，需要加上 –config *</strong></strong>，用这种方法启动程序后，不能用service命令查看状态。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/7016543.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/7016543.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/service/">service</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/&title=《Linux 中的 Service》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/&title=《Linux 中的 Service》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/15/others/Linux中的service/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux 中的 Service》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/14/others/Ubuntu添加用户到sudoer/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu 添加用户到 sudoer</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://cnneillee.github.io/2017/06/15/others/Linux中的service/index.html',
+        sourceId: 'others/Linux中的service',
+        productKey: '51605be3f66c484481e439a3f7e57c66',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/&title=《Linux 中的 Service》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/&title=《Linux 中的 Service》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/15/others/Linux中的service/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux 中的 Service》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/15/others/Linux中的service/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQY7jMAwEwPn/p3evAyycdItikAXKp0ESyyodaA7Jn5/4+vPP9fvzp98/3ZtcT+v8bFx4eHh4460/PSZ/WLLC0zrzI8PDw8P7DC9Z7jUmOYjHTcTf5nvGw8PD+zbe660kQf/WkeHh4eH9L7wkKc+3nqyDh4eH9228fOkJ6VaRYqXWgoeHhxfz8i7S9/y90t/Dw8PDG3fVk4Db3tWuNtotHh4e3gIvD7htwrpRYjjcJx4eHt5V3lnQT0rAbQMsL8vmhRI8PDy8Dd489E+aXvkw1uS5eHh4eHd5h0G2LLxO8Ek6/qYMgYeHh/dBXrvR5LDyom2emhdpNB4eHt6Ylye7rzeUh++zRle+zpsqNR4eHt4lXhKIJ+NZ+Ytn8gqp6y54eHh4Y14b9PPWVDuAlTTb8nEEPDw8vA1efgYrCW5ZLK7HtvDw8PAWePkwQVtszRtabbvrsKSLh4eHN+bl4bUNyneDeLtyMd2Ah4eHV/LyIJ6/NurRqLgUm6+Ph4eHt8ebt+3bo7lVqogOCA8PD+8jvFuNqOSus7GDYhABDw8Pb43XPvjsk/ZV0ZYw3nT28PDw8K7ykgA9Hw5o66sXVsDDw8Nb5k1Kt5Ou0/yJj9/i4eHhLfDagmzb1rqVsufjAodtMDw8PLwjXhu+263nqfnZqMHjKwoPDw9vjdems3kZN9lifoj1IAIeHh7eMi8vpyYjAnmRoh2uysez8PDw8O7yJkltG+7zoxkl0L+fiIeHh7fAO2vMt0E8ScrbEvB8WAEPDw9vwsvLuG3rq81skyOoU3k8PDy8NV6bFrctrpX31WH5BQ8PD+/TvLMAfTY4lb94oio1Hh4e3hfw8m2d3XX2Szw8PLzP8Oaba4sRZ6WKujGGh4eHt8Br/6NvSW3Bon2NXShw4OHh4aW8v6eCnHGE7hucAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
