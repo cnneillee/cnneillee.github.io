@@ -4,6 +4,80 @@
 
     
   <url>
+    <loc>http://cnneillee.github.io/2017/06/26/android/%E3%80%90%E8%BD%AC%E3%80%91gitlabci-toolbox-for-android/</loc>
+    <lastmod>2017-06-26T06:01:15.635Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-06-26T06:01:15.635Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cnneillee.github.io/2017/06/26/android/%E3%80%90%E8%BD%AC%E3%80%91Understanding-the-Gradle-Wrapper/</loc>
+    <lastmod>2017-06-26T05:53:04.267Z</lastmod>
+    <data>
+        <display>
+        <title>【转】Understanding the Gradle Wrapper</title>
+        <pubTime>2017-06-26T05:52:29.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>gradle</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://cnneillee.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cnneillee.github.io/2017/06/26/android/%E3%80%90%E8%BD%AC%E3%80%91%E4%B9%90%E5%8F%98%E9%BB%84%E6%9D%B2%EF%BC%9A%E5%BD%93%E5%89%8D%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9App%E7%83%AD%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2017-06-26T02:05:33.117Z</lastmod>
+    <data>
+        <display>
+        <title>【转】乐变黄杲：当前如何选择App热更新服务</title>
+        <pubTime>2017-06-26T01:58:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>hotfix</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://cnneillee.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cnneillee.github.io/2017/06/22/Prezi-%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2017-06-22T07:35:58.734Z</lastmod>
+    <data>
+        <display>
+        <title>Prezi 使用入门</title>
+        <pubTime>2017-06-22T07:29:58.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://cnneillee.github.io/2017/06/15/others/Linux%E4%B8%AD%E7%9A%84service/</loc>
     <lastmod>2017-06-15T03:20:36.792Z</lastmod>
     <data>
@@ -747,9 +821,9 @@
         
         <tag>exception</tag>
          
-        <tag>database</tag>
-         
         <tag>mysql</tag>
+         
+        <tag>database</tag>
          
          
            
@@ -1236,9 +1310,9 @@
         
         <tag>solution</tag>
          
-        <tag>database</tag>
-         
         <tag>mysql</tag>
+         
+        <tag>database</tag>
          
         <tag>python</tag>
          
@@ -1302,9 +1376,9 @@
         
         <tag>setup</tag>
          
-        <tag>database</tag>
-         
         <tag>mysql</tag>
+         
+        <tag>database</tag>
          
         <tag>python</tag>
          

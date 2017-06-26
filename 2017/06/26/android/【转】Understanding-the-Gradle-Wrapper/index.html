@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/">
+    
+    
+    <title>【转】Understanding the Gradle Wrapper | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,gradle">
+    <meta name="description" content="Android Weekly 转发的一篇关于“ Gradle Wrapper”的介绍文章，蛮新鲜的，就收藏了～原文：https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7  The vast majority of developers using Gradle use the Gradle Wrappe">
+<meta name="keywords" content="android,gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】Understanding the Gradle Wrapper">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="Android Weekly 转发的一篇关于“ Gradle Wrapper”的介绍文章，蛮新鲜的，就收藏了～原文：https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7  The vast majority of developers using Gradle use the Gradle Wrappe">
+<meta property="og:updated_time" content="2017-06-26T05:53:04.267Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】Understanding the Gradle Wrapper">
+<meta name="twitter:description" content="Android Weekly 转发的一篇关于“ Gradle Wrapper”的介绍文章，蛮新鲜的，就收藏了～原文：https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7  The vast majority of developers using Gradle use the Gradle Wrappe">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【转】Understanding the Gradle Wrapper</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【转】Understanding the Gradle Wrapper</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-26T05:52:29.000Z" itemprop="datePublished" class="page-time">
+  2017-06-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#If-you-aren’t-using-the-wrapper"><span class="post-toc-text">If you aren’t using the wrapper</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#What-the-Gradle-Wrapper-is"><span class="post-toc-text">What the Gradle Wrapper is</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#What-the-Gradle-Wrapper-does"><span class="post-toc-text">What the Gradle Wrapper does</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#What-the-Gradle-Wrapper-doesn’t-do"><span class="post-toc-text">What the Gradle Wrapper doesn’t do</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Wrapper-configuration"><span class="post-toc-text">Wrapper configuration</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Updates"><span class="post-toc-text">Updates</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Further-reading"><span class="post-toc-text">Further reading</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/【转】Understanding-the-Gradle-Wrapper"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【转】Understanding the Gradle Wrapper</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-26 13:52:29" datetime="2017-06-26T05:52:29.000Z"  itemprop="datePublished">2017-06-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>Android Weekly 转发的一篇关于“ Gradle Wrapper”的介绍文章，蛮新鲜的，就收藏了～<br>原文：<a href="https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7" target="_blank" rel="external">https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7</a></p>
+</blockquote>
+<p>The vast majority of developers using Gradle use the Gradle Wrapper. This is great because using the Gradle Wrapper means that developers working on the project don’t need to manage their own Gradle installations. Being that the wrapper is so ubiquitous it is important to understand exactly what it does and what it does not do.</p>
+<h1 id="If-you-aren’t-using-the-wrapper"><a href="#If-you-aren’t-using-the-wrapper" class="headerlink" title="If you aren’t using the wrapper"></a>If you aren’t using the wrapper</h1><p>If you aren’t already using the wrapper, you really should. Using the wrapper guarantees that every developer on your team is using the same version of Gradle and that they can run Gradle builds (even if they haven’t installed Gradle on their machine).</p>
+<p>Getting started is easy. First install Gradle on your machine, then open up your project directory via the command line. Run <code>gradle wrapper</code> and you are done! You can add the <code>--gradle-version X.Y</code> argument to specify which version of Gradle to use.</p>
+<p>Now you can run any Gradle task in your project using the <code>gradlew</code> shell script or bat file located in your project’s root directory.</p>
+<h1 id="What-the-Gradle-Wrapper-is"><a href="#What-the-Gradle-Wrapper-is" class="headerlink" title="What the Gradle Wrapper is"></a>What the Gradle Wrapper is</h1><p>The Gradle Wrapper consists of a few files in your project directory:<br><code>gradlew</code>: The shell script Unix users can run to execute Gradle tasks</p>
+<ul>
+<li><code>gradlew.bat</code> The bat script Windows users can run to execute Gradle tasks</li>
+<li><code>gradle/wrapper/gradle-wrapper.jar</code> The wrapper’s executable JAR; this is where the wrapper code resides</li>
+<li><code>gradle/wrapper/gradle-wrapper.properties</code> A properties file for configuring the wrapper<br>You should make sure all these are committed to version control. They are all small, system-independent, and critical to using the Gradle Wrapper.</li>
+</ul>
+<h1 id="What-the-Gradle-Wrapper-does"><a href="#What-the-Gradle-Wrapper-does" class="headerlink" title="What the Gradle Wrapper does"></a>What the Gradle Wrapper does</h1><p>When you run the Gradle Wrapper it performs the following actions:</p>
+<ol>
+<li>Parse the arguments passed to <code>gradlew</code></li>
+<li>Install the correct Gradle version</li>
+<li>Invoke Gradle to run the specified tasks</li>
+</ol>
+<p>Note that the wrapper only accepts two optional configuration arguments:<br><code>-q</code> or <code>--quiet</code> to suppress output<br><code>-g</code> or <code>--gradle-user-home</code> to specify an alternate home directory for Gradle.<br>The Gradle installation step is the only one that is particularly interesting. First it will check your <code>GRADLE_USER_HOME</code> for the desired Gradle distribution. If it already exists, the wrapper goes on to invoking Gradle. If the distribution doesn’t exist yet, the wrapper will download the distribution.</p>
+<p>It is also important to note that the wrapper completely ignores any Gradle distribution on your system. The wrapper downloads and unzips Gradle distributions in its own separate directory and will only use those distributions for builds. The wrapper <strong>will use any global Gradle configuration</strong> such as a <code>gradle.properties</code> file defined in your Gradle home directory when running tasks.</p>
+<h1 id="What-the-Gradle-Wrapper-doesn’t-do"><a href="#What-the-Gradle-Wrapper-doesn’t-do" class="headerlink" title="What the Gradle Wrapper doesn’t do"></a>What the Gradle Wrapper doesn’t do</h1><p>The Gradle Wrapper itself does not execute your tasks. All it does is ensure you have the desired Gradle distribution and then invoke it. The wrapper is a very thin layer to eliminate the need for devlelopers to manage distributions themselves.</p>
+<p>This means that the wrapper is effectively completely decoupled from Gradle itself. A wrapper from 2014 can build a project using Gradle 4.0, and a wrapper installed today can build a project using Gradle 2.0.</p>
+<p>If you encounter an issue with your builds, it is extremely unlikely that the wrapper is at fault since it primarily just invokes Gradle proper.</p>
+<h1 id="Wrapper-configuration"><a href="#Wrapper-configuration" class="headerlink" title="Wrapper configuration"></a>Wrapper configuration</h1><p>I mentioned earlier that one of the files the wrapper puts in your project is a configuration file at <code>gradle/wrapper/gradle-wrapper.properties</code>.</p>
+<p>This file typically looks something like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">distributionBase=GRADLE_USER_HOME</div><div class="line">distributionPath=wrapper/dists</div><div class="line">zipStoreBase=GRADLE_USER_HOME</div><div class="line">zipStorePath=wrapper/dists</div><div class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-4.0-all.zip</div></pre></td></tr></table></figure></p>
+<p><code>distributionBase</code> + <code>distributionPath</code> specify the path at which the wrapper will store Gradle distributions. By default <code>GRADLE_USER_HOME</code> is <code>~/.gradle</code>, so the wrapper will store Gradle distributions at <code>~/.gradle/wrapper/dists</code>.<br><code>zipStoreBase</code> and <code>zipStorePath</code> are very similar. These specify where the wrapper will store the zipped distributions it downloads.<br><code>distributionUrl</code> is the one you likely care most about. This is what specifies what version of Gradle you want to use for your builds and where to download it from.</p>
+<h1 id="Updates"><a href="#Updates" class="headerlink" title="Updates"></a>Updates</h1><p>Since the wrapper is independent of the actual Gradle distribution you use to build your project, what do you update and when?</p>
+<p>The wrapper documentation says this:</p>
+<blockquote>
+<p>If you want to switch to a new version of Gradle you don’t need to rerun the <code>wrapper</code> task. It is good enough to change the respective entry in the <code>gradle-wrapper.properties</code> file, but if you want to take advantage of new functionality in the Gradle wrapper, then you would need to regenerate the wrapper files.</p>
+</blockquote>
+<p>You should keep your Gradle distribution as up-to-date as possible. This is as easy as updating the <code>distributionUrl</code> in your <code>gradle-wrapper.properties</code> .</p>
+<p>You typically don’t need to update the Gradle Wrapper, but you can do so by re-running the <code>gradle wrapper</code> task after updating Gradle. You can do this using the wrapper by running <code>gradlew wrapper</code> which has the benefit of using the wrapper’s Gradle distribution. Updating it won’t hurt, but don’t expect any crazy new features in the wrapper. It hasn’t meaningfully changed since 2014 (<a href="https://github.com/gradle/gradle/commit/0e5d6e9eddbcd9614b99937b93c02fb9547c3c37" target="_blank" rel="external">unless you get excited about seeing fewer dots</a>).</p>
+<p>Android developers should note that the version of Gradle is (mostly) independent from the Android plugin version and from the version of Android Studio you use. New versions of either the plugin or Studio may require an updated Gradle version, but you should be able to use newer Gradle versions with older plugins and Studio without any issues.</p>
+<h1 id="Further-reading"><a href="#Further-reading" class="headerlink" title="Further reading"></a>Further reading</h1><ul>
+<li><a href="https://docs.gradle.org/4.0/userguide/gradle_wrapper.html#sec:configuration" target="_blank" rel="external">Gradle 4.0 wrapper documentation</a></li>
+<li><a href="https://github.com/gradle/gradle/tree/master/subprojects/wrapper/src/main/java/org/gradle/wrapper" target="_blank" rel="external">Gradle wrapper source code on GitHub</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/&title=《【转】Understanding the Gradle Wrapper》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/&title=《【转】Understanding the Gradle Wrapper》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】Understanding the Gradle Wrapper》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/26/android/【转】gitlabci-toolbox-for-android/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">No title</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【转】乐变黄杲：当前如何选择App热更新服务</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/index.html',
+        sourceId: 'android/【转】Understanding-the-Gradle-Wrapper',
+        productKey: '51605be3f66c484481e439a3f7e57c66',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/&title=《【转】Understanding the Gradle Wrapper》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/&title=《【转】Understanding the Gradle Wrapper》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】Understanding the Gradle Wrapper》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLUlEQVR42u3aS47jMAwFwNz/0j3rWcR5j0qAmCmvgoYtq2SgCX4ej/j6i69n91+vef2uZG+PT1zY2NjYN2HPGMl28+NInsrvTHaLjY2NvY99HRiug8SzI5hRk/deH0oU5LCxsbF/mJ3/PmG0aQ82NjY2dhvAclJ+KG3BaHas2NjY2FvZJ2WdvBp/vVqb2LTBDxsbG3sr+3zT3/P7I/1tbGxs7C9m/5XXbFzmOvy8q1VQKLCxsbEXsdutJy3bd6UfbeKR7x8bGxt7E3tWoM9HIYuzjw/3PH3CxsbG3sSejdHkwakdu0kCYdt4rlMRbGxs7Fuxk4JRvtysVZy8MQ+lRe6FjY2NvYLdJglJSpAM37RlqbadkK+DjY2NfXd2HsCSlGNW6Dlv6NYFL2xsbOxF7Nm84qz8lAe2PODNdouNjY29id0Gp7wxPGv9toM+7af6L25jY2Njr2O3RfYElmBm5ad6QAcbGxt7NfuonzBqIbR5Qb5m9GGwsbGxF7HzUHFSKpq1ck/SlehjYGNjY69gf2JoMk8wkjvbIlf0RmxsbOzV7LrUPtr0ybPtfrCxsbF/h922bJPgdzIY1I5XFoM72NjY2OvYSRGnbb7mWz8JpcMkChsbG3sdOx+7OQ9sbysMjY4YGxsbeyu7DSFt8zVPM2aDOHVShI2Njb2I3Y48ztoD56TrNdvUBRsbG3s3u/3LSfOgLTxdf5g6pGFjY2OvYLcPzzaUpC7tgE47ToSNjY39y+x3DdO0geokzXjxFmxsbOxF7GRDLS8pPyUJyXnIfHEc2NjY2OvYJ0nFSeHpPGjlh1LMImFjY2PfnN2W75MQeLLR/O/FEBI2Njb2UnYyapNvPW8AzMZ6HuX1oqKGjY2NfUP2bMYnD0vJAbUp0EmgjeIqNjY29q3Y7b/+fEP5kbVl/dkY0PAIsLGxsW/CzoPWycvyENh+k2EQxcbGxl7HTko57TDNyf3JMbWlKGxsbGzspCTUjtrMkpA8ZD49LGxsbOwfZichZDbu07aQj5oH2NjY2OvYbWg5H+iZNQbyld/WHsDGxsb+enZegk+KPu1Tn2gVtx8DGxsb+7bsf+2DsLwmMUYuAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

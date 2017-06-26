@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/">
+    
+    
+    <title>【转】乐变黄杲：当前如何选择App热更新服务 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,hotfix">
+    <meta name="description" content="文章来源：http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch  在2017年6月这个时间点，我们有必要谈谈热更新这个技术到底何去何从。 上半年苹果的两次警告，通知iOS开发者在6月12日前移除热更新相关代码，否则将会下架相关App，一时间风声鹤唳，那么App热更新技术到底还能用吗？Android热更新技术还有必要做吗？">
+<meta name="keywords" content="android,hotfix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】乐变黄杲：当前如何选择App热更新服务">
+<meta property="og:url" content="http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="文章来源：http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch  在2017年6月这个时间点，我们有必要谈谈热更新这个技术到底何去何从。 上半年苹果的两次警告，通知iOS开发者在6月12日前移除热更新相关代码，否则将会下架相关App，一时间风声鹤唳，那么App热更新技术到底还能用吗？Android热更新技术还有必要做吗？">
+<meta property="og:updated_time" content="2017-06-26T02:05:33.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】乐变黄杲：当前如何选择App热更新服务">
+<meta name="twitter:description" content="文章来源：http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch  在2017年6月这个时间点，我们有必要谈谈热更新这个技术到底何去何从。 上半年苹果的两次警告，通知iOS开发者在6月12日前移除热更新相关代码，否则将会下架相关App，一时间风声鹤唳，那么App热更新技术到底还能用吗？Android热更新技术还有必要做吗？">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【转】乐变黄杲：当前如何选择App热更新服务</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【转】乐变黄杲：当前如何选择App热更新服务</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-26T01:58:47.000Z" itemprop="datePublished" class="page-time">
+  2017-06-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#iOS热更新：遵守苹果规则为本"><span class="post-toc-text">iOS热更新：遵守苹果规则为本</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#iOS平台的热更新可以分为三类："><span class="post-toc-text">iOS平台的热更新可以分为三类：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android热更新"><span class="post-toc-text">Android热更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特殊国情要求热更新功能"><span class="post-toc-text">特殊国情要求热更新功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何选择Android热更新服务"><span class="post-toc-text">如何选择Android热更新服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用Android热更新技术中的那些坑"><span class="post-toc-text">应用Android热更新技术中的那些坑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#乐变的热更新解决方案"><span class="post-toc-text">乐变的热更新解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#游戏热更新技术"><span class="post-toc-text">游戏热更新技术</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#游戏分包技术"><span class="post-toc-text">游戏分包技术</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小结"><span class="post-toc-text">小结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/【转】乐变黄杲：当前如何选择App热更新服务"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【转】乐变黄杲：当前如何选择App热更新服务</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-26 09:58:47" datetime="2017-06-26T01:58:47.000Z"  itemprop="datePublished">2017-06-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>文章来源：<a href="http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch" target="_blank" rel="external">http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch</a></p>
+</blockquote>
+<p>在2017年6月这个时间点，我们有必要谈谈热更新这个技术到底何去何从。</p>
+<p>上半年苹果的两次警告，通知iOS开发者在6月12日前移除热更新相关代码，否则将会下架相关App，一时间风声鹤唳，那么App热更新技术到底还能用吗？Android热更新技术还有必要做吗？</p>
+<p>对于这一问题，InfoQ记者咨询了乐变技术的CEO黄杲，他们是做App热更新和游戏分包服务的，来看看他们如何解读。以下根据采访内容整理而成。</p>
+<h1 id="iOS热更新：遵守苹果规则为本"><a href="#iOS热更新：遵守苹果规则为本" class="headerlink" title="iOS热更新：遵守苹果规则为本"></a>iOS热更新：遵守苹果规则为本</h1><h2 id="iOS平台的热更新可以分为三类："><a href="#iOS平台的热更新可以分为三类：" class="headerlink" title="iOS平台的热更新可以分为三类："></a>iOS平台的热更新可以分为三类：</h2><p>第一类是使用Hybrid或者React Native及类似技术开发的App，在更新时只更新页面内容和JS脚本，这种是苹果允许的。但苹果的规则还规定，在更新时不得改变应用原本的意图，如果完全改头换面，被用户投诉，苹果还是会处罚的。</p>
+<p>第二类是使用Native动态化技术，替换原生代码。这种是苹果所主要打击的对象，虽然不是不能绕过苹果的检测，但一旦发现肯定会被处理。</p>
+<p>第三类是手机游戏，使用热更新技术进行小版本更新。今年WWDC上苹果对App Store进行重大改版，专门将游戏提到了一级菜单，可见苹果对游戏的重视。在6月12日至今苹果下架了一批App，其中游戏占一半，有开发者怀疑是因为热更新，不过很多带热更新的热门游戏并未受影响，所以这方面仍待进一步观察。</p>
+<p>黄杲认为，无论是App开发者还是服务提供商都需要在各个平台允许的规则范围内开展业务。从热更新的需求上来说，苹果平台是一个封闭系统，App Store可以在系统层面帮助应用做自动升级，除非用户在设置里关闭了此功能，苹果平台上应用自己实现热更新方面并不是刚需。</p>
+<p>iOS在较新的版本里允许本地库的动态加载(要求签名一致)，也就是说，技术层面其实iOS要比早些年要开放一些；但在商务层面，苹果的审核在今年是偏严厉的，通过观察iOS的热更禁止行为，得到的结论是但凡没有动态加载和反射调用系统的函数，苹果仍然是允许的(也就是说仍然可以动态加载自己的功能)，但从第二次通知来看这方面也在收紧，未来如何变化还尤未可知。</p>
+<h1 id="Android热更新"><a href="#Android热更新" class="headerlink" title="Android热更新"></a>Android热更新</h1><h2 id="特殊国情要求热更新功能"><a href="#特殊国情要求热更新功能" class="headerlink" title="特殊国情要求热更新功能"></a>特殊国情要求热更新功能</h2><p>虽然iOS上热更新遭遇阻碍，但在国内Android平台，事情是另一个样子。</p>
+<p>Android系统是个开放生态，国内主流应用商店都是第三方的，它们通常无法第一时间获取App更新从而帮助应用自动更新，导致在Android平台上升级周期和升级率的问题会凸显出来。因此从平台角度上来说，Android因为其生态的原因，需要应用自身来补足热更新能力补足的问题。</p>
+<h2 id="如何选择Android热更新服务"><a href="#如何选择Android热更新服务" class="headerlink" title="如何选择Android热更新服务"></a>如何选择Android热更新服务</h2><p>在国内Android热更新技术的探索上，可谓是百花齐放，各大互联网公司几乎都研发了自己的热更新技术。据不完全统计，包括微信的Tinker，阿里巴巴早期的Dexposed、后来的Andfix以及其升级版Sophix，QQ推出的Qzone方案和QFix，饿了么的Amigo，滴滴出行的VirtualAPK，美团点评最新开源的Robust等。</p>
+<p>这些热更新技术大部分已经开源，但要想应用这些技术实际并不容易，其中有很多坑。</p>
+<h2 id="应用Android热更新技术中的那些坑"><a href="#应用Android热更新技术中的那些坑" class="headerlink" title="应用Android热更新技术中的那些坑"></a>应用Android热更新技术中的那些坑</h2><p>第一大坑当属Android系统版本兼容性。有些热更新技术在开发的技术路线选择时，未完善考虑系统升级带来的问题。当Android系统进行大的版本升级时，可能会对底层的代码进行一些修改，如果热更新技术依赖了旧版本的代码，一旦系统升级，热更新技术就会变得完全不可用。早期的热更新技术基本都有这样的特点。</p>
+<p>第二大坑是由Android系统碎片化带来的兼容问题。由于国内不同Android版本和硬件设备的组合高达数千种，不同厂商还会对自家的ROM进行魔改，热更新由于涉及系统底层代码，撞上错误的概率并不小，Android的开放生态使得没有任何人能绝对的说，它的应用或代码可以和所有Android机型兼容。由此带来的问题就是，如果你使用的是部分第三方的开源热更新技术，没有人及时跟进issue时，遇到问题难以及时修复。</p>
+<p>第三大坑是部署和实施，热更新并不是在在客户端嵌个SDK，然后写几行代码集成就完了，你还需要在服务器部署更新包的分发，管理不同的客户端版本和差分包，更新出现问题时要能回滚，另外灰度发布也是运营大概率会要求支持的，甚至可能还有针对机型和系统版本进行更新的需求。这方面的人力成本并不小。</p>
+<h2 id="乐变的热更新解决方案"><a href="#乐变的热更新解决方案" class="headerlink" title="乐变的热更新解决方案"></a>乐变的热更新解决方案</h2><p>黄杲介绍，乐变的Android热更新服务通过以下手段避免以上的几个坑。</p>
+<p>对于Android新版本的适配，乐变作为Google Partners Lab的成员，可以做到在每年的年初，甚至是Google I/O之前，就完成了下半年才会正式发布的Android新版本的兼容和测试。</p>
+<p>乐变热更作为已经研发和成熟商业化运营已有五年的方案，支持从Android 2.2到最新的Android O pre-release的所有版本，支持x86等小众架构，支持Dalvik和ART引擎，并适配过数千款机型，所以成熟度非常高。</p>
+<p>此外，乐变热更新提供的是一整套的解决方案，包括客户端、服务端、管理后台和统计系统、Crash分析系统等等，所有这些部分都无需开发者自己来构建和实现。</p>
+<p>同时，乐变还能够进一步帮助App开发者降低Crash率，一方面通过崩溃日志手机和分析系统，帮助应用开发者收集每个版本的Crash Log，在后台的分析能够自动将这些崩溃日志归因到具体的机型和Android版本，还有一个智能分析的后台帮助开发者初步定位是什么原因导致的；另一方面，乐变热更新有分机型和分Android版本的更新，在应用的不兼容的问题解决后，可以通过乐变的热更新能力帮助应用仅更新指定机型或安卓版本即可动态解决不兼容和Crash的问题。</p>
+<p>乐变不是一个简单的热更参考方案，而是围绕版本管理的一整套的精细化运营系统，支持灰度发布、AB测试、分区域更新、分机型更新、自定义标签更新、沉默用户激活、定时上线和预下载等等的能力支撑，客户只需关注如何围绕产品使用好这些功能就能够完成精细化的产品运营。</p>
+<p>最后，在服务的灵活性方面，乐变不仅支持公有云的标准化服务，也支持私有云的部署方案，结合客户的诉求，实施方式灵活多变。</p>
+<h1 id="游戏热更新技术"><a href="#游戏热更新技术" class="headerlink" title="游戏热更新技术"></a>游戏热更新技术</h1><p>在移动平台，游戏的热更新使用的技术通常与App不同，有些热更新功能由游戏引擎自行提供，不过要做将热更新做到极致，还是有些地方需要注意。</p>
+<p>比如游戏包体通常比较大，所以在差分包计算上难度会更大；同时，游戏的强制更新比较多，针对强制更新将用户体验设计好就很重要；再有，游戏渠道的二次打包的现象比较普遍，这又会进一步对于差分包的计算提出新的挑战；最后，应用和游戏要更新对象的侧重点也会有些差异，比如应用在渠道包之间一般只有渠道标识的差异，但游戏则需集成不同渠道SDK.</p>
+<h1 id="游戏分包技术"><a href="#游戏分包技术" class="headerlink" title="游戏分包技术"></a>游戏分包技术</h1><p>热更新在游戏中的一个特殊地方就是游戏分包技术，当前手机游戏的安装包越做越大，但实际上可以通过一些技术实现边下边玩，相对的安装包可以做到很小。</p>
+<p>黄杲介绍道，乐变的游戏分包服务包括三级压缩：</p>
+<p>第一级是针对iOS平台的显示包体变大的问题：可能一个300M的游戏包体在App Store里显示会超过800M，他们通过在文件系统层的能力增强等方式能基本解决这个问题；</p>
+<p>第二级是边玩边下，原理是通过将用户早期访问到的资源提取出来形成一个小包，在用户玩游戏的同时自动下午后续内容(非WiFi状态需要用户确实和选择)，通过这种方式，通常能够将包体压缩至原包体的三分之一以下的大小；</p>
+<p>第三级就是刚才提到的二次加载或者说叫微端，部分游戏即使通过边玩边下做出来的小包仍然比较大，为了满足一些平台的上线要求，比如Google Play上100MB以下的包体才允许上传，再比如iOS在100MB以下的包体才允许流量用户下载，那此时就需要对包体仍然过大的游戏通过二次加载的技术来进一步将包体做小。相之于边玩变下的小包对于用户体验是没有影响的，即和完整包完全一致，微端的游戏包体在启动后是不能玩的，用户需要等待加载资源到边玩边下的临界点才能进入游戏。</p>
+<p>当前乐变的游戏分包技术支持支持iOS和Android，支持的游戏引擎包括Unity和Cocos2d-X，其它的游戏引擎或平台的对接还在开发和测试当中，比如针对虚幻引擎的支持，还有针对Windows系统的支持等。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>App热更新技术是目前热门的移动开发方向，同时对于移动App和游戏在运营和开发上也能提供很大的帮助。对于没有自研能力的公司来说，在选择热更新技术时，需要多方面考虑，选择适合自己的技术和服务。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="" target="_blank" rel="external"></a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hotfix/">hotfix</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/&title=《【转】乐变黄杲：当前如何选择App热更新服务》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/&title=《【转】乐变黄杲：当前如何选择App热更新服务》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】乐变黄杲：当前如何选择App热更新服务》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【转】Understanding the Gradle Wrapper</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/22/Prezi-使用入门/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Prezi 使用入门</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/index.html',
+        sourceId: 'android/【转】乐变黄杲：当前如何选择App热更新服务',
+        productKey: '51605be3f66c484481e439a3f7e57c66',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/&title=《【转】乐变黄杲：当前如何选择App热更新服务》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/&title=《【转】乐变黄杲：当前如何选择App热更新服务》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】乐变黄杲：当前如何选择App热更新服务》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD6ElEQVR42u3aS1IjQQwFQO5/aWbLBNi8J8nAInvlMHRXVTYRQp+3t/h6/3B9/Cb/6efPn+999Jz8rudrnV04cODAgSM+arKtZLvtYfIX8Pz3k3u/WR0HDhw4cBxxJAskESr5vg2om8O3e8OBAwcOHH+Bow2K+XNagnb/OHDgwIHj73O06dyGKdkVDhw4cOD4LY68hZNvLn/OvtXUFjcPaqU4cODAgWMe6aIBhb/8+SXzHThw4MCBI0i9NkG3bU09v7cNtwenw4EDBw4cN4GiGFZoQ9q++TQbdGhfDw4cOHDgeDXHPlmaBb/kYG15sWg44cCBAweONUebquUtqCRtawPzLG0ryp04cODAgWPNkSRpSaB6ftcwlYp3lQwu1K8HBw4cOHCMONrRsXYELaG5HVlo1/2iLIgDBw4cOBYceaEwCXX71lRb5mtHItrXjwMHDhw4Nhy13GIAok0aZ2nhJkHFgQMHDhx7jk2bp23ttAE4b2W13w/fMA4cOHDgCELspi3Ugs7KiPk/BzNKHDhw4MBxxZGnT5uwt4n5++fU3Dhw4MCBY8Hx6kGEdqxtM/rWHv6bEIsDBw4cOI448pDZlgXbdduQmYfkh3fhwIEDB44jjrYkN0vzNknX7Pu6nYYDBw4cOBYcbfo0qzvePv/sryD5jwMHDhw4cIw42jRsNigwS732JcKifIkDBw4cOF7AcVUc3AfyqyBapI44cODAgeOIYza+NguWbVmwfRntKv99xoEDBw4ca44k3WrbSO2YXT6I0A7SDUfocODAgQPHgqNt/GwaSO1P9weuC5E4cODAgeOIow26w3geJGx5utUWMaO94cCBAweO0721426zgbn989sxi/zF48CBAweOPUdeBNwU7NoUazaE0Z7li/3jwIEDB441RxsIZ8MHear2PHy2QwxtqMaBAwcOHLccm+ZNXuCbtYVysmTYog3tOHDgwIEj50hKckkK9BZfbbh9XUnxCxocOHDgwHHEsUmiZqNsbeCcPa0N2Dhw4MCB44qjPUw+PHeVELahNFm3SOFw4MCBA0fJkSdR+bBCPhKxP1I7FfgQFwcOHDhwrDnyY7TLtAMTr4t39Vo4cODAgWPB8V5eSVFvn2K1AxZ5QK3nOHDgwIEDxzzi1HB5Ua9taLWgSRDN18KBAwcOHHuOfOBsEwhnBb78qPtAjgMHDhw4bjnaQJWEw0361A5PzMqCDwMtDhw4cOD4QY5Zi2iT7LXDELNhCxw4cODA8bscSaFwf5i2xtk2sQ5SOBw4cODAsSgOztpIs2O3xcr9EAYOHDhw4LjiyEtpbRMobzXlB8h3lWPhwIEDB44jjn9IDnvu2H8ZuwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
