@@ -221,17 +221,20 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        fragment与activity的关系参考文章：Android 使用 Fragment 构建 Presenter
-重构方面
-细化视图／布局
-细化逻辑（Activity 中的逻辑）
-无限细化
+        <h1 id="fragment与activity的关系"><a href="#fragment与activity的关系" class="headerlink" title="fragment与activity的关系"></a>fragment与activity的关系</h1><p>参考文章：<a href="http://zhuanlan.zhihu.com/p/20656755" target="_blank" rel="external">Android 使用 Fragment 构建 Presenter</a></p>
+<h2 id="重构方面"><a href="#重构方面" class="headerlink" title="重构方面"></a>重构方面</h2><ul>
+<li>细化视图／布局</li>
+<li>细化逻辑（Activity 中的逻辑）</li>
+<li>无限细化</li>
+</ul>
+<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><p>用于构建Presenter<br>好处：</p>
+<ul>
+<li>能够同步 Activity 的生命周期，在生命周期内进行逻辑操作</li>
+<li>能够很好地处理系统重建视图时（例如屏幕旋转）的现场恢复问题</li>
+<li>它也能够在系统重建视图时不销毁实例，保留子属性，并且不打断正在进行的任务。（setRetainInstance(true)）</li>
+</ul>
+<h2 id="Fragment-的现场恢复"><a href="#Fragment-的现场恢复" class="headerlink" title="Fragment 的现场恢复"></a>Fragment 的现场恢复</h2><p>文章内有详细介绍</p>
 
-MVP用于构建Presenter好处：
-
-能够同步 Activity 的生命周期，在生命周期内进行逻辑操作
-能够很好地处理系统重建视图时（例如屏幕旋转）的现场恢复问题
-它也能够在系统重建视图时不销毁实...
     
 
         <a href="/2016/04/11/android/fragment/" class="post-more waves-effect waves-button">
@@ -280,12 +283,33 @@ MVP用于构建Presenter好处：
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        指纹识别发展史参考文章：细聊指纹识别发展史
-应用实例
-西门子 1998 年(指纹技术来自 Bromba 公司,世界上首款搭载指纹识别技术的手机，只是一部原型机，并没有量产)
-SAGEM MC 959 2000 年(意法半导体的指纹技术)
-Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（PFC）)
-富士通 F505i 2003 年(技术...
+        <h1 id="指纹识别发展史"><a href="#指纹识别发展史" class="headerlink" title="指纹识别发展史"></a>指纹识别发展史</h1><p>参考文章：<a href="http://zhuanlan.zhihu.com/p/20734554" target="_blank" rel="external">细聊指纹识别发展史</a></p>
+<h2 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h2><ul>
+<li>西门子 1998 年(指纹技术来自 Bromba 公司,<em>世界上首款搭载指纹识别技术的手机，只是一部原型机，并没有量产</em>)</li>
+<li>SAGEM MC 959 2000 年(意法半导体的指纹技术)</li>
+<li>Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（PFC）)</li>
+<li>富士通 F505i 2003 年(技术来自后来名声大震的 Authentec)</li>
+<li>MOTO MB860 2011 年(<em>第一部具备指纹识别的大屏智能机</em>,指纹技术同样来自 AuthenTec)</li>
+<li>iPhone5s 2013 年 9 月(首款搭载正面按压式指纹识别的手机)</li>
+</ul>
+<h2 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h2><ul>
+<li>FPC 和 AuthenTec<br>FPC 来自瑞典，老牌指纹识别技术公司，成立于 1997 年。AuthenTec 来自美国，也是一家老牌指纹识别技术公司，成立于 1998 年。</li>
+</ul>
+<p>12年初，AuthenTec 终于研发出来了正面按压式的指纹技术，并且向LG、富士、三星、诺基亚、苹果等大客户展示，然而最终只有苹果感兴趣。</p>
+<p>现在好了，AuthenTec 被苹果这么一收购，从今往后，FingerPrint Card 在指纹识别的市场上就是直挂云帆济沧海。</p>
+<ul>
+<li><p>悲情英雄——富士通<br>一直采用 AuthenTec 的技术，由于采用刮擦式，指纹功能叫好不叫座</p>
+</li>
+<li><p>HTC One Max 2012 年 10 月<br>Max 的指纹技术来自美国的老牌触控 IC 供应商 Synaptics（Validity），依旧是刮擦式，而且还是在背面</p>
+</li>
+<li><p>魅族 MX4 Pro 2014 年 12 月<br>技术支持Goodix（汇顶）</p>
+</li>
+<li><p>三星 S6 2015 年 4 月<br>使用的技术仍然是三星老相好 Synaptics</p>
+</li>
+<li><p>魅蓝 note3 2016 年 4 月</p>
+</li>
+</ul>
+
     
 
         <a href="/2016/04/11/daily/科普指纹识别/" class="post-more waves-effect waves-button">
@@ -328,8 +352,9 @@ Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（P
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        MySQL-python下载http://www.codegood.com/archives/129
-破解SQLYog30天试用方法开始-运行-regedit ，进入注册表，在 \HEYK_CURRENT_USER\Software{FCE28CE8-D8CE-4637-9BC7-93E4C0D407FA}下的 InD 保存着 SQLyog 的使用天数，十进制值 2455140～245513...
+        <p>MySQL-python下载<a href="http://www.codegood.com/archives/129" target="_blank" rel="external">http://www.codegood.com/archives/129</a></p>
+<p>破解SQLYog30天试用方法<br>开始-运行-regedit ，进入注册表，在 <code>\HEYK_CURRENT_USER\Software{FCE28CE8-D8CE-4637-9BC7-93E4C0D407FA}</code>下的 InD 保存着 SQLyog 的使用天数，十进制值 2455140～2455131 表示 30～1 天，该区间外的数值应该均为0天，所以每次可以更改该数值便可一直试用。<br>删除该项，在重启SQLyog后注册表中会重新生成，使用期为30天。</p>
+
     
 
         <a href="/2016/04/10/scripts/python使用mysql数据库/" class="post-more waves-effect waves-button">
@@ -378,14 +403,15 @@ Handspring Visor 2001 年(搭载的指纹识别模块来自 FingerPrint Card（P
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、思路
-启动 Eclipse,  
-点击 Help-&gt;Install New Software…  
-在弹出的对话框中，点 Add 按钮。  
-Name 中填: Pydev, Location 中填 http://pydev.org/updates…  
+        <h1 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h1><ul>
+<li>启动 Eclipse,  </li>
+<li>点击 Help-&gt;Install New Software…  </li>
+<li>在弹出的对话框中，点 Add 按钮。  </li>
+<li>Name 中填: Pydev, Location 中填 <code>http://pydev.org/updates</code><br>…  </li>
+</ul>
+<p>按要求执行下一步操作，如遇错误，则重装。<br>若安装成功，则重启即可</p>
+<h1 id="二、参考文章"><a href="#二、参考文章" class="headerlink" title="二、参考文章"></a>二、参考文章</h1><p><a href="http://www.cnblogs.com/TankXiao/archive/2013/05/29/3033640.html" target="_blank" rel="external">Python自动化测试 (一) Eclipse+Pydev搭建开发环境</a></p>
 
-按要求执行下一步操作，如遇错误，则重装。若安装成功，则重启即可
-二、参考文章Python自动化测试 (一) Eclipse+Py...
     
 
         <a href="/2016/04/10/others/eclipse中添加pydev插件/" class="post-more waves-effect waves-button">
@@ -434,7 +460,69 @@ Name 中填: Pydev, Location 中填 http://pydev.org/updates…
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、问题描述UniversalAndroidImageLoader出现异常：ImageLoader:Unable to resolve host &quot;https&quot;No address associated with host使用 ImageLoader 时，出现如下错误，始终加载图片错误，显示 img_error 的图片 UniversalAndroidImageLoade...
+        <h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p><code>UniversalAndroidImageLoader出现异常：ImageLoader:Unable to resolve host &quot;https&quot;No address associated with host</code><br>使用 ImageLoader 时，出现如下错误，始终加载图片错误，显示 img_error 的图片 UniversalAndroidImageLoader 出现异常： <code>ImageLoader:
+Unable to resolve host &quot;https&quot;: No address associated with host</code></p>
+<pre><code>E/ImageLoader: failed to connect to https/183.221.250.11 (port 443) after 5000ms: isConnected failed: ECONNREFUSED (Connection refused)
+    java.net.ConnectException: failed to connect to https/183.221.250.11 (port 443) after 5000ms: isConnected failed: ECONNREFUSED (Connection refused)
+    at libcore.io.IoBridge.isConnected(IoBridge.java:267)
+        at libcore.io.IoBridge.connectErrno(IoBridge.java:191)
+        at libcore.io.IoBridge.connect(IoBridge.java:127)
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:188)
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:461)
+        at java.net.Socket.connect(Socket.java:918)
+        at com.android.okhttp.internal.Platform.connectSocket(Platform.java:174)
+        at com.android.okhttp.Connection.connect(Connection.java:152)
+        at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:282)
+        at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:216)
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:391)
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:341)
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponseCode(HttpURLConnectionImpl.java:509)
+        at com.android.okhttp.internal.http.DelegatingHttpsURLConnection.getResponseCode(DelegatingHttpsURLConnection.java:105)
+        at com.android.okhttp.internal.http.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:25)
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStreamFromNetwork(BaseImageDownloader.java:117)
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStream(BaseImageDownloader.java:88)
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.getImageStream(BaseImageDecoder.java:98)
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.decode(BaseImageDecoder.java:74)
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.decodeImage(LoadAndDisplayImageTask.java:265)
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.tryLoadBitmap(LoadAndDisplayImageTask.java:238)
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.run(LoadAndDisplayImageTask.java:136)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+        at java.lang.Thread.run(Thread.java:818)
+    Caused by: android.system.ErrnoException: isConnected failed: ECONNREFUSED (Connection refused)
+        at libcore.io.IoBridge.isConnected(IoBridge.java:252)
+        at libcore.io.IoBridge.connectErrno(IoBridge.java:191)?
+        at libcore.io.IoBridge.connect(IoBridge.java:127)?
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:188)?                             
+        at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:461)?
+        at java.net.Socket.connect(Socket.java:918)?
+        at com.android.okhttp.internal.Platform.connectSocket(Platform.java:174)?
+        at com.android.okhttp.Connection.connect(Connection.java:152)?
+        at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:282)?
+        at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:216)?
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:391)?
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:341)?
+        at com.android.okhttp.internal.http.HttpURLConnectionImpl.getResponseCode(HttpURLConnectionImpl.java:509)?
+        at com.android.okhttp.internal.http.DelegatingHttpsURLConnection.getResponseCode(DelegatingHttpsURLConnection.java:105)?
+        at com.android.okhttp.internal.http.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:25)?
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStreamFromNetwork(BaseImageDownloader.java:117)?
+        at com.nostra13.universalimageloader.core.download.BaseImageDownloader.getStream(BaseImageDownloader.java:88)?
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.getImageStream(BaseImageDecoder.java:98)?
+        at com.nostra13.universalimageloader.core.decode.BaseImageDecoder.decode(BaseImageDecoder.java:74)?
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.decodeImage(LoadAndDisplayImageTask.java:265)?
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.tryLoadBitmap(LoadAndDisplayImageTask.java:238)?
+        at com.nostra13.universalimageloader.core.LoadAndDisplayImageTask.run(LoadAndDisplayImageTask.java:136)?
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)?
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)?
+        at java.lang.Thread.run(Thread.java:818)?
+</code></pre><h1 id="二、错误解决"><a href="#二、错误解决" class="headerlink" title="二、错误解决"></a>二、错误解决</h1><h2 id="2-1-添加权限（权限未添加）"><a href="#2-1-添加权限（权限未添加）" class="headerlink" title="2.1 添加权限（权限未添加）"></a>2.1 添加权限（权限未添加）</h2><pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;
+</code></pre><h2 id="2-2-已添加权限，但仍旧出现异常"><a href="#2-2-已添加权限，但仍旧出现异常" class="headerlink" title="2.2 已添加权限，但仍旧出现异常"></a>2.2 已添加权限，但仍旧出现异常</h2><ul>
+<li>android进入应用管理，清除缓存，清除数据。</li>
+<li>或者直接下载该引用，重新上载。即可解决问题。</li>
+</ul>
+<h1 id="2-3-出现问题的原因"><a href="#2-3-出现问题的原因" class="headerlink" title="2.3 出现问题的原因"></a>2.3 出现问题的原因</h1><p><strong>以后将做探讨</strong></p>
+
     
 
         <a href="/2016/04/05/android/universalimageloader出现异常：imageloader-unable-to-resolve-host-https-no-address-associated-with-host/" class="post-more waves-effect waves-button">
@@ -483,11 +571,18 @@ Name 中填: Pydev, Location 中填 http://pydev.org/updates…
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述Butterknife 是一款 Android Studio 的功能强大插件。有了它，你几乎可以和 findViewById 说 byebye 了。
-二、使用Github 地址：https://github.com/avast/android-butterknife-zelezny
-三、问题解决Generate ButterKnife Injections 不出现的问题解决
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Butterknife 是一款 Android Studio 的功能强大插件。有了它，你几乎可以和 findViewById 说 byebye 了。</p>
+<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><p>Github 地址：<a href="https://github.com/avast/android-butterknife-zelezny" target="_blank" rel="external">https://github.com/avast/android-butterknife-zelezny</a></p>
+<h1 id="三、问题解决"><a href="#三、问题解决" class="headerlink" title="三、问题解决"></a>三、问题解决</h1><p>Generate ButterKnife Injections 不出现的问题解决</p>
+<ul>
+<li><p>下载后重启须重启as，方生效</p>
+</li>
+<li><p>打开 Gradle App，添加 <code>compile &#39;com.jakewharton:butterknife:7.0.1&#39;</code> 依赖</p>
+</li>
+<li><p>请务必将鼠标光标悬停在 <code>R.layout.xxx</code> 处，点击右键！请详细参阅 <a href="https://github.com/avast/android-" target="_blank" rel="external">https://github.com/avast/android-</a><br>butterknife-zelezny</p>
+</li>
+</ul>
 
-下载后...
     
 
         <a href="/2016/03/22/android/butterknife简介及generate-butterknife-injections不出现的问题解决/" class="post-more waves-effect waves-button">
@@ -536,7 +631,7 @@ Name 中填: Pydev, Location 中填 http://pydev.org/updates…
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Android 手机的几种网络获取网络状态
+        <p>Android 手机的几种网络<br>获取网络状态<br>
     
 
         <a href="/2016/03/20/android/android网络连接/" class="post-more waves-effect waves-button">
@@ -585,7 +680,7 @@ Name 中填: Pydev, Location 中填 http://pydev.org/updates…
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        BaseAdapter 数据已经加载，但是 ListView 不显示的解决方案
+        <p>BaseAdapter 数据已经加载，但是 ListView 不显示的解决方案<br>
     
 
         <a href="/2016/03/20/android/baseadapter数据已经加载但是listview不显示的解决方案/" class="post-more waves-effect waves-button">
@@ -634,7 +729,7 @@ Name 中填: Pydev, Location 中填 http://pydev.org/updates…
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本不稳定等问题，造成AS的更新遇上不小障碍。正是基于这几点，编者决定撰写一篇更新教程，以免开发者的Android开发受阻于工具更新阶段。
+        <p>截至本文撰写时，as已经更新到2.1 Preview3了。在google频繁更新迭代过程中，开发者的更新脚步也不能滞后呀！但是，中国特殊的国情、AS的版本不稳定等问题，造成AS的更新遇上不小障碍。正是基于这几点，编者决定撰写一篇更新教程，以免开发者的Android开发受阻于工具更新阶段。<br>
     
 
         <a href="/2016/03/18/android/android-studio的下载及更新/" class="post-more waves-effect waves-button">
@@ -683,7 +778,7 @@ Name 中填: Pydev, Location 中填 http://pydev.org/updates…
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        近期(2016.3.8-2016.3.18)技术工作总结近期做了一个小项目。从某种意义上讲，这个项目破产了。先就这个问题进行一定的总结
+        <p>近期(2016.3.8-2016.3.18)技术工作总结<br>近期做了一个小项目。从某种意义上讲，这个项目破产了。先就这个问题进行一定的总结<br>
     
 
         <a href="/2016/03/17/daily/近期技术工作总结/" class="post-more waves-effect waves-button">

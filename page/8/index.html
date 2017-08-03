@@ -221,14 +221,49 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        安装第三方库出现 Python version 2.7 required, which was not found in the registry
-建立一个文件 register.py 内容如下. 然后执行该脚本.
-import sys  
+        <p>安装第三方库出现 Python version 2.7 required, which was not found in the registry</p>
+<p>建立一个文件 register.py 内容如下. 然后执行该脚本.</p>
+<pre><code>import sys  
 
 from _winreg import *  
 
 # tweak as necessary  
-version = sys.version[:3]  ...
+version = sys.version[:3]  
+installpath = sys.prefix  
+
+regpath = &quot;SOFTWARE\\Python\\Pythoncore\\%s\\&quot; % (version)  
+installkey = &quot;InstallPath&quot;  
+pythonkey = &quot;PythonPath&quot;  
+pythonpath = &quot;%s;%s\\Lib\\;%s\\DLLs\\&quot; % (  
+    installpath, installpath, installpath  
+)  
+
+def RegisterPy():  
+    try:  
+        reg = OpenKey(HKEY_CURRENT_USER, regpath)  
+    except EnvironmentError as e:  
+        try:  
+            reg = CreateKey(HKEY_CURRENT_USER, regpath)  
+            SetValue(reg, installkey, REG_SZ, installpath)  
+            SetValue(reg, pythonkey, REG_SZ, pythonpath)  
+            CloseKey(reg)  
+        except:  
+            print &quot;*** Unable to register!&quot;  
+            return  
+        print &quot;--- Python&quot;, version, &quot;is now registered!&quot;  
+        return  
+    if (QueryValue(reg, installkey) == installpath and  
+        QueryValue(reg, pythonkey) == pythonpath):  
+        CloseKey(reg)  
+        print &quot;=== Python&quot;, version, &quot;is already registered!&quot;  
+        return  
+    CloseKey(reg)  
+    print &quot;*** Unable to register!&quot;  
+    print &quot;*** You probably have another Python installation!&quot;  
+
+if __name__ == &quot;__main__&quot;:  
+    RegisterPy()  
+</code></pre>
     
 
         <a href="/2016/10/07/scripts/【转】安装第三方库出现-python-version-2.7-required-which-was-not-found-in-the-registry/" class="post-more waves-effect waves-button">
@@ -277,9 +312,11 @@ version = sys.version[:3]  ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        遇到如下异常：File “C:\Users\Neil\PycharmProjects\ScrapyDouban\book\book\database.py”, line4, in
-解决方法：从 https://pypi.python.org/pypi/MySQL-python/1.2.5 中下载 MySQL-python-1.2.5.win32-py2.7.exe 并运行即可
-上面只有32位...
+        <p>遇到如下异常：<br>File “C:\Users\Neil\PycharmProjects\ScrapyDouban\book\book\database.py”, line<br>4, in</p>
+<p>解决方法：<br>从 <a href="https://pypi.python.org/pypi/MySQL-python/1.2.5" target="_blank" rel="external">https://pypi.python.org/pypi/MySQL-python/1.2.5</a> 中下载 MySQL-<br>python-1.2.5.win32-py2.7.exe 并运行即可</p>
+<p>上面只有32位的，下面这个链接里有32/64bit<br><a href="http://www.codegood.com/archives/129" target="_blank" rel="external">http://www.codegood.com/archives/129</a></p>
+<p>在运行 MySQL-python-1.2.5.win32-py2.7.exe 过程中，出现 Python version 2.7 required,<br>which was not found in the registry问题，解决方法见<br><a href="http://blog.csdn.net/zklth/article/details/8117207" target="_blank" rel="external">http://blog.csdn.net/zklth/article/details/8117207</a></p>
+
     
 
         <a href="/2016/10/07/scripts/在python中调用mysql出问题import-error-no-module-named-mysqldbconstants/" class="post-more waves-effect waves-button">
@@ -328,10 +365,17 @@ version = sys.version[:3]  ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、初衷近期正在做网络计算编程的作业。要求平台为unix/linux，想着RaspberryPi装的Debian系统也是Linux改的，也应该能够勉强用着，所以就用它来做作业了！
-二、说明先把环境搭了（配置unp.h头文件环境），具体步骤见下文http://www.voidcn.com/blog/liyuefeilong/article/p-5697814.html
+        <h1 id="一、初衷"><a href="#一、初衷" class="headerlink" title="一、初衷"></a>一、初衷</h1><p>近期正在做网络计算编程的作业。要求平台为unix/linux，想着Raspberry<br>Pi装的Debian系统也是Linux改的，也应该能够勉强用着，所以就用它来做作业了！</p>
+<h1 id="二、说明"><a href="#二、说明" class="headerlink" title="二、说明"></a>二、说明</h1><p>先把环境搭了（配置unp.h头文件环境），具体步骤见下文<br><a href="http://www.voidcn.com/blog/liyuefeilong/article/p-5697814.html" target="_blank" rel="external">http://www.voidcn.com/blog/liyuefeilong/article/p-5697814.html</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161021093019435-1037765295.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p>编译出错 ，如上图，解决方案：<br><a href="http://www.cnblogs.com/instorm/p/3415483.html" target="_blank" rel="external">http://www.cnblogs.com/instorm/p/3415483.html</a></p>
 
-           ...
     
 
         <a href="/2016/10/02/others/【转】【raspberry-pi】unix-network-programming-配置unp.h头文件环境/" class="post-more waves-effect waves-button">
@@ -380,21 +424,72 @@ version = sys.version[:3]  ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述2016年暑假某宝入手Raspberry Pi 3，装机清单：
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>2016年暑假某宝入手Raspberry Pi 3，装机清单：</p>
+<ul>
+<li>树莓派主板</li>
+<li>亚克力外壳</li>
+<li>小风扇</li>
+<li>散热片</li>
+<li>30G SD card</li>
+<li>螺丝若干颗</li>
+</ul>
+<p>因机型问题，可能与你的机器有微小差异</p>
+<h1 id="二、装机过程"><a href="#二、装机过程" class="headerlink" title="二、装机过程"></a>二、装机过程</h1><h2 id="2-1-开箱一览"><a href="#2-1-开箱一览" class="headerlink" title="2.1 开箱一览"></a>2.1 开箱一览</h2><p>树莓派主板（塑料袋装） + 安全指南 + 快速开始指南 + 包装纸盒<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073125273-441602176.jpg" alt=""></p>
+<p>树莓派主板正反面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073231059-1875333534.jpg" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073254248-1333331790.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>亚克力外壳 + 小风扇<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002073325407-1124008772.jpg" alt=""></p>
+<h2 id="2-2-亚克力外壳拼装及主板内嵌"><a href="#2-2-亚克力外壳拼装及主板内嵌" class="headerlink" title="2.2 亚克力外壳拼装及主板内嵌"></a>2.2 亚克力外壳拼装及主板内嵌</h2><p>由于主板是内嵌进外壳的，因此需要在拼装外壳的同时，将主板同步嵌入其中。</p>
+<p>由于亚克力外壳是被拆分成块的，相互之间的拼接完全是靠不同块儿之间的凹槽相互作用（卡住）而包裹主板的，因此需要明确不同块儿的位置和块儿及其上凹槽、镂空的作用才能真正拼好外壳，拼装过程宜缓而轻，切记一时用力过度就将外壳或者主板弄坏。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002082713478-1550693708.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="2-3-内嵌后四周展示"><a href="#2-3-内嵌后四周展示" class="headerlink" title="2.3 内嵌后四周展示"></a>2.3 内嵌后四周展示</h2><p>上面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002082946660-304352000.jpg" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083027023-1750879758.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>下面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083114713-1251466776.jpg" alt=""></p>
+<p>左面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083158873-81468586.jpg" alt=""></p>
+<p>右面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083222375-464585796.jpg" alt=""></p>
+<p>前面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083259127-571675613.jpg" alt=""></p>
+<p>后面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002083316847-421614736.jpg" alt=""></p>
+<h2 id="2-4-安装风扇时特别注意"><a href="#2-4-安装风扇时特别注意" class="headerlink" title="2.4 安装风扇时特别注意"></a>2.4 安装风扇时特别注意</h2><p>首先，风扇扇叶的正反面切勿装反，不然起不到吹风的效果</p>
+<p>其次，风扇引脚插入切勿错误<br>红线（正极）4脚，黑线（负极）6脚</p>
+<p>附引脚标号图（具体朝向：图片左边为主板主体，下方为usb接口等）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002084613417-1387797780.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="三、系统安装过程"><a href="#三、系统安装过程" class="headerlink" title="三、系统安装过程"></a>三、系统安装过程</h1><h2 id="3-1-系统烧写"><a href="#3-1-系统烧写" class="headerlink" title="3.1 系统烧写"></a>3.1 系统烧写</h2><h3 id="3-1-1-插入一张内存大小大于4G的内存卡"><a href="#3-1-1-插入一张内存大小大于4G的内存卡" class="headerlink" title="3.1.1 插入一张内存大小大于4G的内存卡"></a>3.1.1 插入一张内存大小大于4G的内存卡</h3><h3 id="3-1-2-使用针对特定平台的软件对sd卡进行格式化"><a href="#3-1-2-使用针对特定平台的软件对sd卡进行格式化" class="headerlink" title="3.1.2 使用针对特定平台的软件对sd卡进行格式化"></a>3.1.2 使用针对特定平台的软件对sd卡进行格式化</h3><ul>
+<li>a. Windows i. 从 <a href="https://www.sdcard.org/downloads/formatter_4/eula_windows/" target="_blank" rel="external">https://www.sdcard.org/downloads/formatter_4/eula_windows/</a> 下载SD卡格式化辅助工具 ii. 在你的机器（PC机）上安装并运行格式化辅助工具 iii. 在 “Options” 菜单中，将 “FORMAT SIZE ADJUSTMENT” 选项设置为 “ON” iv. 检查工具中选中的SD卡是你插入的待烧制系统的sd卡 v. 点击 “Format” 按钮</li>
+<li><p>b. Mac i. 从 <a href="https://www.sdcard.org/downloads/formatter_4/eula_mac/" target="_blank" rel="external">https://www.sdcard.org/downloads/formatter_4/eula_mac/</a> 下载SD卡格式化辅助工具 ii. 在你的机器（PC机）上安装并运行格式化辅助工具 iii. 选择 “Overwrite Format”<br>iv.检查工具中选中的SD卡是你插入的待烧制系统的sd卡 v. 点击 “Format” 按钮</p>
+</li>
+<li><p>c. Linux i. 我们推荐使用 gparted (或者是命令行版本的 parted) ii. 将整张硬盘格式化为 FAT 格式</p>
+</li>
+</ul>
+<h3 id="3-1-3-从官网下载NOOBS"><a href="#3-1-3-从官网下载NOOBS" class="headerlink" title="3.1.3 从官网下载NOOBS"></a>3.1.3 从官网下载NOOBS</h3><p><a href="https://www.raspberrypi.org/downloads/noobs/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/noobs/</a></p>
+<h3 id="3-1-4-将NOOBS-zip解压"><a href="#3-1-4-将NOOBS-zip解压" class="headerlink" title="3.1.4 将NOOBS zip解压"></a>3.1.4 将NOOBS zip解压</h3><p>以下为 NOOBS_v1_9_2.zip 解压得到的文件，其他版本可能会有差异<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002090157156-1065272343.png" alt=""></p>
+<h3 id="3-1-5-将-3-1-4-中解压得到的所有文件拷贝到-3-1-2-中正确格式化了的SD卡内"><a href="#3-1-5-将-3-1-4-中解压得到的所有文件拷贝到-3-1-2-中正确格式化了的SD卡内" class="headerlink" title="3.1.5 将 3.1.4 中解压得到的所有文件拷贝到 3.1.2 中正确格式化了的SD卡内"></a>3.1.5 将 3.1.4 中解压得到的所有文件拷贝到 3.1.2 中正确格式化了的SD卡内</h3><p>注意：有时可能会将 zip 解压成一个文件夹，但是要注意，请将里面的文件（有许多文件）拷贝到格式化了的SD卡中</p>
+<h3 id="3-1-6-烧写成功"><a href="#3-1-6-烧写成功" class="headerlink" title="3.1.6 烧写成功"></a>3.1.6 烧写成功</h3><h2 id="3-2-系统安装"><a href="#3-2-系统安装" class="headerlink" title="3.2 系统安装"></a>3.2 系统安装</h2><h3 id="3-2-1-将-3-1-将经过-3-1-系列步骤得到的SD卡插入你的树莓派上"><a href="#3-2-1-将-3-1-将经过-3-1-系列步骤得到的SD卡插入你的树莓派上" class="headerlink" title="3.2.1 将 3.1 将经过 3.1 系列步骤得到的SD卡插入你的树莓派上"></a>3.2.1 将 3.1 将经过 3.1 系列步骤得到的SD卡插入你的树莓派上</h3><h3 id="3-2-2-连接好显示器，接通电源，等待显示器出现画面"><a href="#3-2-2-连接好显示器，接通电源，等待显示器出现画面" class="headerlink" title="3.2.2 连接好显示器，接通电源，等待显示器出现画面"></a>3.2.2 连接好显示器，接通电源，等待显示器出现画面</h3><h3 id="3-2-3-如果不出现故障，即可按屏幕显示的内容完成系统的安装"><a href="#3-2-3-如果不出现故障，即可按屏幕显示的内容完成系统的安装" class="headerlink" title="3.2.3 如果不出现故障，即可按屏幕显示的内容完成系统的安装"></a>3.2.3 如果不出现故障，即可按屏幕显示的内容完成系统的安装</h3><p>debian系统安装界面<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002090950001-351913569.jpg" alt=""></p>
+<p>桌面一览<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091023363-350167658.jpg" alt=""></p>
+<p>menu一览<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091054787-1218227761.jpg" alt=""></p>
+<p>wifi列表一览<br><img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161002091349175-333570786.jpg" alt=""></p>
+<h1 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h1><p>1、树莓派官网 <a href="https://www.raspberrypi.org/" target="_blank" rel="external">https://www.raspberrypi.org/</a><br>2、树莓派下载频道 <a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/</a></p>
 
-树莓派主板
-亚克力外壳
-小风扇
-散热片
-30G SD card
-螺丝若干颗
-
-因机型问题，可能与你的机器有微小差异
-二、装机过程2.1 开箱一览树莓派主板（塑料袋装） + 安全指南 + 快速开始指南 + 包装纸盒
-树莓派主板正反面
-                
-                    
-      ...
     
 
         <a href="/2016/10/02/daily/新入手的raspberry-pi3拼装日志/" class="post-more waves-effect waves-button">
@@ -443,10 +538,12 @@ version = sys.version[:3]  ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述lxml介绍http://lxml.de/
-二、问题ERROR: ‘xslt-config’ 不是内部或外部命令，也不是可运行的程序
-三、解决方法Scrapy在Windows上的安装笔记http://blog.csdn.net/changdejie/article/details/17997299
-四、拓展http://www.lfd.uci.edu/~gohlke/pythonli...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>lxml介绍<a href="http://lxml.de/" target="_blank" rel="external">http://lxml.de/</a></p>
+<h1 id="二、问题"><a href="#二、问题" class="headerlink" title="二、问题"></a>二、问题</h1><p>ERROR: ‘xslt-config’ 不是内部或外部命令，也不是可运行的程序<br><img src="http://images2015.cnblogs.com/blog/797098/201609/797098-20160924185555887-993694305.png" alt=""></p>
+<h1 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h1><p><a href="http://www.biaodianfu.com/install-scrapy-on-
+windows.html" target="_blank" rel="external">Scrapy在Windows上的安装笔记</a><br><a href="http://blog.csdn.net/changdejie/article/details/17997299" target="_blank" rel="external">http://blog.csdn.net/changdejie/article/details/17997299</a></p>
+<h1 id="四、拓展"><a href="#四、拓展" class="headerlink" title="四、拓展"></a>四、拓展</h1><p><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a></p>
+
     
 
         <a href="/2016/09/24/scripts/安装python第三方库lxml时-遇到问题-error-xslt-config不是内部或外部命令-也不是可运行的程序/" class="post-more waves-effect waves-button">
@@ -495,12 +592,12 @@ version = sys.version[:3]  ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        https://www.testbird.com/
-
-本文从我的另一个 blog http://www.cnblogs.com/neillee 中同步过来，同步过程使用了 python 脚本，文章cnblogs博客迁移过程详细介绍了同步过程，并附有源码！
-http://www.cnblogs.com/neillee/p/5773726.html
-截至博客迁移时，cnblogs上的访问量为：
-
+        <p><a href="https://www.testbird.com/" target="_blank" rel="external">https://www.testbird.com/</a></p>
+<hr>
+<p><em>本文从我的另一个 blog <a href="http://www.cnblogs.com/neillee" target="_blank" rel="external">http://www.cnblogs.com/neillee</a> 中同步过来，同步过程使用了 python 脚本，文章<a href="http://cnneillee.github.io/2017/02/26/cnblogs%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B/">cnblogs博客迁移过程</a>详细介绍了同步过程，并附有源码！</em></p>
+<p><a href="http://www.cnblogs.com/neillee/p/5773726.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5773726.html</a></p>
+<p><em>截至博客迁移时，cnblogs上的访问量为：</em></p>
+<hr>
 
     
 
@@ -550,9 +647,12 @@ http://www.cnblogs.com/neillee/p/5773726.html
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        随着昨天下午工程文件、文档、app的交付，这次暑期实习算是告一段落了。
-说来蛮开心的，这次实习是第一次实习，androidapp的更新（教师版1次、学生版2次）由我全程独立完成，因为带我们的学长对android知之甚少，对我的技术指导也十分有限，所以也姑且只能当作是一次项目的实战经历吧。
-独立完成的缘故，所有东西都是自己独立完成，遇到问题也只能靠自己查找资料，想办法去解决。有一个较为切身的体...
+        <p>随着昨天下午工程文件、文档、app的交付，这次暑期实习算是告一段落了。</p>
+<p>说来蛮开心的，这次实习是第一次实习，android<br>app的更新（教师版1次、学生版2次）由我全程独立完成，因为带我们的学长对android知之甚少，对我的技术指导也十分有限，所以也姑且只能当作是一次项目的实战经历吧。</p>
+<p>独立完成的缘故，所有东西都是自己独立完成，遇到问题也只能靠自己查找资料，想办法去解决。有一个较为切身的体会就是，小公司项目管理（包括代码管理、文档管理）很差，可能产品经理一个突发奇想的想法就被强加给你马上完成，这个时候程序员与产品经理之间的沟通仅仅只是口头交流连个需求文档都没有。有时，当你把功能实现了之后，产品经理一看，百般挑剔，然后又得改来改去。这时候你就会发现，之前口头说的都是不作数的，还是文档靠谱点儿，能省去大部分的需求确认时间以及后期各种修改问题。</p>
+<p>ps：8号表妹来成都耍了，昨晚请他们吃了个饭，一起逛了春熙路，到那时中途下雨，哎～～～disapointed！接下来几天就好好放松一下吧！等12号回家了再好好写代码，学习！</p>
+<p>话说前几天加了张明云大神的微信群，一个不错的资源分享群。这几天还发现了一个技术点，gradle用法真的很强大，比如用它分包、签名等等～～后头可以好好学学gradle以及脚本的使用！</p>
+
     
 
         <a href="/2016/08/10/daily/【杂记】8.10大二暑期实习接近尾声/" class="post-more waves-effect waves-button">
@@ -601,8 +701,8 @@ http://www.cnblogs.com/neillee/p/5773726.html
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        做开发有时候会遇到需要mp3外链来进行程序的调试，但是自己搭建服务器比较麻烦，而主流的音乐平台都不提供外链音乐。晚上偶得一外链mp3的网站，标记之：
-http://9hok.com/
+        <p>做开发有时候会遇到需要mp3外链来进行程序的调试，但是自己搭建服务器比较麻烦，而主流的音乐平台都不提供外链音乐。晚上偶得一外链mp3的网站，标记之：</p>
+<p><a href="http://9hok.com/" target="_blank" rel="external">http://9hok.com/</a></p>
 
     
 
@@ -652,10 +752,11 @@ http://9hok.com/
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        https://zhuanlan.zhihu.com/p/21808087
-本文从我的另一个 blog http://www.cnblogs.com/neillee 中同步过来，同步过程使用了 python 脚本，文章cnblogs博客迁移过程详细介绍了同步过程，并附有源码！
-http://www.cnblogs.com/neillee/p/5725736.html
-截至博客迁移时，cnbl...
+        <p><a href="https://zhuanlan.zhihu.com/p/21808087" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/21808087</a></p>
+<p><em>本文从我的另一个 blog <a href="http://www.cnblogs.com/neillee" target="_blank" rel="external">http://www.cnblogs.com/neillee</a> 中同步过来，同步过程使用了 python 脚本，文章<a href="http://cnneillee.github.io/2017/02/26/cnblogs%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B/">cnblogs博客迁移过程</a>详细介绍了同步过程，并附有源码！</em></p>
+<p><a href="http://www.cnblogs.com/neillee/p/5725736.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/5725736.html</a></p>
+<p><em>截至博客迁移时，cnblogs上的访问量为：</em>…</p>
+
     
 
         <a href="/2016/08/01/others/【收藏】哪些比较好的在线编程网站？/" class="post-more waves-effect waves-button">
@@ -698,10 +799,39 @@ http://www.cnblogs.com/neillee/p/5725736.html
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        度过了6月末的漫漫考试季，就跨入了假期的第一个月——7月份。
-继学院各种频繁跳票、同学的各种不靠谱之后，终于于7月11日入职成都乐信达科技有限公司，开始为期一个月的实习时间。
-上班挤着早高峰，公交转地铁，地铁从一号线的站头做到站尾，此间心酸自是不消说了。终归是体验了一把上班族的生活，也算一次社会体验吧！
-2016年7月份主要干的事儿：工作上：2016/07/11-2016/07/14，完成学...
+        <p>度过了6月末的漫漫考试季，就跨入了假期的第一个月——7月份。</p>
+<p>继学院各种频繁跳票、同学的各种不靠谱之后，终于于7月11日入职成都乐信达科技有限公司，开始为期一个月的实习时间。</p>
+<p>上班挤着早高峰，公交转地铁，地铁从一号线的站头做到站尾，此间心酸自是不消说了。终归是体验了一把上班族的生活，也算一次社会体验吧！</p>
+<h2 id="2016年7月份主要干的事儿："><a href="#2016年7月份主要干的事儿：" class="headerlink" title="2016年7月份主要干的事儿："></a>2016年7月份主要干的事儿：</h2><h3 id="工作上："><a href="#工作上：" class="headerlink" title="工作上："></a>工作上：</h3><h4 id="2016-07-11-2016-07-14，完成学生端-versionName-2-versionCode-1-0-2-版本，变更如下："><a href="#2016-07-11-2016-07-14，完成学生端-versionName-2-versionCode-1-0-2-版本，变更如下：" class="headerlink" title="2016/07/11-2016/07/14，完成学生端[versionName: 2, versionCode: 1.0.2]版本，变更如下："></a>2016/07/11-2016/07/14，完成学生端[versionName: 2, versionCode: 1.0.2]版本，变更如下：</h4><ul>
+<li>添加定价机制调整 <ul>
+<li>学生匹配老师的定价机制由年级判断自动设定，改为学生自主设定</li>
+<li>学生指定老师的课程及单价由完全学生自主设定，改为从服务器获取的老师所开设课程及单价</li>
+</ul>
+</li>
+</ul>
+<h4 id="2016-07-15-2016-07-19，完成教师端-versionName-5-versionCode-1-0-5-版本，变更如下："><a href="#2016-07-15-2016-07-19，完成教师端-versionName-5-versionCode-1-0-5-版本，变更如下：" class="headerlink" title="2016/07/15-2016/07/19，完成教师端[versionName: 5, versionCode: 1.0.5]版本，变更如下："></a>2016/07/15-2016/07/19，完成教师端[versionName: 5, versionCode: 1.0.5]版本，变更如下：</h4><ul>
+<li>添加 添加课程 功能模块 <ul>
+<li>展示教师当前所有已开设课程</li>
+<li>提供教师课程增、删、改操作</li>
+</ul>
+</li>
+</ul>
+<h4 id="2016-07-22-2016-08-01，完成学生端-versionName-3-versionCode-1-0-3-版本，变更如下："><a href="#2016-07-22-2016-08-01，完成学生端-versionName-3-versionCode-1-0-3-版本，变更如下：" class="headerlink" title="2016/07/22-2016/08/01，完成学生端[versionName: 3, versionCode: 1.0.3]版本，变更如下："></a>2016/07/22-2016/08/01，完成学生端[versionName: 3, versionCode: 1.0.3]版本，变更如下：</h4><ul>
+<li>主界面更改 <ul>
+<li>三个功能项位置做了复杂的调整</li>
+<li>新增单项课程button</li>
+<li>由listview的上拉加载下拉刷新，改成外层整个外层布局的上拉加载下拉刷新，纯自定义的PullToRefreshLayout</li>
+</ul>
+</li>
+<li>功能模块更改 <ul>
+<li>新增单项课程的教材列表查看</li>
+<li>每本教材介绍信息查看、教材目录查看、教材评论添加点赞及分页显示功能</li>
+<li>每本教材内容查看（使用网页进行显示）</li>
+</ul>
+</li>
+</ul>
+<h3 id="学习方面："><a href="#学习方面：" class="headerlink" title="学习方面："></a>学习方面：</h3><p>利用短暂的空余时间阅读了一本书<a href="https://www.amazon.cn/Android%E7%BE%A4%E8%8B%B1%E4%BC%A0-%E5%BE%90%E5%AE%9C%E7%94%9F/dp/B01481RAA4/ref=sr_1_1?ie=UTF8&amp;qid=1470031745&amp;sr=8-1&amp;keywords=android%E7%BE%A4%E8%8B%B1%E4%BC%A0" target="_blank" rel="external">《android群英传》</a>，收获还是蛮大的。但是从今天[08-01]阅读<a href="https://www.amazon.cn/App%E7%A0%94%E5%8F%91%E5%BD%95-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-Crash%E5%88%86%E6%9E%90%E5%92%8C%E7%AB%9E%E5%93%81%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-%E5%8C%85%E5%BB%BA%E5%BC%BA/dp/B016Y1LQZQ/ref=sr_1_4?ie=UTF8&amp;qid=1470031745&amp;sr=8-4&amp;keywords=android%E7%BE%A4%E8%8B%B1%E4%BC%A0" target="_blank" rel="external">《app研发录》</a>来看，后者比前者讲得内容更加贴近一线，前者较适合初学者，后者较适合进阶者。今后再谈谈两本书的学习及收获吧！</p>
+
     
 
         <a href="/2016/08/01/daily/【杂记】2016年7月杂记/" class="post-more waves-effect waves-button">

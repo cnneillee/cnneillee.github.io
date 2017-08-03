@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/">
+    
+    
+    <title>Android中解析XML格式数据的方法 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java,xml">
+    <meta name="description" content="XML介绍：Extensible Markup Language，即可扩展标记语言  一、概述Android中解析XML格式数据大致有三种方法：  SAX DOM PULL  二、详解2.1 SAXSAX(Simple API for XML) 使用流式处理的方式，它并不记录所读内容的相关信息。 它是一种以事件为驱动的XML API，解析速度快，占用内存少。使用回调函数来实现。  缺点是不能倒退">
+<meta name="keywords" content="java,xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android中解析XML格式数据的方法">
+<meta property="og:url" content="http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="XML介绍：Extensible Markup Language，即可扩展标记语言  一、概述Android中解析XML格式数据大致有三种方法：  SAX DOM PULL  二、详解2.1 SAXSAX(Simple API for XML) 使用流式处理的方式，它并不记录所读内容的相关信息。 它是一种以事件为驱动的XML API，解析速度快，占用内存少。使用回调函数来实现。  缺点是不能倒退">
+<meta property="og:updated_time" content="2017-08-03T12:16:40.879Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android中解析XML格式数据的方法">
+<meta name="twitter:description" content="XML介绍：Extensible Markup Language，即可扩展标记语言  一、概述Android中解析XML格式数据大致有三种方法：  SAX DOM PULL  二、详解2.1 SAXSAX(Simple API for XML) 使用流式处理的方式，它并不记录所读内容的相关信息。 它是一种以事件为驱动的XML API，解析速度快，占用内存少。使用回调函数来实现。  缺点是不能倒退">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android中解析XML格式数据的方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android中解析XML格式数据的方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-03T11:03:37.000Z" itemprop="datePublished" class="page-time">
+  2017-08-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、详解"><span class="post-toc-text">二、详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-SAX"><span class="post-toc-text">2.1 SAX</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-DOM"><span class="post-toc-text">2.2 DOM</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-PULL"><span class="post-toc-text">2.3 PULL</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、比较"><span class="post-toc-text">三、比较</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、使用举例"><span class="post-toc-text">四、使用举例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-SAX-解析举例"><span class="post-toc-text">4.1 SAX 解析举例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-DOM-解析举例"><span class="post-toc-text">4.2 DOM 解析举例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-PULL解析举例"><span class="post-toc-text">4.3 PULL解析举例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/Android中解析XML格式数据的方法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android中解析XML格式数据的方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-03 19:03:37" datetime="2017-08-03T11:03:37.000Z"  itemprop="datePublished">2017-08-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>XML介绍：Extensible Markup Language，即可扩展标记语言</p>
+</blockquote>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Android中解析XML格式数据大致有三种方法：</p>
+<ul>
+<li>SAX</li>
+<li>DOM</li>
+<li>PULL</li>
+</ul>
+<h1 id="二、详解"><a href="#二、详解" class="headerlink" title="二、详解"></a>二、详解</h1><h2 id="2-1-SAX"><a href="#2-1-SAX" class="headerlink" title="2.1 SAX"></a>2.1 SAX</h2><p><code>SAX(Simple API for XML)</code> 使用流式处理的方式，它并不记录所读内容的相关信息。</p>
+<p>它是一种以事件为驱动的XML API，解析速度快，占用内存少。使用回调函数来实现。 </p>
+<p>缺点是不能倒退。</p>
+<h2 id="2-2-DOM"><a href="#2-2-DOM" class="headerlink" title="2.2 DOM"></a>2.2 DOM</h2><p><code>DOM(Document Object Model)</code> 是一种用于XML文档的对象模型，可用于直接访问 XML 文档的各个部分。</p>
+<p>它是一次性全部将内容加载在内存中，生成一个树状结构,它没有涉及回调和复杂的状态管理。 </p>
+<p>缺点是加载大文档时效率低下。</p>
+<h2 id="2-3-PULL"><a href="#2-3-PULL" class="headerlink" title="2.3 PULL"></a>2.3 PULL</h2><p><code>Pull</code> 内置于 Android 系统中。也是官方解析布局文件所使用的方式。</p>
+<p>Pull 与 SAX 有点类似，都提供了类似的事件，如开始元素和结束元素。</p>
+<p>不同的是，SAX 的事件驱动是回调相应方法，需要提供回调的方法，而后在 SAX 内部自动调用相应的方法。</p>
+<p>而Pull解析器并没有强制要求提供触发的方法。因为他触发的事件不是一个方法，而是一个数字。它使用方便，效率高。</p>
+<h2 id="三、比较"><a href="#三、比较" class="headerlink" title="三、比较"></a>三、比较</h2><p>SAX、DOM、Pull 的比较:</p>
+<p>内存占用：SAX、Pull比DOM要好；</p>
+<p>编程方式：SAX 采用事件驱动，在相应事件触发的时候，会调用用户编好的方法，也即每解析一类 XML，就要编写一个新的适合该类XML的处理类。DOM 是 W3C 的规范，Pull 简洁。</p>
+<p>访问与修改：SAX 采用流式解析，DOM 随机访问。</p>
+<p>访问方式：SAX，Pull 解析的方式是同步的，DOM 逐字逐句。</p>
+<h2 id="四、使用举例"><a href="#四、使用举例" class="headerlink" title="四、使用举例"></a>四、使用举例</h2><h2 id="4-1-SAX-解析举例"><a href="#4-1-SAX-解析举例" class="headerlink" title="4.1 SAX 解析举例"></a>4.1 SAX 解析举例</h2><p><a href="http://www.saxproject.org/quickstart.html" target="_blank" rel="external">http://www.saxproject.org/quickstart.html</a></p>
+<h2 id="4-2-DOM-解析举例"><a href="#4-2-DOM-解析举例" class="headerlink" title="4.2 DOM 解析举例"></a>4.2 DOM 解析举例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">public class DomPersonService &#123;</div><div class="line">    /**</div><div class="line">     * @param inStream</div><div class="line">     * @return</div><div class="line">     * @throws Exception</div><div class="line">     */</div><div class="line">    public static List&lt;Person&gt; getPersons(InputStream inStream)</div><div class="line">            throws Exception &#123;</div><div class="line"></div><div class="line">        List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;();</div><div class="line">        /**</div><div class="line">         * 文檔的解析</div><div class="line">         */</div><div class="line">        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</div><div class="line">        DocumentBuilder builder = factory.newDocumentBuilder();</div><div class="line">        Document document = builder.parse(inStream);</div><div class="line">        /**</div><div class="line">         * 操作對象樹</div><div class="line">         */</div><div class="line">        Element root = document.getDocumentElement();//返回文檔的根元素</div><div class="line">        NodeList personNodes = root.getElementsByTagName(&quot;person&quot;);</div><div class="line">        for (int i = 0; i &lt; personNodes.getLength(); i++) &#123;</div><div class="line">            Element personElement = (Element) personNodes.item(i);</div><div class="line">            int id = new Integer(personElement.getAttribute(&quot;id&quot;));</div><div class="line">            Person person = new Person();</div><div class="line">            person.setId(id);</div><div class="line">            NodeList childNodes = personElement.getChildNodes();</div><div class="line">            for (int y = 0; y &lt; childNodes.getLength(); y++) &#123;</div><div class="line">                if (childNodes.item(y).getNodeType() == Node.ELEMENT_NODE) &#123;</div><div class="line">                    if (&quot;name&quot;.equals(childNodes.item(y).getNodeName())) &#123;</div><div class="line">                        String name = childNodes.item(y).getFirstChild()</div><div class="line">                                .getNodeValue();</div><div class="line">                        person.setName(name);</div><div class="line">                    &#125;</div><div class="line">                    else if (&quot;age&quot;.equals(childNodes.item(y).getNodeName())) &#123;</div><div class="line">                        String age = childNodes.item(y).getFirstChild()</div><div class="line">                                .getNodeValue();</div><div class="line">                        person.setAge(new Short(age));</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            persons.add(person);</div><div class="line">        &#125;</div><div class="line">        inStream.close();</div><div class="line">        return persons;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public void testDOMGetPersons() throws Throwable &#123;</div><div class="line">    InputStream inStream = this.getClass().getClassLoader()</div><div class="line">        .getResourceAsStream(&quot;person.xml&quot;);</div><div class="line">    List&lt;Person&gt; persons = DomPersonService.getPersons(inStream);</div><div class="line">    for (Person person : persons) &#123;</div><div class="line">        Log.i(TAG, person.toString());</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-3-PULL解析举例"><a href="#4-3-PULL解析举例" class="headerlink" title="4.3 PULL解析举例"></a>4.3 PULL解析举例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">public class PullPersonService &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * ------------------------使用PULL解析XML-----------------------</div><div class="line">     * @param inStream</div><div class="line">     * @return</div><div class="line">     * @throws Exception</div><div class="line">     */</div><div class="line">    public static List&lt;Person&gt; getPersons(InputStream inStream)</div><div class="line">            throws Exception &#123;</div><div class="line">        Person person = null;</div><div class="line">        List&lt;Person&gt; persons = null;</div><div class="line">        XmlPullParser pullParser = Xml.newPullParser();</div><div class="line">        pullParser.setInput(inStream, &quot;UTF-8&quot;);</div><div class="line">        int event = pullParser.getEventType();// 觸發第一個事件</div><div class="line">        while (event != XmlPullParser.END_DOCUMENT) &#123;</div><div class="line">            switch (event) &#123;</div><div class="line">            case XmlPullParser.START_DOCUMENT:</div><div class="line">                persons = new ArrayList&lt;Person&gt;();</div><div class="line">                break;</div><div class="line">            case XmlPullParser.START_TAG:</div><div class="line">                if (&quot;person&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                    int id = new Integer(pullParser.getAttributeValue(0));</div><div class="line">                    person = new Person();</div><div class="line">                    person.setId(id);</div><div class="line">                &#125;</div><div class="line">                if (person != null) &#123;</div><div class="line">                    if (&quot;name&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                        person.setName(pullParser.nextText());</div><div class="line">                    &#125;</div><div class="line">                    if (&quot;age&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                        person.setAge(new Short(pullParser.nextText()));</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                break;</div><div class="line">            case XmlPullParser.END_TAG:</div><div class="line">                if (&quot;person&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                    persons.add(person);</div><div class="line">                    person = null;</div><div class="line">                &#125;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">            event = pullParser.next();</div><div class="line">        &#125;</div><div class="line">        return persons;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public void testPullGetPersons() throws Throwable &#123;</div><div class="line">    InputStream inStream = this.getClass().getClassLoader()</div><div class="line">            .getResourceAsStream(&quot;person.xml&quot;);</div><div class="line">    List&lt;Person&gt; persons = PullPersonService.getPersons(inStream);</div><div class="line">    for (Person person : persons) &#123;</div><div class="line">        Log.i(TAG, person.toString());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/7281687.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/7281687.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml/">xml</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/&title=《Android中解析XML格式数据的方法》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/&title=《Android中解析XML格式数据的方法》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android中解析XML格式数据的方法》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/01/测试页面/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">测试页面</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/index.html',
+        sourceId: 'android/Android中解析XML格式数据的方法',
+        productKey: '51605be3f66c484481e439a3f7e57c66',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/&title=《Android中解析XML格式数据的方法》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/&title=《Android中解析XML格式数据的方法》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android中解析XML格式数据的方法》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLUlEQVR42u3aQW4jMQwEQP//095rgIXjbnICeOSaU+AAGpV8oNnU4xE/zxfP///9+Um7fv7ezbse2NjY2Mex86XbT17B8k0n+/n985e7wsbGxj6Ovd9ofgRJGcsx7d6wsbGxsfMmJNlcsvVkBWxsbGzsawtY3mYkTUheJrGxsbG/mZ3/xC+WLuOh5PjaknlBloaNjY398ex93PM5f//JfBsbGxv7g9nP8tlcskmalk30XyiwsbGxD2LnBSDfStsk5KTNOBkbGxv7VHZ+mfL3UtQ2Bslq+5Vf6rCxsbEPYrctxCboT0ibw81Xw8bGxj6J3f7Qb8H7eCiPooqLQdjY2NgHsZNNJwvNjiYfNsyamShLw8bGxj6OPStpyRG0RXG25rAhwcbGxr45O7nO2G5rP5RtC2fbomBjY2N/A7sdFbSB0ey6zyN+or1hY2Nj35ydl4R20Dsb97ZvHBZgbGxs7EPZs6AnL0tJQdqsmTdF2NjY2Gezk6Zidn0nD4muGldErQg2Njb2zdlta5EXoc0B5UffDieGHRU2Njb2B7Pz0rKPhPaxflKuitKFjY2NfRw7j2na1+dHvGmHLphpY2NjYx/Hviq+nw0G9mPml+/FxsbGPoidh0FtEcpJ7XFfdYkHGxsb+zx2Gy21YdMskJqFR/kVH2xsbOy7s/PtbpAtKYmu2pjpMQNgY2Nj34TdhjKbcpIfUBIttTETNjY29nnsq67ItAVvH/3nBfXNxR1sbGzsm7N/33obu8+GxO2Iot3Jm/k2NjY29s3ZeQGbbXozTs5LXdKiFPkTNjY29kHstp3YDG7zJqS9SFSHStjY2Ni3Zf/FADgfyubNRlK0oq8TGxsb+zj2bKP5cexLZr7PqHXBxsbGPoL9LJ/8Mk0+eJgNADaFExsbG/sk9qwA5D/3ZyPh/L35iLeNvbCxsbHvxW6LVn4Emw4pD62GowtsbGzs49h5G7AJg3Levs14UyaxsbGxv5i9CaQ2d2bysURUXLGxsbG/np2HPm0j0Y4WhheDsLGxsY9jz4pHAmhHucn67YB5NR7AxsbG/nj2JqDJN91uYvMFtEeGjY2NfVv2PwLeIUyRgKnYAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

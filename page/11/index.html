@@ -221,7 +221,7 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、对照表1、&amp;nbsp|&amp;quot|&amp;amp|&amp;lt|&amp;gt等html字符转义
+        <h1 id="一、对照表"><a href="#一、对照表" class="headerlink" title="一、对照表"></a>一、对照表</h1><p>1、<a href="http://blog.csdn.net/wusuopubupt/article/details/8817826" target="_blank" rel="external">&amp;nbsp|&amp;quot|&amp;amp|&amp;lt|&amp;gt等html字符转义</a></p>
 
     
 
@@ -271,8 +271,11 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述二、常见问题：1、如何为RecyclerView的Item设置点击事件？1.1 问题描述类似于下列方法1RecyclerView.setOnItemClickListener(OnClickListener)
-1.2 解决措施：a、在相应的ViewHolder中添加getItemView()123456789View itemView;	//添加成员变量public MyViewHo...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h1 id="二、常见问题："><a href="#二、常见问题：" class="headerlink" title="二、常见问题："></a>二、常见问题：</h1><h2 id="1、如何为RecyclerView的Item设置点击事件？"><a href="#1、如何为RecyclerView的Item设置点击事件？" class="headerlink" title="1、如何为RecyclerView的Item设置点击事件？"></a>1、如何为RecyclerView的Item设置点击事件？</h2><h3 id="1-1-问题描述"><a href="#1-1-问题描述" class="headerlink" title="1.1 问题描述"></a>1.1 问题描述</h3><p>类似于下列方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RecyclerView.setOnItemClickListener(OnClickListener)</div></pre></td></tr></table></figure></p>
+<h3 id="1-2-解决措施："><a href="#1-2-解决措施：" class="headerlink" title="1.2 解决措施："></a>1.2 解决措施：</h3><p>a、在相应的ViewHolder中添加getItemView()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">View itemView;	//添加成员变量</div><div class="line">public MyViewHolder(View itemView) &#123;</div><div class="line">	super(itemView);</div><div class="line">	this.itemView = itemView	//绑定成员方法</div><div class="line">	...</div><div class="line">&#125;</div><div class="line">public View getItemView() &#123;	//外部获得View的方法</div><div class="line">	return itemView;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>b、在Adapter的onBindViewHolder()方法（数据与ViewHolder建立绑定的方法里）添加监听事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void onBindViewHolder(MyViewHolder holder, final int position) &#123;</div><div class="line">	holder.getItemView().setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">		@Override</div><div class="line">		public void onClick(View v) &#123;</div><div class="line">			//此方法中的position、v相对应，可执行相应的针对Item的操作</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2、RecyclerView的Adapter根据position如何获得对应的ItemView？"><a href="#2、RecyclerView的Adapter根据position如何获得对应的ItemView？" class="headerlink" title="2、RecyclerView的Adapter根据position如何获得对应的ItemView？"></a>2、RecyclerView的Adapter根据position如何获得对应的ItemView？</h2><h3 id="1-1-问题描述-1"><a href="#1-1-问题描述-1" class="headerlink" title="1.1 问题描述"></a>1.1 问题描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">类似于下列方法</div><div class="line">RecyclerViewAdapter.getItemView(int position)</div></pre></td></tr></table></figure>
+<h3 id="1-2-解决措施：-1"><a href="#1-2-解决措施：-1" class="headerlink" title="1.2 解决措施："></a>1.2 解决措施：</h3>
     
 
         <a href="/2016/05/09/android/recyclerview使用时遇到的问题/" class="post-more waves-effect waves-button">
@@ -321,8 +324,14 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述MaterialCalendarView是一个开源项目。功能强大支持多选、单选、标注等。
-二、问题1、其继承自ViewGroup，故与CalendarView半毛钱关系都没有，完全是一个新的类2、其子类CalendarDay是经过调整的1234CalendarDay date = new CalendarDay();......Log.e(LOG_TAG, &quot;Date选中日...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>MaterialCalendarView是一个开源项目。功能强大支持多选、单选、标注等。</p>
+<h1 id="二、问题"><a href="#二、问题" class="headerlink" title="二、问题"></a>二、问题</h1><p>1、其继承自ViewGroup，故与CalendarView半毛钱关系都没有，完全是一个新的类<br>2、其子类CalendarDay是经过调整的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CalendarDay date = new CalendarDay();</div><div class="line">......</div><div class="line">Log.e(LOG_TAG, &quot;Date选中日期：&quot; + date.getDate().getYear() + &quot;-&quot; + date.getDate().getMonth() + &quot;-&quot; + date.getDate().getDay());</div><div class="line">Log.e(LOG_TAG, &quot;Calendar选中日期：&quot; + date.getCalendar().get(Calendar.YEAR) + &quot;-&quot; + (date.getCalendar().get(Calendar.MONTH) + 1) + &quot;-&quot; + date.getCalendar().get(Calendar.DAY_OF_MONTH));</div></pre></td></tr></table></figure></p>
+<p>得到的结果为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Date选中日期：116-3-6</div><div class="line">Calendar选中日期：2016-4-30</div></pre></td></tr></table></figure></p>
+<p>即：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CalendarDay.getDate().getYear()得到的年份 = 真实年份 - 1900</div><div class="line">CalendarDay.getDate().getMonth()得到的月份 = 真实年份 - 1</div><div class="line">CalendarDay.getDate().getDay()得到的日 = 星期数 - 1</div></pre></td></tr></table></figure>
+<p>3、关于DayViewDecorator类<br>此类为抽象类，定义如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Decorate Day views with drawables and text manipulation</div><div class="line"> */</div><div class="line">public interface DayViewDecorator &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * Determine if a specific day should be decorated</div><div class="line">     *</div><div class="line">     * @param day &#123;@linkplain CalendarDay&#125; to possibly decorate</div><div class="line">     * @return true if this decorator should be applied to the provided day</div><div class="line">     */</div><div class="line">    boolean shouldDecorate(CalendarDay day);</div><div class="line"></div><div class="line">    /**</div><div class="line">     * Set decoration options onto a facade to be applied to all relevant days</div><div class="line">     *</div><div class="line">     * @param view View to decorate</div><div class="line">     */</div><div class="line">    void decorate(DayViewFacade view);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>实际使用时，只需实现上述两个方法即可，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class EventDecorator implements DayViewDecorator &#123;</div><div class="line"></div><div class="line">    private final int color;</div><div class="line">    private final HashSet&lt;CalendarDay&gt; dates;</div><div class="line"></div><div class="line">    public EventDecorator(int color, Collection&lt;CalendarDay&gt; dates) &#123;</div><div class="line">        this.color = color;</div><div class="line">        this.dates = new HashSet&lt;&gt;(dates);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean shouldDecorate(CalendarDay day) &#123;</div><div class="line">        return dates.contains(day);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void decorate(DayViewFacade view) &#123;</div><div class="line">        view.addSpan(new DotSpan(5, color));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
     
 
         <a href="/2016/05/07/android/materialcalendarview使用时遇到的问题/" class="post-more waves-effect waves-button">
@@ -371,13 +380,41 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、前言前些天重装了系统，好不容易把所有的软件装好，结果发现打开android studio真机调试却出了问题。
-二、症状：2.1 手机端设置完全没问题（打开了调试模式……）2.2 电脑端右下角不出现插入设备的图标（安全删除硬件并弹出媒体）
-                
-                    
-                    
-                
-...
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>前些天重装了系统，好不容易把所有的软件装好，结果发现打开android studio真机调试却出了问题。</p>
+<h1 id="二、症状："><a href="#二、症状：" class="headerlink" title="二、症状："></a>二、症状：</h1><h2 id="2-1-手机端设置完全没问题（打开了调试模式……）"><a href="#2-1-手机端设置完全没问题（打开了调试模式……）" class="headerlink" title="2.1 手机端设置完全没问题（打开了调试模式……）"></a>2.1 手机端设置完全没问题（打开了调试模式……）</h2><h2 id="2-2-电脑端右下角不出现插入设备的图标（安全删除硬件并弹出媒体）"><a href="#2-2-电脑端右下角不出现插入设备的图标（安全删除硬件并弹出媒体）" class="headerlink" title="2.2 电脑端右下角不出现插入设备的图标（安全删除硬件并弹出媒体）"></a>2.2 电脑端右下角不出现插入设备的图标（安全删除硬件并弹出媒体）</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201605/797098-20160504164832372-1913229664.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="2-3-打开设备管理器，发现手机存在于便携设备项中，而其他设备的ADB"><a href="#2-3-打开设备管理器，发现手机存在于便携设备项中，而其他设备的ADB" class="headerlink" title="2.3 打开设备管理器，发现手机存在于便携设备项中，而其他设备的ADB"></a>2.3 打开设备管理器，发现手机存在于便携设备项中，而其他设备的ADB</h3><p>Interface上却有个惊叹号，如下图：（由于解决问题的时候未截图，故下图来自网上）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201605/797098-20160504165248591-622983664.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="2-4-特别的，如果是因为其他原因造成系统无法识别出真机的，可参阅参考文章中的第二篇博文—-Android"><a href="#2-4-特别的，如果是因为其他原因造成系统无法识别出真机的，可参阅参考文章中的第二篇博文—-Android" class="headerlink" title="2.4 特别的，如果是因为其他原因造成系统无法识别出真机的，可参阅参考文章中的第二篇博文—[Android"></a>2.4 特别的，如果是因为其他原因造成系统无法识别出真机的，可参阅参考文章中的第二篇博文—[Android</h2><p>Studio连接真机没反应](<a href="http://blog.csdn.net/wenxin2011/article/details/50845563" target="_blank" rel="external">http://blog.csdn.net/wenxin2011/article/details/50845563</a>)</p>
+<h1 id="三、原因："><a href="#三、原因：" class="headerlink" title="三、原因："></a>三、原因：</h1><p>ADB Interface的驱动出了问题，在系统指定的目录中找不到usb driver，所以需要我们指定</p>
+<h1 id="四、解决方法："><a href="#四、解决方法：" class="headerlink" title="四、解决方法："></a>四、解决方法：</h1><h2 id="4-1-自己指定usb-driver"><a href="#4-1-自己指定usb-driver" class="headerlink" title="4.1 自己指定usb driver"></a>4.1 自己指定usb driver</h2><h2 id="4-2-google在android-sdk中提供了usb-driver（在sdk-manager的中，extra下有一个驱动的下载，请勾选下载）"><a href="#4-2-google在android-sdk中提供了usb-driver（在sdk-manager的中，extra下有一个驱动的下载，请勾选下载）" class="headerlink" title="4.2 google在android sdk中提供了usb driver（在sdk manager的中，extra下有一个驱动的下载，请勾选下载）"></a>4.2 google在android sdk中提供了usb driver（在sdk manager的中，extra下有一个驱动的下载，请勾选下载）</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201605/797098-20160504170117591-1781002588.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="4-3-如已下载，则usb-driver存在于【android-sdk-windows安装目录】-extras-google-usb-driver"><a href="#4-3-如已下载，则usb-driver存在于【android-sdk-windows安装目录】-extras-google-usb-driver" class="headerlink" title="4.3 如已下载，则usb driver存在于【android-sdk-windows安装目录】\extras\google\usb_driver"></a>4.3 如已下载，则usb driver存在于【android-sdk-windows安装目录】\extras\google\usb_driver</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201605/797098-20160504165853529-298548656.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="4-4-具体操作见参考文章中的第一篇博文"><a href="#4-4-具体操作见参考文章中的第一篇博文" class="headerlink" title="4.4 具体操作见参考文章中的第一篇博文"></a>4.4 具体操作见参考文章中的第一篇博文</h2><p><a href="http://blog.csdn.net/zhouyingge1104/article/details/42145429" target="_blank" rel="external">Win7 x64 Eclipse无法识别手机 / adb interface有黄色感叹号，无法识别</a></p>
+<h1 id="五、参考文章"><a href="#五、参考文章" class="headerlink" title="五、参考文章"></a>五、参考文章</h1><p>1、<a href="http://blog.csdn.net/zhouyingge1104/article/details/42145429" target="_blank" rel="external">Win7 x64 Eclipse无法识别手机 / adb interface有黄色感叹号，无法识别</a><br>2、<a href="http://blog.csdn.net/wenxin2011/article/details/50845563" target="_blank" rel="external">Android Studio连接真机没反应</a></p>
+
     
 
         <a href="/2016/05/04/android/android开发期间使用真机调试但系统无法识别出真机/" class="post-more waves-effect waves-button">
@@ -426,13 +463,23 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Github 的 git.exe 位于1C:\Users\【username】\AppData\Local\GitHub\PortableGit_25d850739bc178b2eb13c3e2a9faafea2f9143c0\cmd\git.exe
-详见图片
+        <p>Github 的 <code>git.exe</code> 位于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Users\【username】\AppData\Local\GitHub\PortableGit_25d850739bc178b2eb13c3e2a9faafea2f9143c0\cmd\git.exe</div></pre></td></tr></table></figure></p>
+<p>详见图片<br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160430152526941-2114136336.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160430152535472-1383898182.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160430152542363-84775769.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
-                
-                    
-                    
-      ...
     
 
         <a href="/2016/04/30/git/github的git-exe的目录所在/" class="post-more waves-effect waves-button">
@@ -481,8 +528,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Log日志打印出现空指针问题
-AndroidRuntime(372): Caused by: java.lang.NullPointerException: println needsa message使用Log.e(TAG,object)打印日志，由于object为null，Log内部调用object.toString()方法时，产生空指针问题
+        <p>Log日志打印出现空指针问题</p>
+<p>AndroidRuntime(372): Caused by: java.lang.NullPointerException: println needs<br>a message<br>使用Log.e(TAG,object)打印日志，由于object为null，Log内部调用object.toString()方法时，产生空指针问题</p>
 
     
 
@@ -532,8 +579,18 @@ AndroidRuntime(372): Caused by: java.lang.NullPointerException: println needsa m
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、Dialog概述二、使用系统自带的Dialog1、新建BuilderAlertDialog.Builder builder = new AlertDialog.Builder(StoryActivity.this);dialog.show();
-2、通过builder创建dialog123456AlertDialog dialog = builder.setView(view).setT...
+        <h1 id="一、Dialog概述"><a href="#一、Dialog概述" class="headerlink" title="一、Dialog概述"></a>一、Dialog概述</h1><h1 id="二、使用系统自带的Dialog"><a href="#二、使用系统自带的Dialog" class="headerlink" title="二、使用系统自带的Dialog"></a>二、使用系统自带的Dialog</h1><h2 id="1、新建Builder"><a href="#1、新建Builder" class="headerlink" title="1、新建Builder"></a>1、新建Builder</h2><p>AlertDialog.Builder builder = new AlertDialog.Builder(StoryActivity.this);<br>dialog.show();</p>
+<h2 id="2、通过builder创建dialog"><a href="#2、通过builder创建dialog" class="headerlink" title="2、通过builder创建dialog"></a>2、通过builder创建dialog</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AlertDialog dialog = builder.setView(view).setTitle(&quot;查看评论&quot;).setNegativeButton(&quot;确定&quot;, new 	DialogInterface.OnClickListener() &#123;</div><div class="line">		@Override</div><div class="line">		public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">			dialog.dismiss();</div><div class="line">		&#125;    </div><div class="line">	&#125;).create();</div></pre></td></tr></table></figure>
+<h2 id="3、关于NegativeButton、PositiveButton、NeutralButton"><a href="#3、关于NegativeButton、PositiveButton、NeutralButton" class="headerlink" title="3、关于NegativeButton、PositiveButton、NeutralButton"></a>3、关于NegativeButton、PositiveButton、NeutralButton</h2><p>早期版本，NegativeButton最右侧、PositiveButton最左侧、NeutralButton中间<br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160422155913538-750356962.jpg" alt=""></p>
+<p>在android4.0中，NegativeButton在最左侧、PositiveButton在最右侧<br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160422154126741-931211549.jpg" alt=""></p>
+<h1 id="二、如何自定义Dialog"><a href="#二、如何自定义Dialog" class="headerlink" title="二、如何自定义Dialog"></a>二、如何自定义Dialog</h1><h2 id="1、特别注意！！！（首先明确）"><a href="#1、特别注意！！！（首先明确）" class="headerlink" title="1、特别注意！！！（首先明确）"></a>1、特别注意！！！（首先明确）</h2><h3 id="1-1-setContentView、setView与show-方法相对位置引起异常"><a href="#1-1-setContentView、setView与show-方法相对位置引起异常" class="headerlink" title="1.1 setContentView、setView与show()方法相对位置引起异常"></a>1.1 setContentView、setView与show()方法相对位置引起异常</h3><p>如使用setContentView、setView方法来自定义View的话，须与show()方法保持先后顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dialog.show();</div><div class="line">dialog.setContentView(contentView);</div></pre></td></tr></table></figure>
+<h3 id="2-2-自定义Dilog之后，setTitle等方法无效"><a href="#2-2-自定义Dilog之后，setTitle等方法无效" class="headerlink" title="2.2 自定义Dilog之后，setTitle等方法无效"></a>2.2 自定义Dilog之后，setTitle等方法无效</h3><p>须自行在界面中添加</p>
+<h2 id="2、步骤同上"><a href="#2、步骤同上" class="headerlink" title="2、步骤同上"></a>2、步骤同上</h2><h2 id="3、设置界面"><a href="#3、设置界面" class="headerlink" title="3、设置界面"></a>3、设置界面</h2><p>使用以下方法实现自定义界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">setView(View view)</div><div class="line">setView(View view, int viewSpacingLeft, int viewSpacingTop, int viewSpacingRight,int viewSpacingBottom)</div><div class="line">setContentView(@LayoutRes int layoutResID)</div><div class="line">setContentView(View view)</div><div class="line">setContentView(View view, ViewGroup.LayoutParams params)	//params Layout parameters for the view.</div></pre></td></tr></table></figure>
+<h2 id="4、自定义Dialog的宽高"><a href="#4、自定义Dialog的宽高" class="headerlink" title="4、自定义Dialog的宽高"></a>4、自定义Dialog的宽高</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Window window = this.getWindow();</div><div class="line">WindowManager.LayoutParams params = window.getAttributes();</div><div class="line">params.height = dialogHeight;	//设置你想要的宽高</div><div class="line">window.setAttributes(params);</div></pre></td></tr></table></figure>
+<h2 id="5、获得屏幕的宽高"><a href="#5、获得屏幕的宽高" class="headerlink" title="5、获得屏幕的宽高"></a>5、获得屏幕的宽高</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayMetrics d = context.getResources().getDisplayMetrics();	// 获取屏幕宽、高</div><div class="line">d.heightPixels	//取得px单位的值</div><div class="line">d.xdpi	//取得dp单位的值</div></pre></td></tr></table></figure>
+
     
 
         <a href="/2016/04/22/android/android中的dialog/" class="post-more waves-effect waves-button">
@@ -582,7 +639,10 @@ AndroidRuntime(372): Caused by: java.lang.NullPointerException: println needsa m
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1、其内 de 子控件高宽度为 0？1234567AlertDialog.Builder builder = new AlertDialog.Builder(StoryActivity.this);View view = LayoutInflater.from(StoryActivity.this).inflate(R.layout.dialog_qr_display, null, fals...
+        <p>1、其内 de 子控件高宽度为 0？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">AlertDialog.Builder builder = new AlertDialog.Builder(StoryActivity.this);</div><div class="line">View view = LayoutInflater.from(StoryActivity.this).inflate(R.layout.dialog_qr_display, null, false);</div><div class="line">ImageView iv = (ImageView)view.findViewById(R.id.iv);</div><div class="line">AlertDialog dialog = builder.setView(view).setTitle(&quot;分享&quot;).create();</div><div class="line">dialog.show();</div><div class="line">iv.getWidth();	//为0</div><div class="line">iv.getHeight();	//为0</div></pre></td></tr></table></figure></p>
+<p>通过下列代码解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ViewGroup.LayoutParams pm = ivQR.getLayoutParams();</div><div class="line">pm.width;//不为0</div><div class="line">pm.height;//不为0</div></pre></td></tr></table></figure>
+
     
 
         <a href="/2016/04/21/android/alertdialog使用时遇到问题/" class="post-more waves-effect waves-button">
@@ -631,8 +691,14 @@ AndroidRuntime(372): Caused by: java.lang.NullPointerException: println needsa m
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述简书、微博、便签等都有将文章保存为图片的功能。笔者臆测，此功能的实现原理如下。
-二、实现　2.1将View保存成Bitmap对象方法1（亲测有效）12345678910private Bitmap makingView2Bitmap(View view) &#123;	if (view == null) &#123;		return null;	&#125;	Bitmap scree...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>简书、微博、便签等都有将文章保存为图片的功能。笔者臆测，此功能的实现原理如下。</p>
+<h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><h2 id="2-1将View保存成Bitmap对象"><a href="#2-1将View保存成Bitmap对象" class="headerlink" title="　2.1将View保存成Bitmap对象"></a>　2.1将View保存成Bitmap对象</h2><p>方法1（亲测有效）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">private Bitmap makingView2Bitmap(View view) &#123;</div><div class="line">	if (view == null) &#123;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line">	Bitmap screenshot;</div><div class="line">	screenshot = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);</div><div class="line">	Canvas c = new Canvas(screenshot);</div><div class="line">	view.draw(c);</div><div class="line">	return screenshot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>View成员方法getDrawingCache()，其源码如下（有问题，得出来的Bitmap始终为null）下次解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//android源码</div><div class="line">/**</div><div class="line">* Calling this method is equivalent to calling &lt;code&gt;getDrawingCache(false)&lt;/code&gt;.&lt;/p&gt;</div><div class="line">* @return A non-scaled bitmap representing this view or null if cache is disabled.</div><div class="line">* @see #getDrawingCache(boolean)</div><div class="line">*/</div><div class="line">public Bitmap getDrawingCache() &#123;</div><div class="line">	return getDrawingCache(false);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>参考文章<br><a href="http://www.tuicool.com/articles/RvIjeib" target="_blank" rel="external">http://www.tuicool.com/articles/RvIjeib</a><br><a href="http://blog.csdn.net/huangbiao86/article/details/9053429/" target="_blank" rel="external">http://blog.csdn.net/huangbiao86/article/details/9053429/</a><br><a href="http://www.2cto.com/kf/201602/488933.html" target="_blank" rel="external">http://www.2cto.com/kf/201602/488933.html</a></p>
+<h2 id="2-2将Bitmap保存成本地文件（图片）"><a href="#2-2将Bitmap保存成本地文件（图片）" class="headerlink" title="　2.2将Bitmap保存成本地文件（图片）"></a>　2.2将Bitmap保存成本地文件（图片）</h2><p>这个问题比较简单，就是平常的保存文件，这里只放核心代码。如不知如何保存文件，请自行百度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bm.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(file));//file为保存文件</div></pre></td></tr></table></figure></p>
+<h1 id="三、特别说明"><a href="#三、特别说明" class="headerlink" title="三、特别说明"></a>三、特别说明</h1><p>1、Bitmap.CompressFormat.JPEG据说得到的背景是黑色的，PNG得到的是白色的<br>2、TextView截取时，背景默认是黑色的（这也造成我第一次保存的时候，发现缩略图是好好的（白底黑字），但是点进去查看的时候是全黑（黑底黑字））<br>在截取之前，最好做如下设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mTvContent.setTextColor(getResources().getColor(R.color.black));</div><div class="line">mTvContent.setBackgroundColor(getResources().getColor(R.color.white));</div></pre></td></tr></table></figure></p>
+<p>这样得到的图片就是正常的白底黑字</p>
+
     
 
         <a href="/2016/04/19/android/view保存为图片/" class="post-more waves-effect waves-button">
@@ -681,7 +747,14 @@ AndroidRuntime(372): Caused by: java.lang.NullPointerException: println needsa m
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、问题描述今天遇到一个需求，将java中的数组搬进arrays.xml文件中1234567R.drawable.menu_share_pic_item,R.drawable.menu_share_wechat_item,R.drawable.menu_share_friendcircle_item,R.drawable.menu_share_qzone_item,R.drawable.me...
+        <h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>今天遇到一个需求，将java中的数组搬进arrays.xml文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">R.drawable.menu_share_pic_item,</div><div class="line">R.drawable.menu_share_wechat_item,</div><div class="line">R.drawable.menu_share_friendcircle_item,</div><div class="line">R.drawable.menu_share_qzone_item,</div><div class="line">R.drawable.menu_share_qq_item,</div><div class="line">R.drawable.menu_share_copylink_item,</div><div class="line">R.drawable.menu_share_more_item</div></pre></td></tr></table></figure></p>
+<p>xml文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;integer-array name=&quot;share_menu_img&quot;&gt;</div><div class="line">    &lt;item&gt;@drawable/menu_share_pic_item&lt;/item&gt;</div><div class="line">    &lt;item&gt;@drawable/menu_share_wechat_item&lt;/item&gt;</div><div class="line">    &lt;item&gt;@drawable/menu_share_friendcircle_item&lt;/item&gt;</div><div class="line">    &lt;item&gt;@drawable/menu_share_qzone_item&lt;/item&gt;</div><div class="line">    &lt;item&gt;@drawable/menu_share_qq_item&lt;/item&gt;</div><div class="line">    &lt;item&gt;@drawable/menu_share_copylink_item&lt;/item&gt;</div><div class="line">    &lt;item&gt;@drawable/menu_share_more_item&lt;/item&gt;</div><div class="line">&lt;/integer-array&gt;</div></pre></td></tr></table></figure></p>
+<p>java中引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int[] menuShareImg = mContext.getResources().getIntArray(R.array.share_menu_img);</div></pre></td></tr></table></figure>
+<p>发现获得值全0<br>而改用string存储，则使用时会报找不到文件的错误</p>
+<h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><p>暂时未解决，目前比较忙，下次再弄。</p>
+<p>线上写的blog，刚刚断电、断网了！然后一提交，这个界面没保存，写的啥都没了，这回是重写的，求我此时心里的阴影面积！！！</p>
+
     
 
         <a href="/2016/04/18/android/arrays.xml文件中添加drawable数组的问题/" class="post-more waves-effect waves-button">

@@ -221,7 +221,11 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、错误rror Code: 1175. You are using safe update mode and you tried to update atable without a WHERE that uses a KEY column To disable safe mode, toggle theoption in Preferences -&gt; SQL Queries and...
+        <h1 id="一、错误"><a href="#一、错误" class="headerlink" title="一、错误"></a>一、错误</h1><p>rror Code: 1175. You are using safe update mode and you tried to update a<br>table without a WHERE that uses a KEY column To disable safe mode, toggle the<br>option in Preferences -&gt; SQL Queries and reconnect.</p>
+<h1 id="二、原因"><a href="#二、原因" class="headerlink" title="二、原因"></a>二、原因</h1><p>处于安全考虑，防止因意外操作而删除大量的数据而做的设计。<br>例如：<br>需要将tableA表中的李四性别改为男，但是忘了写where，那么一般的后果是，表中所有人的性别均被改成了男。<br>update tableA set gender = ‘男’<br>还有一些程序员的个人疏忽造成用户数据的损坏，严重的可能丢失等！</p>
+<p>正是基于这一点，Mysql bench做了这样一个安全设计。</p>
+<h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><p><a href="http://blog.csdn.net/amohan/article/details/9980315" target="_blank" rel="external">http://blog.csdn.net/amohan/article/details/9980315</a></p>
+
     
 
         <a href="/2016/06/29/database/mysql-bench执行sql语句批量操作数据所遇到的问题/" class="post-more waves-effect waves-button">
@@ -270,7 +274,7 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        http://blog.csdn.net/sunfor/article/details/16357751
+        <p><a href="http://blog.csdn.net/sunfor/article/details/16357751" target="_blank" rel="external">http://blog.csdn.net/sunfor/article/details/16357751</a></p>
 
     
 
@@ -320,8 +324,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        http://www.cnblogs.com/longfor/p/3751661.html
-com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException:Unknown column ‘????’ in ‘field list’
+        <p><a href="http://www.cnblogs.com/longfor/p/3751661.html" target="_blank" rel="external">http://www.cnblogs.com/longfor/p/3751661.html</a></p>
+<p>com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException:Unknown column ‘????’ in ‘field list’</p>
 
     
 
@@ -371,11 +375,16 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException:Unknown column ‘????
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述HSSF和XSSF是apache开源项目POI中实现java面向Excel的两个接口。两者的区别在于，HSSF适用于Excel‘97(-2007)文档，而XSSF适用于Excel 2007 OOXML (.xlsx)。HSSF 和 XSSF 提供了许多用于工作表格创建、修改、阅读、撰写的方法。他们提供有：
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>HSSF和XSSF是apache开源项目POI中实现java面向Excel的两个接口。两者的区别在于，HSSF适用于Excel<br>‘97(-2007)文档，而XSSF适用于Excel 2007 OOXML (.xlsx)。<br>HSSF 和 XSSF 提供了许多用于工作表格创建、修改、阅读、撰写的方法。他们提供有：</p>
+<ul>
+<li>特殊需求的低层次构建</li>
+<li>针对只可阅读的的api</li>
+<li>一个全用户的api（用于创建、阅读、修改XLS文件）</li>
+</ul>
+<p>来自apache介绍</p>
+<h1 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h1><p>具体的使用方法在官网上有介绍，在此不赘述<br><a href="https://poi.apache.org/spreadsheet/quick-guide.html" target="_blank" rel="external">https://poi.apache.org/spreadsheet/quick-guide.html</a></p>
+<h1 id="三、期间踩的坑"><a href="#三、期间踩的坑" class="headerlink" title="三、期间踩的坑"></a>三、期间踩的坑</h1><p>1、 WorkbookFactory 类找不到<br>下载POI时，文件中存在多个jar包，编者预先只导入了 poi-3.14-20160307.jar ，从官网上得知此类位于<br>org.apache.poi.ss.usermodel 包下，但是 poi-3.14-20160307.jar 这里面是不存在<br>WorkbookFactory 类，最后发现它被放在 poi-ooxml-3.14-20160307.jar 这个包下。特此mark一波~~~<br><img src="http://images2015.cnblogs.com/blog/797098/201606/797098-20160628155537327-116410445.png" alt=""></p>
 
-特殊需求的低层次构建
-针对只可阅读的的api
-一个全用户的api（用于创建、...
     
 
         <a href="/2016/06/28/java/poi-hssf-and-poi-xssf-java-api-to-access-microsoft-excel-format-files/" class="post-more waves-effect waves-button">
@@ -424,9 +433,13 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException:Unknown column ‘????
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、简介pio是apache的一个针对microsoft office的一个开源项目。Apache POI - the Java API for Microsoft Documents
-官网地址：https://poi.apache.org/javadoc：https://poi.apache.org/apidocs/index.html
-此项目分为多个componant：（截至本文写作时）...
+        <h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p>pio是apache的一个针对microsoft office的一个开源项目。<br>Apache POI - the Java API for Microsoft Documents</p>
+<p>官网地址：<a href="https://poi.apache.org/" target="_blank" rel="external">https://poi.apache.org/</a><br>javadoc：<a href="https://poi.apache.org/apidocs/index.html" target="_blank" rel="external">https://poi.apache.org/apidocs/index.html</a></p>
+<p>此项目分为多个componant：（截至本文写作时）<br>Component APIs<br>Excel (SS=HSSF+XSSF)<br>Word (HWPF+XWPF)<br>PowerPoint (HSLF+XSLF)<br>OpenXML4J (OOXML)<br>OLE2 Filesystem (POIFS)<br>OLE2 Document Props (HPSF)<br>Outlook (HSMF)<br>Visio (HDGF+XDGF)<br>TNEF (HMEF)<br>Publisher (HPBF)<br>Logging framework</p>
+<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><h2 id="Ⅰ-Excle"><a href="#Ⅰ-Excle" class="headerlink" title="Ⅰ　Excle"></a>Ⅰ　Excle</h2><p>(SS=HSSF+XSSF)</p>
+<h2 id="Ⅱ-Word"><a href="#Ⅱ-Word" class="headerlink" title="Ⅱ　Word"></a>Ⅱ　Word</h2><p>(HWPF+XWPF)</p>
+<h2 id="Ⅲ-PowerPoint"><a href="#Ⅲ-PowerPoint" class="headerlink" title="Ⅲ　PowerPoint"></a>Ⅲ　PowerPoint</h2><p>(HSLF+XSLF)</p>
+
     
 
         <a href="/2016/06/28/java/java-pio项目使用/" class="post-more waves-effect waves-button">
@@ -475,8 +488,16 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException:Unknown column ‘????
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、关于mysqlMySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。MySQL 最流行的关系型数据库管理系统，在WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统)应用软件之一。来自百度 mysql
-mysql是一个免费的轻量型数据库（相对于o...
+        <h1 id="一、关于mysql"><a href="#一、关于mysql" class="headerlink" title="一、关于mysql"></a>一、关于mysql</h1><p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。MySQL 最流行的关系型数据库管理系统，在<br>WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统)<br>应用软件之一。<br>来自百度 <a href="http://baike.baidu.com/link?url
+=Go3rGS450Wjm2HqwEZ_ucguEZ4Ud_zeSyAst5iwJIFsVxXWjlVpUzmeZb2MkWXBQ2PBj0TBm-
+5N4xOCz-jsZ0uLHdwozyI3tJJYeVW_Wwqy" target="_blank" rel="external">mysql</a></p>
+<p>mysql是一个免费的轻量型数据库（相对于oracle这种大型数据库而言）。<br>mysql-installer-community-5.7.13.0.msi –&gt;安装包<br>MySQL Workbench 6.3 CE –&gt;图形化管理界面</p>
+<h1 id="二、mysql下载"><a href="#二、mysql下载" class="headerlink" title="二、mysql下载"></a>二、mysql下载</h1><p>常见的安装方式是官网下载 <a href="http://dev.mysql.com/" target="_blank" rel="external">http://dev.mysql.com/</a><br>点击Downloads-》windows选择windows或者其他平台，并进入相应下载页面进行下载<br>这里下载得到的是一个安装器，能够通过此安装器下载相应的软件（见图）<br><img src="http://images2015.cnblogs.com/blog/797098/201606/797098-20160627194844968-1324043313.png" alt=""></p>
+<h1 id="三、mysql安装"><a href="#三、mysql安装" class="headerlink" title="三、mysql安装"></a>三、mysql安装</h1><p>详情见 <a href="http://www.cnblogs.com/sshoub/p/4321640.html" target="_blank" rel="external">http://www.cnblogs.com/sshoub/p/4321640.html</a></p>
+<h1 id="四、卸载"><a href="#四、卸载" class="headerlink" title="四、卸载"></a>四、卸载</h1><p>1、通过下载器installer将已经安装的全部卸载<br><img src="http://images2015.cnblogs.com/blog/797098/201606/797098-20160627195311109-859113913.png" alt=""></p>
+<p>2、然后退出installer，进入控制面板，卸载installer即可完成卸载过程</p>
+<p>3、网上有些帖子提到删除regedit注册表信息，本人亲测过，通过上述卸载过程后，仍旧能够再次安装mysql</p>
+
     
 
         <a href="/2016/06/27/database/mysql安装及卸载/" class="post-more waves-effect waves-button">
@@ -525,8 +546,10 @@ mysql是一个免费的轻量型数据库（相对于o...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、刚需pdf转word，这个需求肯定是有的。但是大家都知道，pdf是用来排版打印的，所以编辑起来会比较麻烦，所以，大家都会尝试将pdf的内容转成word，然后再进行编辑。
-二、方法1、用office word打开pdf虽然支持，但是排版还是会出现一些问题2、abbyyOCR软件，没用过，有待测试3、http://smallpdf.com有人推荐，也有人质疑，毕竟在服务器完成转化，有些不安全...
+        <h1 id="一、刚需"><a href="#一、刚需" class="headerlink" title="一、刚需"></a>一、刚需</h1><p>pdf转word，这个需求肯定是有的。但是大家都知道，pdf是用来排版打印的，所以编辑起来会比较麻烦，所以，大家都会尝试将pdf的内容转成word，然后再进行编辑。</p>
+<h1 id="二、方法"><a href="#二、方法" class="headerlink" title="二、方法"></a>二、方法</h1><p>1、用office word打开pdf<br>虽然支持，但是排版还是会出现一些问题<br>2、abbyy<br>OCR软件，没用过，有待测试<br>3、<a href="http://smallpdf.com" target="_blank" rel="external">http://smallpdf.com</a><br>有人推荐，也有人质疑，毕竟在服务器完成转化，有些不安全。<br>4、WPS<br>5、solid converter PDF pro<br>6、nuance PDF professional<br>7、汉王 PDF OCR<br>8、nuance PDF professional</p>
+<h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><p>1、<a href="https://www.zhihu.com/question/30240724" target="_blank" rel="external">pdf转word有什么好用的软件？-知乎</a></p>
+
     
 
         <a href="/2016/06/20/others/pdf转word/" class="post-more waves-effect waves-button">
@@ -575,7 +598,13 @@ mysql是一个免费的轻量型数据库（相对于o...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1、【知乎】在 Android Studio 中如何将依赖的 jar 包放在 SDK 的 android.jar 前？在编译原生 Contacts 应用时需用到非公开的 API，需要引入 framework 等 jar 包，但在 AndroidStudio 中 SDK 带的 jar 包的优先级最高，导致引入的 framework 等 jar 包无法被引用，请问如何将 framework 等 ...
+        <p>1、【知乎】在 Android Studio 中如何将依赖的 jar 包放在 SDK 的 android.jar 前？<br>在编译原生 Contacts 应用时需用到非公开的 API，需要引入 framework 等 jar 包，但在 Android<br>Studio 中 SDK 带的 jar 包的优先级最高，导致引入的 framework 等 jar 包无法被引用，请问如何将 framework 等 jar 包的优先级调成最高？<br><a href="https://www.zhihu.com/question/35628837#answer-37336542" target="_blank" rel="external">https://www.zhihu.com/question/35628837#answer-37336542</a><br><a href="http://stackoverflow.com/questions/27441398/how-to-put-my-libraries-in-front-
+of-android-jar-by-editing-build-gradle-in-andro" target="_blank" rel="external">http://stackoverflow.com/questions/27441398/how-to-put-my-libraries-in-front-
+of-android-jar-by-editing-build-gradle-in-andro</a></p>
+<p>2、【知乎】我使用 zxing 的 jar 包，在 6.0 系统上（Nexus 5x 安卓 6.0.1 官方系统）扫描时成像是反的？<br>我使用 zxing 的 jar 包，在6.0系统上（Nexus 5x，安卓 6.0.1 官方系统）扫描时成像是反的<br>怀疑是 jar 包太老了，有最新的 jar 包么？丢个我试试<br>在 github 上看了下，没有最新的 jar 包，老外都用 AS 了，一下子暂时也迁移不过去，谁有最新的 zxing 的 jar 的话给个我试试，有 demo 最好，怕我用的方法也过时了</p>
+<p>回答：手机的锅，具体解决待查方法<br><a href="https://www.zhihu.com/question/46747096" target="_blank" rel="external">https://www.zhihu.com/question/46747096</a></p>
+<p>3、错误集合<br>Android开发各类常见错误解决方案<br><a href="http://www.jianshu.com/p/c5db81cbc438" target="_blank" rel="external">http://www.jianshu.com/p/c5db81cbc438</a></p>
+
     
 
         <a href="/2016/06/11/android/android-studio使用问题归结/" class="post-more waves-effect waves-button">
@@ -624,7 +653,27 @@ mysql是一个免费的轻量型数据库（相对于o...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述我最近在写一个 android 的项目。软件：android studio、Android studio VCS integration（插件）Android studio VCS integration插件：使用此插件结合github进行代码版本管理近期出现的问题：12345678919:29:47.581: [DailyZHIHU] git -c core.quotepath=f...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>我最近在写一个 android 的项目。<br>软件：android studio、Android studio VCS integration（插件）<br>Android studio VCS integration插件：使用此插件结合github进行代码版本管理<br>近期出现的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">19:29:47.581: [DailyZHIHU] git -c core.quotepath=false push --progress</div><div class="line">--porcelain origin refs/heads/master:master  </div><div class="line">java.io.IOException: Authentication failed:  </div><div class="line">at org.jetbrains.git4idea.ssh.SSHMain.authenticate(SSHMain.java:298)  </div><div class="line">at org.jetbrains.git4idea.ssh.SSHMain.start(SSHMain.java:172)  </div><div class="line">at org.jetbrains.git4idea.ssh.SSHMain.main(SSHMain.java:137)  </div><div class="line">fatal: Could not read from remote repository.  </div><div class="line">Please make sure you have the correct access rights  </div><div class="line">and the repository exists.</div></pre></td></tr></table></figure></p>
+<p>能够发现，在本地是被提交了的，但是在github上没有提交成功。结果想在本地check changes/commit的时候，却是no changes的。<br>截图如下：<br><img src="http://images2015.cnblogs.com/blog/797098/201606/797098-20160611195401418-811639061.png" alt=""></p>
+<h1 id="二、解决办法"><a href="#二、解决办法" class="headerlink" title="二、解决办法"></a>二、解决办法</h1><p>1、首先，确保各项设置全部正确（github连接成功、git.exe连接成功）<br><img src="http://images2015.cnblogs.com/blog/797098/201606/797098-20160611200015293-161677832.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201606/797098-20160611200024855-1760607329.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>2、其次，将SSH executable：Built-in/Native选择成为Native<br><img src="http://images2015.cnblogs.com/blog/797098/201606/797098-20160611200304558-660899388.png" alt=""></p>
+<p>关于<em>SSH executable：Built-in/Native</em>的解释：<br>Specify the version of SSH to be used with Git.</p>
+<ul>
+<li>Native means that the native SSH will be used.</li>
+<li>Built-in means that the implementation provided by Android Studio will be used.</li>
+</ul>
+<p>The native implementation might cause hangups on some platforms. In native<br>case, you also might need to configure ssh-askpass for your platform to<br>receive GUI prompts for passwords.</p>
+<h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><p><a href="https://bitbucket.org/dmitry_cherkas/jetbrains-bitbucket-connector/issues/20
+/clone-failed-could-not-read-from-remote" target="_blank" rel="external">https://bitbucket.org/dmitry_cherkas/jetbrains-bitbucket-connector/issues/20
+/clone-failed-could-not-read-from-remote</a><br><a href="http://www.weixingon.com/s/android+studio+vcs" target="_blank" rel="external">http://www.weixingon.com/s/android+studio+vcs</a><br><a href="http://stackoverflow.com/questions/17211697/android-studio-vcs-integration" target="_blank" rel="external">http://stackoverflow.com/questions/17211697/android-studio-vcs-integration</a></p>
+
     
 
         <a href="/2016/06/11/git/github提交失败并报错java.io.ioexception-authentication-failed/" class="post-more waves-effect waves-button">
@@ -673,8 +722,9 @@ mysql是一个免费的轻量型数据库（相对于o...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述CollapsingToolbarLayout是Material Design的一个Layout，直接继承于FrameLayout.
-二、使用1、导包2、使用 - 设置相关属性三、参考1、https://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html2...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>CollapsingToolbarLayout是Material Design的一个Layout，直接继承于FrameLayout.</p>
+<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><h2 id="1、导包"><a href="#1、导包" class="headerlink" title="1、导包"></a>1、导包</h2><h2 id="2、使用-设置相关属性"><a href="#2、使用-设置相关属性" class="headerlink" title="2、使用 - 设置相关属性"></a>2、使用 - 设置相关属性</h2><h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><p>1、<a href="https://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html" target="_blank" rel="external">https://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html</a><br>2、<a href="http://www.jianshu.com/p/b21fbf38aa25#" target="_blank" rel="external">http://www.jianshu.com/p/b21fbf38aa25#</a></p>
+
     
 
         <a href="/2016/05/20/android/material-design-collapsingtoolbarlayout/" class="post-more waves-effect waves-button">

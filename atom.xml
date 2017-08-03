@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-08-01T12:28:09.561Z</updated>
+  <updated>2017-08-03T12:16:40.879Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android中解析XML格式数据的方法</title>
+    <link href="http://cnneillee.github.io/2017/08/03/android/Android%E4%B8%AD%E8%A7%A3%E6%9E%90XML%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://cnneillee.github.io/2017/08/03/android/Android中解析XML格式数据的方法/</id>
+    <published>2017-08-03T11:03:37.000Z</published>
+    <updated>2017-08-03T12:16:40.879Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;XML介绍：Extensible Markup Language，即可扩展标记语言&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/
+    
+    </summary>
+    
+      <category term="Java" scheme="http://cnneillee.github.io/categories/Java/"/>
+    
+    
+      <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
+    
+      <category term="xml" scheme="http://cnneillee.github.io/tags/xml/"/>
+    
+  </entry>
   
   <entry>
     <title>测试页面</title>
@@ -32,23 +57,6 @@
     
     
       <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://cnneillee.github.io/2017/06/29/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E9%A2%98/"/>
-    <id>http://cnneillee.github.io/2017/06/29/面试常见题/</id>
-    <published>2017-06-29T05:19:57.451Z</published>
-    <updated>2017-06-29T08:09:19.938Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;面试常见题&lt;/p&gt;
-&lt;h1 id=&quot;常见题1：Java-垃圾回收机制（GC）&quot;&gt;&lt;a href=&quot;#常见题1：Java-垃圾回收机制（GC）&quot; class=&quot;headerlink&quot; title=&quot;常见题1：Java 垃圾回收机制（GC）&quot;&gt;&lt;/a&gt;常见题1：Java 垃圾回
-    
-    </summary>
-    
     
   </entry>
   
@@ -197,9 +205,9 @@
       <category term="Database" scheme="http://cnneillee.github.io/categories/Database/"/>
     
     
-      <category term="database" scheme="http://cnneillee.github.io/tags/database/"/>
-    
       <category term="redis" scheme="http://cnneillee.github.io/tags/redis/"/>
+    
+      <category term="database" scheme="http://cnneillee.github.io/tags/database/"/>
     
       <category term="monitoring" scheme="http://cnneillee.github.io/tags/monitoring/"/>
     
@@ -226,9 +234,9 @@
     
       <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
     
-      <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
-    
       <category term="json" scheme="http://cnneillee.github.io/tags/json/"/>
+    
+      <category term="python" scheme="http://cnneillee.github.io/tags/python/"/>
     
   </entry>
   
@@ -276,26 +284,6 @@
   </entry>
   
   <entry>
-    <title>『NiFi 学习之路』简介</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E7%AE%80%E4%BB%8B/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:06:19.484Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#&quot;&gt;『NiFi 学习之路』简介&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用&quot;&gt;『NiFi 学习之路』
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
     <title>『NiFi 学习之路』把握 —— 架构及主要组件</title>
     <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E6%8A%8A%E6%8F%A1%E2%80%94%E2%80%94%E6%9E%B6%E6%9E%84%E5%8F%8A%E4%B8%BB%E8%A6%81%E9%83%A8%E4%BB%B6/"/>
     <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/</id>
@@ -315,53 +303,17 @@
   </entry>
   
   <entry>
-    <title>『NiFi 学习之路』入门 —— 下载、安装与简单使用</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/</id>
+    <title>『NiFi 学习之路』简介</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E7%AE%80%E4%BB%8B/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/</id>
     <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:09:18.440Z</updated>
+    <updated>2017-06-13T15:06:19.484Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。&lt;/p&gt;
-&lt;p&gt;实践
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 学习之路』资源 —— 资料汇总</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%B5%84%E6%BA%90%E2%80%94%E2%80%94%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:19:47.113Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。&lt;/p&gt;
-&lt;p&gt;加之，大家都知道，国内的那么些个教程，原创都
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 学习之路』使用 —— 主要组件的使用</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:09:27.207Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;『NiFi 学习之路』简介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用&quot;&gt;『NiFi 学习之路』
     
     </summary>
     
@@ -411,6 +363,43 @@
   </entry>
   
   <entry>
+    <title>『NiFi 学习之路』使用 —— 主要组件的使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:09:27.207Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』入门 —— 下载、安装与简单使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:09:18.440Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。&lt;/p&gt;
+&lt;p&gt;实践
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
     <title>『NiFi 学习之路』自定义 —— 组件的自定义及使用</title>
     <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
     <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/</id>
@@ -421,6 +410,25 @@
     
       &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;许多业务仅仅使用官方提供的组件不能够满足性能上的需求，往往要通过高度可定制的组件来完成特定的业务需求。&lt;/p&gt;
 &lt;p&gt;而 N
+    
+    </summary>
+    
+    
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『NiFi 学习之路』资源 —— 资料汇总</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%B5%84%E6%BA%90%E2%80%94%E2%80%94%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:19:47.113Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。&lt;/p&gt;
+&lt;p&gt;加之，大家都知道，国内的那么些个教程，原创都
     
     </summary>
     

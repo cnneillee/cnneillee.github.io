@@ -221,8 +221,27 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述最近正在实习公司迭代一个app，项目工程比较大，依赖的第三方服务、第三方库较多，比较复杂。因为公司项目一直是在ec上写的，没有androidstudio的版本。而大家都知道ec写代码远没有as写得爽。因此在完成公司要求的功能模块后，我自己尝试将项目引入到as中，并且为公司提供as版本，方便后续人员的开发迭代。同时也能够练习一下“怎样将ec项目导入到as”。
-二、将ec项目打包1、选中...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>最近正在实习公司迭代一个app，项目工程比较大，依赖的第三方服务、第三方库较多，比较复杂。因为公司项目一直是在ec上写的，没有android<br>studio的版本。而大家都知道ec写代码远没有as写得爽。因此在完成公司要求的功能模块后，我自己尝试将项目引入到as中，并且为公司提供as版本，方便后续人员的开发迭代。同时也能够练习一下“怎样将ec项目导入到as”。</p>
+<h1 id="二、将ec项目打包"><a href="#二、将ec项目打包" class="headerlink" title="二、将ec项目打包"></a>二、将ec项目打包</h1><p>1、选中项目-》右键-》Export…-&gt;Generate Gradle build files<br>接着一路狂奔下一步，可能在ec中，你需要导出的项目关联了其他的项目，没事，只要选择你想要导出的那个就OK</p>
+<p>2、突然弹出一个窗口，不对，好像直接覆盖公司项目？先备份，保平安</p>
+<p>3、然后回到原来的workspace的目录看看。wocao，怎么全部放在一起了，分不清谁是谁了！！！GG</p>
+<p>没关系，根本不虚，因为我在2中就将整个项目目录的文件备份了，够机智！</p>
+<p>4、我们来比对一下前后两个目录的文件变化<br>在工作空间目录下，多出了 gradle 文件夹和 build.gradle 、 build.gradle 、 gradlew 、 gradlew.bat 、<br>settings.gradle 文件;在 e-demo 目录下多出了 build.gradle 文件; 在 appcompat_v7 目录下多出了<br>build.gradle 文件。这些文件和文件夹都和 Gradle 有关系，用于构建项目。</p>
+<h1 id="三、导入as前的一些动作"><a href="#三、导入as前的一些动作" class="headerlink" title="三、导入as前的一些动作"></a>三、导入as前的一些动作</h1><p>1、手动修改工作空间目录下的 build.gradle 文件<br>由于 Eclipse 的 ADT 插件已经很久没有更新了，自动生成的 Gradle 编译设置已经跟不上Android<br>Studio的更新速度，所以我们需要手动修改一些内容。</p>
+<p>a、修改H:\android_develop_tools\android_studio_workplace\Gank-io\gradle\wrapper<br>\gradle-wrapper.properties的</p>
+<p>distributionUrl=https\://services.gradle.org/distributions/gradle-1.12-all.zip<br>这一行，具体改成什么值，可以先自己新建一个as的android项目，然后去看对应的值，拷贝过来就OK，下同</p>
+<p>b、修改工作空间目录下的build.gradle，将</p>
+<p>classpath ‘com.android.tools.build:gradle:0.12.+’<br>也更新为自己最近as项目的值</p>
+<p>这样，就能够使得你当前的as项目能够支持目前要导入的项目</p>
+<h1 id="四、进入as开始导入"><a href="#四、进入as开始导入" class="headerlink" title="四、进入as开始导入"></a>四、进入as开始导入</h1><p>1、首先 打开Android Studio，选择 Open an existing Android Studio project。</p>
+<p>这一项可能只有在as之前没有打开项目的时候用的，但是如果你之前打开过项目，然后启动as则出现了以前项目的目录状态，怎么办呢？<br>File-&gt;new -&gt;import projects即可</p>
+<p>2、然后将目录选择到你的工作空间目录，点OK</p>
+<p>！！！记住，是工作空间目录～～～因为ec导出来的东西全部一股脑的放在工作空间目录里，所以，不管了直接导入工作空间目录</p>
+<p>3、随后，自动打开一个as窗口，迎来的是许多错误，莫方，点setting-》Build,Execution,Deployment-&gt;Gradle<br>进行相关配置</p>
+<p>4、这时候会出现各种错误，那么就按照错误提示去baidu、google，解决之后就应该没什么问题了</p>
+<p>最重要的一个问题，可能之前在项目中使用了umeng、tusdk、alipay等第三方服务，强烈建议首先删了，然后自己去配置相关服务</p>
+<h1 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h1><p><a href="http://blog.csdn.net/feixiaku/article/details/45155587/" target="_blank" rel="external">http://blog.csdn.net/feixiaku/article/details/45155587/</a><br><a href="http://www.111cn.net/sj/android/74260.htm" target="_blank" rel="external">http://www.111cn.net/sj/android/74260.htm</a></p>
+
     
 
         <a href="/2016/08/01/android/将eclipse的项目导入android-studio/" class="post-more waves-effect waves-button">
@@ -271,7 +290,7 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        最近读了Android异步处理系列文章索引，感觉这个文章系列写得不错！可以作为参考
+        <p>最近读了<a href="http://blog.csdn.net/mylzc/article/details/6777767" target="_blank" rel="external">Android异步处理系列文章索引</a>，感觉这个文章系列写得不错！可以作为参考</p>
 
     
 
@@ -321,8 +340,15 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述Error retrieving parent for item: No resource found that matches the given name  ‘Theme.AppCompat.Light’.Theme
-近期刚接手了一个项目，开发工具为eclipse，由于版本较低，且考虑到如果转androidstudio项目的话，会其他人的维护带来困难，所以想着还是维护项目原来的开...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Error retrieving parent for item: No resource found that matches the given name  ‘Theme.AppCompat.Light’.Theme</p>
+<p>近期刚接手了一个项目，开发工具为eclipse，由于版本较低，且考虑到如果转android<br>studio项目的话，会其他人的维护带来困难，所以想着还是维护项目原来的开发环境吧。</p>
+<p>但是导入项目后，始终发现缺少v7包和v4包。</p>
+<p>网上查找后，看到有一篇文章介绍到：</p>
+<blockquote>
+<p>support v4能到导入在sdk中的相应jar包，而support v6不行。<br> 起初按照文章介绍一步一步照做。<br> 通过导入sdk目录下的support-v7包（copy to workspace），然后设置成is library，再将项目添加此导入项目为依赖。<br> 但是发现还是无济于事。<br> 最后我想，support v4能，为啥support v7不行，于是将sdk中相应的jar导入，这回发现res目录下的themes都会报错error:<br>Error retrieving parent for item: No resource found that matches the given<br>name ‘Theme.AppCompat.Light’.，找不到相关的类。</p>
+</blockquote>
+<h1 id="二、解决方法"><a href="#二、解决方法" class="headerlink" title="二、解决方法"></a>二、解决方法</h1><p><a href="http://blog.163.com/wslngcjsdxdr@126/blog/static/16219623020146971323118/" target="_blank" rel="external">安卓开发中Theme.AppCompat.Light的解决方法</a></p>
+
     
 
         <a href="/2016/07/13/android/android新手容易遇到的error-retrieving-parent-for-item-no-resource-found-that-matches-the-given-name-'Theme.AppCompat.Light'.Theme出错的问题/" class="post-more waves-effect waves-button">
@@ -371,10 +397,76 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、硬件描述1.1 云服务器：腾讯云云主机操作系统：Ubuntu Server 14.04.1 LTS 32位CPU：1核内存：1GB系统盘：20GB(本地磁盘)数据盘：0GB公网带宽：1Mbps
-1.2 本地配置操作系统：windows 8.1
-二、远程登陆服务器（ubuntu为例）2.1 操作教程官方文档：如何远程登录linux服务器
-2.2 踩过的坑需要特别注意的是，在使用ssh与pu...
+        <h1 id="一、硬件描述"><a href="#一、硬件描述" class="headerlink" title="一、硬件描述"></a>一、硬件描述</h1><h2 id="1-1-云服务器：腾讯云"><a href="#1-1-云服务器：腾讯云" class="headerlink" title="1.1 云服务器：腾讯云"></a>1.1 云服务器：腾讯云</h2><p><strong>云主机</strong><br>操作系统：Ubuntu Server 14.04.1 LTS 32位<br>CPU：1核<br>内存：1GB<br>系统盘：20GB(本地磁盘)<br>数据盘：0GB<br>公网带宽：1Mbps</p>
+<h2 id="1-2-本地配置"><a href="#1-2-本地配置" class="headerlink" title="1.2 本地配置"></a>1.2 本地配置</h2><p>操作系统：windows 8.1</p>
+<h1 id="二、远程登陆服务器（ubuntu为例）"><a href="#二、远程登陆服务器（ubuntu为例）" class="headerlink" title="二、远程登陆服务器（ubuntu为例）"></a>二、远程登陆服务器（ubuntu为例）</h1><h2 id="2-1-操作教程"><a href="#2-1-操作教程" class="headerlink" title="2.1 操作教程"></a>2.1 操作教程</h2><p>官方文档：<a href="https://www.qcloud.com/help/%E5%A6%82%E4%BD%95%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95linux%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="external">如何远程登录linux服务器</a></p>
+<h2 id="2-2-踩过的坑"><a href="#2-2-踩过的坑" class="headerlink" title="2.2 踩过的坑"></a>2.2 踩过的坑</h2><p><em>需要特别注意的是，在使用ssh与putty保存session登陆时，有一个坑！</em><br><img src="https://mccdn.qcloud.com/img56397115cb2c1.png" alt=""><br><strong>保存的session名称应避免与用户名冲突</strong></p>
+<h1 id="三、搭建vsftpd服务器"><a href="#三、搭建vsftpd服务器" class="headerlink" title="三、搭建vsftpd服务器"></a>三、搭建vsftpd服务器</h1><h2 id="3-1-下载vsftpd"><a href="#3-1-下载vsftpd" class="headerlink" title="3.1 下载vsftpd"></a>3.1 下载vsftpd</h2><p><em>redhat、centos等使用rpm包的发行版：</em></p>
+<blockquote>
+<p>使用命令安装：yum install vsftpd<br> 使用下载包安装：rpm -ivh vsftpd*.rpm</p>
+</blockquote>
+<p>Debian、Ubuntu等使用DEB包党的发行版：</p>
+<blockquote>
+<p>使用命令安装：apt-get install vsftpd</p>
+</blockquote>
+<p><strong>若权限不足，则在命令前加 sudo ，下同</strong></p>
+<h2 id="3-2-关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）"><a href="#3-2-关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）" class="headerlink" title="3.2 关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）"></a>3.2 关闭selinux（Debian、Ubuntu等使用DEB包的系统可跳过此步骤）</h2><p>由于ftp涉及到端口开放的问题，所以我们把selinux关闭。</p>
+<p>selinux的介绍见博文——<a href="http://blog.csdn.net/myarrow/article/details/9856095/" target="_blank" rel="external">SELinux深入理解</a><br>ftp命令连接使用21端口，数据连接则有两种方式，即主动ftp和被动ftp。详细见博文——<a href="http://www.softbar.com/blog/post/117.html" target="_blank" rel="external">FTP两种工作模式介绍</a></p>
+<p><strong>一般在redhat、centos等使用rpm包的发行版默认安装有selinux，而Debian、Ubuntu等使用DEB包的发行版不默认安装</strong></p>
+<p>故对于Debian、Ubuntu等使用DEB包的服务器：</p>
+<blockquote>
+<p>临时关闭(重启后，selinux会被打开)：setenforce 0<br> 开启：setenforce 1<br> 永久关闭：修改/etc/selinux/config文件，将SELINUX=enforcing改成SELINUX=disabled，重启机器</p>
+</blockquote>
+<h2 id="3-3-开启ftp服务"><a href="#3-3-开启ftp服务" class="headerlink" title="3.3 开启ftp服务"></a>3.3 开启ftp服务</h2><blockquote>
+<p>service vsftpd start/stop/restart</p>
+</blockquote>
+<p>对于服务操作的一些命令：</p>
+<blockquote>
+<p>service [service名] [对service的操作如：start/stop/restart/status]</p>
+</blockquote>
+<h2 id="3-4-ftp用户管理"><a href="#3-4-ftp用户管理" class="headerlink" title="3.4 ftp用户管理"></a>3.4 ftp用户管理</h2><p>出于安全考虑，一般不会使用系统用户来做登陆ftp的操作，因而大部分情况下会新建一个linux用户（单纯的一个用户，不具备bash），并用此用户进行ftp的登陆等操作</p>
+<p>对于ftp用户的管理，其遵循linux的用户管理，根据/etc/passwd和etc/group来进行管理</p>
+<p>新建用户：</p>
+<blockquote>
+<p>useradd test，passwd test</p>
+</blockquote>
+<p><strong>此处的useradd仅仅只是创建用户，而可替换为adduser（创建用户家目录\home\test）</strong><br>二者具体的区别在<a href="http://blog.csdn.net/deit_aaron/article/details/9984701" target="_blank" rel="external">useradd<br>与adduser的区别</a>有介绍</p>
+<h2 id="3-5-通过对-vsftpd-配置文件的修改实现对vsftpd的精细化配置"><a href="#3-5-通过对-vsftpd-配置文件的修改实现对vsftpd的精细化配置" class="headerlink" title="3.5 通过对 vsftpd 配置文件的修改实现对vsftpd的精细化配置"></a>3.5 通过对 vsftpd 配置文件的修改实现对vsftpd的精细化配置</h2><p>对于vsftpd具体的一些配置可通过修改配置文件来进行实现。</p>
+<p>常见的配置文件有：<br><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708134551686-1064505686.png" alt=""></p>
+<p>对于主配置文件，一些常用的配置：</p>
+<blockquote>
+<p>anonymous_enable=YES #是否开启匿名登陆<br> local_enable=YES #是否允许本地用户(即linux系统中的用户帐号)登录FTP服务器，默认设置为YES允许<br> write_enable=YES #是否允许本地用户对FTP服务器文件具有写权限，默认设置为YES允许</p>
+</blockquote>
+<p><strong>一项比较重要的配置：（文字不重要，重点看图）</strong></p>
+<blockquote>
+<p>用户登录FTP服务器后是否具有访问自己目录以外的其他文件的权限<br> 设置为YES时，用户被锁定在自己的home目录中，vsftpd将在下面chroot_list_file选项值的位置寻找chroot_list文件<br> 必须与下面的设置项配合<br> chroot_list_enable=YES<br> 被列入此文件的用户，在登录后将不能切换到自己目录以外的其他目录<br> 从而有利于FTP服务器的安全管理和隐私保护。此文件需自己建立<br> chroot_list_file=/etc/vsftpd/chroot_list</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>关于主配置文件的使用，<a href="http://os.51cto.com/art/201008/221842.htm" target="_blank" rel="external">史上最详细的vsftpd配置文件讲解(1)</a><br>这篇文章写得很详细</p>
+<h1 id="四、踩过的坑"><a href="#四、踩过的坑" class="headerlink" title="四、踩过的坑"></a>四、踩过的坑</h1><h2 id="4-1-不同系统配置文件的目录不同"><a href="#4-1-不同系统配置文件的目录不同" class="headerlink" title="4.1 不同系统配置文件的目录不同"></a>4.1 不同系统配置文件的目录不同</h2><p>ubuntu不同于centos，ubuntu的配置文件目录不在 /etc/vsftpd/vsftpd.conf 而是在 /etc/vsftpd.conf</p>
+<h2 id="4-2-明确vsftpd-conf-文件中几个参数的作用"><a href="#4-2-明确vsftpd-conf-文件中几个参数的作用" class="headerlink" title="4.2 明确vsftpd.conf 文件中几个参数的作用"></a>4.2 明确vsftpd.conf 文件中几个参数的作用</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160708020249764-1564183259.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="4-3-记得打开21端口的安全组"><a href="#4-3-记得打开21端口的安全组" class="headerlink" title="4.3 记得打开21端口的安全组"></a>4.3 记得打开21端口的安全组</h2><p>购买云主机的时候，在做最初配置时，有引导安全组的配置。因为之前选了默认的打开“Linux安全组放通22端口”，而没打开ftp的21端口。<br>所以，在配置完成ftp服务器时发现只能在服务器上登陆ftp，而通过外网无法访问ftp。这是一个比较容易被忽略的问题！（这是一个大坑）</p>
+<p>官方文档：<a href="https://www.qcloud.com/doc/product/213/500" target="_blank" rel="external">如何配置安全组？</a></p>
+<h2 id="4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside"><a href="#4-4-出现错误500-OOPS-vsftpd-refusing-to-run-with-writable-root-inside" class="headerlink" title="4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside"></a>4.4 出现错误500 OOPS: vsftpd: refusing to run with writable root inside</h2><p>chroot()</p>
+<p>如果启用chroot,必须保证ftp根目录不可写,这样对于ftp根直接为网站根目录的用户不方便,所以建议假如ftp根目录是/home/${cjh},则将访问权限改写如下<br>chmod a-w /home/cjh</p>
+<h2 id="4-5-写文件时遇到-bash-data1-txt-Permission-denied"><a href="#4-5-写文件时遇到-bash-data1-txt-Permission-denied" class="headerlink" title="4.5 写文件时遇到-bash: data1.txt: Permission denied"></a>4.5 写文件时遇到-bash: data1.txt: Permission denied</h2><blockquote>
+<p>sudo sh -c “echo a &gt; 1.txt”</p>
+</blockquote>
+<p><a href="http://blog.csdn.net/hejinjing_tom_com/article/details/7767127" target="_blank" rel="external">避免’sudo echo x &gt;’ 时’Permission<br>denied’</a></p>
+<h1 id="五、参考文献"><a href="#五、参考文献" class="headerlink" title="五、参考文献"></a>五、参考文献</h1><p>1、qcloud文档中心， <a href="https://www.qcloud.com/doc/product" target="_blank" rel="external">https://www.qcloud.com/doc/product</a><br>2、专题：vsftpd入门——安装、配置、案例与常见问题。玩转vsftpd服务器的四大高级配置，<br><a href="http://os.51cto.com/art/201008/222036.htm" target="_blank" rel="external">http://os.51cto.com/art/201008/222036.htm</a><br>3、FTP两种工作模式介绍， <a href="http://www.softbar.com/blog/post/117.html" target="_blank" rel="external">http://www.softbar.com/blog/post/117.html</a><br>4、SELinux深入理解， <a href="http://blog.csdn.net/myarrow/article/details/9856095/" target="_blank" rel="external">http://blog.csdn.net/myarrow/article/details/9856095/</a><br>5、useradd 与adduser的区别，<br><a href="http://blog.csdn.net/deit_aaron/article/details/9984701" target="_blank" rel="external">http://blog.csdn.net/deit_aaron/article/details/9984701</a><br>5、史上最详细的vsftpd配置文件讲解(1)， <a href="http://os.51cto.com/art/201008/221842.htm" target="_blank" rel="external">http://os.51cto.com/art/201008/221842.htm</a><br>6、避免’sudo echo x &gt;’ 时’Permission denied’，<br><a href="http://blog.csdn.net/hejinjing_tom_com/article/details/7767127" target="_blank" rel="external">http://blog.csdn.net/hejinjing_tom_com/article/details/7767127</a></p>
+
     
 
         <a href="/2016/07/08/others/【腾讯云】腾讯云服务器搭建ftp服务器/" class="post-more waves-effect waves-button">
@@ -423,7 +515,7 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Java中的标记接口和标记注解http://blog.sina.com.cn/s/blog_7fdce91f0101d93m.html
+        <p>Java中的标记接口和标记注解<br><a href="http://blog.sina.com.cn/s/blog_7fdce91f0101d93m.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_7fdce91f0101d93m.html</a></p>
 
     
 
@@ -473,8 +565,34 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述大部分程序员擅长开发，但是对于设计却知之甚少。这直接导致，程序员在初期开发出来的应用（大多为兴趣或实用导向）中看不中用。因此，有必要搜集整合一些设计资源，这样既能减轻程序员在设计上所耗费的时间，又能够提供一个相对较能接受的用户界面设计。
-二、资源整合2.1 icon资源网站2.2 常用的lib2.2.1 Material Design Dimenshttps://github.com...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>大部分程序员擅长开发，但是对于设计却知之甚少。这直接导致，程序员在初期开发出来的应用（大多为兴趣或实用导向）中看不中用。因此，有必要搜集整合一些设计资源，这样既能减轻程序员在设计上所耗费的时间，又能够提供一个相对较能接受的用户界面设计。</p>
+<h1 id="二、资源整合"><a href="#二、资源整合" class="headerlink" title="二、资源整合"></a>二、资源整合</h1><h2 id="2-1-icon资源网站"><a href="#2-1-icon资源网站" class="headerlink" title="2.1 icon资源网站"></a>2.1 icon资源网站</h2><h2 id="2-2-常用的lib"><a href="#2-2-常用的lib" class="headerlink" title="2.2 常用的lib"></a>2.2 常用的lib</h2><h3 id="2-2-1-Material-Design-Dimens"><a href="#2-2-1-Material-Design-Dimens" class="headerlink" title="2.2.1 Material Design Dimens"></a>2.2.1 Material Design Dimens</h3><p><a href="https://github.com/DmitryMalkovich/material-design-dimens" target="_blank" rel="external">https://github.com/DmitryMalkovich/material-design-dimens</a></p>
+<p>Default colors and dimens per Material Design guidelines and Android Design<br>guidelines inside one library.<br>能够提供一些默认的android控件的常用尺寸、配色等解决方案，再也不用在xml文件下code/design切来切去了，更无须为了查看一个控件的尺寸/颜色的调节而频繁地在将不必要的、小的代码更新提交至手机端进行检查。</p>
+<p>例如：<br><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702224025734-1227912433.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702224036077-670712634.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="2-2-2-ExpandableLayout"><a href="#2-2-2-ExpandableLayout" class="headerlink" title="2.2.2 ExpandableLayout"></a>2.2.2 ExpandableLayout</h3><p>A expandable Layout to save space and reduce jump between Activity and<br>Fragment<br>能够调节控件被展开后，激发父控件滑动以适应展开后的内容显示</p>
+<h3 id="2-2-3-AdvancedTextSwitcher"><a href="#2-2-3-AdvancedTextSwitcher" class="headerlink" title="2.2.3 AdvancedTextSwitcher"></a>2.2.3 AdvancedTextSwitcher</h3><p><a href="https://github.com/SumiMakito/AdvancedTextSwitcher" target="_blank" rel="external">https://github.com/SumiMakito/AdvancedTextSwitcher</a></p>
+<p>仿照Google+在卡片上滚动显示最新评论的TextSwitcher。<br><img src="http://images2015.cnblogs.com/blog/797098/201607/797098-20160702225706952-1618169226.gif" alt=""></p>
+<h3 id="2-2-4-MultipleStatusView"><a href="#2-2-4-MultipleStatusView" class="headerlink" title="2.2.4 MultipleStatusView"></a>2.2.4 MultipleStatusView</h3><p><a href="https://github.com/qyxxjd/MultipleStatusView" target="_blank" rel="external">https://github.com/qyxxjd/MultipleStatusView</a></p>
+<p>一个支持多种状态的自定义View,可以方便的切换到：加载中视图、错误视图、空数据视图、网络异常视图、内容视图。</p>
+<h3 id="2-2-5-HorizontalWheelView"><a href="#2-2-5-HorizontalWheelView" class="headerlink" title="2.2.5 HorizontalWheelView"></a>2.2.5 HorizontalWheelView</h3><p><a href="https://github.com/shchurov/HorizontalWheelView" target="_blank" rel="external">https://github.com/shchurov/HorizontalWheelView</a></p>
+<p>水平滚轮<br><img src="https://camo.githubusercontent.com/ee6124cc259de10d4a4f6bfbc06ff3c06728803b/687474703a2f2f692e67697068792e636f6d2f764831715378637742424f69512e676966" alt=""></p>
+<h3 id="2-2-6-AndroidGradientImageView"><a href="#2-2-6-AndroidGradientImageView" class="headerlink" title="2.2.6 AndroidGradientImageView"></a>2.2.6 AndroidGradientImageView</h3><p>图片颜色渐变<br><a href="https://github.com/skyfe79/AndroidGradientImageView" target="_blank" rel="external">https://github.com/skyfe79/AndroidGradientImageView</a></p>
+<h3 id="2-2-7-LovelyDialog"><a href="#2-2-7-LovelyDialog" class="headerlink" title="2.2.7 LovelyDialog"></a>2.2.7 LovelyDialog</h3><p>漂亮的dialog<br><a href="https://github.com/yarolegovich/LovelyDialog" target="_blank" rel="external">https://github.com/yarolegovich/LovelyDialog</a></p>
+<h3 id="2-2-8-Image-Zoomer"><a href="#2-2-8-Image-Zoomer" class="headerlink" title="2.2.8 Image-Zoomer"></a>2.2.8 Image-Zoomer</h3><p>点击图片，放大<br>Image zoom animations library for Android.<br><a href="https://github.com/code-crusher/Image-Zoomer" target="_blank" rel="external">https://github.com/code-crusher/Image-Zoomer</a></p>
+<h3 id="2-2-9-LikeAnimation"><a href="#2-2-9-LikeAnimation" class="headerlink" title="2.2.9 LikeAnimation"></a>2.2.9 LikeAnimation</h3><p>仿twitter的点赞效果<br><a href="https://github.com/frogermcs/LikeAnimation" target="_blank" rel="external">https://github.com/frogermcs/LikeAnimation</a></p>
+<h3 id="2-2-10-TEmptyView"><a href="#2-2-10-TEmptyView" class="headerlink" title="2.2.10 TEmptyView"></a>2.2.10 TEmptyView</h3><p>TEmptyView是一个小轮子，希望能够更简单地设置EmptyView，免除每次设置emptyView都要写xml之苦。<br>支持AdapterView(ListView/GridView等)、RecyclerView。<br>Just a Wheel——A easy way to setEmptyView to ListView、GridView or RecyclerView<br>etc..<br><a href="https://github.com/barryhappy/TEmptyView" target="_blank" rel="external">https://github.com/barryhappy/TEmptyView</a></p>
+<h3 id="2-2-11-MoneyTextView"><a href="#2-2-11-MoneyTextView" class="headerlink" title="2.2.11 MoneyTextView"></a>2.2.11 MoneyTextView</h3><p>A custom Android TextView to display amounts of money in different formats.<br><a href="https://github.com/fabiomsr/MoneyTextView" target="_blank" rel="external">https://github.com/fabiomsr/MoneyTextView</a></p>
+<h3 id="2-2-12-打造最强RecyclerView-Item侧滑菜单-长按拖拽Item-滑动删除Item"><a href="#2-2-12-打造最强RecyclerView-Item侧滑菜单-长按拖拽Item-滑动删除Item" class="headerlink" title="2.2.12 打造最强RecyclerView Item侧滑菜单 长按拖拽Item 滑动删除Item"></a>2.2.12 打造最强RecyclerView Item侧滑菜单 长按拖拽Item 滑动删除Item</h3><p><a href="http://blog.csdn.net/yanzhenjie1003/article/details/52115566" target="_blank" rel="external">http://blog.csdn.net/yanzhenjie1003/article/details/52115566</a></p>
+<h2 id="2-2-13-刷新组件"><a href="#2-2-13-刷新组件" class="headerlink" title="2.2.13 刷新组件"></a>2.2.13 刷新组件</h2><p>1、<a href="http://a.codekk.com/detail/Android/Grumoon/android-Ultra-Pull-To-Refresh%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90" target="_blank" rel="external">android-Ultra-Pull-To-Refresh 源码解析</a><br>2、google官方推的[SwipeRefreshLayout]</p>
+<h2 id="2-2-14-voghDev-PdfViewPager"><a href="#2-2-14-voghDev-PdfViewPager" class="headerlink" title="2.2.14 voghDev/PdfViewPager"></a>2.2.14 voghDev/PdfViewPager</h2><p>Android widget that can render PDF documents stored on<br>SD card, linked as assets, or downloaded from a remote URL.<br><a href="https://github.com/voghDev/PdfViewPager" target="_blank" rel="external">https://github.com/voghDev/PdfViewPager</a></p>
+
     
 
         <a href="/2016/07/02/android/android常用控件集合/" class="post-more waves-effect waves-button">
@@ -523,8 +641,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、举例1.1 酷市场1.2 apkpure国外的应用市场，可不用FQ，没有google play的一些限制相当于google play的镜像，可以下载google play的应用
-1.3 360手机助手1.4 腾讯应用宝1.5 百度手机助手1.6 豌豆荚二、参考1、现在比较流行的安卓应用市场有哪些？https://www.zhihu.com/question/47972508
+        <h1 id="一、举例"><a href="#一、举例" class="headerlink" title="一、举例"></a>一、举例</h1><h2 id="1-1-酷市场"><a href="#1-1-酷市场" class="headerlink" title="1.1 酷市场"></a>1.1 酷市场</h2><h2 id="1-2-apkpure"><a href="#1-2-apkpure" class="headerlink" title="1.2 apkpure"></a>1.2 apkpure</h2><p>国外的应用市场，可不用FQ，没有google play的一些限制<br>相当于google play的镜像，可以下载google play的应用</p>
+<h2 id="1-3-360手机助手"><a href="#1-3-360手机助手" class="headerlink" title="1.3 360手机助手"></a>1.3 360手机助手</h2><h2 id="1-4-腾讯应用宝"><a href="#1-4-腾讯应用宝" class="headerlink" title="1.4 腾讯应用宝"></a>1.4 腾讯应用宝</h2><h2 id="1-5-百度手机助手"><a href="#1-5-百度手机助手" class="headerlink" title="1.5 百度手机助手"></a>1.5 百度手机助手</h2><h2 id="1-6-豌豆荚"><a href="#1-6-豌豆荚" class="headerlink" title="1.6 豌豆荚"></a>1.6 豌豆荚</h2><h1 id="二、参考"><a href="#二、参考" class="headerlink" title="二、参考"></a>二、参考</h1><p>1、现在比较流行的安卓应用市场有哪些？<br><a href="https://www.zhihu.com/question/47972508" target="_blank" rel="external">https://www.zhihu.com/question/47972508</a></p>
 
     
 
@@ -574,12 +692,24 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、性能优化工具
-性能分析，我理解有内存性能，IO性能, 界面性能，耗电等。  
+        <h1 id="一、性能优化工具"><a href="#一、性能优化工具" class="headerlink" title="一、性能优化工具"></a>一、性能优化工具</h1><ul>
+<li><p>性能分析，我理解有内存性能，IO性能, 界面性能，耗电等。  </p>
+</li>
+<li><p>内存性能，用 debuggable 的 app 结合 mat 等专业工具可以分析。另外最近的 Leakcanary 很好用，但是要手动加入代码；合理猜测用xposed 写个模块 hook 掉这个 app 然后植入代码应该可行，待验证。  </p>
+</li>
+<li><p>IO性能，Android 上没有什么好用的工具；不过 linux 内核支持，iotop 这个命令可以分析IO占用。可是通常的 Android ROM 编译的时候去掉了这个编译开关，结果没有这个功能。如果需要的话，需要自己修改编译参数打开这个开关(具体哪个忘了，xda 论坛可以搜索)，然后自己编译Android 内核；这个我曾经做过，如果感兴趣我可以写一篇文章。  </p>
+</li>
+<li><p>界面性能；这个嘛，SDK就有很多工具，比如 Hierarchy<br>Viewer，uiautomaterviewer 等，还有手机自带的开发者工具诸如过度绘制查看工具，cpu GPU 使用率等，选择较多。  </p>
+</li>
+<li>耗电；简单来讲 Android 系统电池用量就可以看，也有专业工具 little eye 什么的。</li>
+</ul>
+<h1 id="二、举例"><a href="#二、举例" class="headerlink" title="二、举例"></a>二、举例</h1><h2 id="1、LeakCanary——A-memory-leak-detection-library-for-Android-and-Java"><a href="#1、LeakCanary——A-memory-leak-detection-library-for-Android-and-Java" class="headerlink" title="1、LeakCanary——A memory leak detection library for Android and Java."></a>1、LeakCanary——A memory leak detection library for Android and Java.</h2><p>github：<br><a href="https://github.com/square/leakcanary" target="_blank" rel="external">https://github.com/square/leakcanary</a></p>
+<p>博文：<br>LeakCanary 中文使用说明<br><a href="http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/" target="_blank" rel="external">http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/</a></p>
+<h2 id="2、TraceView"><a href="#2、TraceView" class="headerlink" title="2、TraceView"></a>2、TraceView</h2><p>官网介绍：<br><a href="http://tools.android.com/tips/traceview" target="_blank" rel="external">http://tools.android.com/tips/traceview</a></p>
+<p>博文：<br><a href="http://bxbxbai.github.io/2014/10/25/use-trace-view/" target="_blank" rel="external">http://bxbxbai.github.io/2014/10/25/use-trace-view/</a></p>
+<p><strong>先mark一下，有空再研究</strong></p>
+<h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><p>1、<a href="https://www.zhihu.com/question/39717451/answer/82738801" target="_blank" rel="external">https://www.zhihu.com/question/39717451/answer/82738801</a></p>
 
-内存性能，用 debuggable 的 app 结合 mat 等专业工具可以分析。另外最近的 Leakcanary 很好用，但是要手动加入代码；合理猜测用xposed 写个模块 hook 掉这个 app 然后植入代码应该可行，待验证。  
-
-IO性能，Android 上没有什么好用的工具；不过 linux 内...
     
 
         <a href="/2016/07/02/android/android内存网络界面性能响应优化的工具/" class="post-more waves-effect waves-button">
@@ -628,7 +758,7 @@ IO性能，Android 上没有什么好用的工具；不过 linux 内...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        mysqldump -u root -p stu_infobase&gt;stu_infobase.sql
+        <p>mysqldump -u root -p stu_infobase&gt;stu_infobase.sql</p>
 
     
 
@@ -678,9 +808,15 @@ IO性能，Android 上没有什么好用的工具；不过 linux 内...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一、概述本人近期使用mysql，由于是新手，常常碰到一些问题，因此，在这里做了一个错误备忘录。
-二、错误罗列1、MySQL 记录不存在时插入 记录存在则更新的实现方法http://www.cnblogs.com/emanlee/p/3854812.htmlMySQL INSERT插入条件判断：如果不存在则插入http://my.oschina.net/jsan/blog/270161/
-2、...
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>本人近期使用mysql，由于是新手，常常碰到一些问题，因此，在这里做了一个错误备忘录。</p>
+<h1 id="二、错误罗列"><a href="#二、错误罗列" class="headerlink" title="二、错误罗列"></a>二、错误罗列</h1><h2 id="1、MySQL-记录不存在时插入-记录存在则更新的实现方法"><a href="#1、MySQL-记录不存在时插入-记录存在则更新的实现方法" class="headerlink" title="1、MySQL 记录不存在时插入 记录存在则更新的实现方法"></a>1、MySQL 记录不存在时插入 记录存在则更新的实现方法</h2><p><a href="http://www.cnblogs.com/emanlee/p/3854812.html" target="_blank" rel="external">http://www.cnblogs.com/emanlee/p/3854812.html</a><br>MySQL INSERT插入条件判断：如果不存在则插入<br><a href="http://my.oschina.net/jsan/blog/270161/" target="_blank" rel="external">http://my.oschina.net/jsan/blog/270161/</a></p>
+<h2 id="2、插入数据报错Data-truncation-Data-too-long-for-column"><a href="#2、插入数据报错Data-truncation-Data-too-long-for-column" class="headerlink" title="2、插入数据报错Data truncation: Data too long for column"></a>2、插入数据报错Data truncation: Data too long for column</h2><p>插入的数据比字段长度更长，导致插入失败，要么缩短插入的数据，要么追加字段的长度。<br>追加字段的长度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> # 将学生表中的姓名追加长度到30  </div><div class="line">$ alter table student modify column studentName varchar(30);</div></pre></td></tr></table></figure></p>
+<p><strong>使用此法也可以修改字段类型（从varchar到integer），但是谨慎使用！可能会带来某些问题！！！</strong></p>
+<h2 id="3、插入数据时，主键已存在"><a href="#3、插入数据时，主键已存在" class="headerlink" title="3、插入数据时，主键已存在"></a>3、插入数据时，主键已存在</h2><p>由于主键是唯一标识各行数据的依据，所以主键必须不同，然而如果待插入数据的主键在表中已经存在，那么就会出现 Error Code: 1062<br>Duplicate entry ‘xxx’ for key ‘PRIMARY’ 的错误<br>解决方法，避免主键重复！！！<br>com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException:<br>Duplicate entry ‘2’ for key ‘PRIMARY’<br>Error Code: 1062</p>
+<h2 id="4、mysql删除重复数据记录sql语句总结"><a href="#4、mysql删除重复数据记录sql语句总结" class="headerlink" title="4、mysql删除重复数据记录sql语句总结"></a>4、mysql删除重复数据记录sql语句总结</h2><p><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#104;&#116;&#x74;&#x70;&#58;&#47;&#47;&#98;&#108;&#x6f;&#103;&#46;&#x31;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x73;&#x68;&#101;&#x78;&#105;&#110;&#x79;&#97;&#x6e;&#x67;&#x40;&#x31;&#x32;&#x36;&#47;&#x62;&#x6c;&#x6f;&#x67;&#x2f;&#x73;&#116;&#x61;&#x74;&#105;&#99;&#x2f;&#49;&#51;&#x36;&#55;&#51;&#x39;&#51;&#49;&#50;&#50;&#x30;&#x31;&#52;&#x31;&#49;&#x32;&#x33;&#49;&#x31;&#51;&#x33;&#x31;&#51;&#x35;&#x30;&#x2f;">&#104;&#116;&#x74;&#x70;&#58;&#47;&#47;&#98;&#108;&#x6f;&#103;&#46;&#x31;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x73;&#x68;&#101;&#x78;&#105;&#110;&#x79;&#97;&#x6e;&#x67;&#x40;&#x31;&#x32;&#x36;&#47;&#x62;&#x6c;&#x6f;&#x67;&#x2f;&#x73;&#116;&#x61;&#x74;&#105;&#99;&#x2f;&#49;&#51;&#x36;&#55;&#51;&#x39;&#51;&#49;&#50;&#50;&#x30;&#x31;&#52;&#x31;&#49;&#x32;&#x33;&#49;&#x31;&#51;&#x33;&#x31;&#51;&#x35;&#x30;&#x2f;</a></p>
+<h2 id="5、模糊查询"><a href="#5、模糊查询" class="headerlink" title="5、模糊查询"></a>5、模糊查询</h2><p>MySql模糊查询like通配符使用详细介绍<br><a href="http://blog.csdn.net/my2010sam/article/details/19109235" target="_blank" rel="external">http://blog.csdn.net/my2010sam/article/details/19109235</a></p>
+<h2 id="6、带条件插入"><a href="#6、带条件插入" class="headerlink" title="6、带条件插入"></a>6、带条件插入</h2><p><a href="http://www.2cto.com/database/201203/123987.html" target="_blank" rel="external">http://www.2cto.com/database/201203/123987.html</a><br><a href="http://my.oschina.net/jsan/blog/270161/" target="_blank" rel="external">http://my.oschina.net/jsan/blog/270161/</a></p>
+
     
 
         <a href="/2016/06/29/database/mysql中一些简单但是新手容易犯的错误/" class="post-more waves-effect waves-button">
