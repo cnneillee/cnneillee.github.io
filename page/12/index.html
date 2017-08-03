@@ -191,60 +191,6 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-java/HashMap封装的数据用循环快速添加进list中产生的数据集全部相同的问题"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-18 23:23:00" datetime="2016-04-18T15:23:00.000Z"  itemprop="datePublished">2016-04-18</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/18/java/HashMap封装的数据用循环快速添加进list中产生的数据集全部相同的问题/">HashMap 封装的数据用循环快速添加进 list 中产生的数据集全部相同的问题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、问题概述"><a href="#一、问题概述" class="headerlink" title="一、问题概述"></a>一、问题概述</h1><p>在一次使用SimpleAdapter时，Data需要使用传入一条数据（Image、Text），该数据条使用HashMap封装。在用HashMap封装的数据用循环快速添加进list中产生了数据集全部相同的问题</p>
-<h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><p>观察下面两段代码,发现只是map的声明位置不同，但是运行出的结果却相去甚远。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//代码一</div><div class="line">List&lt;HashMap&lt;String, Object&gt;&gt; mMenuData = new ArrayList&lt;&gt;();</div><div class="line">HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();</div><div class="line">for (int i = 0; i &lt; menuShareImg.length; i++) &#123;</div><div class="line">	map.put(&quot;shareStr&quot;, menuShareStr[i]);</div><div class="line">	map.put(&quot;shareImg&quot;, menuShareImg[i]);</div><div class="line">	mMenuData.add(map);</div><div class="line">&#125;</div><div class="line">    </div><div class="line">    </div><div class="line">//代码二</div><div class="line">List&lt;HashMap&lt;String, Object&gt;&gt; mMenuData = new ArrayList&lt;&gt;();</div><div class="line">for (int i = 0; i &lt; menuShareImg.length; i++) &#123;</div><div class="line">	HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();</div><div class="line">	map.put(&quot;shareStr&quot;, menuShareStr[i]);</div><div class="line">	map.put(&quot;shareImg&quot;, menuShareImg[i]);</div><div class="line">	mMenuData.add(map);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码一会产生上述问题，代码二则能消除问题。</p>
-<h1 id="三、说明"><a href="#三、说明" class="headerlink" title="三、说明"></a>三、说明</h1><p>产生问题的原因很简单。发生了覆盖。仔细一想就能想明白~~</p>
-
-    
-
-        <a href="/2016/04/18/java/HashMap封装的数据用循环快速添加进list中产生的数据集全部相同的问题/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap/">hashmap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-android/android中的各类bar"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -275,75 +221,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、ToolBar"><a href="#一、ToolBar" class="headerlink" title="一、ToolBar"></a>一、ToolBar</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p>Google在2015的IO大会上发布了系列的Material<br>Design风格的控件。其中ToolBar是替代ActionBar的控件。由于ActionBar在各个安卓版本和定制Rom中的效果表现不一，导致严重的碎片化问题，ToolBar应运而生。</p>
-<p><strong>与ActionBar区别</strong><br>显示效果跟ActionBar并没有区别。<br>优点：自定义视图的操作更加简单，状态栏的颜色可以调（Android 4.4以上）。</p>
-<h2 id="1-2-使用方法"><a href="#1-2-使用方法" class="headerlink" title="1.2 使用方法"></a>1.2 使用方法</h2><h3 id="1-2-1-导包-配置Gradle"><a href="#1-2-1-导包-配置Gradle" class="headerlink" title="1.2.1 导包(配置Gradle)"></a>1.2.1 导包(配置Gradle)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.android.support:appcompat-v7:22.0.0&apos;</div></pre></td></tr></table></figure>
-<h3 id="1-2-2-在AndroidManifest-xml设置此Activity的主题"><a href="#1-2-2-在AndroidManifest-xml设置此Activity的主题" class="headerlink" title="1.2.2 在AndroidManifest.xml设置此Activity的主题"></a>1.2.2 在AndroidManifest.xml设置此Activity的主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">&lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</div></pre></td></tr></table></figure>
-<p>注意：务必将ActionBar消除，否则Activity将会崩溃</p>
-<h3 id="1-2-3-重定义主题-颜色等信息"><a href="#1-2-3-重定义主题-颜色等信息" class="headerlink" title="1.2.3 重定义主题(颜色等信息)"></a>1.2.3 重定义主题(颜色等信息)</h3><p>Android 4.4及以上，在values文件夹中新建values-v19.xml，内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line">	&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;</div><div class="line">		&lt;!--Toolbar颜色--&gt;</div><div class="line">		&lt;item name=&quot;colorPrimary&quot;&gt;@android:color/holo_blue_bright&lt;/item&gt;</div><div class="line">		&lt;!-- 状态栏颜色 --&gt;</div><div class="line">		&lt;item name=&quot;colorPrimaryDark&quot;&gt;@android:color/holo_blue_bright&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowTranslucentNavigation&quot;&gt;true&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowTranslucentStatus&quot;&gt;true&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
-<p>Android 4.4以下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line">	&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">		&lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;</div><div class="line">		&lt;!--Toolbar颜色--&gt;</div><div class="line">		&lt;item name=&quot;colorPrimary&quot;&gt;@color/Indigo_colorPrimary&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
-<h3 id="1-2-4-ToolBarxml文件中定义"><a href="#1-2-4-ToolBarxml文件中定义" class="headerlink" title="1.2.4 ToolBarxml文件中定义"></a>1.2.4 ToolBarxml文件中定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;  </div><div class="line">&lt;android.support.v7.widget.Toolbar xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;  </div><div class="line">	android:id=&quot;@+id/toolbar&quot;  </div><div class="line">	android:layout_height=&quot;wrap_content&quot;  </div><div class="line">	android:layout_width=&quot;match_parent&quot;  </div><div class="line">	android:background=&quot;?attr/colorPrimary&quot;  //设置toolbar的背景颜色</div><div class="line">	android:minHeight=&quot;?android:attr/actionBarSize&quot;&gt;  &lt;!-- 最小高度 --&gt;</div><div class="line">&lt;/android.support.v7.widget.Toolbar&gt;</div></pre></td></tr></table></figure>
-<p><code>android:fitsSystemWindows=&quot;true&quot;</code>防止ToolBar与StatusBar融合</p>
-<h3 id="1-2-5-java代码中实现"><a href="#1-2-5-java代码中实现" class="headerlink" title="1.2.5 java代码中实现"></a>1.2.5 java代码中实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private Toolbar mToolbar;  </div><div class="line">private WebFragment mWebFragment;  </div><div class="line">private long mBeforeTime;  </div><div class="line">@Override  </div><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;  </div><div class="line">	super.onCreate(savedInstanceState);  </div><div class="line">	setContentView(R.layout.activity_main);</div><div class="line">	if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;  //版本检测</div><div class="line">		SystemBarTintManager tintManager = new SystemBarTintManager(this);  </div><div class="line">		mToolbar = (Toolbar) findViewById(R.id.toolbar);  </div><div class="line">		tintManager.setStatusBarTintEnabled(true);  //更改状态栏设置</div><div class="line">		setSupportActionBar(mToolbar);  //将ToolBar设置成ActionBar</div><div class="line">		tintManager.setStatusBarTintResource(android.R.color.holo_blue_bright);  </div><div class="line">	&#125;  </div><div class="line">	getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用  </div><div class="line">	getSupportActionBar().setDisplayHomeAsUpEnabled(true);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1-3-参考文章"><a href="#1-3-参考文章" class="headerlink" title="1.3 参考文章"></a>1.3 参考文章</h3><p><a href="http://blog.csdn.net/qq284565035/article/details/47086439" target="_blank" rel="external">http://blog.csdn.net/qq284565035/article/details/47086439</a><br><a href="http://www.itstrike.cn/Question/9ae75549-b316-4844-938e-c22c0f4e6692.html" target="_blank" rel="external">http://www.itstrike.cn/Question/9ae75549-b316-4844-938e-c22c0f4e6692.html</a></p>
-<h1 id="二、ActionBar"><a href="#二、ActionBar" class="headerlink" title="二、ActionBar"></a>二、ActionBar</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><p>ActionBar位于Activity的顶部，可用来显示activity的标题、Icon、Actions和一些用于交互的View。它也可被用于应用的导航。<br>ActionBar 是在Android 3.0(API<br>11）中加入到SK中的，想在低版本中使用ActionBar有两种选择：使用<a href="http://actionbarsherlock.com" target="_blank" rel="external">http://actionbarsherlock.com</a> 或使用Support<br>Library v7。</p>
-<p>图示：<br><img src="http://img.blog.csdn.net/20140606151823031?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnY29udmllbmNl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>其中，[1]是ActionBar的图标，[2]是两个action按钮，[3]是overflow按钮</p>
-<h2 id="2-2、使用方法"><a href="#2-2、使用方法" class="headerlink" title="2.2、使用方法"></a>2.2、使用方法</h2><h3 id="2-2-1低版本（API11）"><a href="#2-2-1低版本（API11）" class="headerlink" title="2.2.1低版本（API11）"></a>2.2.1低版本（API11）</h3><p>开发API11以下的程序，首先必须在AndroidManifest.xml中指定Application或Activity的theme是Theme.Holo或其子类，否则将无法使用ActionBar。</p>
-<h3 id="2-2-1创建Actions"><a href="#2-2-1创建Actions" class="headerlink" title="2.2.1创建Actions"></a>2.2.1创建Actions</h3><p>类似于Menu即可在java代码中添加，也可在xml文件中添加。下面贴上xml代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; &gt;  </div><div class="line">	&lt;item  </div><div class="line">		android:id=&quot;@+id/action_refresh&quot;  </div><div class="line">		android:orderInCategory=&quot;100&quot;  </div><div class="line">  		android:showAsAction=&quot;always&quot;  </div><div class="line">		android:icon=&quot;@drawable/ic_action_refresh&quot;  </div><div class="line">		android:title=&quot;Refresh&quot;/&gt;  </div><div class="line">	&lt;item  </div><div class="line">		android:id=&quot;@+id/action_settings&quot;  </div><div class="line">		android:title=&quot;Settings&quot;&gt;  </div><div class="line">	&lt;/item&gt;  </div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
-<p>说明：</p>
-<ul>
-<li>showAsAction 属性（定义每个 Action 是如何显示的） </li>
-<li>always 表示永远显示在 ActionBar 中，如果屏幕空间不够则无法显示</li>
-<li>ifRoom 表示屏幕空间够的情况下显示在 ActionBar 中，不够的话就显示在 overflow 中</li>
-<li>never 则表示永远显示在 overflow 中</li>
-</ul>
-<p>在java代码中,通过重写onCreateOptionsMenu，以使用上面的menu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Override  </div><div class="line">public boolean onCreateOptionsMenu(Menu menu) &#123;  </div><div class="line">	MenuInflater inflater = getMenuInflater();  </div><div class="line">	inflater.inflate(R.menu.mainmenu, menu);  </div><div class="line">	return true;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-2-Action的按钮交互"><a href="#2-2-2-Action的按钮交互" class="headerlink" title="2.2.2 Action的按钮交互"></a>2.2.2 Action的按钮交互</h3><p>如果一个Action被单击，对于activity中的onOptionsItemSelected()将被调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@Override  </div><div class="line">public boolean onOptionsItemSelected(MenuItem item) &#123;  </div><div class="line">	switch (item.getItemId()) &#123;  </div><div class="line">		// action with ID action_refresh was selected  </div><div class="line">		case R.id.action_refresh:  </div><div class="line">			Toast.makeText(this, &quot;Refresh selected&quot;, Toast.LENGTH_SHORT).show();  </div><div class="line">			break;  </div><div class="line">		// action with ID action_settings was selected  </div><div class="line">		case R.id.action_settings:  </div><div class="line">			Toast.makeText(this, &quot;Settings selected&quot;, Toast.LENG).show();  </div><div class="line">			break;  </div><div class="line">		default:  </div><div class="line">			break;  </div><div class="line">	&#125;  </div><div class="line">	return true;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>说明：<br>onCreateOptionsMenu() 只会被调用一次。若想改变 Menu，可以调用 invalidateOptionsMenu()，这会使 onCreateOptionsMenu() 将会再次被调用。</p>
-<h2 id="2-3-自定义ActionBar"><a href="#2-3-自定义ActionBar" class="headerlink" title="2.3 自定义ActionBar"></a>2.3 自定义ActionBar</h2><h3 id="2-3-1-隐藏与显现"><a href="#2-3-1-隐藏与显现" class="headerlink" title="2.3.1 隐藏与显现"></a>2.3.1 隐藏与显现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ActionBar actionBar = getActionBar();  </div><div class="line">actionBar.hide();  </div><div class="line">// more stuff here...  </div><div class="line">actionBar.show();</div></pre></td></tr></table></figure>
-<h3 id="2-3-2-改变title"><a href="#2-3-2-改变title" class="headerlink" title="2.3.2 改变title"></a>2.3.2 改变title</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ActionBar actionBar = getActionBar();  </div><div class="line">actionBar.setSubtitle(&quot;mytest&quot;);  </div><div class="line">actionBar.setTitle(&quot;vogella.com&quot;);</div></pre></td></tr></table></figure>
-<h3 id="2-3-3-隐藏导航"><a href="#2-3-3-隐藏导航" class="headerlink" title="2.3.3 隐藏导航"></a>2.3.3 隐藏导航</h3><p><code>getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);</code></p>
-<h3 id="2-3-4-使用全屏模式"><a href="#2-3-4-使用全屏模式" class="headerlink" title="2.3.4 使用全屏模式"></a>2.3.4 使用全屏模式</h3><p>对于Android 4.4 (API 19)应用程序可以使用全屏模式，代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// This method hides the system bars and resize the content  </div><div class="line">private void hideSystemUI() &#123;  </div><div class="line">	getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN  </div><div class="line">                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar  </div><div class="line">                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar  </div><div class="line">                // remove the following flag for version &lt; API 19  </div><div class="line">                | View.SYSTEM_UI_FLAG_IMMERSIVE);   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-3-4-使用Split-action-bar"><a href="#2-3-4-使用Split-action-bar" class="headerlink" title="2.3.4 使用Split action bar"></a>2.3.4 使用Split action bar</h3><p>启用split action bar可在 AndroidManifest.xml 中定义 <code>android:uiOptions=&quot;SplitActionBarWhenNarrow&quot;</code> </p>
-<p>参阅 <a href="http://blog.csdn.net/lsdmx2016/article/details/17415911" target="_blank" rel="external">http://blog.csdn.net/lsdmx2016/article/details/17415911</a></p>
-<h2 id="2-4-在Fragment中给action-bar添加action"><a href="#2-4-在Fragment中给action-bar添加action" class="headerlink" title="2.4 在Fragment中给action bar添加action"></a>2.4 在Fragment中给action bar添加action</h2><p>在 onCreate() 中调用 setHasOptionsMenu(true)。Android Framework 会调用 Fragement 中的 onCreateOptionsMenu() 来向 Activity 的 Menu 中添加 item。</p>
-<h2 id="2-5-动态设置action-bar"><a href="#2-5-动态设置action-bar" class="headerlink" title="2.5 动态设置action bar"></a>2.5 动态设置action bar</h2><h3 id="2-5-1-自定义View"><a href="#2-5-1-自定义View" class="headerlink" title="2.5.1 自定义View"></a>2.5.1 自定义View</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">actionBar.setCustomView(R.layout.actionbar_view);  </div><div class="line">EditText search = (EditText) actionBar.getCustomView().findViewById(R.id.searchfield);</div></pre></td></tr></table></figure>
-<h3 id="2-5-2-Action-View（示例见参考文章）"><a href="#2-5-2-Action-View（示例见参考文章）" class="headerlink" title="2.5.2 Action View（示例见参考文章）"></a>2.5.2 Action View（示例见参考文章）</h3><p>Action View 控件可以替换 Action bar 的 Action 按钮图标。可以利用这个特点将某个 Action 项替换成一个 ProgressBar。可通过<code>android:actionLayout</code> 或 <code>android:actionViewClass</code> 来定义一个布局文件或Widg来作为 Action 的 action view。</p>
-<h3 id="2-5-3-Action-Provider（示例见参考文章）"><a href="#2-5-3-Action-Provider（示例见参考文章）" class="headerlink" title="2.5.3 Action Provider（示例见参考文章）"></a>2.5.3 Action Provider（示例见参考文章）</h3><p>Action Provider 提供了在单个组件里提供多种交互方式的方法。它可以用来创建 action view，动态弹出子 menu，处理 action 调用事件。基类为 ActionProvider 目前 Android 平台提供两种 <code>action provider：MediaRouteActionProvider</code> 和 ShareActionProvider。  下面以一个例子计算 ShareActionProvider 的用法。使用这个 action provider 可以让程序从注册了 Intent.ACTION_SEND 的 Intent 中获取。</p>
-<h2 id="2-6-使用程序图标导航"><a href="#2-6-使用程序图标导航" class="headerlink" title="2.6 使用程序图标导航"></a>2.6 使用程序图标导航</h2><h3 id="2-6-1-使用程序图标作为-home-icon"><a href="#2-6-1-使用程序图标作为-home-icon" class="headerlink" title="2.6.1 使用程序图标作为 home icon"></a>2.6.1 使用程序图标作为 home icon</h3><p>Action Bar的左侧图标称为home icon，可为这个图标设置一个Action。推荐做法是当按了这个图标，返回到Home Activity中。</p>
-<p>&gt;<br>actionBar.setHomeButtonEnabled(true);//或者使用actionBar.setDisplayHomeAsUpEnabled(true);</p>
-<pre><code>在onOptionsMenuItemSelected() 中使用android.R.id.home并启用actionbar的HomeIcon
-case android.R.id.home:  
-</code></pre><h2 id="2-7-参考文章："><a href="#2-7-参考文章：" class="headerlink" title="2.7 参考文章："></a>2.7 参考文章：</h2><p>1、<a href="http://blog.csdn.net/bigconvience/article/details/28886241" target="_blank" rel="external">http://blog.csdn.net/bigconvience/article/details/28886241</a></p>
-<h1 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h1><p>1、Android Studio 中按照默认的 Activity 启动时，不显示 ActionBar 的问题<br>在Eclipse新建一个 MainActivity extends Activity 时，能够正常显示 ActionBar，如图：<br><img src="http://img.blog.csdn.net/20150713093139859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>但在 AS 中 extends Activity，不显示 ActionBar，如图<br><img src="http://img.blog.csdn.net/20150713095251222" alt=""><br>但在 AS 中 extends ActionBarActivity，能够正常显示 ActionBar，但是会显示该类过时</p>
-<p>推荐使用 extends AppCompatActivity</p>
-<p>同样的代码在 Eclipse 和 Android Studio 中会出现较大差异，需要区别对待。<br>AppCompatActivity 是为了兼容性考虑！造成这种差异的原因是主题的问题！！！<br>在主题方面，还有很多不懂，今后加强学习</p>
-<p>（参考文章：<a href="http://m.blog.csdn.net/article/details?id=46858249" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=46858249</a>）</p>
-<h1 id="三、StatusBar"><a href="#三、StatusBar" class="headerlink" title="三、StatusBar"></a>三、StatusBar</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170219150953957-808054892.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>  
-<p>StatusBar 是一个半透明阴影，View 可以伸展到其后面。</p>
-<h1 id="四、NavigationBar"><a href="#四、NavigationBar" class="headerlink" title="四、NavigationBar"></a>四、NavigationBar</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170219151118191-1491914840.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>  
-<p>NavigationBar 一般是纯黑不能使用的。Google 提供 NavigationBar 的透明与使用的可能，却没有推荐使用。个人觉得是为了给<br>Bottom navigation 做准备。这里不讨论 Bottom navigation 的优劣(我是 Bottom navigation 黑)。</p>
-<h2 id="4-1-兼容性"><a href="#4-1-兼容性" class="headerlink" title="4.1 兼容性"></a>4.1 兼容性</h2><p>android 从 4.4 开始，开始支持UI使用 StatusBar 与 NavigationBar 的范围。</p>
-<h2 id="4-2-沉浸式体验"><a href="#4-2-沉浸式体验" class="headerlink" title="4.2 沉浸式体验"></a>4.2 沉浸式体验</h2><h2 id="4-3-使用实例"><a href="#4-3-使用实例" class="headerlink" title="4.3 使用实例"></a>4.3 使用实例</h2><h3 id="4-3-1-style-配置"><a href="#4-3-1-style-配置" class="headerlink" title="4.3.1 style 配置"></a>4.3.1 style 配置</h3><p>在 value 中的 styles.xml 中设置：</p>
-<p>在 value-v19 中的 styles.xml 中设置(为了兼容4.4)</p>
-<p>在 value-v21 中的 styles.xml 中设置</p>
-
+        一、ToolBar1.1 概述Google在2015的IO大会上发布了系列的MaterialDesign风格的控件。其中ToolBar是替代ActionBar的控件。由于ActionBar在各个安卓版本和定制Rom中的效果表现不一，导致严重的碎片化问题，ToolBar应运而生。
+与ActionBar区别显示效果跟ActionBar并没有区别。优点：自定义视图的操作更加简单，状态栏的颜色可以调...
     
 
         <a href="/2016/04/17/android/android中的各类bar/" class="post-more waves-effect waves-button">
@@ -392,21 +271,10 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>原文来自：<a href="http://blog.csdn.net/wh_19910525/article/details/8660416" target="_blank" rel="external">http://blog.csdn.net/wh_19910525/article/details/8660416</a> ，略有修改</p>
-<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Android的版本可以在androidmainfest.xml中定义，主要有android:versionCode和android:versionName</p>
-<h1 id="二、解析"><a href="#二、解析" class="headerlink" title="二、解析"></a>二、解析</h1><h2 id="1、简要区分"><a href="#1、简要区分" class="headerlink" title="1、简要区分"></a>1、简要区分</h2><ul>
-<li><code>android:versionCode</code>: 主要是用于版本升级所用，是INT类型的，第一个版本定义为1，以后递增，这样只要判断该值就能确定是否需要升级，该值不显示给用户。</li>
-<li><code>android:versionName</code>: 这个是我们常说明的版本号，由三部分组成..,该值是个字符串，可以显示给用户。</li>
-</ul>
-<h1 id="2、举例"><a href="#2、举例" class="headerlink" title="2、举例"></a>2、举例</h1><p>关于版本号有两个值，如下面的例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">	package=&quot;com.xxx.xxx&quot;</div><div class="line">	android:versionCode=&quot;2&quot;</div><div class="line">	android:versionName=&quot;1.1&quot;&gt;</div><div class="line">	......</div></pre></td></tr></table></figure>
-<p>versionCode 是给设备程序识别版本(升级)用的，必须是一个 interger 值，整数，代表 app 更新过多少次</p>
-<p>versionName 是给用户看的，可以写1.1 , 1.2等等版本</p>
-<h1 id="三、拓展"><a href="#三、拓展" class="headerlink" title="三、拓展"></a>三、拓展</h1><h2 id="1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？"><a href="#1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？" class="headerlink" title="1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？"></a>1、延伸出另外一个问题：当app需要校对版本的时候怎样读取这个值？</h2><h3 id="1-1取manifest-xml"><a href="#1-1取manifest-xml" class="headerlink" title="1.1取manifest.xml"></a>1.1取manifest.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PackageManager pm = context.getPackageManager();//context为当前Activity上下文 </div><div class="line">PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);</div><div class="line">version = pi.versionName;</div></pre></td></tr></table></figure>
-<p>待查实：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);	这里的Flag为0是有问题的吧，源码解释Flag包括：</div><div class="line">GET_ACTIVITIES, GET_GIDS, GET_CONFIGURATIONS, GET_INSTRUMENTATION, GET_PERMISSIONS, GET_PROVIDERS, GET_RECEIVERS, GET_SERVICES, GET_SIGNATURES, GET_UNINSTALLED_PACKAGES，并且查看源码，所有的Flag没有为0的情况。同时使用0做测试，是得不到versionCode</div></pre></td></tr></table></figure></p>
-<h3 id="1-2在里面定义"><a href="#1-2在里面定义" class="headerlink" title="1.2在里面定义"></a>1.2在里面定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:[versionName=&quot;@string/app_versionName](mailto:versionName=%22@string/app_versionName)&quot;</div></pre></td></tr></table></figure>
-<p>然后在 res/values/strings.xml 里定义一个同名 string item ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;string name=&quot;app_versionName&quot;&gt;1.1&lt;/string&gt;</div></pre></td></tr></table></figure></p>
-
+        原文来自：http://blog.csdn.net/wh_19910525/article/details/8660416 ，略有修改
+一、概述Android的版本可以在androidmainfest.xml中定义，主要有android:versionCode和android:versionName
+二、解析1、简要区分
+android:versionCode: 主要是用于版本升级所用，是I...
     
 
         <a href="/2016/04/16/android/android中versioncode-versionname/" class="post-more waves-effect waves-button">
@@ -455,34 +323,12 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>android夜间模式实现分为两大类</p>
-<ul>
-<li>重启activity的实现</li>
-<li>不重启activity的实现</li>
-</ul>
-<h1 id="二、正文"><a href="#二、正文" class="headerlink" title="二、正文"></a>二、正文</h1><h2 id="2-1-重启activity实现夜间模式【在界面文件中的实现部分】"><a href="#2-1-重启activity实现夜间模式【在界面文件中的实现部分】" class="headerlink" title="2.1 重启activity实现夜间模式【在界面文件中的实现部分】"></a>2.1 重启activity实现夜间模式【在界面文件中的实现部分】</h2><h3 id="2-1-1-在attrs-xml文件中定义如下属性"><a href="#2-1-1-在attrs-xml文件中定义如下属性" class="headerlink" title="2.1.1 在attrs.xml文件中定义如下属性"></a>2.1.1 在attrs.xml文件中定义如下属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line">    &lt;!--Activity--&gt;</div><div class="line">    &lt;attr name=&quot;rootViewBgColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">    &lt;attr name=&quot;buttonBgColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">    &lt;attr name=&quot;defaultTextColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">    &lt;!--CardView--&gt;</div><div class="line">    &lt;attr name=&quot;cardViewBgColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">    &lt;attr name=&quot;cardViewTextTitleColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">    &lt;attr name=&quot;cardViewTextBodyColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">    &lt;attr name=&quot;cardViewTextHightLightColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">    &lt;attr name=&quot;cardViewTextExtraColor&quot; format=&quot;reference|color&quot;/&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
-<h3 id="2-1-2-在stytles-xml文件中定义如下属性"><a href="#2-1-2-在stytles-xml文件中定义如下属性" class="headerlink" title="2.1.2 在stytles.xml文件中定义如下属性"></a>2.1.2 在stytles.xml文件中定义如下属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;DayTimeModeTheme&quot; parent=&quot;AppTheme.NoActionBar&quot;&gt;</div><div class="line">        &lt;item name=&quot;cardViewBgColor&quot;&gt;#0CB8F6&lt;/item&gt;</div><div class="line">        &lt;item name=&quot;cardViewTextTitleColor&quot;&gt;#DBDBDB&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;style name=&quot;NightTimeModeTheme&quot; parent=&quot;AppTheme.NoActionBar&quot;&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/darken&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/black&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/dark&lt;/item&gt;</div><div class="line"></div><div class="line">    &lt;item name=&quot;android:textColor&quot;&gt;#DBDBDB&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;android:textColorHighlight&quot;&gt;#F9E81E&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;android:textColorLink&quot;&gt;#242F67&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;android:textColorHint&quot;&gt;#DBDBDB&lt;/item&gt;</div><div class="line"></div><div class="line">    &lt;item name=&quot;cardViewBgColor&quot;&gt;#18255D&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;cardViewTextTitleColor&quot;&gt;#61809E&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<h3 id="2-1-3-在所有的界面文件中使用如下代码（以cardView为例）"><a href="#2-1-3-在所有的界面文件中使用如下代码（以cardView为例）" class="headerlink" title="2.1.3 在所有的界面文件中使用如下代码（以cardView为例）"></a>2.1.3 在所有的界面文件中使用如下代码（以cardView为例）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;LinearLayout</div><div class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    android:orientation=&quot;horizontal&quot;&gt;</div><div class="line">&lt;android.support.v7.widget.CardView</div><div class="line">        android:id=&quot;@+id/cv_news&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_margin=&quot;10dp&quot;</div><div class="line">        app:cardBackgroundColor=&quot;?attr/cardViewBgColor&quot;//这里使用了attr中自定义的属性值</div><div class="line">        app:cardCornerRadius=&quot;10dp&quot;</div><div class="line">        app:cardElevation=&quot;5dp&quot;</div><div class="line">        app:contentPadding=&quot;10dp&quot;&gt;</div><div class="line"></div><div class="line">        &lt;LinearLayout</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:orientation=&quot;vertical&quot;&gt;</div><div class="line"></div><div class="line">            &lt;TextView</div><div class="line">                android:id=&quot;@+id/tv_title&quot;</div><div class="line">                android:layout_width=&quot;wrap_content&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:layout_gravity=&quot;center_vertical&quot;</div><div class="line">                android:text=&quot;标题&quot;</div><div class="line">                android:textColor=&quot;?attr/cardViewTextTitleColor&quot;//这里使用了attr中自定义的属性值</div><div class="line">                android:textSize=&quot;14sp&quot;/&gt;</div><div class="line">            &lt;TextView</div><div class="line">                android:id=&quot;@+id/tv_body&quot;</div><div class="line">                android:layout_width=&quot;wrap_content&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:text=&quot;正文正文正文正文正文正文&quot;</div><div class="line">                android:textColor=&quot;?attr/cardViewTextTitleColor&quot;//这里使用了attr中自定义的属性值</div><div class="line">                android:textSize=&quot;12sp&quot;/&gt;</div><div class="line">        &lt;/LinearLayout&gt;</div><div class="line">    &lt;/android.support.v7.widget.CardView&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
-<h2 id="2-2-重启activity实现夜间模式【在java代码中的实现部分】"><a href="#2-2-重启activity实现夜间模式【在java代码中的实现部分】" class="headerlink" title="2.2 重启activity实现夜间模式【在java代码中的实现部分】"></a>2.2 重启activity实现夜间模式【在java代码中的实现部分】</h2><h3 id="2-2-1-使用SharedPreference当前存储主题状态"><a href="#2-2-1-使用SharedPreference当前存储主题状态" class="headerlink" title="2.2.1 使用SharedPreference当前存储主题状态"></a>2.2.1 使用SharedPreference当前存储主题状态</h3><p>博主自定义了SharedPreferrenceHelper类对“主题存储、主题获取、主题切换”的SharedPreference操作进行了封装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">package com.neil.dailyzhihu.ui.theme;</div><div class="line"></div><div class="line">import android.content.Context;</div><div class="line">import android.content.SharedPreferences;</div><div class="line"></div><div class="line">import com.neil.dailyzhihu.Constant;</div><div class="line">import com.neil.dailyzhihu.R;</div><div class="line"></div><div class="line">public class SharedPreferrenceHelper &#123;</div><div class="line"></div><div class="line">    public static void settheme(Context context, String theme) &#123;</div><div class="line">        SharedPreferences sp = context.getSharedPreferences(Constant.SHARED_PREFERANCE_NAME, Context.MODE_PRIVATE);</div><div class="line">        SharedPreferences.Editor editor = sp.edit();</div><div class="line">        editor.putString(Constant.DAY_MODE_THEME, theme);</div><div class="line">        editor.commit();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static String gettheme(Context context) &#123;</div><div class="line">        SharedPreferences sp = context.getSharedPreferences(Constant.SHARED_PREFERANCE_NAME, Context.MODE_PRIVATE);</div><div class="line">        return sp.getString(Constant.DAY_MODE_THEME, Constant.DEFAULT_TIME_THEME);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void switchAppTheme(Context context) &#123;</div><div class="line">        String value = SharedPreferrenceHelper.gettheme(context);</div><div class="line">        switch (value) &#123;</div><div class="line">            case Constant.NIGHT_TIME_THEME:</div><div class="line">                SharedPreferrenceHelper.settheme(context, Constant.DAY_TIME_THEME);</div><div class="line">                break;</div><div class="line">            case Constant.DAY_TIME_THEME:</div><div class="line">                SharedPreferrenceHelper.settheme(context, Constant.NIGHT_TIME_THEME);</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static int getAppTheme(Context context) &#123;</div><div class="line">        String value = SharedPreferrenceHelper.gettheme(context);</div><div class="line">        switch (value) &#123;</div><div class="line">            case Constant.NIGHT_TIME_THEME:</div><div class="line">                return R.style.DayTimeModeTheme;</div><div class="line">            case Constant.DAY_TIME_THEME:</div><div class="line">                return R.style.NightTimeModeTheme;</div><div class="line">        &#125;</div><div class="line">        return R.style.DayTimeModeTheme;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-2-2-需要切换日夜间模式的activity中的实现"><a href="#2-2-2-需要切换日夜间模式的activity中的实现" class="headerlink" title="2.2.2 需要切换日夜间模式的activity中的实现"></a>2.2.2 需要切换日夜间模式的activity中的实现</h3><ul>
-<li>使用夜间模式功能的activity中加入成员变量</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">private String theme = Constant.DEFAULT_TIME_THEME;</div></pre></td></tr></table></figure>
-<ul>
-<li>onCreate方法中加入如下代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">    super.onCreate(savedInstanceState);</div><div class="line">    int themeRes = SharedPreferrenceHelper.getAppTheme(this);</div><div class="line">    theme = SharedPreferrenceHelper.gettheme(this);</div><div class="line">    setTheme(themeRes);</div><div class="line">    etContentView(R.layout.activity_main);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>activity中添加如下成员方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">private void reload() &#123;</div><div class="line">    Intent intent = getIntent();</div><div class="line">    overridePendingTransition(0, 0);//不设置进入退出动画</div><div class="line">    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);</div><div class="line">    finish();</div><div class="line">    overridePendingTransition(0, 0);</div><div class="line">    startActivity(intent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>在需要切换日/夜间模式的地方使用reload();方法</li>
-</ul>
-<p>-————-分割线—————-</p>
-<h2 id="2-3-不重启activity实现夜间模式"><a href="#2-3-不重启activity实现夜间模式" class="headerlink" title="2.3 不重启activity实现夜间模式"></a>2.3 不重启activity实现夜间模式</h2><p>下次更新</p>
+        一、概述android夜间模式实现分为两大类
 
+重启activity的实现
+不重启activity的实现
+
+二、正文2.1 重启activity实现夜间模式【在界面文件中的实现部分】2.1.1 在attrs.xml文件中定义如下属性12345678910111213&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;...
     
 
         <a href="/2016/04/16/android/android夜间模式实现/" class="post-more waves-effect waves-button">
@@ -531,7 +377,7 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法<br>
+        Android Studio 默认新建 Module 时，只新建一个 drawable 目录，并不会新建适配不同分辨率的 drawable 目录。但其实，这是可以设置的。有以下两种方法
     
 
         <a href="/2016/04/14/android/android-studio-解决android-studio新建项目时只有一个drawable目录的问题/" class="post-more waves-effect waves-button">
@@ -580,60 +426,9 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、素材来源"><a href="#一、素材来源" class="headerlink" title="一、素材来源"></a>一、素材来源</h1><p><a href="https://www.zhihu.com/question/20467503" target="_blank" rel="external">https://www.zhihu.com/question/20467503</a></p>
-<h1 id="二、方法整理"><a href="#二、方法整理" class="headerlink" title="二、方法整理"></a>二、方法整理</h1><h2 id="2-1-方式1：Packet-Capture-HTTP-Injector"><a href="#2-1-方式1：Packet-Capture-HTTP-Injector" class="headerlink" title="2.1 方式1：Packet Capture + HTTP Injector"></a>2.1 方式1：Packet Capture + HTTP Injector</h2><p>使用于在手机端操作，可满足简单需求，无需root</p>
-<h2 id="2-2-方式2：tcpdump"><a href="#2-2-方式2：tcpdump" class="headerlink" title="2.2 方式2：tcpdump"></a>2.2 方式2：tcpdump</h2><p><a href="https://www.zhihu.com/question/20467503/answer/86760222" target="_blank" rel="external">https://www.zhihu.com/question/20467503/answer/86760222</a><br>答案里演示的感觉很极客，界面就是一个命令行的窗口，但是看起来好高端的样子~~~<br>下次有机会，给大家亲测一下<br><a href="http://www.trinea.cn/android/tcpdump_wireshark/" target="_blank" rel="external">http://www.trinea.cn/android/tcpdump_wireshark/</a></p>
-<h2 id="2-3-方式3：Fiddler"><a href="#2-3-方式3：Fiddler" class="headerlink" title="2.3 方式3：Fiddler"></a>2.3 方式3：Fiddler</h2><p>优点</p>
-<ul>
-<li>无需root</li>
-<li>功能强大</li>
-<li>操作简单</li>
-<li>界面不丑<br><a href="http://www.trinea.cn/android/android-network-sniffer/" target="_blank" rel="external">http://www.trinea.cn/android/android-network-sniffer/</a></li>
-</ul>
-<h2 id="2-4-方式4-wireshark-wifi分享软件"><a href="#2-4-方式4-wireshark-wifi分享软件" class="headerlink" title="2.4 方式4: wireshark + wifi分享软件"></a>2.4 方式4: wireshark + wifi分享软件</h2><p>操作步骤</p>
-<ul>
-<li>下载 Wireshark ，支持800多种通讯协议</li>
-<li>无线网卡建立虚拟AP</li>
-<li>连接wifi，直接用wireshark抓包，一切通讯尽收眼底</li>
-</ul>
-<h2 id="2-5-方式5-大神写的app"><a href="#2-5-方式5-大神写的app" class="headerlink" title="2.5 方式5: 大神写的app"></a>2.5 方式5: 大神写的app</h2><p>我写了一个软件，你可以安装一下，启动抓包完成后通过邮件把码流发给你，你用wireshark打开就可以看到了。下载地址为<br><a href="http://apk.gfan.com/Product/App328379.html" target="_blank" rel="external">http://apk.gfan.com/Product/App328379.html</a><br><img src="http://images2015.cnblogs.com/blog/797098/201604/797098-20160412002138191-800680273.jpg" alt=""></p>
-<h2 id="2-6-方式6-Stetho-Chrome-dev-tools"><a href="#2-6-方式6-Stetho-Chrome-dev-tools" class="headerlink" title="2.6 方式6: Stetho + Chrome dev tools"></a>2.6 方式6: Stetho + Chrome dev tools</h2><p><a href="http://facebook.github.io/stetho/" target="_blank" rel="external">http://facebook.github.io/stetho/</a><br><a href="https://www.youtube.com/watch?v=iyXpdkqBsG8" target="_blank" rel="external">https://www.youtube.com/watch?v=iyXpdkqBsG8</a></p>
-<h2 id="2-7-方式7-charles"><a href="#2-7-方式7-charles" class="headerlink" title="2.7 方式7: charles"></a>2.7 方式7: charles</h2><p>mac上推荐使用</p>
-<h2 id="2-8-仅供参考的方法"><a href="#2-8-仅供参考的方法" class="headerlink" title="2.8 仅供参考的方法"></a>2.8 仅供参考的方法</h2><p>作者：独奏<br>链接：<a href="https://www.zhihu.com/question/20467503/answer/22758575" target="_blank" rel="external">https://www.zhihu.com/question/20467503/answer/22758575</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<ul>
-<li>Android手机需要先获得root权限。一种是否获得root权限的检验方法：安装并打开终端模拟器（可通过安卓市场等渠道获得）。在终端模拟器界面输入su并回车，若报错则说明未root，若命令提示符从$变#则为rooted；</li>
-<li>如果Android手机尚未root，可通过superoneclick或其它方法进行root处理（需要先安装Microsoft .NET Framework）。Superoneclick刷root权限教程：（<a href="http://soft.shouji.com.cn/news/501.shtml" target="_blank" rel="external">http://soft.shouji.com.cn/news/501.shtml</a>）</li>
-<li>需要先获得 Android SDK</li>
-<li>需要获得tcpdump软件，获取地址(<a href="http://www.strazzere.com/android/tcpdump" target="_blank" rel="external">http://www.strazzere.com/android/tcpdump</a>)</li>
-</ul>
-<p>抓包步骤</p>
-<ul>
-<li>将Android手机与电脑USB相连，打开windows命令提示符窗口</li>
-<li>将tcpdump程序copy至android手机（该命令前面那个目录文件为本地地址，后面那个目录为目的手机端地址）</li>
-</ul>
-<p><code>C:\android-sdk-windows\platform-tools&gt; adb push c:/tcpdump /data/local/tcpdump</code></p>
-<ul>
-<li>修改tcpdump的权限</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ C:\android-sdk-windows\platform-tools&gt; adb shell  </div><div class="line">$ chmod 777 /data/local/tcpdump</div></pre></td></tr></table></figure>
-<ul>
-<li>进入root权限</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ C:\android-sdk-windows\platform-tools&gt; adb shell  </div><div class="line">$ su</div></pre></td></tr></table></figure>
-<p>在运行su指令后，手机终端桌面会出现相应提示信息以确认您对root操作的认可。</p>
-<ul>
-<li>运行tcpdump，输入以下命令启动抓包。</li>
-</ul>
-<p><code>/data/local/tcpdump -p -vv -s 0 -w /sdcard/capture.pcap</code></p>
-<ul>
-<li>在手机端执行相应需要进行抓包分析的操作，执行完成后在命令提示符窗口执行Ctrl+C中断抓包进程</li>
-<li>将抓包结果复制至本地（前面那个目录为手机端地址，后面那个目录为本地地址）</li>
-</ul>
-<p><code>$ C:\android-sdk-windows\platform-tools&amp;gt;adb pull /sdcard/capture.pcap c:/</code></p>
-<ul>
-<li>使用Wireshark等工具查看抓包文件capture.pcap</li>
-</ul>
-
+        一、素材来源https://www.zhihu.com/question/20467503
+二、方法整理2.1 方式1：Packet Capture + HTTP Injector使用于在手机端操作，可满足简单需求，无需root
+2.2 方式2：tcpdumphttps://www.zhihu.com/question/20467503/answer/86760222答案里演示的感觉很极客，...
     
 
         <a href="/2016/04/12/android/多种方式实现在android手机上抓包/" class="post-more waves-effect waves-button">
@@ -682,7 +477,7 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p><a href="http://v5browser.iteye.com/blog/1769789" target="_blank" rel="external">HTTP协议之状态码</a></p>
+        HTTP协议之状态码
 
     
 
@@ -732,14 +527,13 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>网络方面的博客：<br><a href="http://www.cnblogs.com/TankXiao" target="_blank" rel="external">http://www.cnblogs.com/TankXiao</a></p>
-<h1 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h1><ul>
-<li><a href="http://www.cnblogs.com/TankXiao/archive/2012/10/10/2711777.html" target="_blank" rel="external">Wireshark基本介绍和学习TCP三次握手</a></li>
-<li><a href="http://www.seanyxie.com/wireshark%E6%8A%93%E5%8C%85%E5%9B%BE%E8%A7%A3-tcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%AF%A6%E8%A7%A3/" target="_blank" rel="external">wireshark抓包图解 TCP三次握手/四次挥手详解</a></li>
-</ul>
-<h1 id="Fiddler-教程-来自tankxiao"><a href="#Fiddler-教程-来自tankxiao" class="headerlink" title="Fiddler 教程(来自tankxiao)"></a>Fiddler 教程(来自tankxiao)</h1><p>由于tankxiao的cnblogs中，此系列教程有部分确实，故贴上转载的文章地址</p>
-<p>Fiddler (一) 教程(<a href="http://kb.cnblogs.com/page/130367/#introduce" target="_blank" rel="external">http://kb.cnblogs.com/page/130367/#introduce</a>)<br>Fiddler (二) Script用法(<a href="http://www.lxway.com/515642291.htm" target="_blank" rel="external">http://www.lxway.com/515642291.htm</a>)<br>Fiddler (三) Composer创建和发送HTTP Request(<a href="http://www.lxway.com/49608022.htm" target="_blank" rel="external">http://www.lxway.com/49608022.htm</a>)<br>Fiddler (四)<br>实现手机的抓包(<a href="http://www.tuicool.com/articles/UFji6f" target="_blank" rel="external">http://www.tuicool.com/articles/UFji6f</a>)、android(<a href="http://blog.csdn.net/forlong401/article/details/23538951" target="_blank" rel="external">http://blog.csdn.net/forlong401/article/details/23538951</a>)<br>Fiddler (五)<br>Mac下使用Fiddler(<a href="http://www.cnblogs.com/TankXiao/archive/2013/04/18/3027971.html" target="_blank" rel="external">http://www.cnblogs.com/TankXiao/archive/2013/04/18/3027971.html</a>)<br>Fiddler (六) 最常用的快捷键(<a href="http://www.th7.cn/Program/php/201409/282373.shtml" target="_blank" rel="external">http://www.th7.cn/Program/php/201409/282373.shtml</a>)<br>Fiddler (七) AutoResponder<br>帮助前端工程师快速调试(<a href="http://www.cnblogs.com/TankXiao/p/4999567.html" target="_blank" rel="external">http://www.cnblogs.com/TankXiao/p/4999567.html</a>)</p>
+        网络方面的博客：http://www.cnblogs.com/TankXiao
+wireshark
+Wireshark基本介绍和学习TCP三次握手
+wireshark抓包图解 TCP三次握手/四次挥手详解
 
+Fiddler 教程(来自tankxiao)由于tankxiao的cnblogs中，此系列教程有部分确实，故贴上转载的文章地址
+Fiddler (一) 教程(http://kb.cnbl...
     
 
         <a href="/2016/04/11/others/抓包教程/" class="post-more waves-effect waves-button">
@@ -788,16 +582,16 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>参考文章：</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/39479153" target="_blank" rel="external">知乎-想写个 App 练手，有什么有趣的 API 接口推荐吗？</a></li>
-<li><a href="http://www.jianshu.com/p/42e602c554f4#" target="_blank" rel="external">使用 Espresso 和 Dagger 测试网络服务</a></li>
-<li><a href="http://developer.simsimi.com/apps" target="_blank" rel="external">http://developer.simsimi.com/apps</a></li>
-<li><a href="https://github.com/Microsoft/ProjectOxford-clientsdk" target="_blank" rel="external">ProjectOxford-ClientSDK</a></li>
-<li><a href="http://www.v2ex.com/t/125106" target="_blank" rel="external">请问如何抓取知乎专栏？</a></li>
-<li><a href="http://free.juhe.cn/" target="_blank" rel="external">聚合数据开启数据免费时代</a></li>
-</ul>
-<p><a href="http://zhuanlan.zhihu.com/p/20572624" target="_blank" rel="external">API 设计的七宗罪</a></p>
+        参考文章：
+
+知乎-想写个 App 练手，有什么有趣的 API 接口推荐吗？
+使用 Espresso 和 Dagger 测试网络服务
+http://developer.simsimi.com/apps
+ProjectOxford-ClientSDK
+请问如何抓取知乎专栏？
+聚合数据开启数据免费时代
+
+API 设计的七宗罪
 
     
 
@@ -847,12 +641,71 @@ case android.R.id.home:
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>参考文章：</p>
-<p><a href="http://blog.csdn.net/luoyanglizi/article/details/50994469" target="_blank" rel="external">LruCache源码解析</a></p>
+        参考文章：
+LruCache源码解析
 
     
 
         <a href="/2016/04/11/android/lrucache/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-android/fragment"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-11 18:57:00" datetime="2016-04-11T10:57:00.000Z"  itemprop="datePublished">2016-04-11</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/04/11/android/fragment/">Fragment</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        fragment与activity的关系参考文章：Android 使用 Fragment 构建 Presenter
+重构方面
+细化视图／布局
+细化逻辑（Activity 中的逻辑）
+无限细化
+
+MVP用于构建Presenter好处：
+
+能够同步 Activity 的生命周期，在生命周期内进行逻辑操作
+能够很好地处理系统重建视图时（例如屏幕旋转）的现场恢复问题
+它也能够在系统重建视图时不销毁实...
+    
+
+        <a href="/2016/04/11/android/fragment/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -872,7 +725,7 @@ case android.R.id.home:
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/11/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/13/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/11/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/">下一页</a>
     </div>
 </nav>
 

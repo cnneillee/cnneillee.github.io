@@ -191,59 +191,6 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-scripts/Python语言中标准库对Json数据的编解码"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-21 15:52:53" datetime="2016-12-21T07:52:53.000Z"  itemprop="datePublished">2016-12-21</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/">Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-关于JSON数据格式"><a href="#1-1-关于JSON数据格式" class="headerlink" title="1.1 关于JSON数据格式"></a>1.1 关于JSON数据格式</h2><p>JSON (JavaScript Object Notation), specified by RFC 7159 (which obsoletes RFC<br>4627) and by ECMA-404, is a lightweight data interchange format inspired by<br>JavaScript object literal syntax (although it is not a strict subset of<br>JavaScript [1] ).</p>
-<h2 id="1-2-关于json库"><a href="#1-2-关于json库" class="headerlink" title="1.2 关于json库"></a>1.2 关于json库</h2><p>json exposes an API familiar to users of the standard library marshal and<br>pickle modules.</p>
-<h2 id="1-3-json库官网地址"><a href="#1-3-json库官网地址" class="headerlink" title="1.3 json库官网地址"></a>1.3 json库官网地址</h2><p>json是a Python Standard<br>Library，官网地址为：<a href="https://docs.python.org/3/library/json.html" target="_blank" rel="external">https://docs.python.org/3/library/json.html</a></p>
-<h1 id="二、学习历程"><a href="#二、学习历程" class="headerlink" title="二、学习历程"></a>二、学习历程</h1><p>中文：<a href="http://www.ziqiangxuetang.com/python/python-json.html" target="_blank" rel="external">http://www.ziqiangxuetang.com/python/python-json.html</a><br>英文：<a href="https://docs.python.org/3/library/json.html" target="_blank" rel="external">https://docs.python.org/3/library/json.html</a></p>
-
-    
-
-        <a href="/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-scripts/python操作mysql数据库时sql语句的格式问题"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -274,17 +221,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>近日使用 Python 对 Mysql 数据库进行操作，遇到 SQL 语句死活出问题的情况。由于最初没有将异常打印出来，一直不知道原因。随后，将异常打印出来之后，通过异常信息，对代码进行修改。最终，成功实现了对数据库的操作，并总结出了 SQL 语句在 Python 代码中的格式（规范）问题。特此写博文以记之。</p>
-<h1 id="二、问题描述"><a href="#二、问题描述" class="headerlink" title="二、问题描述"></a>二、问题描述</h1><h2 id="2-1-问题提出"><a href="#2-1-问题提出" class="headerlink" title="2.1 问题提出"></a>2.1 问题提出</h2><p><strong>特别注意：在建数据库的时候，使用的表名、类名均带引号</strong></p>
-<p>在 Python 语句中，我使用过三种格式的语句，分别为：</p>
-<ul>
-<li>方式1：表名、类名、记录值值均带引号 <code>sql = &quot;INSERT INTO &#39;entity&#39; (&#39;twitterName&#39;) VALUES (&#39;%s&#39;)&quot; % (twitterName)</code></li>
-<li>方式2：表名、类名带引号，记录值不带引号 <code>sql = &quot;INSERT INTO &#39;entity&#39; (&#39;twitterName&#39;) VALUES (%s)&quot; % (twitterName)</code></li>
-<li>方式3：表名、类名不带引号，记录值带引号 <code>sql = &quot;INSERT INTO entity (twitterName) VALUES (&#39;%s&#39;)&quot; % (twitterName)</code></li>
-</ul>
-<h2 id="2-2-得到的结果"><a href="#2-2-得到的结果" class="headerlink" title="2.2 得到的结果"></a>2.2 得到的结果</h2><p>方式1<br><img src="http://images2015.cnblogs.com/blog/797098/201612/797098-20161221104748589-787214606.png" alt=""><br>方式2<br><img src="http://images2015.cnblogs.com/blog/797098/201612/797098-20161221104815182-695239736.png" alt=""><br>方式3<br><img src="http://images2015.cnblogs.com/blog/797098/201612/797098-20161221104830745-2078147125.png" alt=""></p>
-<h2 id="2-3-结果分析与总结"><a href="#2-3-结果分析与总结" class="headerlink" title="2.3 结果分析与总结"></a>2.3 结果分析与总结</h2><p>从2.2不难看出，表名、类名不要加引号，记录值需要加引号。经过测试还发现，当记录值为字符串时需要加引号，记录值为数字时，不用加引号。</p>
-
+        一、概述近日使用 Python 对 Mysql 数据库进行操作，遇到 SQL 语句死活出问题的情况。由于最初没有将异常打印出来，一直不知道原因。随后，将异常打印出来之后，通过异常信息，对代码进行修改。最终，成功实现了对数据库的操作，并总结出了 SQL 语句在 Python 代码中的格式（规范）问题。特此写博文以记之。
+二、问题描述2.1 问题提出特别注意：在建数据库的时候，使用的表名、类名均...
     
 
         <a href="/2016/12/21/scripts/python操作mysql数据库时sql语句的格式问题/" class="post-more waves-effect waves-button">
@@ -333,10 +271,10 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>node: <a href="http://nodejs.cn/" target="_blank" rel="external">http://nodejs.cn/</a><br>npm: 随node一起安装了</p>
-<p>gulp: <a href="http://www.gulpjs.com.cn/docs/getting-started/" target="_blank" rel="external">http://www.gulpjs.com.cn/docs/getting-started/</a></p>
-<p>bower: <a href="https://bower.io/" target="_blank" rel="external">https://bower.io/</a></p>
-<p>ionic：npm install cordova ionic -g</p>
+        node: http://nodejs.cn/npm: 随node一起安装了
+gulp: http://www.gulpjs.com.cn/docs/getting-started/
+bower: https://bower.io/
+ionic：npm install cordova ionic -g
 
     
 
@@ -386,118 +324,7 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>java项目有两种架构，一种是 B/S 架构的，一种是 C/S 架构的。<br>对于 B/S 架构来说，我们常见的 java ee 即是 B/S 架构，通常，开发人员会在本地进行开发，然后将项目打包成 war<br>文件，上传至服务器，供调用。<br>而对于 B/S 架构来说，通常即是里面有个主方法，就是我们常写的 java 项目/程序。通常，开发完之后，将项目打包成 jar<br>包，随后上传至服务器，供调用。<br>本文，针对后者进行介绍。</p>
-<h1 id="二、需求描述"><a href="#二、需求描述" class="headerlink" title="二、需求描述"></a>二、需求描述</h1><p>一个 java 项目，分包存放多个 java 文件，java 文件中，有依赖第三方库（从外部导入的 jar<br>包）。其中，主函数（项目入口）位于项目的一个包内，主函数必须带有四个参数。</p>
-<h1 id="三、导出-jar-包步骤"><a href="#三、导出-jar-包步骤" class="headerlink" title="三、导出 jar 包步骤"></a>三、导出 jar 包步骤</h1><h2 id="3-1-确保正确地写完项目"><a href="#3-1-确保正确地写完项目" class="headerlink" title="3.1 确保正确地写完项目"></a>3.1 确保正确地写完项目</h2><p>这一步就不消说了。</p>
-<h2 id="3-2-选中项目，点击右键"><a href="#3-2-选中项目，点击右键" class="headerlink" title="3.2 选中项目，点击右键"></a>3.2 选中项目，点击右键</h2><p>鼠标单击项目名称，选中后u，单击右键，随即弹出菜单列表</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215215107-618732496.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="3-3-选择export"><a href="#3-3-选择export" class="headerlink" title="3.3 选择export"></a>3.3 选择export</h2><p>在弹出的列表中，选择”Export…”，随即弹出 Export 的窗口</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114215717310-277980181.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="3-4-选择导出可运行的-jar-文件"><a href="#3-4-选择导出可运行的-jar-文件" class="headerlink" title="3.4 选择导出可运行的 jar 文件"></a>3.4 选择导出可运行的 jar 文件</h2><p>在弹出的 Export 窗口中，点开 java ，选择 Runable JAR file 选项。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114220129232-869653535.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<ul>
-<li>JAR file，单纯只是将项目打包成 jar 包，一般用于java lib的导出，用于给其他人依赖开发使用</li>
-<li>Runable JAR file，顾名思义，可运行的 jar 包，能够被运行（因为随后要指定项目入口）</li>
-</ul>
-<p>选择 Runable JAR file 选项，点击 Next ，弹出 Runable JAR file Export 窗口</p>
-<h2 id="3-4-配置-JAR-包"><a href="#3-4-配置-JAR-包" class="headerlink" title="3.4 配置 JAR 包"></a>3.4 配置 JAR 包</h2><p>在弹出的 Runable JAR file Export 窗口中，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221052263-58580083.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<ul>
-<li>修改 Launch configuration，选择为你的项目的入口，即有主方法的类</li>
-<li>Export destination ，选择你想要导出的目录</li>
-<li>Library handling，几个选项顾名思义，不做赘述</li>
-<li>点击 Next</li>
-</ul>
-<h2 id="3-5-完成"><a href="#3-5-完成" class="headerlink" title="3.5 完成"></a>3.5 完成</h2><p>导出过程可能会消耗一定时间，地下有绿色进度条提醒进度。等待片刻，即可完成整个过程。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221225404-742916186.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>若项目有依赖第三方包，则有可能会弹出以下警示框，点击 OK 即可。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221133888-1593064140.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>由于项目中可能存在一些不规范之初，在完成此步骤后，也许会弹出一个警告框。点击 Details 可查看详情，点击 OK 进入导出过程。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114221728842-1375885340.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>在 3.4 步骤中选择的目标目录中，即可看到导出的 jar 包。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222009701-1414080272.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="四、可运行-JAR-文件结构解析"><a href="#四、可运行-JAR-文件结构解析" class="headerlink" title="四、可运行 JAR 文件结构解析"></a>四、可运行 JAR 文件结构解析</h1><h2 id="4-1-解压上述步骤得到的-JAR-包"><a href="#4-1-解压上述步骤得到的-JAR-包" class="headerlink" title="4.1 解压上述步骤得到的 JAR 包"></a>4.1 解压上述步骤得到的 JAR 包</h2><p>文件目录结构见下图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114222540529-1209559392.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<ul>
-<li>META-INF 文件夹存放着项目的配置信息： <ul>
-<li>maven依赖（如果有的话， META-INF 中包含了 maven 文件夹）</li>
-<li>项目的 MANIFEST 信息（存放在 META-INF/MANIFEST.MF ）Manifest-Version、Class-Path、Main-Class，注意它们后面的内容与冒号之间均有一个空格，这个空格必不可少</li>
-</ul>
-</li>
-<li>其他文件夹都存放着 .class 文件（结构类似exlipse项目中的bin目录），若有第三方依赖，则也有第三方包的 .class 文件</li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223246013-300335085.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="四、服务器上运行"><a href="#四、服务器上运行" class="headerlink" title="四、服务器上运行"></a>四、服务器上运行</h1><p>将文件上传至服务器的步骤，本文就不赘述了。此处简单讲解一下运行过程。<br>进入可运行的 jar 包目录，此处打开命令行，键入命令<code>java -jar JSTUNServer.jar 5000 192.168.2.1 5001
-192.168.2.3</code>（<code>java -jar [jar包] [参数1 参数2 参数3...]</code>），敲回车，即可运行。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201611/797098-20161114223831623-1981784674.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>由于我选用的实例代码需要特殊的环境，此处报的错与本文论述的内容无关。此处就证明了上述过程的正确性。</p>
-
+        一、概述java项目有两种架构，一种是 B/S 架构的，一种是 C/S 架构的。对于 B/S 架构来说，我们常见的 java ee 即是 B/S 架构，通常，开发人员会在本地进行开发，然后将项目打包成 war文件，上传至服务器，供调用。而对于 B/S 架构来说，通常即是里面有个主方法，就是我们常写的 java 项目/程序。通常，开发完之后，将项目打包成 jar包，随后上传至服务器，供调用。本...
     
 
         <a href="/2016/11/14/java/将java项目打包成可运行的jar包（main函数带参数）上传到linux服务器上运行/" class="post-more waves-effect waves-button">
@@ -546,13 +373,9 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>转自：<br><a href="http://www.cnblogs.com/tml839720759/archive/2014/07/13/3841820.html" target="_blank" rel="external">http://www.cnblogs.com/tml839720759/archive/2014/07/13/3841820.html</a></p>
-<h1 id="引子："><a href="#引子：" class="headerlink" title="引子："></a>引子：</h1><p>　　前段时间在项目中第一次接触TLV，项目中用这种格式来传输图片，语音等。</p>
-<h1 id="关于TLV"><a href="#关于TLV" class="headerlink" title="关于TLV"></a>关于TLV</h1><p>　　TLV是一种可变的格式，意为：Type类型， Lenght长度，Value值。Type:该字段是关于标签和编码格式的信息;<br>Length:该字段是定义数值的长度; Value:字段表示实际的数值。Type和Length的长度固定，一般那是2、4个字节（unsigned short<br>或 unsigned long ,具体用哪种编码和解析统一就行了,本文就取unsigned long类型）；Value的长度有Length指定；<br>在介绍编码和解码方法之前，需要先了解一下大端和小端。由于网络字节序统一用的是大端，主机字节序列有的是大端，有的是小端，根据平台不同有所差异。所以在编码的时候需要用到两个函数：htonl:<br>主机字节序列转换成网络字节序列; ntohl: 网络字节序列转换成主机字节序列</p>
-<h1 id="编-解码"><a href="#编-解码" class="headerlink" title="编/解码"></a>编/解码</h1><h2 id="编码方法："><a href="#编码方法：" class="headerlink" title="编码方法："></a>编码方法：</h2><p>　　1. 将类型type用htonl转换为网络字节顺序，指针偏移+4<br>　　2. 将长度length用htonl转换为网络字节顺序，指针偏移+4<br>　　3. 若值value数据类型为int、char、short，则将其转换为网络字节顺序，指针偏移+4；若值为字符串类型，写进后，指针偏移+length<br>　　……继续处理后面的tlv；</p>
-<h2 id="解码方法："><a href="#解码方法：" class="headerlink" title="解码方法："></a>解码方法：</h2><p>　　1. 读取type 用ntohl转换为主机字节序得到类型，指针偏移+4<br>　　2. 读取lengh用ntohl转换为主机字节序得到长度；指针偏移+4<br>　　3. 根据得到的长度读取value，若value数据类型为int、char、short，用ntohl转换为主机字节序，指针偏移+4；若value数据类型为字符串类型，指针偏移+length<br>　　……继续处理后面的tlv；</p>
-<h2 id="TLV优点："><a href="#TLV优点：" class="headerlink" title="TLV优点："></a>TLV优点：</h2><p>　　1<br>一个编码值又称TLV(Type,Length,Value)三元组。编码可以是基本型或结构型，如果它表示一个简单类型的、完整的显式值，那么编码就是基本型<br>(primitive)；如果它表示的值具有嵌套结构，那么编码就是结构型 (constructed)。<br>　　2 TLV打包解包效率高，省内存。</p>
-
+        转自：http://www.cnblogs.com/tml839720759/archive/2014/07/13/3841820.html
+引子：　　前段时间在项目中第一次接触TLV，项目中用这种格式来传输图片，语音等。
+关于TLV　　TLV是一种可变的格式，意为：Type类型， Lenght长度，Value值。Type:该字段是关于标签和编码格式的信息;Length:该字段是定义数值的长...
     
 
         <a href="/2016/11/10/others/tlv-类型-长度-值-格式及编码/" class="post-more waves-effect waves-button">
@@ -601,7 +424,7 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p><a href="https://microg.org/" target="_blank" rel="external">https://microg.org/</a></p>
+        https://microg.org/
 
     
 
@@ -651,15 +474,11 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>从源码角度剖析ListView 与 RecyclerView 缓存机制的不同</p>
-<p><a href="https://zhuanlan.zhihu.com/p/23339185" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23339185</a></p>
-<p>原文地址：<a href="http://dev.qq.com/topic/5811d3e3ab10c62013697408" target="_blank" rel="external">http://dev.qq.com/topic/5811d3e3ab10c62013697408</a></p>
-<hr>
-<p><em>本文从我的另一个 blog <a href="http://www.cnblogs.com/neillee" target="_blank" rel="external">http://www.cnblogs.com/neillee</a> 中同步过来，同步过程使用了 python 脚本，文章<a href="http://cnneillee.github.io/2017/02/26/cnblogs%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B/">cnblogs博客迁移过程</a>详细介绍了同步过程，并附有源码！</em></p>
-<p><a href="http://www.cnblogs.com/neillee/p/6031708.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6031708.html</a></p>
-<p><em>截至博客迁移时，cnblogs上的访问量为：68</em></p>
-<hr>
+        从源码角度剖析ListView 与 RecyclerView 缓存机制的不同
+https://zhuanlan.zhihu.com/p/23339185
+原文地址：http://dev.qq.com/topic/5811d3e3ab10c62013697408
 
+本文从我的另一个 blog http://www.cnblogs.com/neillee 中同步过来，同步过程使用了 python...
     
 
         <a href="/2016/11/04/android/【转】android-listview与recyclerview对比浅析缓存机制/" class="post-more waves-effect waves-button">
@@ -708,26 +527,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>在 <a href="https://sites.google.com/a/android.com/tools/download/studio" target="_blank" rel="external">Android Studio下载官网</a> 上，有如下介绍：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Android Studio&apos;s built-in update mechanism can be set to receive updates</div><div class="line">through any one of these 4 channels.</div><div class="line"></div><div class="line">  * Canary: Bleeding edge, released about weekly. These are early previews released in order to obtain real-world feedback during development. The canary channel will always have the latest build, including updates to beta or stable releases. We recommend running canary builds side-by-side with a beta or stable installation.</div><div class="line">  * Dev: Canary builds after a full round of internal testing get promoted into the Dev Channel.</div><div class="line">  * Beta: Release candidates based on stable canary builds, released and updated to obtain feedback prior to the stable release. The beta channel will be updated with new stable builds until a new canary build goes to beta.</div><div class="line">  * Stable: The official stable release, as available from the Android Developer site.</div></pre></td></tr></table></figure>
-<p>翻译过来就是就是这个意思：</p>
-<p>Android Studio内置的更新机制被设置成为如下四个可选的版本：</p>
-<ul>
-<li>Canary（金丝雀）：<a href="http://www.eefocus.com/xiaodan/blog/07-06/2419_db128.html" target="_blank" rel="external">Bleeding Edge</a>（一种最新的、因而也并非完美的技术）,大约周更。这是最早被发布的预览版本，为了能够在开发过程中获得真实世界的反馈。金丝雀版本会一直拥有最新的版本包括 beta、stable 发布版的更新。我们建议在安装金丝雀版本的同时再安装一个 beta 版本或者 stable 版本。</li>
-<li>Dev（开发版）：金丝雀版本在经过完整的测试之后会被提升到Dev版本。</li>
-<li>Beta（Beta 版）：发布预选基于稳定的金丝雀版本。被发布并更新以获取反馈先于稳定版本。Beta 版本将与一个新的稳定版本一起被更新，直到一个新的金丝雀版本被确定为 Beta 版本。</li>
-<li>Stable（稳定版）：从 Android Developer 网站上可获得的稳定版本。</li>
-</ul>
-<p>各个版本下载地址：</p>
-<ul>
-<li><a href="https://sites.google.com/a/android.com/tools/download/studio/canary" target="_blank" rel="external">Canary</a>,</li>
-<li><a href="https://sites.google.com/a/android.com/tools/download/studio/dev" target="_blank" rel="external">Dev</a></li>
-<li><a href="https://sites.google.com/a/android.com/tools/download/studio/beta" target="_blank" rel="external">Beta</a></li>
-<li><a href="https://sites.google.com/a/android.com/tools/download/studio/stable" target="_blank" rel="external">Stable</a></li>
-</ul>
-<h1 id="二、增量更新"><a href="#二、增量更新" class="headerlink" title="二、增量更新"></a>二、增量更新</h1><p>此点参考 <a href="http://www.cnblogs.com/neillee/p/6011262.html" target="_blank" rel="external">android studio增量更新</a></p>
-<h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><p><a href="https://sites.google.com/a/android.com/tools/download/studio" target="_blank" rel="external">https://sites.google.com/a/android.com/tools/download/studio</a><br><a href="http://www.eefocus.com/xiaodan/blog/07-06/2419_db128.html" target="_blank" rel="external">http://www.eefocus.com/xiaodan/blog/07-06/2419_db128.html</a></p>
-
+        一、概述在 Android Studio下载官网 上，有如下介绍：
+1234567Android Studio&apos;s built-in update mechanism can be set to receive updatesthrough any one of these 4 channels.  * Canary: Bleeding edge, released about w...
     
 
         <a href="/2016/10/29/android/android-studio的beta-canary-dev-stable四种channel版本介绍-分析与选择/" class="post-more waves-effect waves-button">
@@ -776,56 +577,9 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h2><p>增量更新即是通过比较 本机安装版本 和 想要安装版本<br>间的差异，产生一个差异安装包，不需要从官网下载并安装全量安装包，更不需要将本机已安装的版本下载，而仅仅只是安装此差异安装包即可完成整个更新过程。</p>
-<h2 id="1-2-增量更新前提"><a href="#1-2-增量更新前提" class="headerlink" title="1.2 增量更新前提"></a>1.2 增量更新前提</h2><p>两个版本之间是否能够进行增量更新的条件是：<strong>google是否提供了此种更新包</strong>。</p>
-<p>通过进入网站 <a href="https://dl.google.com/Android/studio/patches/updates.xml" target="_blank" rel="external">https://dl.google.com/Android/studio/patches/updates.xml</a><br>能够查询到，对于此点提供如下两张图片进行说明</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161029162159171-1769175949.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161029162210171-795747323.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="二、增量更新步骤"><a href="#二、增量更新步骤" class="headerlink" title="二、增量更新步骤"></a>二、增量更新步骤</h1><h2 id="2-1-本机android-studio安装版本号查询"><a href="#2-1-本机android-studio安装版本号查询" class="headerlink" title="2.1 本机android studio安装版本号查询"></a>2.1 本机android studio安装版本号查询</h2><p>方法1：Help –&gt; About 中的 Build Number<br>方法2：[android studio安装目录]/build.txt中的版本号</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201610/797098-20161029163859843-1617875308.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="2-2-下载增量包"><a href="#2-2-下载增量包" class="headerlink" title="2.2 下载增量包"></a>2.2 下载增量包</h2><p>构造如下下载url： <code>https://dl.google.com/android/studio/patches/AI-$FROM-$TO-
-patch-$PLATFORM.jar</code></p>
-<p>其中，</p>
-<ul>
-<li>$FROM 为你当前 android studio 的 build number；</li>
-<li>$TO 为最新的 android studio 的build number；</li>
-<li>$PLATFORM 为系统平台，<code>windodws 为 win , linux 为 unix ,mac os 为 mac</code></li>
-</ul>
-<p>例如：<br>在系统为windows的计算机上，将android studio从 145.3330264 更新到 145.3360264<br>，构建url为：<a href="https://dl.google.com/android/studio/patches/AI-145.3330264-145.3360264
--patch-win.jar" target="_blank" rel="external">https://dl.google.com/android/studio/patches/AI-145.3330264-145.3360264
--patch-win.jar</a></p>
-{% image http://images2015.cnblogs.com/blog/797098/201610/797098-20161029163527421-709385565.png '' '' %}
-<h2 id="2-3-安装增量包"><a href="#2-3-安装增量包" class="headerlink" title="2.3 安装增量包"></a>2.3 安装增量包</h2><ul>
-<li><p>将安装包放置在android studio安装目录的根目录下</p>
-</li>
-<li><p>在根目录下，打开命令行（按住shift点鼠标右键 –&gt; 打开命令行）</p>
-</li>
-<li><p>在命令行内输入 <code>java -classpath [jar包] com.intellij.updater.Runner install .</code> ，回车运行。<strong>注意：记住最后面有个点，意思是将这个文件解压安装到当前目录</strong></p>
-</li>
-<li><p>按照出现的向导提示进行</p>
-</li>
-</ul>
-<h2 id="2-4-安装完成"><a href="#2-4-安装完成" class="headerlink" title="2.4 安装完成"></a>2.4 安装完成</h2><p>重启 Android Studio 即可</p>
-<h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><p><a href="http://www.cnblogs.com/xiaoyang2009/p/5258380.html" target="_blank" rel="external">http://www.cnblogs.com/xiaoyang2009/p/5258380.html</a><br><a href="http://www.eefocus.com/xiaodan/blog/07-06/2419_db128.html" target="_blank" rel="external">http://www.eefocus.com/xiaodan/blog/07-06/2419_db128.html</a><br><a href="https://dl.google.com/Android/studio/patches/updates.xml" target="_blank" rel="external">https://dl.google.com/Android/studio/patches/updates.xml</a><br><a href="http://blog.csdn.net/u011326653/article/details/48543643" target="_blank" rel="external">http://blog.csdn.net/u011326653/article/details/48543643</a></p>
-
+        一、概述1.1 概念增量更新即是通过比较 本机安装版本 和 想要安装版本间的差异，产生一个差异安装包，不需要从官网下载并安装全量安装包，更不需要将本机已安装的版本下载，而仅仅只是安装此差异安装包即可完成整个更新过程。
+1.2 增量更新前提两个版本之间是否能够进行增量更新的条件是：google是否提供了此种更新包。
+通过进入网站 https://dl.google.com/Android/st...
     
 
         <a href="/2016/10/29/android/android-studio增量更新/" class="post-more waves-effect waves-button">
@@ -874,17 +628,10 @@ patch-$PLATFORM.jar</code></p>
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>2016/10/14 复仇的女神们</p>
-<p>金子 - 亲切的金子<br><a href="https://movie.douban.com/subject/1412579/" target="_blank" rel="external">https://movie.douban.com/subject/1412579/</a></p>
-<p>新娘 - 杀死比尔<br>vol1 <a href="https://movie.douban.com/subject/1291580/" target="_blank" rel="external">https://movie.douban.com/subject/1291580/</a><br>vol2 <a href="https://movie.douban.com/subject/1291584/" target="_blank" rel="external">https://movie.douban.com/subject/1291584/</a></p>
-<p>森口优子 - 告白<br><a href="https://movie.douban.com/subject/4268598/" target="_blank" rel="external">https://movie.douban.com/subject/4268598/</a></p>
-<p>金福南 - 金福南杀人事件始末<br><a href="https://movie.douban.com/subject/4826419/" target="_blank" rel="external">https://movie.douban.com/subject/4826419/</a></p>
-<p>海莉 - 水果硬糖<br><a href="https://movie.douban.com/subject/1484091/" target="_blank" rel="external">https://movie.douban.com/subject/1484091/</a></p>
-<p>梅拉尼 - 翻乐谱的女孩<br><a href="https://movie.douban.com/subject/1863980/" target="_blank" rel="external">https://movie.douban.com/subject/1863980/</a></p>
-<p>格蕾丝 - 狗镇<br><a href="https://movie.douban.com/subject/1298759/" target="_blank" rel="external">https://movie.douban.com/subject/1298759/</a></p>
-<p>詹妮佛 - 我唾弃你的坟墓<br><a href="https://movie.douban.com/subject/1299265/" target="_blank" rel="external">https://movie.douban.com/subject/1299265/</a></p>
-<p>路易斯&amp;塞尔玛 - 末路狂花<br><a href="https://movie.douban.com/subject/1291992/" target="_blank" rel="external">https://movie.douban.com/subject/1291992/</a></p>
-
+        2016/10/14 复仇的女神们
+金子 - 亲切的金子https://movie.douban.com/subject/1412579/
+新娘 - 杀死比尔vol1 https://movie.douban.com/subject/1291580/vol2 https://movie.douban.com/subject/1291584/
+森口优子 - 告白https://movie.do...
     
 
         <a href="/2016/10/16/daily/暴走看啥片榜单/" class="post-more waves-effect waves-button">
@@ -902,12 +649,68 @@ patch-$PLATFORM.jar</code></p>
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-scripts/【转】安装第三方库出现-python-version-2.7-required-which-was-not-found-in-the-registry"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-10-07 21:17:00" datetime="2016-10-07T13:17:00.000Z"  itemprop="datePublished">2016-10-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/10/07/scripts/【转】安装第三方库出现-python-version-2.7-required-which-was-not-found-in-the-registry/">【转】安装第三方库出现 Python version 2.7 required, which was not found in the registry</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        安装第三方库出现 Python version 2.7 required, which was not found in the registry
+建立一个文件 register.py 内容如下. 然后执行该脚本.
+import sys  
+
+from _winreg import *  
+
+# tweak as necessary  
+version = sys.version[:3]  ...
+    
+
+        <a href="/2016/10/07/scripts/【转】安装第三方库出现-python-version-2.7-required-which-was-not-found-in-the-registry/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
     </div>
 </nav>
 

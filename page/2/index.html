@@ -191,98 +191,6 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-bigdata/Kylo入坑记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-14 11:27:29" datetime="2017-06-14T03:27:29.000Z"  itemprop="datePublished">2017-06-14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Big-Data/">Big Data</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/14/bigdata/Kylo入坑记/">Kylo 入坑记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><blockquote>
-<p>Kylo，作为一个基于 Spark 和 NiFi 的开源数据湖编排框架，解决对数据湖获取、治理、感知和技术支持等诸多问题。Kylo 将数据湖的很多功能自动化，包括数据接入、准备、分析发现、Profiling 和管理等等。Kylo 提供了符合业务分析人员思路的 GUI 界面以及 IT 运营和数据科学等模块。</p>
-<p>通过 Kylo 的 GUI 界面，业务人员可以按照他们关心的方式来操作数据，包括: 创建数 据源、定义数据加载、数据预处理、转换，发布到目标系统。因为不需要部署任何代码，也不需要依赖 IT 部门，业务人员做到了对项目的完全掌控，从而极大的减少了类似项目所需的时间。</p>
-<p>对于有技术能力的数据科学家、数据管家及 IT 运营人员来说，Kylo 提供包括元数据管理、合适的数据加载及类似 Goolgle 的检索能力，可以为业务分析人员赋予不同的权限、提供随时可用的模板，帮助他们使用、监控并提升数据湖的服务 SLA。</p>
-<p>虽然不是万灵丹(特别是对于那些拥有混乱无序数据湖的企业来说), Kylo 及类似 Kylo 的产品还是非常有意义的，因为它让技术人员和业务人员都能够操作大数据，填平了大数据技术与大数据使用之间的鸿沟。 业务人员可以更快的获得数据洞察，IT 人员则可以专注在工程及数据架构问题，而不是编写代码。<br>From <a href="https://zhuanlan.zhihu.com/p/25436075" target="_blank" rel="external">zhuanlan.zhihu.com 为企业级的数据分析赋能: 基于开源数据湖管理系统Kylo的业务分析</a></p>
-</blockquote>
-<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><h2 id="2-1-说明"><a href="#2-1-说明" class="headerlink" title="2.1 说明"></a>2.1 说明</h2><p>官网：<a href="http://kylo.readthedocs.io/en/latest/installation/KyloSetupWizardDeploymentGuide.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/installation/KyloSetupWizardDeploymentGuide.html</a><br><a href="http://kylo.readthedocs.io/en/latest/installation/KyloManualDeploymentGuide.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/installation/KyloManualDeploymentGuide.html</a></p>
-<p>参考博文：<a href="http://www.treselle.com/blog/kylo-setup-for-data-lake-management/" target="_blank" rel="external">http://www.treselle.com/blog/kylo-setup-for-data-lake-management/</a></p>
-<h2 id="2-2-历程"><a href="#2-2-历程" class="headerlink" title="2.2 历程"></a>2.2 历程</h2><p>过程很艰辛！！！<br>不过也学习到了很多基础知识！</p>
-<ol>
-<li><p>由于官方仅仅提供 rpm 包，你可以尝试将 rpm 包转化成 deb 包，或者编译源码得到 rpm 和 deb 包。</p>
-</li>
-<li><p>在安装过程中，尽量使用 offline 的方式。最好的方式就是先将软件下载下来，再根据脚本的指导去进行配置，也可以修改脚本进行自动化配置。</p>
-</li>
-</ol>
-<h2 id="2-3-小结"><a href="#2-3-小结" class="headerlink" title="2.3 小结"></a>2.3 小结</h2><p>如果你之前使用过 nifi 这一类的应用，那么上手 kylo 不是一件很难的事情。类似 nifi ，kylo 也提供了一个 ui 界面建立起用户与系统的交互。</p>
-<p>相对于 nifi 使用 Processor 与外部服务建立起连接， Kylo 则选择了集成部分服务，使得自己更为壮大。<br>在安装 kylo 时，你被要求安装如下软件：</p>
-<ul>
-<li>Kylo Applications - /opt/kylo</li>
-<li>Java 8 - /opt/java/current</li>
-<li>NiFi - /opt/nifi/current</li>
-<li>ActiveMQ - /opt/activemq</li>
-<li>Elasticsearch - RPM installation default location<br>还包括了：</li>
-<li>MySQL</li>
-</ul>
-<p>不难看出，kylo 集成了 NiFi 实际上是对 NiFi 的扩展。集成 Elasticsearch 用于全文搜索，集成 ActiveMQ 用于消息通信（RPC）……</p>
-<h1 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h1><h2 id="3-1-配置文件"><a href="#3-1-配置文件" class="headerlink" title="3.1 配置文件"></a>3.1 配置文件</h2><p>配置文件位置：</p>
-<ul>
-<li>kylo-services：<code>/opt/kylo/kylo-services/conf</code></li>
-<li>kylo-ui：<code>/opt/kylo/kylo-ui/conf</code></li>
-</ul>
-<h2 id="3-2-日志文件"><a href="#3-2-日志文件" class="headerlink" title="3.2 日志文件"></a>3.2 日志文件</h2><p>日志文件位置：</p>
-<ul>
-<li>kylo-services：<code>/var/log/kylo-services</code></li>
-<li>kylo-ui：<code>/var/log/kylo-ui</code></li>
-</ul>
-<h2 id="3-3-Kylo-配置文件修改"><a href="#3-3-Kylo-配置文件修改" class="headerlink" title="3.3 Kylo 配置文件修改"></a>3.3 Kylo 配置文件修改</h2><p>配置文件一旦修改后，需要重启 Kylo 才能使得修改的配置生效。</p>
-<p><strong>这一点跟 nifi 一个尿性，重启后需要等待较长的一段时间，我实际体验大约是 10 分钟左右。</strong></p>
-<h1 id="四、与-NiFi-的配合"><a href="#四、与-NiFi-的配合" class="headerlink" title="四、与 NiFi 的配合"></a>四、与 NiFi 的配合</h1><h2 id="4-0-kylo-中的-nifi"><a href="#4-0-kylo-中的-nifi" class="headerlink" title="4.0 kylo 中的 nifi"></a>4.0 kylo 中的 nifi</h2><p>Kylo 通过 <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NiFi REST API</a> 实现对 NiFi 的一些基本操作，</p>
-<h2 id="4-1-nifi-地址"><a href="#4-1-nifi-地址" class="headerlink" title="4.1 nifi 地址"></a>4.1 nifi 地址</h2><p>nifi 的地址在 <code>/opt/kylo/kylo-services/conf/application.properties</code> 中进行修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nifi.rest.host=192.168.203.12 # 千万注意，这里不能使用 localhost</div><div class="line">nifi.rest.port=8080</div></pre></td></tr></table></figure>
-<h2 id="4-2-遇到的异常"><a href="#4-2-遇到的异常" class="headerlink" title="4.2 遇到的异常"></a>4.2 遇到的异常</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The Reporting task does not exist. A com.think big analytics.nifi.provenance.reporting.KyloProvenanceEvent Reporting Task needs to be RUNNING to process jobs in Kylo</div></pre></td></tr></table></figure>
-<p>问题原因：<br>The reporting task sends events about what is happening in NiFi back to Kylo for reporting。<br>from <a href="https://groups.google.com/forum/#!topic/kylo-community/dACLQHjniRU" target="_blank" rel="external">https://groups.google.com/forum/#!topic/kylo-community/dACLQHjniRU</a><br>解决方案：<br><a href="http://kylo.readthedocs.io/en/latest/how-to-guides/NiFiKyloProvenanceReportingTask.html" target="_blank" rel="external">http://kylo.readthedocs.io/en/latest/how-to-guides/NiFiKyloProvenanceReportingTask.html</a></p>
-
-    
-
-        <a href="/2017/06/14/bigdata/Kylo入坑记/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kylo/">kylo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-bigdata/NiFi-REST-API的使用"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -313,15 +221,10 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>为方便用户使用 NiFi 进行二次开发，NiFi 为开发者提供了 <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NIFI REST API</a>。</p>
-<p>关于 API 的详细介绍，请参见官网 <a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">NIFI REST API</a>。这里仅给出一些注意的小细节。</p>
-<h1 id="二、注意事项"><a href="#二、注意事项" class="headerlink" title="二、注意事项"></a>二、注意事项</h1><h2 id="2-1-REST-API-的-URL"><a href="#2-1-REST-API-的-URL" class="headerlink" title="2.1 REST API 的 URL"></a>2.1 REST API 的 URL</h2><p>API 文档中，只给出了每个 API 的相对路径，并没有给出关于完整地址的 URL 说明。</p>
-<p><strong>URL 地址应该为：<code>http://[ip]:[port]/nifi-api[path]</code></strong></p>
-<p>以 <code>GET    /flow/about    Retrieves details about this NiFi to put in the About dialog</code> 为例：</p>
-<p>url 为：<code>http://192.168.203.12:8080/nifi-api/flow/about</code></p>
-<p>POSTMAN 请求示例：<br><img src="http://oltjxlyku.bkt.clouddn.com/nifi_rest_api_using_example.png" alt=""></p>
-<h2 id="2-2-使用示例"><a href="#2-2-使用示例" class="headerlink" title="2.2 使用示例"></a>2.2 使用示例</h2><p><strong>占坑待续</strong></p>
-
+        一、概述为方便用户使用 NiFi 进行二次开发，NiFi 为开发者提供了 NIFI REST API。
+关于 API 的详细介绍，请参见官网 NIFI REST API。这里仅给出一些注意的小细节。
+二、注意事项2.1 REST API 的 URLAPI 文档中，只给出了每个 API 的相对路径，并没有给出关于完整地址的 URL 说明。
+URL 地址应该为：http://[ip]:[port...
     
 
         <a href="/2017/06/14/bigdata/NiFi-REST-API的使用/" class="post-more waves-effect waves-button">
@@ -332,6 +235,54 @@ ga('send', 'pageview');
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+        
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/">『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述在某些极端情况下，某些 NiFi 节点信息会由于用户强行 disconnect from cluster ，而出现 local flow 与 cluster 的 flow 不同步的问题。
+此后，该问题节点再也无法正常同 cluster 建立连接，并且频繁报错：Failed to connect node to cluster because local flow is differe...
+    
+
+        <a href="/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sollution/">sollution</a></li></ul>
 
     </div>
     
@@ -368,58 +319,64 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。</p>
-<p><code>数据处理和分发系统</code> 是什么概念？</p>
-<p>NiFi 系统中数据的传递方式是怎样的？</p>
-<p>NiFi 的重要 Processor 有哪些？</p>
-<p>Processor 间是以何种方式进行协作的？</p>
-<p>上述问题对于阅读并练习了前几章内容的你来说，应该都不难理解。</p>
-<p>那么对于更加深层次的问题诸如：各个 Processor 是如何运行的？ExecuteScript 是如何对脚本初始化的？整个系统是如何实现对数据进行存储、分发和处理的？应该更能勾起你的兴趣。</p>
-<p>本文，就尝试从架构的简单剖析给您建立起 NiFi 的进一步的理解。</p>
-<h1 id="二、核心概念"><a href="#二、核心概念" class="headerlink" title="二、核心概念"></a>二、核心概念</h1><p><a href="http://nifi.apache.org/docs/nifi-docs/html/overview.html#the-core-concepts-of-nifi" target="_blank" rel="external">http://nifi.apache.org/docs/nifi-docs/html/overview.html#the-core-concepts-of-nifi</a><br>NiFi’s fundamental design concepts closely relate to the main ideas of Flow Based Programming [fbp]. Here are some of the main NiFi concepts and how they map to FBP:</p>
-<p>NiFi Term    FBP Term    Description<br>FlowFile<br>Information Packet<br>A FlowFile represents each object moving through the system and for each one, NiFi keeps track of a map of key/value pair attribute strings and its associated content of zero or more bytes.<br>FlowFile Processor<br>Black Box<br>Processors actually perform the work. In [eip] terms a processor is doing some combination of data routing, transformation, or mediation between systems. Processors have access to attributes of a given FlowFile and its content stream. Processors can operate on zero or more FlowFiles in a given unit of work and either commit that work or rollback.<br>Connection<br>Bounded Buffer<br>Connections provide the actual linkage between processors. These act as queues and allow various processes to interact at differing rates. These queues can be prioritized dynamically and can have upper bounds on load, which enable back pressure.<br>Flow Controller<br>Scheduler<br>The Flow Controller maintains the knowledge of how processes connect and manages the threads and allocations thereof which all processes use. The Flow Controller acts as the broker facilitating the exchange of FlowFiles between processors.<br>Process Group<br>subnet<br>A Process Group is a specific set of processes and their connections, which can receive data via input ports and send data out via output ports. In this manner, process groups allow creation of entirely new components simply by composition of other components.<br>This design model, also similar to [seda], provides many beneficial consequences that help NiFi to be a very effective platform for building powerful and scalable dataflows. A few of these benefits include:</p>
-<p>Lends well to visual creation and management of directed graphs of processors</p>
-<p>Is inherently asynchronous which allows for very high throughput and natural buffering even as processing and flow rates fluctuate</p>
-<p>Provides a highly concurrent model without a developer having to worry about the typical complexities of concurrency</p>
-<p>Promotes the development of cohesive and loosely coupled components which can then be reused in other contexts and promotes testable units</p>
-<p>The resource constrained connections make critical functions such as back-pressure and pressure release very natural and intuitive</p>
-<p>Error handling becomes as natural as the happy-path rather than a coarse grained catch-all</p>
-<p>The points at which data enters and exits the system as well as how it flows through are well understood and easily tracked</p>
-<h1 id="三、NiFi-架构"><a href="#三、NiFi-架构" class="headerlink" title="三、NiFi 架构"></a>三、NiFi 架构</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://nifi.apache.org/docs/nifi-docs/html/images/zero-master-node.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p><em>图片来源：<a href="http://nifi.apache.org/docs.html" target="_blank" rel="external">http://nifi.apache.org/docs.html</a></em></p>
-<p>根据上面的架构图可知，NiFi 有如下主要部件：<br>（我就直接粘贴官网的介绍了，因为我觉得官网说得已经很详细了～翻译起来反倒更难理解）</p>
-<ul>
-<li><p>WebServer<br>The purpose of the web server is to host NiFi’s HTTP-based command and control API.</p>
-</li>
-<li><p>Flow Controller<br>The flow controller is the brains of the operation. It provides threads for extensions to run on, and manages the schedule of when extensions receive resources to execute.</p>
-</li>
-<li><p>Extensions<br>There are various types of NiFi extensions which are described in other documents. The key point here is that extensions operate and execute within the JVM.</p>
-</li>
-<li><p>FlowFile Repository<br>The FlowFile Repository is where NiFi keeps track of the state of what it knows about a given FlowFile that is presently active in the flow. The implementation of the repository is pluggable. The default approach is a persistent Write-Ahead Log located on a specified disk partition.</p>
-</li>
-<li><p>Content Repository<br>The Content Repository is where the actual content bytes of a given FlowFile live. The implementation of the repository is pluggable. The default approach is a fairly simple mechanism, which stores blocks of data in the file system. More than one file system storage location can be specified so as to get different physical partitions engaged to reduce contention on any single volume.</p>
-</li>
-<li><p>Provenance Repository<br>The Provenance Repository is where all provenance event data is stored. The repository construct is pluggable with the default implementation being to use one or more physical disk volumes. Within each location event data is indexed and searchable.</p>
-</li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://nifi.apache.org/docs/nifi-docs/html/images/zero-master-cluster.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>Starting with the NiFi 1.0 release, a Zero-Master Clustering paradigm is employed. Each node in a NiFi cluster performs the same tasks on the data, but each operates on a different set of data. Apache ZooKeeper elects a single node as the Cluster Coordinator, and failover is handled automatically by ZooKeeper. All cluster nodes report heartbeat and status information to the Cluster Coordinator. The Cluster Coordinator is responsible for disconnecting and connecting nodes. Additionally, every cluster has one Primary Node, also elected by ZooKeeper. As a DataFlow manager, you can interact with the NiFi cluster through the user interface (UI) of any node. Any change you make is replicated to all nodes in the cluster, allowing for multiple entry points.</p>
-
+        一、概述通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。
+数据处理和分发系统 是什么概念？
+NiFi 系统中数据的传递方式是怎样的？
+NiFi 的重要 Processor 有哪些？
+Processor 间是以何种方式进行协作的？
+上述问题对于阅读并练习了前几章内容的你来说，应该都不难理解。
+那么对于更加深层次的问题诸如：各个 Processor 是如何运行的？Execute...
     
 
         <a href="/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-bigdata/『NiFi学习之路』使用——主要组件的使用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+        
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/">『NiFi 学习之路』使用 —— 主要组件的使用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供的 Porcessor 进行介绍。
+二、Processor如果你没有修改 Processor 的存放目录的话，Processor 被存放在 [nifi_install_location]/libs 目录下，NiFi 被启动时，都会将该目录下的组件加载到系统中，供...
+    
+
+        <a href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -463,35 +420,16 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <ul>
-<li><a href="#">『NiFi 学习之路』简介</a></li>
-<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用">『NiFi 学习之路』入门 —— 下载、安装与简单使用</a></li>
-<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总">『NiFi 学习之路』资源 —— 资料汇总</a></li>
-<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要组件">『NiFi 学习之路』把握 —— 架构及主要组件</a></li>
-<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用">『NiFi 学习之路』使用 —— 主要组件的使用</a></li>
-<li><a href="http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用">『NiFi 学习之路』自定义 —— 组件的自定义及使用</a></li>
-<li>『NiFi 学习之路』感悟 —— 我对 NiFi 的理解</li>
-</ul>
-<p>NiFi 这个东西到底有哪些应用场景？这些功能特性是如何在使用过程中发挥作用的？这些功能特性的底层实现是如何的？</p>
-<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>2017 年的 2 月初到写就这篇文章的 5 月 11 日，藕断丝连地跟 NiFi 打了近 3 个月的交道。从最初的屁事儿不懂，到现在的略知皮毛，期间的过程可谓十分“有趣”。</p>
-<blockquote>
-<p>2015年7月20日，Apache 基金会通过其博客宣布Apache NiFi顺利孵化完成称为Apache的顶级项目之一。</p>
-</blockquote>
-<p>由于 NiFi 开源时间较短，再加之国内对 NiFi 应用不多。中文的相关文章多停留在对 NiFi 的泛泛而谈，没有系统且深入的对 NiFi 进行介绍。唯一能够参考的也只有官网和 google 了。因此，学习之路还是蛮吃力的。</p>
-<p>本人将这一艰辛的学习之路，整理成文，供各位参考。如有错误，烦请批评指正。</p>
-<h1 id="二、NiFi-功能"><a href="#二、NiFi-功能" class="headerlink" title="二、NiFi 功能"></a>二、NiFi 功能</h1><p>Apache NiFi 是一个易于使用、功能强大而且可靠的数据处理和分发系统。Apache NiFi 是为数据流设计。它支持高度可配置的指示图的数据路由、转换和系统中介逻辑。</p>
-<p>来自 <a href="https://www.oschina.net/p/nifi" target="_blank" rel="external">Apache NiFi 详细介绍/OSChina</a> 的介绍，内容翻译自 NiFi 官网</p>
-<blockquote>
-<p>关键特性包括:</p>
-<ul>
-<li>基于web的用户界面<br>无缝体验设计、控制和监视</li>
-<li>高度可配置的<br>数据丢失容错和保证交付<br>低延迟和高吞吐量<br>动态优先级<br>流可以在运行时修改<br>背压 Back presure</li>
-<li>数据来源<br>从始至终跟踪数据流</li>
-<li>为扩展设计<br>构建自己数据处理器<br>支持快速开发和有效的测试</li>
-<li>安全<br>SSL,SSH,HTTPS加密内容,等等……<br>可插拔的基于角色的验证/授权</li>
-</ul>
-</blockquote>
+        
+『NiFi 学习之路』简介
+『NiFi 学习之路』入门 —— 下载、安装与简单使用
+『NiFi 学习之路』资源 —— 资料汇总
+『NiFi 学习之路』把握 —— 架构及主要组件
+『NiFi 学习之路』使用 —— 主要组件的使用
+『NiFi 学习之路』自定义 —— 组件的自定义及使用
+『NiFi 学习之路』感悟 —— 我对 NiFi 的理解
 
+NiFi 这个东西到底有哪些应用场景？这些功能特...
     
 
         <a href="/2017/06/13/bigdata/『NiFi学习之路』简介/" class="post-more waves-effect waves-button">
@@ -538,229 +476,10 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，<code>getLogger()</code> 方法位于 AbstractSessionFactoryProcessor 类中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">protected final ProcessorLog getLogger() &#123;</div><div class="line">    return this.logger;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><p>该问题出现的原因是随着版本的更新， NiFi API 弃用了部分类。在早期版本中，存在 <code>ProcessorLog</code>，而在最新版本的 API 里， <code>ProcessorLog</code> 取而代之。</p>
-
+        一、概述自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 AbstractSessionFactoryProcessor ，getLogger() 方法位于 AbstractSessionFactoryProcessor 类中。123protected final ProcessorLog getLogger() &#1...
     
 
         <a href="/2017/06/13/bigdata/『NiFi自定义Processor无法获取到Logger』问题解决/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/">『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>在某些极端情况下，某些 NiFi 节点信息会由于用户强行 disconnect from cluster ，而出现 local flow 与 cluster 的 flow 不同步的问题。</p>
-<p>此后，该问题节点再也无法正常同 cluster 建立连接，并且频繁报错：Failed to connect node to cluster because local flow is different than cluster flow。</p>
-<h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><p>关于此问题，一个邮箱列表对此话题做了较为清晰的解答。<br><a href="http://apache-nifi-developer-list.39713.n7.nabble.com/Failed-to-connect-node-to-cluster-because-local-flow-is-different-than-cluster-flow-td1073.html" target="_blank" rel="external">Failed to connect node to cluster because local flow is different than cluster flow.</a><br>具体解决措施为;</p>
-<ul>
-<li><strong>删除该问题节点的一个存放 local flow 元信息的文件</strong>，文件位置为<code>[nifi install location]/conf/flow.xml.gz</code></li>
-<li><strong>重启该节点</strong>，随后集群后自动与该节点建立联系，由于该节点的 flow.xml.gz 丢失，问题节点会默认接受集群的 flow</li>
-</ul>
-
-    
-
-        <a href="/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sollution/">sollution</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-bigdata/『NiFi学习之路』使用——主要组件的使用"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/">『NiFi 学习之路』使用 —— 主要组件的使用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供的 Porcessor 进行介绍。</p>
-<h1 id="二、Processor"><a href="#二、Processor" class="headerlink" title="二、Processor"></a>二、Processor</h1><p>如果你没有修改 Processor 的存放目录的话，Processor 被存放在 <code>[nifi_install_location]/libs</code> 目录下，NiFi 被启动时，都会将该目录下的组件加载到系统中，供用户使用。</p>
-<p>这里我主要对我使用的一些 Processor 进行介绍。<br><a href="http://nifi.apache.org/docs/nifi-docs/" target="_blank" rel="external">http://nifi.apache.org/docs/nifi-docs/</a></p>
-<p><strong>占坑待续</strong></p>
-
-    
-
-        <a href="/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-bigdata/『NiFi学习之路』入门——下载、安装与简单使用"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/">『NiFi 学习之路』入门 —— 下载、安装与简单使用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。</p>
-<p>实践是最好的老师。那就让我们试用一下 NiFi 吧！</p>
-<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>由于我的整个学习和使用过程都是在 Linux 下完成，所以，整个教程也是面向 Linux 用户的。</p>
-<p>其他系统下的使用方法类似，如有其他系统的用户，那么还请有选择性的进行参考本教程。</p>
-<p>NiFi 是免安装地，仅需从官网下载压缩包，然后解压，旋即完成了整个安装过程。</p>
-<ul>
-<li>官网下载压缩包：<a href="http://nifi.apache.org/download.html" target="_blank" rel="external">nifi.apache.org/download</a>，如何压缩包的选择参考文章 <a href="http://www.cnblogs.com/rethink-east/p/6396744.html" target="_blank" rel="external">Apache NiFi 二进制包和源码包安装介绍</a></li>
-<li><code>tar -xzf nifi-x.x.x-bin.tar.gz</code> 命令解压 ，关于解命令烦请参考文章 <a href="http://www.jb51.net/LINUXjishu/43356.html" target="_blank" rel="external">Linux 下tar.gz、tar、bz2、zip 等解压缩、压缩命令小结</a></li>
-<li>解压结束即完成整个安装过程</li>
-</ul>
-<p><img src="http://oltjxlyku.bkt.clouddn.com/nifi_install_ls.png" alt="nifi_install_ls"></p>
-<h1 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h1><p>我们需要对 NiFi 的配置文件（存放在 <code>[nifi_install_location]/config</code> ）进行个性化配置。</p>
-<p>由于目前我们只是简单的上手，所以大部分配置项都选择了默认的配置。我们仅对 NiFi 进行基本的配置。</p>
-<p><code>nifi.properties</code> 文件针对的是 NiFi 的配置，仅需做如下修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># web properties #</div><div class="line">nifi.web.war.directory=./lib</div><div class="line">nifi.web.http.host=192.168.203.7 # 设置成本机的 ip</div><div class="line">nifi.web.http.port=9191</div><div class="line">nifi.web.https.host=</div><div class="line">nifi.web.https.port=</div><div class="line">nifi.web.jetty.working.directory=./work/jetty</div><div class="line">nifi.web.jetty.threads=200</div></pre></td></tr></table></figure>
-<p>其他文件在本教程场景下无需修改。</p>
-<h1 id="四、启动"><a href="#四、启动" class="headerlink" title="四、启动"></a>四、启动</h1><p>通过 <code>[nifi_install_location]/bin/nifi.sh</code> 进行 <code>start</code>、<code>restart</code>、<code>stop</code>、<code>status</code> 等操作。</p>
-<ul>
-<li><code>./bin/nifi.sh start</code> 启动 nifi。</li>
-<li>浏览器中访问 <code>192.168.203.7:9191/nifi</code>（此处的ip与端口同你的配置项相关）</li>
-<li>即可出现 nifi 的操作界面</li>
-</ul>
-<p>由于 nifi 加载配置信息较慢，稍作等待。</p>
-<h1 id="五、简单使用"><a href="#五、简单使用" class="headerlink" title="五、简单使用"></a>五、简单使用</h1><p>设定一个这样的场景：</p>
-<blockquote>
-<p>统计每次收到的消息中，单词出现的频次。WORD COUNT!!!</p>
-</blockquote>
-<h2 id="5-0-先修：操作面板与-Processor"><a href="#5-0-先修：操作面板与-Processor" class="headerlink" title="5.0 先修：操作面板与 Processor"></a>5.0 先修：操作面板与 Processor</h2><p>熟悉操作面板的各个组件。如何添加、启动、停止、删除一个 Processor，如何对 Processor 进行基本配置？</p>
-<p>对于上述问题，请自行在界面上进行尝试和练习。</p>
-<p>官网上也提供了一些 Youtube 上的教学视频，请参考这里 <a href="http://nifi.apache.org/videos.html" target="_blank" rel="external">nifi.apache.org/videos</a></p>
-<h2 id="5-1-涉及到的组件"><a href="#5-1-涉及到的组件" class="headerlink" title="5.1 涉及到的组件"></a>5.1 涉及到的组件</h2><ul>
-<li>GenerateFlowFile</li>
-<li>ExecuteScript</li>
-<li>PutFile</li>
-</ul>
-<h2 id="5-2-部署组件"><a href="#5-2-部署组件" class="headerlink" title="5.2 部署组件"></a>5.2 部署组件</h2><p>从 Processor 拖取上述组件到操作面板上，依照描述的数据流动方式将组件串起。</p>
-<p>串联组件时，有时需要对组件进行关系的选择。即选择上一组件分发的正确/错误消息分发到下一组件。</p>
-<p>同时，末端的组件你需要在它的 setting pannel 指定自己处理 Success、Failure。</p>
-<p>对 Processor 的配置如下：</p>
-<ul>
-<li><p>GenerateFlowFile</p>
-<ul>
-<li><p>Profile -&gt; Custom Text 填入需要统计单词频次的文章/内容<br>如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic. Some of the high-level capabilities and objectives of Apache NiFi include:</div></pre></td></tr></table></figure>
-</li>
-<li><p>Scheduling -&gt; Run Duration 调节至 2s，放缓数据生成的速度</p>
-</li>
-</ul>
-</li>
-<li><p>ExecuteScript</p>
-<ul>
-<li>Profile -&gt; ScriptEngine 选择 Groovy</li>
-<li>ScriptBody 填入如下 Groovy 代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"># Code from http://funnifi.blogspot.com/2016/02/executescript-processor-replacing-flow.html</div><div class="line">import org.apache.commons.io.IOUtils</div><div class="line">import java.nio.charset.*</div><div class="line"></div><div class="line">def flowFile = session.get()</div><div class="line">if(!flowFile) return</div><div class="line"></div><div class="line">flowFile = session.write(flowFile, &#123;inputStream, outputStream -&gt;</div><div class="line">   def wordCount = [:]</div><div class="line"></div><div class="line">   def tellTaleHeart = IOUtils.toString(inputStream, StandardCharsets.UTF_8)</div><div class="line">   def words = tellTaleHeart.split(/(!|\?|-|\.|\&quot;|:|;|,|\s)+/)*.toLowerCase()</div><div class="line"></div><div class="line">   words.each &#123; word -&gt;</div><div class="line">   def currentWordCount = wordCount.get(word)</div><div class="line">   if(!currentWordCount) &#123;</div><div class="line">		  wordCount.put(word, 1)</div><div class="line">   &#125;</div><div class="line">   else &#123;</div><div class="line">		  wordCount.put(word, currentWordCount + 1)</div><div class="line">   &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   def outputMapString = wordCount.inject(&quot;&quot;, &#123;k,v -&gt; k += &quot;$&#123;v.key&#125;: $&#123;v.value&#125;\n&quot;&#125;)</div><div class="line">  </div><div class="line">   outputStream.write(outputMapString.getBytes(StandardCharsets.UTF_8))</div><div class="line">&#125; as StreamCallback)</div><div class="line"></div><div class="line">flowFile = session.putAttribute(flowFile, &apos;filename&apos;, &apos;telltale_heart_wordcount&apos;)</div><div class="line">session.transfer(flowFile, REL_SUCCESS)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>PutFile</p>
-<ul>
-<li>Profile -&gt; Directory 填入存放结果的文件夹，如 <code>/home/lbh/logs/result</code></li>
-</ul>
-</li>
-</ul>
-<p>启动各个 Processor 后，就能清晰地看到数据在 Processors 之间流动。<br><img src="http://oltjxlyku.bkt.clouddn.com/diagram_word_count.png" alt=""></p>
-<p>查看 PutFile 中设置的文件存放目录，能够看到存放着统计结果的文件 <code>telltale_heart_wordcount</code></p>
-<p>打开 <code>telltale_heart_wordcount</code> 文件，查看到统计结果如下：<br><img src="http://oltjxlyku.bkt.clouddn.com/telltale_heart_wordcount.png" alt=""></p>
-
-    
-
-        <a href="/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -804,12 +523,11 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>许多业务仅仅使用官方提供的组件不能够满足性能上的需求，往往要通过高度可定制的组件来完成特定的业务需求。</p>
-<p>而 NiFi 提供了自定义组件的这种方式。</p>
-<h1 id="二、自定义-Processor"><a href="#二、自定义-Processor" class="headerlink" title="二、自定义 Processor"></a>二、自定义 Processor</h1><p><a href="http://www.nifi.rocks/developing-a-custom-apache-nifi-processor-json/" target="_blank" rel="external">http://www.nifi.rocks/developing-a-custom-apache-nifi-processor-json/</a></p>
-<p><strong>占坑待续</strong></p>
-<h1 id="三、Debug-Processor"><a href="#三、Debug-Processor" class="headerlink" title="三、Debug Processor"></a>三、Debug Processor</h1><p>目前似乎没有较好的方式，有一个邮件列表就此话题进行了探讨。<br><a href="http://apache-nifi-developer-list.39713.n7.nabble.com/Getting-started-developing-debugging-Nifi-processors-td2605.html" target="_blank" rel="external">Getting started developing/debugging Nifi processors</a><br><a href="https://community.hortonworks.com/questions/47824/is-there-a-way-to-debug-a-custom-nifi-process-that.html" target="_blank" rel="external">【hortonworks】Is there a way to debug a custom NiFi process that is running inside the dataflow?</a></p>
-
+        一、概述许多业务仅仅使用官方提供的组件不能够满足性能上的需求，往往要通过高度可定制的组件来完成特定的业务需求。
+而 NiFi 提供了自定义组件的这种方式。
+二、自定义 Processorhttp://www.nifi.rocks/developing-a-custom-apache-nifi-processor-json/
+占坑待续
+三、Debug Processor目前似乎没有较好的方式，...
     
 
         <a href="/2017/06/13/bigdata/『NiFi学习之路』自定义——组件的自定义及使用/" class="post-more waves-effect waves-button">
@@ -856,24 +574,12 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。</p>
-<p>加之，大家都知道，国内的那么些个教程，原创都只是停留在初级使用阶段，没有更多深入的介绍。</p>
-<p>再者，其余的文章不是东抄抄就是西抄抄，有的是翻译国外的资料，蹩脚得很，还不如直接看英文原文呢。</p>
-<h1 id="二、资源列表"><a href="#二、资源列表" class="headerlink" title="二、资源列表"></a>二、资源列表</h1><h2 id="2-1-官方文档"><a href="#2-1-官方文档" class="headerlink" title="2.1 官方文档"></a>2.1 官方文档</h2><p>官网：<a href="http://nifi.apache.org/" target="_blank" rel="external">nifi.apache.org</a><br>官网文档：<a href="http://nifi.apache.org/docs.html" target="_blank" rel="external">nifi.apache.org/docs</a></p>
-<h2 id="2-2-国外博客"><a href="#2-2-国外博客" class="headerlink" title="2.2 国外博客"></a>2.2 国外博客</h2><ul>
-<li><p>Matt Burgess：<br>此人出了一系列的 NiFi ExecuteScript 的文章 —— <code>NiFi ExecuteScript Cookbook</code><br><a href="http://funnifi.blogspot.com/" target="_blank" rel="external">funnifi.blogspot.com</a></p>
-</li>
-<li><p>官方博客：<br><a href="https://blogs.apache.org/nifi/" target="_blank" rel="external">blogs.apache.org/nifi</a></p>
-</li>
-<li><p>hortonworks：<br><a href="https://blogs.apache.org/nifi/" target="_blank" rel="external">hortonworks.com/blog/category/nifi</a></p>
-</li>
-<li><p>stackoverflow：<br><a href="http://stackoverflow.com/questions/tagged/apache-nifi" target="_blank" rel="external">stackoverflow.com/questions/tagged/apache-nifi</a></p>
-</li>
-</ul>
-<h2 id="2-3-国内博客"><a href="#2-3-国内博客" class="headerlink" title="2.3 国内博客"></a>2.3 国内博客</h2><p>暂时还未发现国内关于 NiFi 的优质博客，如有，请推荐。</p>
-<h2 id="2-4-NiFi-Libs"><a href="#2-4-NiFi-Libs" class="headerlink" title="2.4 NiFi Libs"></a>2.4 NiFi Libs</h2><p><a href="https://github.com/jfrazee/awesome-nifi" target="_blank" rel="external">https://github.com/jfrazee/awesome-nifi</a><br>ryanleary/nifi-redis - NiFi Processors for pulling from Redis</p>
-<p>Nifi - PutRedis<br><a href="https://github.com/qntfy/nifi-redis" target="_blank" rel="external">https://github.com/qntfy/nifi-redis</a></p>
-
+        一、概述由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。
+加之，大家都知道，国内的那么些个教程，原创都只是停留在初级使用阶段，没有更多深入的介绍。
+再者，其余的文章不是东抄抄就是西抄抄，有的是翻译国外的资料，蹩脚得很，还不如直接看英文原文呢。
+二、资源列表2.1 官方文档官网：nifi.apache.org官网文档：nifi.apache.org/docs
+2.2 国外博客
+...
     
 
         <a href="/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/" class="post-more waves-effect waves-button">
@@ -891,12 +597,120 @@ ga('send', 'pageview');
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-bigdata/『NiFi学习之路』入门——下载、安装与简单使用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-13 22:23:36" datetime="2017-06-13T14:23:36.000Z"  itemprop="datePublished">2017-06-13</time>
+
+        
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/">『NiFi 学习之路』入门 —— 下载、安装与简单使用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。
+实践是最好的老师。那就让我们试用一下 NiFi 吧！
+二、安装由于我的整个学习和使用过程都是在 Linux 下完成，所以，整个教程也是面向 Linux 用户的。
+其他系统下的使用方法类似，如有其他系统的用户，那么还请有选择性的进行参考本教程。
+NiFi 是免安装地，仅需从官网下载...
+    
+
+        <a href="/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nifi/">nifi</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-android/TabLayout与ViewPager同步后Tab的标题不显示"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-13 16:20:29" datetime="2017-06-13T08:20:29.000Z"  itemprop="datePublished">2017-06-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/">TabLayout与ViewPager同步后Tab的标题不显示</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述1.1 问题描述TabLayout+ViewPager后，TabLayout的TabItem不显示的问题：
+1.2 截图
+二、结论
+mTabs.setupWithViewPager(mViewPager); 语句的功能是：
+
+将 TabLayout、ViewPager 的监听事件同步
+对 TabLayout 的适配器进行重置
+对 TabLayout 的 TabItem 进行重置
+从 ...
+    
+
+        <a href="/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exception/">exception</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </div>
 </nav>
 

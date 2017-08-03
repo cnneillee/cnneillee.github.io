@@ -198,7 +198,7 @@ ga('send', 'pageview');
         <time class="post-time" title="2017-08-03 19:03:37" datetime="2017-08-03T11:03:37.000Z"  itemprop="datePublished">2017-08-03</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
 
 
 
@@ -221,36 +221,18 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <blockquote>
-<p>XML介绍：Extensible Markup Language，即可扩展标记语言</p>
-</blockquote>
-<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Android中解析XML格式数据大致有三种方法：</p>
-<ul>
-<li>SAX</li>
-<li>DOM</li>
-<li>PULL</li>
-</ul>
-<h1 id="二、详解"><a href="#二、详解" class="headerlink" title="二、详解"></a>二、详解</h1><h2 id="2-1-SAX"><a href="#2-1-SAX" class="headerlink" title="2.1 SAX"></a>2.1 SAX</h2><p><code>SAX(Simple API for XML)</code> 使用流式处理的方式，它并不记录所读内容的相关信息。</p>
-<p>它是一种以事件为驱动的XML API，解析速度快，占用内存少。使用回调函数来实现。 </p>
-<p>缺点是不能倒退。</p>
-<h2 id="2-2-DOM"><a href="#2-2-DOM" class="headerlink" title="2.2 DOM"></a>2.2 DOM</h2><p><code>DOM(Document Object Model)</code> 是一种用于XML文档的对象模型，可用于直接访问 XML 文档的各个部分。</p>
-<p>它是一次性全部将内容加载在内存中，生成一个树状结构,它没有涉及回调和复杂的状态管理。 </p>
-<p>缺点是加载大文档时效率低下。</p>
-<h2 id="2-3-PULL"><a href="#2-3-PULL" class="headerlink" title="2.3 PULL"></a>2.3 PULL</h2><p><code>Pull</code> 内置于 Android 系统中。也是官方解析布局文件所使用的方式。</p>
-<p>Pull 与 SAX 有点类似，都提供了类似的事件，如开始元素和结束元素。</p>
-<p>不同的是，SAX 的事件驱动是回调相应方法，需要提供回调的方法，而后在 SAX 内部自动调用相应的方法。</p>
-<p>而Pull解析器并没有强制要求提供触发的方法。因为他触发的事件不是一个方法，而是一个数字。它使用方便，效率高。</p>
-<h2 id="三、比较"><a href="#三、比较" class="headerlink" title="三、比较"></a>三、比较</h2><p>SAX、DOM、Pull 的比较:</p>
-<p>内存占用：SAX、Pull比DOM要好；</p>
-<p>编程方式：SAX 采用事件驱动，在相应事件触发的时候，会调用用户编好的方法，也即每解析一类 XML，就要编写一个新的适合该类XML的处理类。DOM 是 W3C 的规范，Pull 简洁。</p>
-<p>访问与修改：SAX 采用流式解析，DOM 随机访问。</p>
-<p>访问方式：SAX，Pull 解析的方式是同步的，DOM 逐字逐句。</p>
-<h2 id="四、使用举例"><a href="#四、使用举例" class="headerlink" title="四、使用举例"></a>四、使用举例</h2><h2 id="4-1-SAX-解析举例"><a href="#4-1-SAX-解析举例" class="headerlink" title="4.1 SAX 解析举例"></a>4.1 SAX 解析举例</h2><p><a href="http://www.saxproject.org/quickstart.html" target="_blank" rel="external">http://www.saxproject.org/quickstart.html</a></p>
-<h2 id="4-2-DOM-解析举例"><a href="#4-2-DOM-解析举例" class="headerlink" title="4.2 DOM 解析举例"></a>4.2 DOM 解析举例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">public class DomPersonService &#123;</div><div class="line">    /**</div><div class="line">     * @param inStream</div><div class="line">     * @return</div><div class="line">     * @throws Exception</div><div class="line">     */</div><div class="line">    public static List&lt;Person&gt; getPersons(InputStream inStream)</div><div class="line">            throws Exception &#123;</div><div class="line"></div><div class="line">        List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;();</div><div class="line">        /**</div><div class="line">         * 文檔的解析</div><div class="line">         */</div><div class="line">        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</div><div class="line">        DocumentBuilder builder = factory.newDocumentBuilder();</div><div class="line">        Document document = builder.parse(inStream);</div><div class="line">        /**</div><div class="line">         * 操作對象樹</div><div class="line">         */</div><div class="line">        Element root = document.getDocumentElement();//返回文檔的根元素</div><div class="line">        NodeList personNodes = root.getElementsByTagName(&quot;person&quot;);</div><div class="line">        for (int i = 0; i &lt; personNodes.getLength(); i++) &#123;</div><div class="line">            Element personElement = (Element) personNodes.item(i);</div><div class="line">            int id = new Integer(personElement.getAttribute(&quot;id&quot;));</div><div class="line">            Person person = new Person();</div><div class="line">            person.setId(id);</div><div class="line">            NodeList childNodes = personElement.getChildNodes();</div><div class="line">            for (int y = 0; y &lt; childNodes.getLength(); y++) &#123;</div><div class="line">                if (childNodes.item(y).getNodeType() == Node.ELEMENT_NODE) &#123;</div><div class="line">                    if (&quot;name&quot;.equals(childNodes.item(y).getNodeName())) &#123;</div><div class="line">                        String name = childNodes.item(y).getFirstChild()</div><div class="line">                                .getNodeValue();</div><div class="line">                        person.setName(name);</div><div class="line">                    &#125;</div><div class="line">                    else if (&quot;age&quot;.equals(childNodes.item(y).getNodeName())) &#123;</div><div class="line">                        String age = childNodes.item(y).getFirstChild()</div><div class="line">                                .getNodeValue();</div><div class="line">                        person.setAge(new Short(age));</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            persons.add(person);</div><div class="line">        &#125;</div><div class="line">        inStream.close();</div><div class="line">        return persons;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public void testDOMGetPersons() throws Throwable &#123;</div><div class="line">    InputStream inStream = this.getClass().getClassLoader()</div><div class="line">        .getResourceAsStream(&quot;person.xml&quot;);</div><div class="line">    List&lt;Person&gt; persons = DomPersonService.getPersons(inStream);</div><div class="line">    for (Person person : persons) &#123;</div><div class="line">        Log.i(TAG, person.toString());</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="4-3-PULL解析举例"><a href="#4-3-PULL解析举例" class="headerlink" title="4.3 PULL解析举例"></a>4.3 PULL解析举例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">public class PullPersonService &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * ------------------------使用PULL解析XML-----------------------</div><div class="line">     * @param inStream</div><div class="line">     * @return</div><div class="line">     * @throws Exception</div><div class="line">     */</div><div class="line">    public static List&lt;Person&gt; getPersons(InputStream inStream)</div><div class="line">            throws Exception &#123;</div><div class="line">        Person person = null;</div><div class="line">        List&lt;Person&gt; persons = null;</div><div class="line">        XmlPullParser pullParser = Xml.newPullParser();</div><div class="line">        pullParser.setInput(inStream, &quot;UTF-8&quot;);</div><div class="line">        int event = pullParser.getEventType();// 觸發第一個事件</div><div class="line">        while (event != XmlPullParser.END_DOCUMENT) &#123;</div><div class="line">            switch (event) &#123;</div><div class="line">            case XmlPullParser.START_DOCUMENT:</div><div class="line">                persons = new ArrayList&lt;Person&gt;();</div><div class="line">                break;</div><div class="line">            case XmlPullParser.START_TAG:</div><div class="line">                if (&quot;person&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                    int id = new Integer(pullParser.getAttributeValue(0));</div><div class="line">                    person = new Person();</div><div class="line">                    person.setId(id);</div><div class="line">                &#125;</div><div class="line">                if (person != null) &#123;</div><div class="line">                    if (&quot;name&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                        person.setName(pullParser.nextText());</div><div class="line">                    &#125;</div><div class="line">                    if (&quot;age&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                        person.setAge(new Short(pullParser.nextText()));</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                break;</div><div class="line">            case XmlPullParser.END_TAG:</div><div class="line">                if (&quot;person&quot;.equals(pullParser.getName())) &#123;</div><div class="line">                    persons.add(person);</div><div class="line">                    person = null;</div><div class="line">                &#125;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">            event = pullParser.next();</div><div class="line">        &#125;</div><div class="line">        return persons;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public void testPullGetPersons() throws Throwable &#123;</div><div class="line">    InputStream inStream = this.getClass().getClassLoader()</div><div class="line">            .getResourceAsStream(&quot;person.xml&quot;);</div><div class="line">    List&lt;Person&gt; persons = PullPersonService.getPersons(inStream);</div><div class="line">    for (Person person : persons) &#123;</div><div class="line">        Log.i(TAG, person.toString());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+XML介绍：Extensible Markup Language，即可扩展标记语言
 
+一、概述Android中解析XML格式数据大致有三种方法：
+
+SAX
+DOM
+PULL
+
+二、详解2.1 SAXSAX(Simple API for XML) 使用流式处理的方式，它并不记录所读内容的相关信息。
+它是一种以事件为驱动的XML API，解析速度快，占用内存少。使用回调函数来实现。 
+缺点是不...
     
 
         <a href="/2017/08/03/android/Android中解析XML格式数据的方法/" class="post-more waves-effect waves-button">
@@ -260,65 +242,7 @@ ga('send', 'pageview');
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml/">xml</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-测试页面"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-01 20:24:12" datetime="2017-08-01T12:24:12.000Z"  itemprop="datePublished">2017-08-01</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/08/01/测试页面/">测试页面</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><p>方式点击发送</p>
-<ul>
-<li>fsafsj </li>
-<li>fsadkjfjas</li>
-<li>fsjfks</li>
-</ul>
-<p><img src="https://images-cn.ssl-images-amazon.com/images/G/28/payments-portal/r1/issuer-images/cup._CB340818956_.png" alt=""></p>
-<p><a href="http://www.baidu.com" target="_blank" rel="external">baidu</a></p>
-<p><em>此文在我的 <a href="http://cnneillee.github.io/">Github Pages</a> 上同步发布，地址为：<a href="http://cnneillee.github.io/2017/05/09/&lt;!--￼1--">测试页面</a></em></p>
-
-    
-
-        <a href="/2017/08/01/测试页面/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml/">xml</a></li></ul>
 
     </div>
     
@@ -357,59 +281,10 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <blockquote>
-<p>转自：<a href="http://makingiants.github.io/blog/gitlabci-toolbox-for-android/" target="_blank" rel="external">http://makingiants.github.io/blog/gitlabci-toolbox-for-android/</a></p>
-</blockquote>
-<p>You can setup your own CI server with real devices on gitlab with these scripts and setups. I found this issues that are common between any CI server:</p>
-<ul>
-<li>Copy env/secret variables to local project before each run.</li>
-<li>Run commands on every device connected.</li>
-<li>Run tests with test coverage and see it inside gitlab-ci.</li>
-<li>Install app dependencies before each run if needed.</li>
-<li>You need to setup (<a href="http://docs.gitlab.com/runner/register/" target="_blank" rel="external">How to</a>) your gitlab runner executor to shell to make it run processes “natively” instead of start a new Docker instance for every test.</li>
-</ul>
-<h1 id="1-Gitlab-will-run-everything-you-put-in-gitlab-ci-yml-check-this-sample"><a href="#1-Gitlab-will-run-everything-you-put-in-gitlab-ci-yml-check-this-sample" class="headerlink" title="1. Gitlab will run everything you put in .gitlab-ci.yml, check this sample:"></a>1. Gitlab will run everything you put in <code>.gitlab-ci.yml</code>, check this sample:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">stages:</div><div class="line">  - build</div><div class="line">  - test</div><div class="line"></div><div class="line">cache:</div><div class="line">  key: $&#123;CI_PROJECT_ID&#125;</div><div class="line">  paths:</div><div class="line">    - .gradle/</div><div class="line"></div><div class="line">before_script:</div><div class="line">  # You just need to have all your setted env variables in the local file (not necesarily just the needed ones making it simple but maybe insecure)</div><div class="line">  - sh scripts/cp-env-to-properties.sh</div><div class="line"></div><div class="line">  # to avoid INSTALL_FAILED_UPDATE_INCOMPATIBLE</div><div class="line">  - sh scripts/adb-all.sh uninstall your.app.package</div><div class="line">  - sh scripts/adb-all.sh uninstall your.app.package.tests # .test is setted in app/build.gradle with testApplicationId</div><div class="line"></div><div class="line">build:</div><div class="line">  type: build</div><div class="line">  script:</div><div class="line">    - sh scripts/install-android-dependencies.sh</div><div class="line">    - ./gradlew assemble  --stacktrace # You can add -scan from Gradle Scan Plugin to improve profiling</div><div class="line"></div><div class="line">unit_tests:</div><div class="line">  type: test</div><div class="line">  script:</div><div class="line">    - ./gradlew testDebugUnitTestCoverage  --stacktrace</div><div class="line"></div><div class="line">    # Print on terminal just the total of the coverage</div><div class="line">    - grep -Eo &quot;Total.*?([0–9]&#123;1,3&#125;)%&quot; app/build/reports/jacoco/testDebugUnitTestCoverage/html/index.html</div><div class="line">  artifacts:</div><div class="line">    when: always</div><div class="line">    paths:</div><div class="line">      - app/build/reports</div><div class="line"></div><div class="line">ui_tests:</div><div class="line">  type: test</div><div class="line">  script:</div><div class="line">    # Wake up screen</div><div class="line">    - sh scripts/adb-all.sh shell input keyevent 26 # KEYCODE_POWER</div><div class="line">    - sh scripts/adb-all.sh shell input keyevent 3 # HOME</div><div class="line">    </div><div class="line">    # Wait until the devices are ready</div><div class="line">    - sh scripts/adb-all.sh adb wait-for-device</div><div class="line">    - sh scripts/adb-all.sh adb shell &apos;while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82&apos;</div><div class="line">    </div><div class="line">    - ./gradlew spoonDebugAndroidTest --stacktrace</div><div class="line">    - ./gradlew createDebugCoverageReport --stacktrace</div><div class="line"></div><div class="line">    # Print on terminal just the total of the coverage</div><div class="line">    - grep -Eo &quot;Total.*?([0–9]&#123;1,3&#125;)%&quot; app/build/reports/coverage/debug/index.html</div><div class="line">  artifacts:</div><div class="line">    when: always</div><div class="line">    paths:</div><div class="line">    - app/build/outputs</div><div class="line">    - app/build/spoon</div><div class="line">    - app/build/reports</div></pre></td></tr></table></figure>
-<ul>
-<li>I use spoon to run UI tests, update the gradle task in case you use another thing.</li>
-<li>All scripts in <code>scripts/</code> will be explained in 3. .</li>
-</ul>
-<h1 id="2-Android-project-setup"><a href="#2-Android-project-setup" class="headerlink" title="2. Android project setup:"></a>2. Android project setup:</h1><ul>
-<li>Setup code coverage, tests and spoon:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//...</div><div class="line"></div><div class="line">apply plugin: &apos;spoon&apos;</div><div class="line">apply from: &quot;../test-setup.gradle&quot;</div><div class="line">apply from: &apos;../jacoco.gradle&apos;</div><div class="line"></div><div class="line">android &#123;</div><div class="line">  //...</div><div class="line"></div><div class="line">  defaultConfig &#123;</div><div class="line">    //...</div><div class="line"></div><div class="line">    testApplicationId &quot;$&#123;appId&#125;.tests&quot;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  buildTypes &#123;</div><div class="line">    debug &#123;</div><div class="line">      //...</div><div class="line">      testCoverageEnabled true</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">spoon &#123;</div><div class="line">  //  debug = true</div><div class="line">  grantAllPermissions = true</div><div class="line">  shard = true</div><div class="line">  codeCoverage = true</div><div class="line">  //  ignoreFailures = true</div><div class="line">  //  failIfNoDeviceConnected = true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>Setup jacoco tasks to generate code coverage files:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">// Merge of</div><div class="line">// https://github.com/mgouline/android-samples/blob/master/jacoco/app/build.gradle</div><div class="line">// and https://github.com/pushtorefresh/storio/blob/master/gradle/jacoco-android.gradle</div><div class="line"></div><div class="line">// Requires Jacoco plugin in build classpath.</div><div class="line">apply plugin: &apos;jacoco&apos;</div><div class="line"></div><div class="line">// Enables code coverage for JVM tests.</div><div class="line">// Android Gradle Plugin out of the box supports only code coverage for instrumentation tests.</div><div class="line">project.afterEvaluate &#123;</div><div class="line">  // Grab all build types and product flavors</div><div class="line">  def buildTypes = android.buildTypes.collect &#123; type -&gt; type.name &#125;</div><div class="line">  def productFlavors = android.productFlavors.collect &#123; flavor -&gt; flavor.name &#125;</div><div class="line"></div><div class="line">  // When no product flavors defined, use empty</div><div class="line">  if (!productFlavors) productFlavors.add(&apos;&apos;)</div><div class="line"></div><div class="line">  productFlavors.each &#123; productFlavorName -&gt;</div><div class="line">    buildTypes.each &#123; buildTypeName -&gt;</div><div class="line">      def sourceName, sourcePath</div><div class="line">      if (!productFlavorName) &#123;</div><div class="line">        sourceName = sourcePath = &quot;$&#123;buildTypeName&#125;&quot;</div><div class="line">      &#125; else &#123;</div><div class="line">        sourceName = &quot;$&#123;productFlavorName&#125;$&#123;buildTypeName.capitalize()&#125;&quot;</div><div class="line">        sourcePath = &quot;$&#123;productFlavorName&#125;/$&#123;buildTypeName&#125;&quot;</div><div class="line">      &#125;</div><div class="line">      def testTaskName = &quot;test$&#123;sourceName.capitalize()&#125;UnitTest&quot;</div><div class="line">      def coverageTaskName = &quot;$&#123;testTaskName&#125;Coverage&quot;</div><div class="line"></div><div class="line">      // Create coverage task of form &apos;testFlavorTypeCoverage&apos; depending on &apos;testFlavorTypeUnitTest&apos;</div><div class="line">      task &quot;$&#123;coverageTaskName&#125;&quot;(type: JacocoReport, dependsOn: &quot;$testTaskName&quot;) &#123;</div><div class="line">        group = &apos;Reporting&apos;</div><div class="line">        description = &quot;Generate Jacoco coverage reports for the $&#123;sourceName.capitalize()&#125; build.&quot;</div><div class="line"></div><div class="line">        classDirectories = fileTree(</div><div class="line">            dir: &quot;$&#123;project.buildDir&#125;/intermediates/classes/$&#123;sourcePath&#125;&quot;,</div><div class="line">            excludes: [&apos;**/R.class&apos;,</div><div class="line">                       &apos;**/R$*.class&apos;,</div><div class="line">                       &apos;**/*$ViewInjector*.*&apos;,</div><div class="line">                       &apos;**/*$ViewBinder*.*&apos;,</div><div class="line">                       &apos;**/BuildConfig.*&apos;,</div><div class="line">                       &apos;**/Manifest*.*&apos;,</div><div class="line">                       &apos;**/*$Lambda$*.*&apos;, // Jacoco can not handle several &quot;$&quot; in class name.</div><div class="line">                       &apos;**/*$inlined$*.*&apos;, // Kotlin specific, Jacoco can not handle several &quot;$&quot; in class name.</div><div class="line">                       &apos;**/*Module.*&apos;, // Modules for Dagger.</div><div class="line">                       &apos;**/*Dagger*.*&apos;, // Dagger auto-generated code.</div><div class="line">                       &apos;**/*MembersInjector*.*&apos;, // Dagger auto-generated code.</div><div class="line">                       &apos;**/*_Provide*Factory*.*&apos;] // Dagger auto-generated code.</div><div class="line">        )</div><div class="line"></div><div class="line">        def coverageSourceDirs = [</div><div class="line">            &apos;src/main/java&apos;,</div><div class="line">            &quot;src/$productFlavorName/java&quot;,</div><div class="line">            &quot;src/$buildTypeName/java&quot;</div><div class="line">        ]</div><div class="line"></div><div class="line">        additionalSourceDirs = files(coverageSourceDirs)</div><div class="line">        sourceDirectories = files(coverageSourceDirs)</div><div class="line">        executionData = files(&quot;$&#123;project.buildDir&#125;/jacoco/$&#123;testTaskName&#125;.exec&quot;)</div><div class="line"></div><div class="line">        reports &#123;</div><div class="line">          xml.enabled = true</div><div class="line">          html.enabled = true</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      build.dependsOn &quot;$&#123;coverageTaskName&#125;&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>Setup tests to print each test result (to see in the job results which ones failed)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import org.gradle.api.tasks.testing.logging.TestExceptionFormat</div><div class="line">import org.gradle.api.tasks.testing.logging.TestLogEvent</div><div class="line"></div><div class="line">/*</div><div class="line"> * Print test results on terminal.</div><div class="line"> * From: http://stackoverflow.com/a/36199263/273119</div><div class="line">*/</div><div class="line">tasks.withType(Test) &#123;</div><div class="line">  testLogging &#123;</div><div class="line">    events TestLogEvent.FAILED,</div><div class="line">        TestLogEvent.PASSED,</div><div class="line">        TestLogEvent.SKIPPED,</div><div class="line">        TestLogEvent.STANDARD_ERROR,</div><div class="line">        TestLogEvent.STANDARD_OUT</div><div class="line"></div><div class="line">    exceptionFormat TestExceptionFormat.FULL</div><div class="line"></div><div class="line">    showCauses true</div><div class="line">    showExceptions true</div><div class="line">    showStackTraces true</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="3-Usefull-scripts"><a href="#3-Usefull-scripts" class="headerlink" title="3. Usefull scripts:"></a>3. Usefull scripts:</h1><ul>
-<li>Install your project dependencies on the machine by terminal:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line">#</div><div class="line"># Install required dependencies</div><div class="line"># sdkmanager can be found in $ANDROID_HOME/tools/bin/sdkmanager</div><div class="line">#</div><div class="line"></div><div class="line">#</div><div class="line"># Accept licences</div><div class="line"># src http://vgaidarji.me/blog/2017/05/31/automatically-accept-android-sdkmanager-licenses/</div><div class="line">#</div><div class="line">/usr/bin/expect -c &apos;</div><div class="line">set timeout -1;</div><div class="line">spawn &apos;&quot;$&#123;ANDROID_HOME&#125;&quot;&apos;/tools/bin/sdkmanager --licenses;</div><div class="line">  expect &#123;</div><div class="line">    &quot;y/N&quot; &#123; exp_send &quot;y\r&quot; ; exp_continue &#125;</div><div class="line">    eof</div><div class="line">  &#125;</div><div class="line">&apos;</div><div class="line"></div><div class="line"># Install every dependency</div><div class="line">for I in &quot;platforms;android-25&quot; \</div><div class="line">         &quot;platforms;android-23&quot; \</div><div class="line">         &quot;platforms;android-21&quot; \</div><div class="line">         &quot;build-tools;25.0.3&quot; \</div><div class="line">         &quot;build-tools;25.0.2&quot; \</div><div class="line">         &quot;extras;google;m2repository&quot; \</div><div class="line">         &quot;extras;android;m2repository&quot; \</div><div class="line">         &quot;extras;google;google_play_services&quot;; do</div><div class="line">    echo &quot;Trying to update with tools/bin/sdkmanager: &quot; $I</div><div class="line">    sdkmanager $I</div><div class="line">done</div><div class="line"></div><div class="line">sdkmanager --update</div></pre></td></tr></table></figure>
-<ul>
-<li>Run the same command on every connected device (avoid INSTALL_FAILED_UPDATE_INCOMPATIBLE)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line">#</div><div class="line"># Run a command on each adb connected device (adb fail with INSTALL_FAILED_UPDATE_INCOMPATIBLE if multiple devices are connected)</div><div class="line">#</div><div class="line"># Sample: </div><div class="line"># To uninstall an apk on every device: </div><div class="line">#    $ sh adb-all.sh uninstall my.apk </div><div class="line"></div><div class="line">adb devices | while read line</div><div class="line">do</div><div class="line">    if [ ! &quot;$line&quot; = &quot;&quot; ] &amp;&amp; [ `echo $line | awk &apos;&#123;print $2&#125;&apos;` = &quot;device&quot; ]</div><div class="line">    then</div><div class="line">        device=`echo $line | awk &apos;&#123;print $1&#125;&apos;`</div><div class="line">        echo &quot;$device $@ ...&quot;</div><div class="line">        adb -s $device $@</div><div class="line">    fi</div><div class="line">done</div></pre></td></tr></table></figure>
-<ul>
-<li>Copy every env/secret variable into <code>gradle.propertes</code> file inside the project (gmaps key or something like that)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line">#</div><div class="line"># Copy env variables to app module gradle properties file</div><div class="line">#</div><div class="line"></div><div class="line">PROPERTIES_FILE_PATH=gradle.properties</div><div class="line"></div><div class="line">set +x // dont print the next lines on run script</div><div class="line"></div><div class="line">printenv | tr &apos; &apos; &apos;\n&apos; &gt; $PROPERTIES_FILE_PATH</div><div class="line"></div><div class="line">set -x</div></pre></td></tr></table></figure>
-<p>NOTE: you can use <code>System.getenv(&quot;VAR_NAME&quot;)</code> in your gradle files if you dont need a local <code>.properties</code> file for your project. (thanks to <a href="https://www.reddit.com/user/Atraac" target="_blank" rel="external">reddit/Atraac</a>)</p>
-<h1 id="Gitlab-ci-Advantages"><a href="#Gitlab-ci-Advantages" class="headerlink" title="Gitlab-ci Advantages:"></a>Gitlab-ci Advantages:</h1><ul>
-<li>“Free” testing farm (your own devices, maybe uncle/grandmother/mom old devices).</li>
-<li>“Free” Parallel Job Executions based on your machine (you can setup your gitlab-ci runner to allow this).</li>
-<li>“Secure” handling of signing keys (it depends to you).</li>
-<li>“Secure” handling of services config keys (like google console config jsons).</li>
-<li>Fastest test/build/everything jobs since gradle daemon can run in your machine (on CircleCi/Travis/Etc you need to disable it since they start a new virtual machine for every test).</li>
-</ul>
-<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><ul>
-<li><a href="http://docs.gitlab.com/runner/register/" target="_blank" rel="external">How to setup your gitlab runner guide</a></li>
-<li><a href="https://about.gitlab.com/2016/11/30/setting-up-gitlab-ci-for-android-projects/" target="_blank" rel="external">How to setup gitlab for android projects</a></li>
-</ul>
+        
+转自：http://makingiants.github.io/blog/gitlabci-toolbox-for-android/
 
+You can setup your own CI server with real devices on gitlab with these scripts and setups. I found this issues that are common ...
     
 
         <a href="/2017/06/26/android/【转】gitlabci-toolbox-for-android/" class="post-more waves-effect waves-button">
@@ -458,46 +333,10 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <blockquote>
-<p>Android Weekly 转发的一篇关于“ Gradle Wrapper”的介绍文章，蛮新鲜的，就收藏了～<br>原文：<a href="https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7" target="_blank" rel="external">https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7</a></p>
-</blockquote>
-<p>The vast majority of developers using Gradle use the Gradle Wrapper. This is great because using the Gradle Wrapper means that developers working on the project don’t need to manage their own Gradle installations. Being that the wrapper is so ubiquitous it is important to understand exactly what it does and what it does not do.</p>
-<h1 id="If-you-aren’t-using-the-wrapper"><a href="#If-you-aren’t-using-the-wrapper" class="headerlink" title="If you aren’t using the wrapper"></a>If you aren’t using the wrapper</h1><p>If you aren’t already using the wrapper, you really should. Using the wrapper guarantees that every developer on your team is using the same version of Gradle and that they can run Gradle builds (even if they haven’t installed Gradle on their machine).</p>
-<p>Getting started is easy. First install Gradle on your machine, then open up your project directory via the command line. Run <code>gradle wrapper</code> and you are done! You can add the <code>--gradle-version X.Y</code> argument to specify which version of Gradle to use.</p>
-<p>Now you can run any Gradle task in your project using the <code>gradlew</code> shell script or bat file located in your project’s root directory.</p>
-<h1 id="What-the-Gradle-Wrapper-is"><a href="#What-the-Gradle-Wrapper-is" class="headerlink" title="What the Gradle Wrapper is"></a>What the Gradle Wrapper is</h1><p>The Gradle Wrapper consists of a few files in your project directory:<br><code>gradlew</code>: The shell script Unix users can run to execute Gradle tasks</p>
-<ul>
-<li><code>gradlew.bat</code> The bat script Windows users can run to execute Gradle tasks</li>
-<li><code>gradle/wrapper/gradle-wrapper.jar</code> The wrapper’s executable JAR; this is where the wrapper code resides</li>
-<li><code>gradle/wrapper/gradle-wrapper.properties</code> A properties file for configuring the wrapper<br>You should make sure all these are committed to version control. They are all small, system-independent, and critical to using the Gradle Wrapper.</li>
-</ul>
-<h1 id="What-the-Gradle-Wrapper-does"><a href="#What-the-Gradle-Wrapper-does" class="headerlink" title="What the Gradle Wrapper does"></a>What the Gradle Wrapper does</h1><p>When you run the Gradle Wrapper it performs the following actions:</p>
-<ol>
-<li>Parse the arguments passed to <code>gradlew</code></li>
-<li>Install the correct Gradle version</li>
-<li>Invoke Gradle to run the specified tasks</li>
-</ol>
-<p>Note that the wrapper only accepts two optional configuration arguments:<br><code>-q</code> or <code>--quiet</code> to suppress output<br><code>-g</code> or <code>--gradle-user-home</code> to specify an alternate home directory for Gradle.<br>The Gradle installation step is the only one that is particularly interesting. First it will check your <code>GRADLE_USER_HOME</code> for the desired Gradle distribution. If it already exists, the wrapper goes on to invoking Gradle. If the distribution doesn’t exist yet, the wrapper will download the distribution.</p>
-<p>It is also important to note that the wrapper completely ignores any Gradle distribution on your system. The wrapper downloads and unzips Gradle distributions in its own separate directory and will only use those distributions for builds. The wrapper <strong>will use any global Gradle configuration</strong> such as a <code>gradle.properties</code> file defined in your Gradle home directory when running tasks.</p>
-<h1 id="What-the-Gradle-Wrapper-doesn’t-do"><a href="#What-the-Gradle-Wrapper-doesn’t-do" class="headerlink" title="What the Gradle Wrapper doesn’t do"></a>What the Gradle Wrapper doesn’t do</h1><p>The Gradle Wrapper itself does not execute your tasks. All it does is ensure you have the desired Gradle distribution and then invoke it. The wrapper is a very thin layer to eliminate the need for devlelopers to manage distributions themselves.</p>
-<p>This means that the wrapper is effectively completely decoupled from Gradle itself. A wrapper from 2014 can build a project using Gradle 4.0, and a wrapper installed today can build a project using Gradle 2.0.</p>
-<p>If you encounter an issue with your builds, it is extremely unlikely that the wrapper is at fault since it primarily just invokes Gradle proper.</p>
-<h1 id="Wrapper-configuration"><a href="#Wrapper-configuration" class="headerlink" title="Wrapper configuration"></a>Wrapper configuration</h1><p>I mentioned earlier that one of the files the wrapper puts in your project is a configuration file at <code>gradle/wrapper/gradle-wrapper.properties</code>.</p>
-<p>This file typically looks something like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">distributionBase=GRADLE_USER_HOME</div><div class="line">distributionPath=wrapper/dists</div><div class="line">zipStoreBase=GRADLE_USER_HOME</div><div class="line">zipStorePath=wrapper/dists</div><div class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-4.0-all.zip</div></pre></td></tr></table></figure></p>
-<p><code>distributionBase</code> + <code>distributionPath</code> specify the path at which the wrapper will store Gradle distributions. By default <code>GRADLE_USER_HOME</code> is <code>~/.gradle</code>, so the wrapper will store Gradle distributions at <code>~/.gradle/wrapper/dists</code>.<br><code>zipStoreBase</code> and <code>zipStorePath</code> are very similar. These specify where the wrapper will store the zipped distributions it downloads.<br><code>distributionUrl</code> is the one you likely care most about. This is what specifies what version of Gradle you want to use for your builds and where to download it from.</p>
-<h1 id="Updates"><a href="#Updates" class="headerlink" title="Updates"></a>Updates</h1><p>Since the wrapper is independent of the actual Gradle distribution you use to build your project, what do you update and when?</p>
-<p>The wrapper documentation says this:</p>
-<blockquote>
-<p>If you want to switch to a new version of Gradle you don’t need to rerun the <code>wrapper</code> task. It is good enough to change the respective entry in the <code>gradle-wrapper.properties</code> file, but if you want to take advantage of new functionality in the Gradle wrapper, then you would need to regenerate the wrapper files.</p>
-</blockquote>
-<p>You should keep your Gradle distribution as up-to-date as possible. This is as easy as updating the <code>distributionUrl</code> in your <code>gradle-wrapper.properties</code> .</p>
-<p>You typically don’t need to update the Gradle Wrapper, but you can do so by re-running the <code>gradle wrapper</code> task after updating Gradle. You can do this using the wrapper by running <code>gradlew wrapper</code> which has the benefit of using the wrapper’s Gradle distribution. Updating it won’t hurt, but don’t expect any crazy new features in the wrapper. It hasn’t meaningfully changed since 2014 (<a href="https://github.com/gradle/gradle/commit/0e5d6e9eddbcd9614b99937b93c02fb9547c3c37" target="_blank" rel="external">unless you get excited about seeing fewer dots</a>).</p>
-<p>Android developers should note that the version of Gradle is (mostly) independent from the Android plugin version and from the version of Android Studio you use. New versions of either the plugin or Studio may require an updated Gradle version, but you should be able to use newer Gradle versions with older plugins and Studio without any issues.</p>
-<h1 id="Further-reading"><a href="#Further-reading" class="headerlink" title="Further reading"></a>Further reading</h1><ul>
-<li><a href="https://docs.gradle.org/4.0/userguide/gradle_wrapper.html#sec:configuration" target="_blank" rel="external">Gradle 4.0 wrapper documentation</a></li>
-<li><a href="https://github.com/gradle/gradle/tree/master/subprojects/wrapper/src/main/java/org/gradle/wrapper" target="_blank" rel="external">Gradle wrapper source code on GitHub</a></li>
-</ul>
+        
+Android Weekly 转发的一篇关于“ Gradle Wrapper”的介绍文章，蛮新鲜的，就收藏了～原文：https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7
 
+The vast majority of developers using Gradle use the Gradle Wra...
     
 
         <a href="/2017/06/26/android/【转】Understanding-the-Gradle-Wrapper/" class="post-more waves-effect waves-button">
@@ -546,41 +385,11 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <blockquote>
-<p>文章来源：<a href="http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch" target="_blank" rel="external">http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch</a></p>
-</blockquote>
-<p>在2017年6月这个时间点，我们有必要谈谈热更新这个技术到底何去何从。</p>
-<p>上半年苹果的两次警告，通知iOS开发者在6月12日前移除热更新相关代码，否则将会下架相关App，一时间风声鹤唳，那么App热更新技术到底还能用吗？Android热更新技术还有必要做吗？</p>
-<p>对于这一问题，InfoQ记者咨询了乐变技术的CEO黄杲，他们是做App热更新和游戏分包服务的，来看看他们如何解读。以下根据采访内容整理而成。</p>
-<h1 id="iOS热更新：遵守苹果规则为本"><a href="#iOS热更新：遵守苹果规则为本" class="headerlink" title="iOS热更新：遵守苹果规则为本"></a>iOS热更新：遵守苹果规则为本</h1><h2 id="iOS平台的热更新可以分为三类："><a href="#iOS平台的热更新可以分为三类：" class="headerlink" title="iOS平台的热更新可以分为三类："></a>iOS平台的热更新可以分为三类：</h2><p>第一类是使用Hybrid或者React Native及类似技术开发的App，在更新时只更新页面内容和JS脚本，这种是苹果允许的。但苹果的规则还规定，在更新时不得改变应用原本的意图，如果完全改头换面，被用户投诉，苹果还是会处罚的。</p>
-<p>第二类是使用Native动态化技术，替换原生代码。这种是苹果所主要打击的对象，虽然不是不能绕过苹果的检测，但一旦发现肯定会被处理。</p>
-<p>第三类是手机游戏，使用热更新技术进行小版本更新。今年WWDC上苹果对App Store进行重大改版，专门将游戏提到了一级菜单，可见苹果对游戏的重视。在6月12日至今苹果下架了一批App，其中游戏占一半，有开发者怀疑是因为热更新，不过很多带热更新的热门游戏并未受影响，所以这方面仍待进一步观察。</p>
-<p>黄杲认为，无论是App开发者还是服务提供商都需要在各个平台允许的规则范围内开展业务。从热更新的需求上来说，苹果平台是一个封闭系统，App Store可以在系统层面帮助应用做自动升级，除非用户在设置里关闭了此功能，苹果平台上应用自己实现热更新方面并不是刚需。</p>
-<p>iOS在较新的版本里允许本地库的动态加载(要求签名一致)，也就是说，技术层面其实iOS要比早些年要开放一些；但在商务层面，苹果的审核在今年是偏严厉的，通过观察iOS的热更禁止行为，得到的结论是但凡没有动态加载和反射调用系统的函数，苹果仍然是允许的(也就是说仍然可以动态加载自己的功能)，但从第二次通知来看这方面也在收紧，未来如何变化还尤未可知。</p>
-<h1 id="Android热更新"><a href="#Android热更新" class="headerlink" title="Android热更新"></a>Android热更新</h1><h2 id="特殊国情要求热更新功能"><a href="#特殊国情要求热更新功能" class="headerlink" title="特殊国情要求热更新功能"></a>特殊国情要求热更新功能</h2><p>虽然iOS上热更新遭遇阻碍，但在国内Android平台，事情是另一个样子。</p>
-<p>Android系统是个开放生态，国内主流应用商店都是第三方的，它们通常无法第一时间获取App更新从而帮助应用自动更新，导致在Android平台上升级周期和升级率的问题会凸显出来。因此从平台角度上来说，Android因为其生态的原因，需要应用自身来补足热更新能力补足的问题。</p>
-<h2 id="如何选择Android热更新服务"><a href="#如何选择Android热更新服务" class="headerlink" title="如何选择Android热更新服务"></a>如何选择Android热更新服务</h2><p>在国内Android热更新技术的探索上，可谓是百花齐放，各大互联网公司几乎都研发了自己的热更新技术。据不完全统计，包括微信的Tinker，阿里巴巴早期的Dexposed、后来的Andfix以及其升级版Sophix，QQ推出的Qzone方案和QFix，饿了么的Amigo，滴滴出行的VirtualAPK，美团点评最新开源的Robust等。</p>
-<p>这些热更新技术大部分已经开源，但要想应用这些技术实际并不容易，其中有很多坑。</p>
-<h2 id="应用Android热更新技术中的那些坑"><a href="#应用Android热更新技术中的那些坑" class="headerlink" title="应用Android热更新技术中的那些坑"></a>应用Android热更新技术中的那些坑</h2><p>第一大坑当属Android系统版本兼容性。有些热更新技术在开发的技术路线选择时，未完善考虑系统升级带来的问题。当Android系统进行大的版本升级时，可能会对底层的代码进行一些修改，如果热更新技术依赖了旧版本的代码，一旦系统升级，热更新技术就会变得完全不可用。早期的热更新技术基本都有这样的特点。</p>
-<p>第二大坑是由Android系统碎片化带来的兼容问题。由于国内不同Android版本和硬件设备的组合高达数千种，不同厂商还会对自家的ROM进行魔改，热更新由于涉及系统底层代码，撞上错误的概率并不小，Android的开放生态使得没有任何人能绝对的说，它的应用或代码可以和所有Android机型兼容。由此带来的问题就是，如果你使用的是部分第三方的开源热更新技术，没有人及时跟进issue时，遇到问题难以及时修复。</p>
-<p>第三大坑是部署和实施，热更新并不是在在客户端嵌个SDK，然后写几行代码集成就完了，你还需要在服务器部署更新包的分发，管理不同的客户端版本和差分包，更新出现问题时要能回滚，另外灰度发布也是运营大概率会要求支持的，甚至可能还有针对机型和系统版本进行更新的需求。这方面的人力成本并不小。</p>
-<h2 id="乐变的热更新解决方案"><a href="#乐变的热更新解决方案" class="headerlink" title="乐变的热更新解决方案"></a>乐变的热更新解决方案</h2><p>黄杲介绍，乐变的Android热更新服务通过以下手段避免以上的几个坑。</p>
-<p>对于Android新版本的适配，乐变作为Google Partners Lab的成员，可以做到在每年的年初，甚至是Google I/O之前，就完成了下半年才会正式发布的Android新版本的兼容和测试。</p>
-<p>乐变热更作为已经研发和成熟商业化运营已有五年的方案，支持从Android 2.2到最新的Android O pre-release的所有版本，支持x86等小众架构，支持Dalvik和ART引擎，并适配过数千款机型，所以成熟度非常高。</p>
-<p>此外，乐变热更新提供的是一整套的解决方案，包括客户端、服务端、管理后台和统计系统、Crash分析系统等等，所有这些部分都无需开发者自己来构建和实现。</p>
-<p>同时，乐变还能够进一步帮助App开发者降低Crash率，一方面通过崩溃日志手机和分析系统，帮助应用开发者收集每个版本的Crash Log，在后台的分析能够自动将这些崩溃日志归因到具体的机型和Android版本，还有一个智能分析的后台帮助开发者初步定位是什么原因导致的；另一方面，乐变热更新有分机型和分Android版本的更新，在应用的不兼容的问题解决后，可以通过乐变的热更新能力帮助应用仅更新指定机型或安卓版本即可动态解决不兼容和Crash的问题。</p>
-<p>乐变不是一个简单的热更参考方案，而是围绕版本管理的一整套的精细化运营系统，支持灰度发布、AB测试、分区域更新、分机型更新、自定义标签更新、沉默用户激活、定时上线和预下载等等的能力支撑，客户只需关注如何围绕产品使用好这些功能就能够完成精细化的产品运营。</p>
-<p>最后，在服务的灵活性方面，乐变不仅支持公有云的标准化服务，也支持私有云的部署方案，结合客户的诉求，实施方式灵活多变。</p>
-<h1 id="游戏热更新技术"><a href="#游戏热更新技术" class="headerlink" title="游戏热更新技术"></a>游戏热更新技术</h1><p>在移动平台，游戏的热更新使用的技术通常与App不同，有些热更新功能由游戏引擎自行提供，不过要做将热更新做到极致，还是有些地方需要注意。</p>
-<p>比如游戏包体通常比较大，所以在差分包计算上难度会更大；同时，游戏的强制更新比较多，针对强制更新将用户体验设计好就很重要；再有，游戏渠道的二次打包的现象比较普遍，这又会进一步对于差分包的计算提出新的挑战；最后，应用和游戏要更新对象的侧重点也会有些差异，比如应用在渠道包之间一般只有渠道标识的差异，但游戏则需集成不同渠道SDK.</p>
-<h1 id="游戏分包技术"><a href="#游戏分包技术" class="headerlink" title="游戏分包技术"></a>游戏分包技术</h1><p>热更新在游戏中的一个特殊地方就是游戏分包技术，当前手机游戏的安装包越做越大，但实际上可以通过一些技术实现边下边玩，相对的安装包可以做到很小。</p>
-<p>黄杲介绍道，乐变的游戏分包服务包括三级压缩：</p>
-<p>第一级是针对iOS平台的显示包体变大的问题：可能一个300M的游戏包体在App Store里显示会超过800M，他们通过在文件系统层的能力增强等方式能基本解决这个问题；</p>
-<p>第二级是边玩边下，原理是通过将用户早期访问到的资源提取出来形成一个小包，在用户玩游戏的同时自动下午后续内容(非WiFi状态需要用户确实和选择)，通过这种方式，通常能够将包体压缩至原包体的三分之一以下的大小；</p>
-<p>第三级就是刚才提到的二次加载或者说叫微端，部分游戏即使通过边玩边下做出来的小包仍然比较大，为了满足一些平台的上线要求，比如Google Play上100MB以下的包体才允许上传，再比如iOS在100MB以下的包体才允许流量用户下载，那此时就需要对包体仍然过大的游戏通过二次加载的技术来进一步将包体做小。相之于边玩变下的小包对于用户体验是没有影响的，即和完整包完全一致，微端的游戏包体在启动后是不能玩的，用户需要等待加载资源到边玩边下的临界点才能进入游戏。</p>
-<p>当前乐变的游戏分包技术支持支持iOS和Android，支持的游戏引擎包括Unity和Cocos2d-X，其它的游戏引擎或平台的对接还在开发和测试当中，比如针对虚幻引擎的支持，还有针对Windows系统的支持等。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>App热更新技术是目前热门的移动开发方向，同时对于移动App和游戏在运营和开发上也能提供很大的帮助。对于没有自研能力的公司来说，在选择热更新技术时，需要多方面考虑，选择适合自己的技术和服务。</p>
+        
+文章来源：http://www.infoq.com/cn/news/2017/06/how-to-choose-app-hotpatch
 
+在2017年6月这个时间点，我们有必要谈谈热更新这个技术到底何去何从。
+上半年苹果的两次警告，通知iOS开发者在6月12日前移除热更新相关代码，否则将会下架相关App，一时间风声鹤唳，那么App热更新技术到底还能用吗？Android热更新技术还有必要做...
     
 
         <a href="/2017/06/26/android/【转】乐变黄杲：当前如何选择App热更新服务/" class="post-more waves-effect waves-button">
@@ -627,12 +436,10 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><blockquote>
-<p>Prezi，是一种主要通过缩放动作和快捷动作使想法更加生动有趣的演示文稿软件。它打破了传统Powerpoint的单线条时序，采用系统性与结构性一体化的方式来进行演示，以路线的呈现方式，从一个物件忽然拉到另一个物件，配合旋转等动作则更有视觉冲击力。<br>—— <em>From 百度</em></p>
-</blockquote>
-<h1 id="二、资源"><a href="#二、资源" class="headerlink" title="二、资源"></a>二、资源</h1><p>站点一览：<br><a href="https://getsatisfaction.com/prezi/" target="_blank" rel="external">https://getsatisfaction.com/prezi/</a><br><a href="http://iprezi.cn/" target="_blank" rel="external">http://iprezi.cn/</a><br><a href="https://prezi.com/your/" target="_blank" rel="external">https://prezi.com/your/</a><br><a href="https://getsatisfaction.com/prezi" target="_blank" rel="external">https://getsatisfaction.com/prezi</a></p>
-<p><em>此文在我的 <a href="http://cnneillee.github.io/">Github Pages</a> 上同步发布，地址为：<a href="http://cnneillee.github.io/2017/05/09/&lt;!--￼1--">Prezi 使用入门</a></em></p>
+        一、概述
+Prezi，是一种主要通过缩放动作和快捷动作使想法更加生动有趣的演示文稿软件。它打破了传统Powerpoint的单线条时序，采用系统性与结构性一体化的方式来进行演示，以路线的呈现方式，从一个物件忽然拉到另一个物件，配合旋转等动作则更有视觉冲击力。—— From 百度
 
+二、资源站点一览：https://getsatisfaction.com/prezi/http://iprezi....
     
 
         <a href="/2017/06/22/Prezi-使用入门/" class="post-more waves-effect waves-button">
@@ -675,57 +482,13 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/xiaofan21/archive/2013/05/24/3097269.html" target="_blank" rel="external">cnblogs.com/xiaofan21 - linux service和daemon</a></li>
-<li><a href="http://www.cnblogs.com/xuange306/p/6072724.html" target="_blank" rel="external">cnblogs.com/xuange306 - linux service命令常见使用方法</a></li>
-<li><a href="http://www.cnblogs.com/lidabo/p/6226307.html" target="_blank" rel="external">cnblogs.com/lidabo - linux中service <strong><em> start与直接运行/usr/bin/</em></strong>的区别</a></li>
-</ul>
-<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-service-和-daemon"><a href="#1-1-service-和-daemon" class="headerlink" title="1.1 service 和 daemon"></a>1.1 service 和 daemon</h2><p>达成某个 service 是需要一支 daemon 在运行的。</p>
-<p>没有这支 daemon 就不会有 service.</p>
-<p>daemon分为两种：</p>
-<ul>
-<li>stand_alone<br>独立启动，自行启动不透过其他机制，daemon 启动并加载到内存后就一直占用内存与系统资源。</li>
-</ul>
-<p>最大的优点就是：因为是一直存在内存内持续的提供服务，因此对于发生客户端的要求时，stand alone 的 daemon 响应速度较快。</p>
-<p>常见的 stand alone daemon 有 WWW 的 daemon (httpd)、FTP 的 daemon (vsftpd) 等等。</p>
-<ul>
-<li>super daemon<br>启动方式则是藉由一个统一的 daemon 来负责唤起服务！</li>
-</ul>
-<p>它的好处是：自行启动服务不用的时候自行关闭服务，节约内存资源,telnet 就是这样的</p>
-<h2 id="1-2-service-命令"><a href="#1-2-service-命令" class="headerlink" title="1.2 service 命令"></a>1.2 service 命令</h2><p>service命令，顾名思义，就是用于管理 Linux 操作系统中服务的命令。</p>
-<p>注意：</p>
-<ol>
-<li>声明：这个命令不是在所有的linux发行版本中都有。主要是在redhat、fedora、mandriva和centos中。</li>
-<li>此命令位于/sbin目录下，用file命令查看此命令会发现它是一个脚本命令。</li>
-<li>分析脚本可知此命令的作用是去/etc/init.d目录下寻找相应的服务，进行开启和关闭等操作。</li>
-<li>开启httpd服务器：service httpd start<br>start可以换成restart表示重新启动，stop表示关闭，reload表示重新载入配置。</li>
-<li>关闭mysql服务器：service mysqld stop</li>
-<li>强烈建议大家将service命令替换为/etc/init.d/mysqld stop （因为有一些linux的版本不支持service）</li>
-</ol>
-<p>Usage: <code>service &lt; option &gt; | --status-all | [ service_name [ command | --full-restart ] ]</code></p>
-<p>例如：</p>
-<ul>
-<li><p>示例一 网络重启</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">当修改了主机名、ip地址等信息时，经常需要把网络重启使之生效。</div><div class="line">[root@node34 root]# service network </div><div class="line">用法：/etc/init.d/network &#123;start|stop|restart|reload|status&#125; </div><div class="line">[root@node34 root]# service network status </div><div class="line">配置设备： </div><div class="line">lo eth0 </div><div class="line">当前的活跃设备： </div><div class="line">lo eth0 </div><div class="line">[root@node34 root]# service network restart </div><div class="line">正在关闭接口 eth0：                                        [  确定  ] </div><div class="line">关闭环回接口：                                             [  确定  ] </div><div class="line">设置网络参数：                                             [  确定  ] </div><div class="line">弹出环回接口：                                             [  确定  ] </div><div class="line">弹出界面 eth0：                                            [  确定  ]</div></pre></td></tr></table></figure>
-</li>
-<li><p>示例二 重启 MySQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@node34 root]# service mysql</div><div class="line">mysql: unrecognized service</div><div class="line">[root@node34 root]# service mysqld</div><div class="line">用法：/etc/init.d/mysqld &#123;start|stop|status|condrestart|restart&#125;</div><div class="line">[root@node34 root]# service mysqld status</div><div class="line">mysqld (pid 1638) 正在运行...</div><div class="line">[root@node34 root]# service mysqld restart</div><div class="line">停止 MySQL：                                               [  确定  ]</div><div class="line">启动 MySQL：                                               [  确定  ]</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a href="https://www.bbsmax.com/A/GBJrV18BJ0/" target="_blank" rel="external">https://www.bbsmax.com/A/GBJrV18BJ0/</a></p>
-<h1 id="二、使用到的文件"><a href="#二、使用到的文件" class="headerlink" title="二、使用到的文件"></a>二、使用到的文件</h1><p><code>/etc/init.d/*</code> ：启动脚本放置处.我们的 CentOS 实际上放置在 /etc/rc.d/init.d/ 啦！ 不过还是有配置连结档到 /etc/init.d/ 的！</p>
-<p><code>/etc/sysconfig/*</code> ：各服务的初始化环境配置文件</p>
-<p><code>/etc/*</code> ：各服务各自的配置文件</p>
-<p><code>/var/lib/*</code> ：各服务产生的数据库</p>
-<p>`/var/run/*`` ：各服务的程序之 PID 记录处</p>
-<h1 id="三、linux-中-service-start-与直接运行-usr-bin-的区别"><a href="#三、linux-中-service-start-与直接运行-usr-bin-的区别" class="headerlink" title="三、linux 中 service *** start 与直接运行 /usr/bin/*** 的区别"></a>三、linux 中 <code>service *** start</code> 与直接运行 <code>/usr/bin/***</code> 的区别</h1><p>在linux想要运行启动一个服务有两种方法：</p>
-<p>1，运行/etc/init.d/目录下的shell脚本，还可以有快捷方式，service <em>*</em> start/ stop/restart /status，</p>
-<p>2，直接运行/usr/bin目录下的服务文件；</p>
-<p>第一种方法启动的程序可以通过service命令来管理，比如说查看状态 service –status-all</p>
-<p>查看/etc/init.d目录，发现下面都是shell脚本，脚本里面运行的程序最终还是指向了/usr/bin下面的程序，只不过在shell脚本中可能直接对程序的一些运行参数继续进行了设置；</p>
-<p>第二种方法，直接运行/usr/bin/<strong><strong>,如果运行时有配置文件的话，需要加上 –config *</strong></strong>，用这种方法启动程序后，不能用service命令查看状态。</p>
+        参考：
 
+cnblogs.com/xiaofan21 - linux service和daemon
+cnblogs.com/xuange306 - linux service命令常见使用方法
+cnblogs.com/lidabo - linux中service  start与直接运行/usr/bin/的区别
+
+一、概述1.1 service 和 daemon达成某个 service 是需要一...
     
 
         <a href="/2017/06/15/others/Linux中的service/" class="post-more waves-effect waves-button">
@@ -774,15 +537,9 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>新建用户后，我们可能需要该用户能够使用一些越权的东西。sudo命令能够暂时提升该用户的权限到root，但是前提是要求该用户存在与 sudoer list 中。</p>
-<p>sudoers 存储在 <code>/etc/sudoers</code> 文件中。</p>
-<h1 id="二、操作方法"><a href="#二、操作方法" class="headerlink" title="二、操作方法"></a>二、操作方法</h1><h2 id="2-1-进入-root-用户"><a href="#2-1-进入-root-用户" class="headerlink" title="2.1 进入 root 用户"></a>2.1 进入 root 用户</h2><p>修改 <code>/etc/sudoers</code> 文件需要 root 权限，因此需要你进入到 root 用户下（<code>su</code> 命令为登录 root 用户）。</p>
-<p>兴许你也能够在某个 sudoer 的用户下，使用 <code>sudo vi /etc/sudoers</code> 命令去修改该文件。</p>
-<h2 id="2-2-获取-etc-sudoers-文件的写权限"><a href="#2-2-获取-etc-sudoers-文件的写权限" class="headerlink" title="2.2 获取 /etc/sudoers 文件的写权限"></a>2.2 获取 <code>/etc/sudoers</code> 文件的写权限</h2><p>如果能够得到写权限，那么可以直接进行下一步。</p>
-<p>如果在 root 模式下，还是没有该文件的写权限的话，可以使用 “chmod u+w /etc/sudoers” 命令添加文件的写权限。</p>
-<h2 id="2-3-编辑-etc-sudoers-文件"><a href="#2-3-编辑-etc-sudoers-文件" class="headerlink" title="2.3 编辑 /etc/sudoers 文件"></a>2.3 编辑 <code>/etc/sudoers</code> 文件</h2><p><code>&quot;root ALL=(ALL) ALL&quot;</code> 在起下面添加 <code>&quot;xxx ALL=(ALL) ALL&quot;</code> (这里的 xxx 是你的用户名)，然后保存退出。 </p>
-<h2 id="2-4-撤销-etc-sudoers-文件的写权限"><a href="#2-4-撤销-etc-sudoers-文件的写权限" class="headerlink" title="2.4 撤销 /etc/sudoers 文件的写权限"></a>2.4 撤销 <code>/etc/sudoers</code> 文件的写权限</h2><p>执行命令 <code>chmod u-w /etc/sudoers</code></p>
-
+        一、概述新建用户后，我们可能需要该用户能够使用一些越权的东西。sudo命令能够暂时提升该用户的权限到root，但是前提是要求该用户存在与 sudoer list 中。
+sudoers 存储在 /etc/sudoers 文件中。
+二、操作方法2.1 进入 root 用户修改 /etc/sudoers 文件需要 root 权限，因此需要你进入到 root 用户下（su 命令为登录 root 用户...
     
 
         <a href="/2017/06/14/others/Ubuntu添加用户到sudoer/" class="post-more waves-effect waves-button">
@@ -831,17 +588,15 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>近些天，遇到Redis监控的应用场景，从网上搜罗了一些文章，做了整理。</p>
-<h1 id="二、工具列表"><a href="#二、工具列表" class="headerlink" title="二、工具列表"></a>二、工具列表</h1><h2 id="2-1-redis-faina"><a href="#2-1-redis-faina" class="headerlink" title="2.1 redis-faina"></a>2.1 redis-faina</h2><p>见参考文章1</p>
-<h2 id="2-2-redis-live"><a href="#2-2-redis-live" class="headerlink" title="2.2 redis-live"></a>2.2 redis-live</h2><p>见参考文章1</p>
-<h2 id="2-3-redis-stat"><a href="#2-3-redis-stat" class="headerlink" title="2.3 redis-stat"></a>2.3 redis-stat</h2><p>见参考文章1</p>
-<h2 id="2-4-redis-monitor"><a href="#2-4-redis-monitor" class="headerlink" title="2.4 redis-monitor"></a>2.4 redis-monitor</h2><p>见参考文章1</p>
-<h1 id="三、实践"><a href="#三、实践" class="headerlink" title="三、实践"></a>三、实践</h1><p>试用了里面的几款工具。<br><strong>占坑待续</strong></p>
-<p>参考文章</p>
-<ol>
-<li><a href="https://my.oschina.net/guol/blog/182265" target="_blank" rel="external">Redis监控方案-https://my.oschina.net/guol/blog/182265</a></li>
-</ol>
+        一、概述近些天，遇到Redis监控的应用场景，从网上搜罗了一些文章，做了整理。
+二、工具列表2.1 redis-faina见参考文章1
+2.2 redis-live见参考文章1
+2.3 redis-stat见参考文章1
+2.4 redis-monitor见参考文章1
+三、实践试用了里面的几款工具。占坑待续
+参考文章
 
+Redis监控方案-https://my.oschina.net/guol...
     
 
         <a href="/2017/06/14/database/Redis监控方案/" class="post-more waves-effect waves-button">
@@ -890,12 +645,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>解析JSON过程中，什么情况都可能遇到。遇到特殊的情况，不会怎么办？肯定不是设计的问题，一定是你的姿势不对。</p>
-<p>有这样一种JSON需要解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;b3444533f6544&quot;: &#123;</div><div class="line">    &quot;path&quot;: &quot;path&quot;,</div><div class="line">    &quot;at&quot;: 1490100417,</div><div class="line">    &quot;data&quot;: &#123;</div><div class="line">      &quot;datastream&quot;: [</div><div class="line">        &#123;</div><div class="line">          &quot;id&quot;: &quot;BX_V_XW&quot;,</div><div class="line">          &quot;value&quot;: 400.75</div><div class="line">        &#125;</div><div class="line">      ],</div><div class="line">      &quot;at&quot;: 1490100417</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>其中，第二行的 <code>&quot;b3444533f6544&quot;</code> 不定。</p>
-<h1 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h1><h2 id="2-1-Python-方案"><a href="#2-1-Python-方案" class="headerlink" title="2.1 Python 方案"></a>2.1 Python 方案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dic = json.loads(data)</div><div class="line">key = dic.keys()[0]</div><div class="line">timestamp = dic[key][&apos;data&apos;][&apos;at&apos;]</div><div class="line">streamArr = dic[key][&apos;data&apos;][&apos;datastream&apos;]</div></pre></td></tr></table></figure>
-<h2 id="2-2-Java-方案"><a href="#2-2-Java-方案" class="headerlink" title="2.2 Java 方案"></a>2.2 Java 方案</h2><p>参考自 <a href="https://segmentfault.com/q/1010000006168889/a-1020000006169016" target="_blank" rel="external">segmentfault.com - 如何解析key为动态的json</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">LinkedHashMap&lt;String, String&gt; jsonMap = JSON.parseObject(jsonStr, new TypeReference&lt;LinkedHashMap&lt;String, String&gt;&gt;()&#123;&#125;);</div><div class="line">String key = entry.getKey();</div><div class="line">String value = entry.getValue();</div><div class="line">// 再使用其他方式对 value 进行解析。</div></pre></td></tr></table></figure></p>
-
+        一、概述解析JSON过程中，什么情况都可能遇到。遇到特殊的情况，不会怎么办？肯定不是设计的问题，一定是你的姿势不对。
+有这样一种JSON需要解析：123456789101112131415&#123;  &quot;b3444533f6544&quot;: &#123;    &quot;path&quot;: &quot;path&quot;,    &quot;at&quot;: 149...
     
 
         <a href="/2017/06/14/java/Java和Python解析动态key的JSON数据/" class="post-more waves-effect waves-button">
@@ -913,12 +664,63 @@ ga('send', 'pageview');
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-bigdata/Kylo入坑记"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-14 11:27:29" datetime="2017-06-14T03:27:29.000Z"  itemprop="datePublished">2017-06-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Big-Data/">Big Data</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/14/bigdata/Kylo入坑记/">Kylo 入坑记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述
+Kylo，作为一个基于 Spark 和 NiFi 的开源数据湖编排框架，解决对数据湖获取、治理、感知和技术支持等诸多问题。Kylo 将数据湖的很多功能自动化，包括数据接入、准备、分析发现、Profiling 和管理等等。Kylo 提供了符合业务分析人员思路的 GUI 界面以及 IT 运营和数据科学等模块。
+通过 Kylo 的 GUI 界面，业务人员可以按照他们关心的方式来操作数据，...
+    
+
+        <a href="/2017/06/14/bigdata/Kylo入坑记/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kylo/">kylo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </div>
 </nav>
 

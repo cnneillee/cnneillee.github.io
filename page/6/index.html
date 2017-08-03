@@ -191,66 +191,6 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-others/ubuntu更新hostname和hosts"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-16 09:13:00" datetime="2017-02-16T01:13:00.000Z"  itemprop="datePublished">2017-02-16</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/16/others/ubuntu更新hostname和hosts/">Ubuntu 更新 Hostname 和 hosts</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Hostname 即主机名，一般存放在 <code>/etc/hostname</code> 中。hosts 即本地域名解析文件，存放在 <code>/etc/hosts</code> 中。</p>
-<h1 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h1><h2 id="2-1-hostname"><a href="#2-1-hostname" class="headerlink" title="2.1 hostname"></a>2.1 hostname</h2>{% image http://images2015.cnblogs.com/blog/797098/201702/797098-20170216091143097-1507046727.png '' '' %}
-<h2 id="2-2-hosts"><a href="#2-2-hosts" class="headerlink" title="2.2 hosts"></a>2.2 hosts</h2>{% image http://images2015.cnblogs.com/blog/797098/201702/797098-20170216091232707-550407760.png '' '' %}
-<p>修改 hosts 后,使 hosts 文件修改生效:<br><code>sudo /etc/init.d/dns-clean start</code><br><code>sudo /etc/init.d/networking restart</code></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170216104646441-430572389.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-    
-
-        <a href="/2017/02/16/others/ubuntu更新hostname和hosts/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solution/">solution</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-git/github的其他用法"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -281,14 +221,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>Github 除了作为代码托管库外，有趣的程序员们还利用它解锁了有趣的新姿势。</p>
-<h1 id="二、新姿势"><a href="#二、新姿势" class="headerlink" title="二、新姿势"></a>二、新姿势</h1><h2 id="2-1-Github-Pages"><a href="#2-1-Github-Pages" class="headerlink" title="2.1 Github Pages"></a>2.1 Github Pages</h2><p>可以为项目建立静态主页(即gh-pages分支),<br>也可以建立命名特殊的repo(<a href="http://username.github.io\" target="_blank" rel="external">http://username.github.io)来建立个人静态网站</a>%E6%9D%A5%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99).</p>
-<p>Hexo + GithubPages 搭建静态博客</p>
-<h2 id="2-2-GitHub-Resume"><a href="#2-2-GitHub-Resume" class="headerlink" title="2.2 GitHub Résumé"></a>2.2 GitHub Résumé</h2><p><a href="http://resume.github.io/" target="_blank" rel="external">http://resume.github.io/</a><br><a href="https://github.com/hit9/GhResume" target="_blank" rel="external">https://github.com/hit9/GhResume</a><br>感觉并没有什么卵用。</p>
-<h2 id="2-3-Gists"><a href="#2-3-Gists" class="headerlink" title="2.3 Gists"></a>2.3 Gists</h2><p><a href="https://gist.github.com/" target="_blank" rel="external">https://gist.github.com/</a><br>管理代码片段，可插入到网页中。</p>
-<h2 id="2-4-Wiki"><a href="#2-4-Wiki" class="headerlink" title="2.4 Wiki"></a>2.4 Wiki</h2><p>为项目写Wiki文档。</p>
-<h2 id="2-5-News-Feed"><a href="#2-5-News-Feed" class="headerlink" title="2.5 News Feed"></a>2.5 News Feed</h2><h1 id="三、Github-桌面版"><a href="#三、Github-桌面版" class="headerlink" title="三、Github 桌面版"></a>三、Github 桌面版</h1><p><a href="https://zhuanlan.zhihu.com/p/24461753?refer=dreawer" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/24461753?refer=dreawer</a></p>
-
+        一、概述Github 除了作为代码托管库外，有趣的程序员们还利用它解锁了有趣的新姿势。
+二、新姿势2.1 Github Pages可以为项目建立静态主页(即gh-pages分支),也可以建立命名特殊的repo(http://username.github.io)来建立个人静态网站%E6%9D%A5%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E9%9D%99%E6...
     
 
         <a href="/2017/02/13/git/github的其他用法/" class="post-more waves-effect waves-button">
@@ -337,160 +271,11 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-关于-Git"><a href="#1-1-关于-Git" class="headerlink" title="1.1 关于 Git"></a>1.1 关于 Git</h2><p><a href="https://git-scm.com/" target="_blank" rel="external">https://git-scm.com/</a></p>
-<blockquote>
-<p>Git is a free and open source distributed version control system designed to<br>handle everything from small to very large projects with speed and efficiency.</p>
-</blockquote>
-<p>Git是一个免费开源分布式版本控制系统，被设计成快速高效地管理或大或小的项目。</p>
-<h2 id="1-2-关于-Github"><a href="#1-2-关于-Github" class="headerlink" title="1.2 关于 Github"></a>1.2 关于 Github</h2><p><a href="https://github.com/" target="_blank" rel="external">https://github.com</a></p>
-<blockquote>
-<p>GitHub is a web-based Git or version control repository and Internet hosting<br>service. It offers all of the distributed version control and source code<br>management (SCM) functionality of Git as well as adding its own features. It<br>provides access control and several collaboration features such as bug<br>tracking, feature requests, task management, and wikis for every project.<br><em><a href="https://en.wikipedia.org/wiki/GitHub" target="_blank" rel="external">From Wikipedia</a></em></p>
-</blockquote>
-<h2 id="1-3-Github-与-Git-的区别"><a href="#1-3-Github-与-Git-的区别" class="headerlink" title="1.3 Github 与 Git 的区别"></a>1.3 Github 与 Git 的区别</h2><p>Github 是基于 Git 进行开发的。类似地，开源项目 Gitlab 也是基于 Git 进行开发。<br>你可以将 Gitlab 安装在你的某个网络中的某台 PC 上，以该台 PC 搭建起一个代码管理平台。<br>这样，Github、Gitlab 就很好理解了。</p>
-<p>与此同时还有：<br><a href="https://gitlab.com/" target="_blank" rel="external">Gitlab</a>（局域网部署）<br><a href="https://bitbucket.org/" target="_blank" rel="external">Bitbucket</a>（免费账号不限 private 项目个数）<br><a href="https://coding.net/" target="_blank" rel="external">Coding</a>（对国内开发者来说可能有墙内优势）</p>
-<h2 id="1-4-Github的一些功能"><a href="#1-4-Github的一些功能" class="headerlink" title="1.4 Github的一些功能"></a>1.4 Github的一些功能</h2><ul>
-<li>Git 的基本功能，版本控制</li>
-<li>Repository，仓库</li>
-<li>Fork，授权拷贝</li>
-<li>Pull Request，推送请求</li>
-<li>社交属性： <ul>
-<li>针对特定个仓库（Repository）的 Watch、Star、Issue、Wiki ；</li>
-<li>针对具体用户的 Follow/Followed，基于 Git 历史的数据统计。</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-5-由Github衍生出来的项目"><a href="#1-5-由Github衍生出来的项目" class="headerlink" title="1.5 由Github衍生出来的项目"></a>1.5 由Github衍生出来的项目</h2><p><em>git-flow ——一个成功的 Git 分支模型</em><br>介绍：<a href="http://nvie.com/posts/a-successful-git-
-branching-model/" target="_blank" rel="external">A successful Git branching model</a><br>翻译：<a href="http://www.oschina.net/translate/a-successful-git-branching-model" target="_blank" rel="external">http://www.juvenxu.com/2010/11/28/a-successful-git-branching-<br>model/</a><br>工具：<a href="https://github.com/nvie/gitflow" target="_blank" rel="external">nvie/gitflow</a><br>GitHubgit-flow 备忘清单</p>
-<p>作者：天猪(刘勇)<br>链接：<a href="https://www.zhihu.com/question/20070065/answer/16021641" target="_blank" rel="external">https://www.zhihu.com/question/20070065/answer/16021641</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h1 id="二、版本控制"><a href="#二、版本控制" class="headerlink" title="二、版本控制"></a>二、版本控制</h1><h2 id="2-1-版本控制概念"><a href="#2-1-版本控制概念" class="headerlink" title="2.1 版本控制概念"></a>2.1 版本控制概念</h2><p>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
-<h2 id="2-2-版本控制系统"><a href="#2-2-版本控制系统" class="headerlink" title="2.2 版本控制系统"></a>2.2 版本控制系统</h2><h3 id="2-2-1-本地版本控制系统"><a href="#2-2-1-本地版本控制系统" class="headerlink" title="2.2.1 本地版本控制系统"></a>2.2.1 本地版本控制系统</h3><p>用复制整个项目目录的方式来保存不同的版本，或许还会改名加上备份时间以示区别。<br><a href="https://git-scm.com/book/en/v2/images/local.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/local.png</a><br>唯一的好处就是简单，但是特别容易犯错。</p>
-<h3 id="2-2-2-集中化的版本控制系统"><a href="#2-2-2-集中化的版本控制系统" class="headerlink" title="2.2.2 集中化的版本控制系统"></a>2.2.2 集中化的版本控制系统</h3><p>让在不同系统上的开发者协同工作.<br><a href="https://git-scm.com/book/en/v2/images/centralized.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/centralized.png</a><br>这类系统，诸如 CVS、Subversion 以及 Perforce<br>等，都有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。</p>
-<h3 id="2-2-3-分布式版本控制系统"><a href="#2-2-3-分布式版本控制系统" class="headerlink" title="2.2.3 分布式版本控制系统"></a>2.2.3 分布式版本控制系统</h3><p><a href="https://git-scm.com/book/en/v2/images/distributed.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/distributed.png</a><br>在这类系统中，像 Git、Mercurial、Bazaar 以及 Darcs 等，客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。</p>
-<h1 id="三、Git-基础"><a href="#三、Git-基础" class="headerlink" title="三、Git 基础"></a>三、Git 基础</h1><h2 id="3-1-Git-历史"><a href="#3-1-Git-历史" class="headerlink" title="3.1 Git 历史"></a>3.1 Git 历史</h2><p>衍生自 Linux的开发过程。</p>
-<h2 id="3-2-Git-基础"><a href="#3-2-Git-基础" class="headerlink" title="3.2 Git 基础"></a>3.2 Git 基础</h2><h3 id="3-2-1-Git-工具的特性"><a href="#3-2-1-Git-工具的特性" class="headerlink" title="3.2.1 Git 工具的特性"></a>3.2.1 Git 工具的特性</h3><p><strong>直接记录快照，而非差异比较</strong></p>
-<ul>
-<li><p>差异性比较：<br><a href="https://git-scm.com/book/en/v2/images/deltas.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/deltas.png</a></p>
-</li>
-<li><p>快照记录：<br><a href="https://git-scm.com/book/en/v2/images/snapshots.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/snapshots.png</a></p>
-</li>
-</ul>
-<p><strong>近乎所有操作都是本地执行</strong><br>Git 是分布式版本控制，在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息。<br>如果你习惯于所有操作都有网络延时开销的集中式版本控制系统，Git 在这方面会让你感到速度之神赐给了 Git 超凡的能量。<br>因为你在本地磁盘上就有项目的完整历史，所以大部分操作看起来瞬间完成。</p>
-<p>如果你想查看当前版本与一个月前的版本之间引入的修改，Git<br>会查找到一个月前的文件做一次本地的差异计算，而不是由远程服务器处理或从远程服务器拉回旧版本文件再来本地处理。</p>
-<p><strong>Git 保证完整性</strong><br>Git 中所有数据在存储前都计算校验和，然后以校验和来引用。 这意味着不可能在 Git 不知情时更改任何文件内容或目录内容。 这个功能建构在 Git<br>底层，是构成 Git 哲学不可或缺的部分。 若你在传送过程中丢失信息或损坏文件，Git 就能发现。</p>
-<p>Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成字符串，基于 Git<br>中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：<br><code>24b9da6552252987aa493b52f8696cd6d3b00373</code></p>
-<p><strong>Git 一般只添加数据</strong><br>你执行的 Git 操作，几乎只往 Git 数据库中增加数据。 很难让 Git 执行任何不可逆操作，或者让它以任何方式清除数据。</p>
-<h3 id="3-2-2-三种状态"><a href="#3-2-2-三种状态" class="headerlink" title="3.2.2 三种状态"></a>3.2.2 三种状态</h3><p>Git 有三种状态，你的文件可能处于其中之一：</p>
-<ul>
-<li>已提交（committed），表示数据已经安全的保存在本地数据库中。</li>
-<li>已修改（modified），表示修改了文件，但还没保存到数据库中。</li>
-<li>已暂存（staged），表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li>
-</ul>
-<p>由此引入 Git 项目的三个工作区域的概念：Git 仓库、工作目录以及暂存区域。<br><a href="https://git-scm.com/book/en/v2/images/areas.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/areas.png</a></p>
-<h3 id="3-2-3-Git-的安装与配置"><a href="#3-2-3-Git-的安装与配置" class="headerlink" title="3.2.3 Git 的安装与配置"></a>3.2.3 Git 的安装与配置</h3><p>安装过程较为简单，不赘述。本文重点介绍 Git 的配置。<br>Git 自带一个 <code>git config</code> 的工具来帮助设置控制 Git 外观和行为的配置变量。 这些变量存储在三个不同的位置：</p>
-<ul>
-<li><code>/etc/gitconfig</code> 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果使用带有 <code>--system</code> 选项的 <code>git config</code> 时，它会从此文件读写配置变量。</li>
-<li><code>~/.gitconfig</code> 或 <code>~/.config/git/config</code> 文件：只针对当前用户。 可以传递 <code>--global</code> 选项让 Git 读写此文件。</li>
-<li>当前使用仓库的 Git 目录中的 <code>config</code> 文件（就是 <code>.git/config</code>）：针对该仓库。</li>
-</ul>
-<p>每一个级别覆盖上一级别的配置，所以 <code>.git/config</code> 的配置变量会覆盖 <code>/etc/gitconfig</code> 中的配置变量。</p>
-<p>在 Windows 系统中，Git 会查找 <code>$HOME</code> 目录下（一般情况下是 <code>C:\Users\$USER</code>）的 <code>.gitconfig</code> 文件。<br>Git 同样也会寻找 <code>/etc/gitconfig</code> 文件，但只限于 MSys 的根目录下，即安装 Git 时所选的目标位置。</p>
-<p><strong>用户信息</strong><br><code>$ git config --global user.name &quot;John Doe&quot; $ git config --global user.email
-johndoe@example.com</code><br>再次强调，如果使用了 <code>--global</code> 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。<br>当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 <code>--global</code> 选项的命令来配置。</p>
-<p><strong>设置文本文本编辑器</strong><br>默认使用 Vim<br><code>git config --global core.editor emacs</code></p>
-<p><strong>检查配置信息</strong><br>如果想要检查你的配置，可以使用 <code>git config --list</code> 命令来列出所有 Git 当时能找到的配置。<br><code>$ git config --list user.name=John Doe user.email=johndoe@example.com
-color.status=auto color.branch=auto color.interactive=auto color.diff=auto
-...</code><br>你可能会看到重复的变量名，因为 Git 会从不同的文件中读取同一个配置（例如：<code>/etc/gitconfig</code> 与 <code>~/.gitconfig</code>）。<br>这种情况下，Git 会使用它找到的每一个变量的最后一个配置。<br>你可以通过输入 <code>git config &lt;key&gt;</code>： 来检查 Git 的某一项配置:<br><code>git config user.name</code></p>
-<h2 id="3-3-Git-详细知识"><a href="#3-3-Git-详细知识" class="headerlink" title="3.3 Git 详细知识"></a>3.3 Git 详细知识</h2><h3 id="3-3-1-获取-Git-仓库"><a href="#3-3-1-获取-Git-仓库" class="headerlink" title="3.3.1 获取 Git 仓库"></a>3.3.1 获取 Git 仓库</h3><p>两种方式在本地建立仓库。<br>一种是，在现有项目会目录下导入所有文件到 Git；另一种是从服务器将已有的 Git 仓库克隆到本地。</p>
-<p><strong>在现有目录中初始化仓库</strong><br><code>git init # 创建一个名为 .git 的子目录，该目录中含有初始化的 Git 仓库中所有的必须文件，这些文件时 Git 仓库的骨干。 git
-add *.c # 实现对文件的追踪 git add LICENSE git commit -m &#39;initial project version&#39;</code></p>
-<p><strong>克隆已有的仓库</strong><br><code>git clone [url] [本地仓库名称，可选]</code><br>当你执行 <code>git clone</code> 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。<br>事实上，如果你的服务器的磁盘坏掉了，你通常可以使用任何一个克隆下来的用户端来重建服务器上的仓库（虽然可能会丢失某些服务器端的挂钩设置，但是所有版本的数据仍在）。</p>
-<blockquote>
-<p><a href="http://www.cnblogs.com/lzxianren/p/git2.html" target="_blank" rel="external">GIT服务器的四种协议</a></p>
-</blockquote>
-<h3 id="3-3-2-记录每次更新到仓库"><a href="#3-3-2-记录每次更新到仓库" class="headerlink" title="3.3.2 记录每次更新到仓库"></a>3.3.2 记录每次更新到仓库</h3><p>工作目录中的每个文件两种状态：</p>
-<ul>
-<li>已跟踪：指那些被纳入了版本控制的文件，在上一次快照中有它们的记录，在工作一段时间后，它们的状态可能处于未修改，已修改或已放入暂存区。</li>
-<li>未跟踪：工作目录中除已跟踪文件以外的所有其它文件都属于未跟踪文件，它们既不存在于上次快照的记录中，也没有放入暂存区。 初次克隆某个仓库的时候，工作目录中的所有文件都属于已跟踪文件，并处于未修改状态。<br>文件的状态变化周期：<br><a href="https://git-scm.com/book/en/v2/images/lifecycle.png" target="_blank" rel="external">https://git-scm.com/book/en/v2/images/lifecycle.png</a></li>
-</ul>
-<p><strong>检查当前文件状态</strong><br><code>git status</code></p>
-<p><strong>跟踪新文件</strong><br><code>git add [文件名]</code><br><strong>暂存已修改文件</strong><br><code>git
-add</code>:这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。将这个命令理解为“添加内容到下一次提交中”而不是“将一个文件添加到项目中”要更加合适。<br><strong>状态简览</strong><br>运行 <code>git status -s</code>/<code>git status -short</code> ，状态报告输出如下：<br><code>$ git status -s M README MM Rakefile # 你可能注意到了 M 有两个可以出现的位置，出现在右边的 M
-表示该文件被修改了但是还没放入暂存区，出现在靠左边的 M 表示该文件被修改了并放入了暂存区。 A lib/git.rb # 新添加到暂存区中的文件前面有 A
-标记 M lib/simplegit.rb ?? LICENSE.txt # 新添加的未跟踪文件前面有 ?? 标记</code><br><strong>忽略文件</strong><br>在这种情况下，我们可以创建一个名为 <code>.gitignore</code> 的文件，列出要忽略的文件模式。<br>文件 <code>.gitignore</code> 的格式规范如下：</p>
-<ul>
-<li>所有空行或者以 <code>＃</code> 开头的行都会被 Git 忽略。</li>
-<li>可以使用标准的 glob 模式匹配。</li>
-<li>匹配模式可以以（<code>/</code>）开头防止递归。</li>
-<li>匹配模式可以以（<code>/</code>）结尾指定目录。</li>
-<li>要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（<code>!</code>）取反。</li>
-</ul>
-<p>所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。 星号（<code>*</code>）匹配零个或多个任意字符；<code>[abc]</code><br>匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个<br>c）；问号（<code>?</code>）只匹配一个任意字符；如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 <code>[0-9]</code> 表示匹配所有 0<br>到 9 的数字）。 使用两个星号（<code>*</code>) 表示匹配任意中间目录，比如 <code>a/**/z</code> 可以匹配 <code>a/z</code>, <code>a/b/z</code> 或 <code>a/b/c/z</code>等。<br>提供示例：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
-<p><strong>查看已暂存和未暂存的修改</strong><br>如果 <code>git status</code> 命令的输出对于你来说过于模糊，你想知道具体修改了什么地方，可以用 <code>git diff</code> 命令。 稍后我们会详细介绍 <code>git
-diff</code>，你可能通常会用它来回答这两个问题：当前做的哪些更新还没有暂存？ 有哪些更新已经暂存起来准备好了下次提交？ 尽管 <code>git status</code><br>已经通过在相应栏下列出文件名的方式回答了这个问题，<code>git diff</code> 将通过文件补丁的格式显示具体哪些行发生了改变。</p>
-<p>此命令比较的是工作目录中当前文件和暂存区域快照之间的差异， 也就是修改之后还没有暂存起来的变化内容。</p>
-<p>若要查看已暂存的将要添加到下次提交里的内容，可以用 <code>git diff --cached</code> 命令。（Git 1.6.1 及更高版本还允许使用 <code>git
-diff --staged</code>，效果是相同的，但更好记些。）</p>
-<p>请注意，<code>git diff</code> 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动。 所以有时候你一下子暂存了所有更新过的文件后，运行 <code>git
-diff</code> 后却什么也没有，就是这个原因。</p>
-<p><strong>提交更新</strong><br><code>git commit [comment，可选]</code></p>
-<p><strong>跳过使用暂存区域</strong><br>git commit -a -m ‘added new benchmarks’</p>
-<p><strong>移除文件</strong><br>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除（确切地说，是从暂存区域移除），然后提交。 可以用 <code>git rm</code><br>命令完成此项工作，并连带从工作目录中删除指定的文件，这样以后就不会出现在未跟踪文件清单中了。</p>
-<p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <code>-f</code>（译注：即 force 的首字母）。<br>这是一种安全特性，用于防止误删还没有添加到快照的数据，这样的数据不能被 Git 恢复。</p>
-<p><code>git rm --cached README</code>从暂存区域删除，同时，此处文件支持使用 <code>glob</code> 模式</p>
-<p><strong>移动文件</strong><br><code>git mv file_from file_to</code><br>相当于<br><code>mv file_from file_to git rm file_from git add file_to</code></p>
-<h3 id="3-3-3-查看提交历史"><a href="#3-3-3-查看提交历史" class="headerlink" title="3.3.3 查看提交历史"></a>3.3.3 查看提交历史</h3><p><code>git log</code> 有许多选项可以帮助你搜寻你所要找的提交， 接下来我们介绍些最常用的。<br><code>git log -p -2</code>：一个常用的选项是 <code>-p</code>，用来显示每次提交的内容差异。 你也可以加上 <code>-2</code> 来仅显示最近两次提交<br>如果你想看到每次提交的简略的统计信息，你可以使用 <code>--stat</code> 选项</p>
-<p>另外一个常用的选项是 <code>--pretty</code>。 这个选项可以指定使用不同于默认格式的方式展示提交历史。 这个选项有一些内建的子选项供你使用。 比如用<br><code>oneline</code> 将每个提交放在一行显示，查看的提交数很大时非常有用。 另外还有 <code>short</code>，<code>full</code> 和 <code>fuller</code><br>可以用，展示的信息或多或少有些不同，请自己动手实践一下看看效果如何。</p>
-<p>格式化：<code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot;</code><br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232008416-692874902.png" alt=""></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232121791-1150661891.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p><strong>限制输出长度</strong><br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232228916-955566173.png" alt=""></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212232252354-1893183599.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="3-3-4-撤消操作"><a href="#3-3-4-撤消操作" class="headerlink" title="3.3.4 撤消操作"></a>3.3.4 撤消操作</h3><p><code>git commit --amend</code>修改上次 commit 的内容（如上次commit的内容已经 push ，则无法修改，只能产生新的 commit<br>），将自上次 commit 后发生的修改附加到上次 commit 上，并可做相关编辑。</p>
-<p><strong>取消暂存文件</strong><br><code>git reset HEAD &lt;file&gt;...</code> 来取消暂存.<br>此时，有三种参数：</p>
-<ul>
-<li>--hard，比较危险</li>
-<li>--soft</li>
-<li>--mixed，默认方式</li>
-</ul>
-<p><strong>撤消对文件的修改</strong><br>参见资料</p>
-<h1 id="二、学习使用-Git-工具"><a href="#二、学习使用-Git-工具" class="headerlink" title="二、学习使用 Git 工具"></a>二、学习使用 Git 工具</h1><h2 id="2-1-学习资料汇总"><a href="#2-1-学习资料汇总" class="headerlink" title="2.1 学习资料汇总"></a>2.1 学习资料汇总</h2><ul>
-<li>git 官网的书：<a href="https://git-scm.com/book/en/v2" target="_blank" rel="external">https://git-scm.com/book/en/v2</a></li>
-<li>StormZhang 写的入门教程：<em><a href="http://stormzhang.com/github/2016/06/19/learn-github-from-zero-summary/" target="_blank" rel="external">learn github from zero</a></em></li>
-<li>学习 Git 的游戏 Learn Git Branching：<a href="http://learngitbranching.js.org/" target="_blank" rel="external">http://learngitbranching.js.org/</a></li>
-<li>Git软件开发过程：<a href="http://aboutcoder.com/2015/11/16/work-in-git/" target="_blank" rel="external">http://aboutcoder.com/2015/11/16/work-in-git/</a></li>
-<li>git - 简明指南:<a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/index.zh.html</a></li>
-<li>git简明指南：<a href="https://progit.org/book" target="_blank" rel="external">https://progit.org/book</a></li>
-<li>github的博客：<a href="https://github.com/blog" target="_blank" rel="external">https://github.com/blog</a></li>
-<li>像 git 那样思考：<a href="http://think-like-a-git.net/" target="_blank" rel="external">http://think-like-a-git.net/</a></li>
-<li>图解Git：<a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">http://marklodato.github.io/visual-git-guide/index-zh-cn.html</a></li>
-<li>git-glow备忘清单：<a href="http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html" target="_blank" rel="external">http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html</a></li>
-<li>git magic：<a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html" target="_blank" rel="external">http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html</a></li>
-<li>GitHub 漫游指南：<a href="https://github.com/phodal/github-roam" target="_blank" rel="external">https://github.com/phodal/github-roam</a></li>
-<li>Git教程：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></li>
-<li>Udacity 学习课程：<a href="https://www.udacity.com/course/progress#!/c-ud775" target="_blank" rel="external">https://www.udacity.com/course/progress#!/c-ud775</a></li>
-</ul>
-<h1 id="三、知乎上关于Github的问题"><a href="#三、知乎上关于Github的问题" class="headerlink" title="三、知乎上关于Github的问题"></a>三、知乎上关于Github的问题</h1><ul>
-<li>GitHub 是怎样的一个存在？<a href="https://www.zhihu.com/question/28976652" target="_blank" rel="external">https://www.zhihu.com/question/28976652</a></li>
-<li>怎样使用 GitHub？<a href="https://www.zhihu.com/question/20070065" target="_blank" rel="external">https://www.zhihu.com/question/20070065</a></li>
-<li>蒋鑫的《GotGitHub》：<a href="http://www.worldhello.net/gotgithub/" target="_blank" rel="external">http://www.worldhello.net/gotgithub/</a></li>
-<li>gitref：<a href="http://gitref.org/" target="_blank" rel="external">http://gitref.org/</a></li>
-<li>Git Community Book 中文版：<a href="http://gitbook.liuhui998.com/" target="_blank" rel="external">http://gitbook.liuhui998.com/</a></li>
-<li>Githug：<a href="https://github.com/Gazler/githug" target="_blank" rel="external">https://github.com/Gazler/githug</a></li>
-<li>nowcoder上的教程：<a href="https://www.nowcoder.com/courses/2" target="_blank" rel="external">https://www.nowcoder.com/courses/2</a></li>
-</ul>
-<h1 id="四、Github的一些用法"><a href="#四、Github的一些用法" class="headerlink" title="四、Github的一些用法"></a>四、Github的一些用法</h1><p>如何高效利用GitHub?(<a href="http://www.yangzhiping.com/tech/github.html" target="_blank" rel="external">http://www.yangzhiping.com/tech/github.html</a>)<br>借助于 <a href="https://github.com/trybeee/GitStats" target="_blank" rel="external">GitStats</a><br>，我们能很好地统计自己的每个项目的工作量，从而看到工作进展。</p>
+        一、概述1.1 关于 Githttps://git-scm.com/
 
+Git is a free and open source distributed version control system designed tohandle everything from small to very large projects with speed and efficiency.
+
+Git是一...
     
 
         <a href="/2017/02/12/git/git与github使用/" class="post-more waves-effect waves-button">
@@ -539,22 +324,15 @@ diff</code> 后却什么也没有，就是这个原因。</p>
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>本系列为<a href="http://www.cnblogs.com/neillee/p/6390943.html" target="_blank" rel="external">【实习】系列</a>文章，对该系列文章的说明参见<a href="http://www.cnblogs.com/neillee/p/6390943.html" target="_blank" rel="external">【实习】实习系列文章说明</a>。本文为该系列文章中的<br><strong>专题</strong>。</p>
-<h1 id="二、办公工具"><a href="#二、办公工具" class="headerlink" title="二、办公工具"></a>二、办公工具</h1><h2 id="2-1-纸质笔记本"><a href="#2-1-纸质笔记本" class="headerlink" title="2.1 纸质笔记本"></a>2.1 纸质笔记本</h2><p>开会笔记，简单事务的记录，工作任务的安排、计划等</p>
-<h2 id="2-2-企业微信"><a href="#2-2-企业微信" class="headerlink" title="2.2 企业微信"></a>2.2 企业微信</h2><p>用于公司内部的一些交流。</p>
-<ul>
-<li>全员群内有公司内的所有部门同事，方便进行即时交流。</li>
-<li>有时几个人拉一个讨论组，方便交流某些涉及面窄的事情。</li>
-</ul>
-<h2 id="2-3-企业邮箱"><a href="#2-3-企业邮箱" class="headerlink" title="2.3 企业邮箱"></a>2.3 企业邮箱</h2><p>公司每个员工均有一个企业邮箱。</p>
-<p>企业邮箱使用163企业邮，入职时由相关人员建号，并从该同事处获取。可</p>
-<ul>
-<li>在163邮箱主页上进行网页登陆；</li>
-<li>在公司邮箱页面进行网页登陆；</li>
-<li>使用163提供的smtp/pop3功能，通过客户端软件（闪电邮、Outlook、Foxmail等）收发邮件。</li>
-</ul>
-<h1 id="三、开发管理工具"><a href="#三、开发管理工具" class="headerlink" title="三、开发管理工具"></a>三、开发管理工具</h1><h2 id="3-1-代码管理"><a href="#3-1-代码管理" class="headerlink" title="3.1 代码管理"></a>3.1 代码管理</h2><p>使用 gerrit 工具进行代码管理。关于该工具的使用，将会开辟专题文章进行介绍。</p>
-<h2 id="3-2-任务管理"><a href="#3-2-任务管理" class="headerlink" title="3.2 任务管理"></a>3.2 任务管理</h2>
+        一、概述本系列为【实习】系列文章，对该系列文章的说明参见【实习】实习系列文章说明。本文为该系列文章中的专题。
+二、办公工具2.1 纸质笔记本开会笔记，简单事务的记录，工作任务的安排、计划等
+2.2 企业微信用于公司内部的一些交流。
+
+全员群内有公司内的所有部门同事，方便进行即时交流。
+有时几个人拉一个讨论组，方便交流某些涉及面窄的事情。
+
+2.3 企业邮箱公司每个员工均有一个企业邮箱。
+企业...
     
 
         <a href="/2017/02/12/daily/【实习】实习期间一些工具的使用/" class="post-more waves-effect waves-button">
@@ -597,22 +375,8 @@ diff</code> 后却什么也没有，就是这个原因。</p>
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>本系列为<a href="http://www.cnblogs.com/neillee/p/6390943.html" target="_blank" rel="external">【实习】系列</a>文章，对该系列文章的说明参见<em><a href="http://www.cnblogs.com/neillee/p/6390943.html" target="_blank" rel="external">【实习】实习系列文章说明</a></em>。本文为该系列文章中的<br><strong>周报</strong>。</p>
-<h1 id="二、趣事"><a href="#二、趣事" class="headerlink" title="二、趣事"></a>二、趣事</h1><h2 id="2-1-制度规范"><a href="#2-1-制度规范" class="headerlink" title="2.1 制度规范"></a>2.1 制度规范</h2><p>入职第一天就感觉到了公司的制度规范，进入公司的第一天便有人事的工作人员引领，办理入职手续（包括签署实习协议、建立档案、发放梯控卡、发放办公用品等）。<br>完成入职手续后，入职部门的师姐将我们从 人事办公点 带到 部门的办公地点（两个办公点分处两栋楼）。<br>在各自的位置坐定后，我们进入公司的内网，了解公司相关的行政制度（HR、财务、行政、市场）。</p>
-<p>总结起来一句话：<em>大公司就是不一样</em>。</p>
-<h2 id="2-2-开发流程规范"><a href="#2-2-开发流程规范" class="headerlink" title="2.2 开发流程规范"></a>2.2 开发流程规范</h2><p>入职第一周基本上没有碰过公司项目的代码，更别谈参加公司实际项目的开发了。但是，有一些细节能够看出公司的开发流程是较为规范的。</p>
-<p><strong>代码管理</strong><br>代码和文档是一个互联网公司最重要核心资产。公司使用 <a href="https://gerrit.asterisk.org/" target="_blank" rel="external">gerrit</a><br>工具管理代码，由该工具延伸出的 Review 机制确保代码的质量，访问控制机制确保代码的安全。</p>
-<p>我们导师给了我们一个工程项目的地址，让我们能够进行学习。真正访问之后，发现我们没有代码的读权限。由此展开了一个有趣的故事：<br><img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212151249635-1173491659.png" alt=""></p>
-<p><strong>任务管理</strong><br>公司有专门的人物管理平台，为大家指派任务等。</p>
-<p><strong>注：由于刚进公司且还未接触真正的开发过程，因此，期待今后更深一步的学习。</strong></p>
-<h1 id="三、本周主要情况"><a href="#三、本周主要情况" class="headerlink" title="三、本周主要情况"></a>三、本周主要情况</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201702/797098-20170212151011526-1502077461.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
+        一、概述本系列为【实习】系列文章，对该系列文章的说明参见【实习】实习系列文章说明。本文为该系列文章中的周报。
+二、趣事2.1 制度规范入职第一天就感觉到了公司的制度规范，进入公司的第一天便有人事的工作人员引领，办理入职手续（包括签署实习协议、建立档案、发放梯控卡、发放办公用品等）。完成入职手续后，入职部门的师姐将我们从 人事办公点 带到 部门的办公地点（两个办公点分处两栋楼）。在各自的位置坐...
     
 
         <a href="/2017/02/12/daily/【实习】实习第一周周报/" class="post-more waves-effect waves-button">
@@ -661,25 +425,14 @@ diff</code> 后却什么也没有，就是这个原因。</p>
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>由于今年将要进行为期6个月的实习，特开辟实习系列文章以作记录。</p>
-<h1 id="二、系列文章说明"><a href="#二、系列文章说明" class="headerlink" title="二、系列文章说明"></a>二、系列文章说明</h1><h2 id="2-1-主要内容"><a href="#2-1-主要内容" class="headerlink" title="2.1 主要内容"></a>2.1 主要内容</h2><p>本系列文章主要用于记录如下几种事项：</p>
-<ul>
-<li>周报，主要记录本周琐事（趣事）及工作、学习情况的概述；</li>
-<li>特别篇，主要记录实习期间有重大或特殊意义的事件或当天发生一系列事件；</li>
-<li>专题，主要记录某项技术的学习历程，<em>如内容较多或者有一定的结构体系，则不纳入该系列文章，而是作为技术文章进行发布</em>。</li>
-</ul>
-<h2 id="2-2-标题要求"><a href="#2-2-标题要求" class="headerlink" title="2.2 标题要求"></a>2.2 标题要求</h2><p>标题格式要求为：<code>【实习】xxx</code></p>
-<p>针对不同类型文章给出如下标题示例：</p>
-<ul>
-<li>周报：【实习】实习第一周周报</li>
-<li>特别篇：【实习】入职第一天</li>
-<li>专题：【实习】Hadoop学习记录</li>
-</ul>
-<h2 id="2-3-分类"><a href="#2-3-分类" class="headerlink" title="2.3 分类"></a>2.3 分类</h2><p>该系列文章均纳入<a href="https://i.cnblogs.com/posts?categoryid=944337" target="_blank" rel="external">tongfangyun</a>分类中。</p>
-<p><em>本文从我的另一个 blog <a href="http://www.cnblogs.com/neillee" target="_blank" rel="external">http://www.cnblogs.com/neillee</a> 中同步过来，同步过程使用了 python 脚本，文章<a href="http://cnneillee.github.io/2017/02/26/cnblogs%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B/">cnblogs博客迁移过程</a>详细介绍了同步过程，并附有源码！</em></p>
-<p><a href="http://www.cnblogs.com/neillee/p/6390943.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6390943.html</a></p>
-<p><em>截至博客迁移时，cnblogs上的访问量为：</em>…</p>
+        一、概述由于今年将要进行为期6个月的实习，特开辟实习系列文章以作记录。
+二、系列文章说明2.1 主要内容本系列文章主要用于记录如下几种事项：
 
+周报，主要记录本周琐事（趣事）及工作、学习情况的概述；
+特别篇，主要记录实习期间有重大或特殊意义的事件或当天发生一系列事件；
+专题，主要记录某项技术的学习历程，如内容较多或者有一定的结构体系，则不纳入该系列文章，而是作为技术文章进行发布。
+
+2.2 ...
     
 
         <a href="/2017/02/12/daily/【实习】实习系列文章说明/" class="post-more waves-effect waves-button">
@@ -728,27 +481,14 @@ diff</code> 后却什么也没有，就是这个原因。</p>
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>源地址：<a href="http://www.mamicode.com/info-detail-1178200.html" target="_blank" rel="external">http://www.mamicode.com/info-detail-1178200.html</a></p>
-<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>因为本地的AndroidStudio很久没用了，所以想要研究下github上的某个代码的时候，还得重新配下环境</p>
-<p>打开了几个项目，都是提示如下错误</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images2015.cnblogs.com/blog/797098/201701/797098-20170118093845156-1167320155.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="二、解决方法"><a href="#二、解决方法" class="headerlink" title="二、解决方法"></a>二、解决方法</h1><ol>
-<li><p>访问 <a href="https://services.gradle.org/distributions/" target="_blank" rel="external">https://services.gradle.org/distributions/</a> ，并查看最新版的gradle，此文发布时是“gradle-2.10-all.zip”</p>
-</li>
-<li><p>修改项目中“gradle/wrapper/gradle-wrapper.properties”里下面属性值<br><code>...
-distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
-...</code></p>
-</li>
-<li><p>重新执行 gradlew.bat，问题解决</p>
-</li>
-</ol>
+        源地址：http://www.mamicode.com/info-detail-1178200.html
+一、概述因为本地的AndroidStudio很久没用了，所以想要研究下github上的某个代码的时候，还得重新配下环境
+打开了几个项目，都是提示如下错误
 
+                
+                    
+                    
+       ...
     
 
         <a href="/2017/01/18/android/【转】解决gradle报错找不到org.gradle.api.internal.project.projectInternal.getpluginmanager()方法问题/" class="post-more waves-effect waves-button">
@@ -797,30 +537,14 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>要保持追踪内存中的对象，Python使用了引用计数这一简单的技术。</p>
-<h1 id="二、引用计数的增减"><a href="#二、引用计数的增减" class="headerlink" title="二、引用计数的增减"></a>二、引用计数的增减</h1><h2 id="2-1-增加引用计数"><a href="#2-1-增加引用计数" class="headerlink" title="2.1 增加引用计数"></a>2.1 增加引用计数</h2><p>当对象被创建并（将其引用）赋值给变量时，该对象的引用计数被设置为1。</p>
-<p>对象的引用计数增加的情况：</p>
-<ul>
-<li>对象被创建：x = 3.14</li>
-<li>另外的别名被创建：y = x</li>
-<li>被作为参数传递给函数（新的本地引用）：foobar(x)</li>
-<li>成为容器对象的一个元素：myList = [123, x, ‘xyz’]</li>
-</ul>
-<h2 id="2-2-减少引用计数"><a href="#2-2-减少引用计数" class="headerlink" title="2.2 减少引用计数"></a>2.2 减少引用计数</h2><p>对象的引用计数减少的情况：</p>
-<ul>
-<li>一个本地引用离开了其作用范围。如foobar()函数结束时</li>
-<li>对象的别名被显式销毁：del y</li>
-<li>对象的一个别名被赋值给其他对象：x = 123</li>
-<li>对象被从一个窗口对象中移除：myList.remove(x)</li>
-<li>窗口对象本身被销毁：del myList</li>
-</ul>
-<h2 id="2-3-del语句"><a href="#2-3-del语句" class="headerlink" title="2.3 del语句"></a>2.3 del语句</h2><p>Del语句会删除对象的一个引用，它的语法如下：del obj[, obj2[, …objN]]</p>
-<p>例如，在上例中执行del y会产生两个结果：</p>
-<ul>
-<li>从现在的名称空间中删除y</li>
-<li>x的引用计数减1</li>
-</ul>
+        一、概述要保持追踪内存中的对象，Python使用了引用计数这一简单的技术。
+二、引用计数的增减2.1 增加引用计数当对象被创建并（将其引用）赋值给变量时，该对象的引用计数被设置为1。
+对象的引用计数增加的情况：
 
+对象被创建：x = 3.14
+另外的别名被创建：y = x
+被作为参数传递给函数（新的本地引用）：foobar(x)
+成为容器对象的一个元素：myList = [123, x, ‘...
     
 
         <a href="/2017/01/07/scripts/python引用计数/" class="post-more waves-effect waves-button">
@@ -869,14 +593,9 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>最近写代码的时候，偶然遇到要使用某种在之前用过的且十分好用的工具的场景。但是，当时没有记下来，使得我很困扰。特开此文章，以作记录。</p>
-<h1 id="二、分类"><a href="#二、分类" class="headerlink" title="二、分类"></a>二、分类</h1><h2 id="2-1-数据处理类"><a href="#2-1-数据处理类" class="headerlink" title="2.1 数据处理类"></a>2.1 数据处理类</h2><h3 id="2-1-1-json格式化工具"><a href="#2-1-1-json格式化工具" class="headerlink" title="2.1.1 json格式化工具"></a>2.1.1 json格式化工具</h3><p>工具：<a href="http://tool.oschina.net/codeformat/json" target="_blank" rel="external">http://tool.oschina.net/codeformat/json</a><br>描述：支持调节缩进量、折叠级数、颜色区分内容等功能。</p>
-<p>工具：<a href="http://www.sojson.com/simple_json.html" target="_blank" rel="external">http://www.sojson.com/simple_json.html</a><br>描述：支持压缩、高亮、显示数据类型、显示脚标等功能。</p>
-<p>工具：<a href="http://www.json.cn/" target="_blank" rel="external">http://www.json.cn/</a><br>描述：支持转xml和压缩等功能</p>
-<p>工具：<a href="http://www.atool.org/jsonformat.php" target="_blank" rel="external">http://www.atool.org/jsonformat.php</a><br>描述：支持高亮显示、调节缩进量、折叠级数、颜色区分内容等功能。</p>
-<p>工具：<a href="http://tool.chinaz.com/tools/jsonformat.aspx" target="_blank" rel="external">http://tool.chinaz.com/tools/jsonformat.aspx</a><br>描述：JSON格式化、校验JSON压缩转义、JSON生成实体类、JSON在线编辑、XML-JSON互转、JSON-<br>GET互转、EXCEL转JSON，功能相对强大</p>
-<h3 id="2-1-2-代码格式化工具"><a href="#2-1-2-代码格式化工具" class="headerlink" title="2.1.2 代码格式化工具"></a>2.1.2 代码格式化工具</h3><p><a href="http://tools.jb51.net/code" target="_blank" rel="external">http://tools.jb51.net/code</a><br>支持的代码类型较多</p>
-
+        一、概述最近写代码的时候，偶然遇到要使用某种在之前用过的且十分好用的工具的场景。但是，当时没有记下来，使得我很困扰。特开此文章，以作记录。
+二、分类2.1 数据处理类2.1.1 json格式化工具工具：http://tool.oschina.net/codeformat/json描述：支持调节缩进量、折叠级数、颜色区分内容等功能。
+工具：http://www.sojson.com/simpl...
     
 
         <a href="/2016/12/21/others/编程工具整合/" class="post-more waves-effect waves-button">
@@ -925,17 +644,9 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>最近学院组织安排大面积实习工作，今天刚刚发布了喜马拉雅FM实习生招聘的面试通知。通知要求：公司采用开放式题目的方式进行筛选，申请的同学须完成如下题目</p>
-<blockquote>
-<p>写程序输出喜马拉雅FM上与“卓老板”相关（相关指用“卓老板”作关键词可以在喜马拉雅上搜索到）的所有专辑的信息，按总播放量倒序排列，每行是一个字符串，形如{“title”<br>: “该专辑的名称”, “anchorman” : “该专辑所属的账号名称”, “info” : “该专辑的简介”, “totalPlayCount” :<br>该专辑的总播放量}。可以只输出信息，不用下载专辑中的音频mp3文件。可以用C/C++、JavaScript、Java、Python、Go等语言编写。</p>
-</blockquote>
-<h1 id="二、分析"><a href="#二、分析" class="headerlink" title="二、分析"></a>二、分析</h1><h2 id="2-1-题目分析"><a href="#2-1-题目分析" class="headerlink" title="2.1 题目分析"></a>2.1 题目分析</h2><p>数据要求就是 JSON 数据，很容易想到：要么去写爬虫，从喜马拉雅的官网页面上爬取数据；要么在app上进行抓包，分析接口。</p>
-<h2 id="2-2-说干就干"><a href="#2-2-说干就干" class="headerlink" title="2.2 说干就干"></a>2.2 说干就干</h2><p>首先，我去了喜马拉雅的官网进行了操作。发现，在第一个页面上可以搜索，也能查看到一些数据，但是数据并没有按照播放量排序以及数据中无播放量这一数据。同时，对整个页面访问的过程进行抓包分析，发现好像并没有类似Json数据的传输。因此，解决方案只有进入每个专辑页面的详情页去获取播放量，再把这些数据汇总。</p>
-<p>使用到的技术：用 Python 语言解析 html 页面；用 Java 语言可以使用 Jsoup 框架解析 html 页面。</p>
-<h2 id="2-3-使出杀手锏"><a href="#2-3-使出杀手锏" class="headerlink" title="2.3 使出杀手锏"></a>2.3 使出杀手锏</h2><p><a href="http://www.cnblogs.com/neillee/p/5380757.html" target="_blank" rel="external">android端抓包</a><br>根据以往写app的经验，如果项目有app端，则服务器通常要向app端暴露一些数据交互接口，以保证app端的正常使用。对于某些安全级别较高的或者对交互数据有隐私保护需求的公司，通常会对交互的数据进行编码、加密等处理，以增加信息的安全性。<br>抱着试一试的心态，我下载了喜马拉雅app，简单试用了这款app后，确实找到了查找专辑（按播放量，相关度、最新上传可选排序）的操作。通过对app抓包分析，发现整个交互的 Json 没有进行特殊的编码或者加密，甚至没有登陆验证。</p>
-<h2 id="2-4-编码前的分析"><a href="#2-4-编码前的分析" class="headerlink" title="2.4 编码前的分析"></a>2.4 编码前的分析</h2><p>经过前面三个过程，明确了解决问题的方向。那就开始写代码吧。<br>之前使用到Json数据的场合大多都是使用 java 语言写 Android 端程序，此次为了锻炼、学习一下（之前也没有投该公司），决定使用 Python 语言请求并解析Json数据。</p>
-<h1 id="三、编码"><a href="#三、编码" class="headerlink" title="三、编码"></a>三、编码</h1><p>python解析json<a href="http://www.cnblogs.com/neillee/p/6207996.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/6207996.html</a></p>
+        一、概述最近学院组织安排大面积实习工作，今天刚刚发布了喜马拉雅FM实习生招聘的面试通知。通知要求：公司采用开放式题目的方式进行筛选，申请的同学须完成如下题目
 
+写程序输出喜马拉雅FM上与“卓老板”相关（相关指用“卓老板”作关键词可以在喜马拉雅上搜索到）的所有专辑的信息，按总播放量倒序排列，每行是一个字符串，形如{“title”: “该专辑的名称”, “anchorman” : “该专辑所属的...
     
 
         <a href="/2016/12/21/others/喜马拉雅fm抓包之旅/" class="post-more waves-effect waves-button">
@@ -953,12 +664,61 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-scripts/Python语言中标准库对Json数据的编解码"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-12-21 15:52:53" datetime="2016-12-21T07:52:53.000Z"  itemprop="datePublished">2016-12-21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/">Python 语言中对于 Json 数据的编解码——Usage of json a Python standard library</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述1.1 关于JSON数据格式JSON (JavaScript Object Notation), specified by RFC 7159 (which obsoletes RFC4627) and by ECMA-404, is a lightweight data interchange format inspired byJavaScript object literal s...
+    
+
+        <a href="/2016/12/21/scripts/Python语言中标准库对Json数据的编解码/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
     </div>
 </nav>
 

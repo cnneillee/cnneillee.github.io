@@ -191,85 +191,6 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-android/TabLayout与ViewPager同步后Tab的标题不显示"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 16:20:29" datetime="2017-06-13T08:20:29.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/">TabLayout与ViewPager同步后Tab的标题不显示</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-1-问题描述"><a href="#1-1-问题描述" class="headerlink" title="1.1 问题描述"></a>1.1 问题描述</h2><p>TabLayout+ViewPager后，TabLayout的TabItem不显示的问题：</p>
-<h2 id="1-2-截图"><a href="#1-2-截图" class="headerlink" title="1.2 截图"></a>1.2 截图</h2><p><img src="http://oltjxlyku.bkt.clouddn.com/tablayout_no_text.png" alt="tablayout_no_text.png"></p>
-<p>二、结论</p>
-<p><code>mTabs.setupWithViewPager(mViewPager);</code> 语句的功能是：</p>
-<ul>
-<li>将 TabLayout、ViewPager 的监听事件同步</li>
-<li>对 TabLayout 的适配器进行重置</li>
-<li>对 TabLayout 的 TabItem 进行重置</li>
-<li>从 ViewPager 的 Adapter 中读取到每一页的标题，并为之创建 TabItem 添加到 TabLayout 中</li>
-</ul>
-<p>解决方案是：<br>重写在 mViewPager 的 Adapter 中的如下方法，将每页的 Title 设置好：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) &#123;</div><div class="line">       @Override</div><div class="line">       public Fragment getItem(int position) &#123;</div><div class="line">		return mFragmentList.get(position);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int getCount() &#123;</div><div class="line">		return mFragmentList.size();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public CharSequence getPageTitle(int position) &#123;</div><div class="line">		return mTitle[position];</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><img src="http://oltjxlyku.bkt.clouddn.com/tablayout_no_text_solved.png" alt="tablayout_no_text_solved.png"></p>
-<h1 id="三、问题探究"><a href="#三、问题探究" class="headerlink" title="三、问题探究"></a>三、问题探究</h1><h2 id="3-1-设置的代码"><a href="#3-1-设置的代码" class="headerlink" title="3.1 设置的代码"></a>3.1 设置的代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mFragmentList.add(longFragment);</div><div class="line">mFragmentList.add(shortFragment);</div><div class="line">mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) &#123;</div><div class="line">	@Override</div><div class="line">	public Fragment getItem(int position) &#123;</div><div class="line">		return mFragmentList.get(position);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int getCount() &#123;</div><div class="line">		return mFragmentList.size();</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line">mTabs.setupWithViewPager(mViewPager);</div></pre></td></tr></table></figure>
-<p>上面是非常常见的一段代码，主要逻辑是，将承载两个Fragment的ViewPager与TabLayout同步起来。<br>其中，核心语句是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mTabs.setupWithViewPager(mViewPager);</div></pre></td></tr></table></figure></p>
-<h2 id="3-2-查看-TabLayout-的相关源码"><a href="#3-2-查看-TabLayout-的相关源码" class="headerlink" title="3.2 查看 TabLayout 的相关源码"></a>3.2 查看 TabLayout 的相关源码</h2><p>进入源码查看到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">public void setupWithViewPager(@Nullable final ViewPager viewPager) &#123;</div><div class="line">       if (mViewPager != null &amp;&amp; mPageChangeListener != null) &#123;</div><div class="line">           // If we&apos;ve already been setup with a ViewPager, remove us from it</div><div class="line">           mViewPager.removeOnPageChangeListener(mPageChangeListener);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       if (viewPager != null) &#123;</div><div class="line">           final PagerAdapter adapter = viewPager.getAdapter();</div><div class="line">           if (adapter == null) &#123;</div><div class="line">               throw new IllegalArgumentException(&quot;ViewPager does not have a PagerAdapter set&quot;);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           mViewPager = viewPager;</div><div class="line"></div><div class="line">           // Add our custom OnPageChangeListener to the ViewPager</div><div class="line">           if (mPageChangeListener == null) &#123;</div><div class="line">               mPageChangeListener = new TabLayoutOnPageChangeListener(this);</div><div class="line">           &#125;</div><div class="line">           mPageChangeListener.reset();</div><div class="line">           viewPager.addOnPageChangeListener(mPageChangeListener);</div><div class="line"></div><div class="line">           // Now we&apos;ll add a tab selected listener to set ViewPager&apos;s current item</div><div class="line">           setOnTabSelectedListener(new ViewPagerOnTabSelectedListener(viewPager));</div><div class="line"></div><div class="line">           // Now we&apos;ll populate ourselves from the pager adapter</div><div class="line">           setPagerAdapter(adapter, true);</div><div class="line">       &#125; else &#123;</div><div class="line">           // We&apos;ve been given a null ViewPager so we need to clear out the internal state,</div><div class="line">           // listeners and observers</div><div class="line">           mViewPager = null;</div><div class="line">           setOnTabSelectedListener(null);</div><div class="line">           setPagerAdapter(null, true);</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
-<p>也比较明了，无非是先做一系列的判断，然后修改 TabLayout与ViewPager的各种监听事件。</p>
-<p>进入 <code>setPagerAdapter</code> 查看到如下方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">private void setPagerAdapter(@Nullable final PagerAdapter adapter, final boolean addObserver) &#123;</div><div class="line">       if (mPagerAdapter != null &amp;&amp; mPagerAdapterObserver != null) &#123;</div><div class="line">           // If we already have a PagerAdapter, unregister our observer</div><div class="line">           mPagerAdapter.unregisterDataSetObserver(mPagerAdapterObserver);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       mPagerAdapter = adapter;</div><div class="line"></div><div class="line">       if (addObserver &amp;&amp; adapter != null) &#123;</div><div class="line">           // Register our observer on the new adapter</div><div class="line">           if (mPagerAdapterObserver == null) &#123;</div><div class="line">               mPagerAdapterObserver = new PagerAdapterObserver();</div><div class="line">           &#125;</div><div class="line">           adapter.registerDataSetObserver(mPagerAdapterObserver);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       // Finally make sure we reflect the new adapter</div><div class="line">       populateFromPagerAdapter();</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
-<p>该方法的主要功能是设置TabLayout的适配器，<code>populateFromPagerAdapter();</code>方法引人注目。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private void populateFromPagerAdapter() &#123;</div><div class="line">       removeAllTabs();</div><div class="line"></div><div class="line">       if (mPagerAdapter != null) &#123;</div><div class="line">           final int adapterCount = mPagerAdapter.getCount();</div><div class="line">           for (int i = 0; i &lt; adapterCount; i++) &#123;</div><div class="line">			// 从 PagerAdapter 中获取到标题，并新建 Tab 加入到空的 TabLayout 中</div><div class="line">               addTab(newTab().setText(mPagerAdapter.getPageTitle(i)), false);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           // Make sure we reflect the currently set ViewPager item</div><div class="line">           if (mViewPager != null &amp;&amp; adapterCount &gt; 0) &#123;</div><div class="line">               final int curItem = mViewPager.getCurrentItem();</div><div class="line">               if (curItem != getSelectedTabPosition() &amp;&amp; curItem &lt; getTabCount()) &#123;</div><div class="line">                   selectTab(getTabAt(curItem));</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125; else &#123;</div><div class="line">           removeAllTabs();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p>该方法中<code>removeAllTabs();</code>将所有的Tabs移除了，找到问题的关键！<br>同时，<code>addTab(newTab().setText(mPagerAdapter.getPageTitle(i)), false);</code>给了我们答案。</p>
-<h2 id="3-4-跳转到-PagerAdapter-的源码"><a href="#3-4-跳转到-PagerAdapter-的源码" class="headerlink" title="3.4 跳转到 PagerAdapter 的源码"></a>3.4 跳转到 PagerAdapter 的源码</h2><p>再仔细看看 getPageTitle 这个方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public CharSequence getPageTitle(int position) &#123;</div><div class="line">       return null;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
-<p>所以，知道为什么为空了吧！</p>
-<h2 id="3-4-结论"><a href="#3-4-结论" class="headerlink" title="3.4 结论"></a>3.4 结论</h2><p>综上，<code>mTabs.setupWithViewPager(mViewPager);</code>语句的功能是：</p>
-<ul>
-<li>将 TabLayout、ViewPager 的监听事件同步</li>
-<li>对 TabLayout 的适配器进行重置</li>
-<li>对 TabLayout 的 TabItem 进行重置</li>
-<li>从 ViewPager 的 Adapter 中读取到每一页的标题，并为之创建 TabItem 添加到 TabLayout 中</li>
-</ul>
-<h2 id="3-5-解决方案"><a href="#3-5-解决方案" class="headerlink" title="3.5 解决方案"></a>3.5 解决方案</h2><p>重写 getPageTitle 方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) &#123;</div><div class="line">       @Override</div><div class="line">       public Fragment getItem(int position) &#123;</div><div class="line">		return mFragmentList.get(position);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int getCount() &#123;</div><div class="line">		return mFragmentList.size();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public CharSequence getPageTitle(int position) &#123;</div><div class="line">		return mTitle[position];</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-
-    
-
-        <a href="/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exception/">exception</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-basic/Word为标题设置段前段后间距设置与异常"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -300,11 +221,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>在进行Word文档写作时，常常要求我们对（节）标题设置段前段后间距。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">（2）按照标题的不同，分别采用不同的段前段后间距：</div><div class="line">   标题级别							段前段后间距</div><div class="line">   章标题								30磅</div><div class="line">   一级节标题							18磅</div><div class="line">   二级节标题							12磅</div><div class="line">   三级节标题							 6磅</div></pre></td></tr></table></figure></p>
-<p>做法为：<code>选中需要设置的文本，点击鼠标右键，段落-&gt;缩进与间距-&gt;间距-&gt;段前/段后</code></p>
-<h1 id="二、异常情况"><a href="#二、异常情况" class="headerlink" title="二、异常情况"></a>二、异常情况</h1><p>有时，会遇到异常。比如：当该（节）标题位于一页的第一行，那么设置的段前间距可能就不生效了。如下图所示：<br><img src="http://oltjxlyku.bkt.clouddn.com/title_gap_comparison.png" alt=""></p>
-<h1 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h1><p><code>选中需要设置的文本，点击鼠标右键，段落-&gt;换行和分页-&gt;勾选段前分页</code><br><img src="http://oltjxlyku.bkt.clouddn.com/title_gap_fixing_error.png" alt=""></p>
-
+        一、概述在进行Word文档写作时，常常要求我们对（节）标题设置段前段后间距。例如：123456（2）按照标题的不同，分别采用不同的段前段后间距：   标题级别							段前段后间距   章标题								30磅   一级节标题							18磅   二级节标题							12磅   三级节标题							 6磅
+做法为：选中需要设置的文本，点击鼠标右键，段落-&gt;缩进与间距...
     
 
         <a href="/2017/06/13/basic/Word为标题设置段前段后间距设置与异常/" class="post-more waves-effect waves-button">
@@ -353,23 +271,19 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概论"><a href="#一、概论" class="headerlink" title="一、概论"></a>一、概论</h1><p>在论文撰写过程中，不可避免地引用到参考文献。通常，论文格式要求我们在引用的正文后，使用中括号将参考文献章节中对应的出处条目序号引起来，例如：<br><img src="http://oltjxlyku.bkt.clouddn.com/article_0_link_example.png" alt=""></p>
-<p>有时，我们要建立起这两者之间的链接关系。</p>
-<h1 id="二、设置方法"><a href="#二、设置方法" class="headerlink" title="二、设置方法"></a>二、设置方法</h1><ol>
-<li>点击word上方开始菜单下的编号按键。<br><img src="http://oltjxlyku.bkt.clouddn.com/article_1_set_list.png" alt=""></li>
-</ol>
-<ul>
-<li><ol>
-<li>点击“定义新编号格式”选项，设置编号格式，在“预览”中可以看到所设置的格式。点击确定，这些参考文献自动编号完成。<br><img src="http://oltjxlyku.bkt.clouddn.com/article_2_find_jiaocha_link.png" alt=""></li>
-</ol>
-</li>
-</ul>
-<ol>
-<li>将光标定位在正文中需要插入参考文献上标的地方，点击“插入”选项卡中的“交叉引用”，出现如下界面。其中“引用类型”选择“编号项”，勾选“插入为超链接”选项，选择需要插入的参考文献，例如第一个参考文献，点击插入。然后关闭“交叉引用”窗口。<br><img src="http://oltjxlyku.bkt.clouddn.com/article_3_set_link.png" alt=""></li>
-<li>鼠标放在该数字上边会出现“按住Ctrl并单击可访问链接”，说明该数字已链接至正文后边的参考文献。选中“<a href="http://oltjxlyku.bkt.clouddn.com/article_1_set_list.png" target="_blank" rel="external">1</a>”，按“Ctrl+Shift+=”即可将其转换为上标<br><img src="http://oltjxlyku.bkt.clouddn.com/article_4_verify_link.png" alt=""></li>
-</ol>
-<p><em>参考自：<a href="https://zhidao.baidu.com/question/551159357.html" target="_blank" rel="external">百度百科-word如何获奖文献标号超链接到后面的参考文献？</a></em></p>
+        一、概论在论文撰写过程中，不可避免地引用到参考文献。通常，论文格式要求我们在引用的正文后，使用中括号将参考文献章节中对应的出处条目序号引起来，例如：
+有时，我们要建立起这两者之间的链接关系。
+二、设置方法
+点击word上方开始菜单下的编号按键。
 
+
+
+点击“定义新编号格式”选项，设置编号格式，在“预览”中可以看到所设置的格式。点击确定，这些参考文献自动编号完成。
+
+
+
+
+将光标定位在正文中需...
     
 
         <a href="/2017/06/12/basic/Word中将正文中的参考文件标号链接到参考文献具体条目/" class="post-more waves-effect waves-button">
@@ -418,9 +332,9 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>在撰写论文等文档时，常常对图、表、公式、代码要与正文之间行间距有要求。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">（5）图、表、公式、代码要与正文之间有6磅的行间距。</div></pre></td></tr></table></figure></p>
-<h1 id="二、设置方式"><a href="#二、设置方式" class="headerlink" title="二、设置方式"></a>二、设置方式</h1><p><code>选中 图/表/公式/代码 与 图题/表头/-/- ，点击鼠标右键-&gt;段落-&gt;间距-&gt;段前/段后</code>。<br>如下图：<br><img src="http://oltjxlyku.bkt.clouddn.com/extra_gap_setting.png" alt=""></p>
-<p>效果如下图：<br><img src="http://oltjxlyku.bkt.clouddn.com/extra_gap_comparison.png" alt=""></p>
+        一、概述在撰写论文等文档时，常常对图、表、公式、代码要与正文之间行间距有要求。例如：1（5）图、表、公式、代码要与正文之间有6磅的行间距。
+二、设置方式选中 图/表/公式/代码 与 图题/表头/-/- ，点击鼠标右键-&gt;段落-&gt;间距-&gt;段前/段后。如下图：
+效果如下图：
 
     
 
@@ -470,30 +384,7 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>相信你已经知道，Android 可使用 XML 标签语言进行界面的定义。每个标签中有一个一个的属性，这些属性有相应的属性值。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;cn.neillee.composedmenu.RotatingArcMenu</div><div class="line">	android:id=&quot;@+id/ram2&quot;</div><div class="line">	android:layout_width=&quot;wrap_content&quot;</div><div class="line">	android:layout_height=&quot;wrap_content&quot;</div><div class="line">	android:background=&quot;?attr/barBgColor&quot;</div><div class="line">	app:position=&quot;left_bottom&quot;</div><div class="line">	app:radius=&quot;150dp&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<p>有两点可以注意到：</p>
-<ul>
-<li><p>其一，在某个自定义 ViewGroup 中，有两个自定义属性 <code>position</code>、<code>radius</code>，与其他属性不同的是，这两个属性的命名空间为 <code>app</code>。</p>
-</li>
-<li><p>其二，系统属性 <code>background</code> 的属性值为 <code>?attr/barBgColor</code>。</p>
-</li>
-</ul>
-<h1 id="二、详细介绍"><a href="#二、详细介绍" class="headerlink" title="二、详细介绍"></a>二、详细介绍</h1><h2 id="2-1-自定义属性"><a href="#2-1-自定义属性" class="headerlink" title="2.1 自定义属性"></a>2.1 自定义属性</h2><p>这里介绍<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:position=&quot;left_bottom&quot;</div><div class="line">app:radius=&quot;150dp&quot;</div></pre></td></tr></table></figure></p>
-<p>的使用。</p>
-<p>自定义属性常见于自定义的 View 中，让我们还是以概述中的代码作为例子。自定义属性及其属性值在 <code>/values/attr.xml</code> 中有如下定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line"></div><div class="line">    &lt;attr name=&quot;position&quot;&gt;</div><div class="line">        &lt;enum name=&quot;left_top&quot; value=&quot;0&quot;/&gt;</div><div class="line">        &lt;enum name=&quot;left_bottom&quot; value=&quot;1&quot;/&gt;</div><div class="line">        &lt;enum name=&quot;right_top&quot; value=&quot;2&quot;/&gt;</div><div class="line">        &lt;enum name=&quot;right_bottom&quot; value=&quot;3&quot;/&gt;</div><div class="line">    &lt;/attr&gt;</div><div class="line">    &lt;attr name=&quot;radius&quot; format=&quot;dimension&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;declare-styleable name=&quot;ComposedMenu&quot;&gt;</div><div class="line">        &lt;attr name=&quot;position&quot;/&gt;</div><div class="line">        &lt;attr name=&quot;radius&quot;/&gt;</div><div class="line">    &lt;/declare-styleable&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
-<p>在该文件中，枚举了 <code>position</code> 有四个属性值，并为每个属性值提供了不同的 value 值作区分。而 <code>radius</code> 定义为 <code>dimension</code> 引用，表示其值须为  <code>dimension</code> 类型的值。类似地，还有如有其他类型，参考文章 <a href="http://www.cnblogs.com/rayray/p/3442026.html" target="_blank" rel="external">【Android】Android自定义属性，attr format取值类型</a></p>
-<p>接下来如何获取自定义属性值就成了关键。我在自定义 ViewGroup 中使用如下代码获取到用户在 layout 文件中，自定义 ViewGroup 标签下使用到的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private static final int LEFT_TOP = 0;</div><div class="line">private static final int LEFT_BOTTOM = 1;</div><div class="line">private static final int RIGHT_TOP = 2;</div><div class="line">private static final int RIGHT_BOTTOM = 3;</div><div class="line"></div><div class="line">protected static final int DEFAULT_RADIUS = 150;</div><div class="line">protected static final int DEFAULT_POSITION = RIGHT_BOTTOM;</div><div class="line"></div><div class="line">protected int mRadius;</div><div class="line"></div><div class="line">...</div><div class="line">public RotatingArcMenu(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">	TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ComposedMenu, defStyleAttr, 0);</div><div class="line">	int pos = a.getInt(R.styleable.ComposedMenu_position, DEFAULT_POSITION);</div><div class="line">	mRadius = (int) a.getDimension(R.styleable.ComposedMenu_radius, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_RADIUS, getResources().getDisplayMetrics()));</div><div class="line">	a.recycle();// 使用完后记得回收</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="2-2-获取系统属性"><a href="#2-2-获取系统属性" class="headerlink" title="2.2 获取系统属性"></a>2.2 获取系统属性</h2><p>这里介绍 <code>android:background=&quot;?attr/barBgColor&quot;</code> 属性的定义与获取。</p>
-<p>我之所以如此定义，是为了使得 <strong>背景色</strong> 能够随着应用的主题切换而变化，最简单的例子就是 <em>夜间模式</em>。<br>首先，我在 <code>values/attr.xml</code> 文件中对 <code>barBgColor</code> 进行定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line">	...</div><div class="line">    &lt;attr name=&quot;barBgColor&quot; format=&quot;color&quot;/&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
-<p>其次，在 <code>values/styles.xml</code> 中对该属性值进行了定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line"></div><div class="line">    &lt;style name=&quot;AppDayTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;barBgColor&quot;&gt;@color/ZHIHUBlue&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">	&lt;style name=&quot;AppNightTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">		&lt;item name=&quot;barBgColor&quot;&gt;#263238&lt;/item&gt;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
-<p>最后，我在控件的属性中对该属性值进行了使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;cn.neillee.composedmenu.RotatingArcMenu</div><div class="line">	android:id=&quot;@+id/ram2&quot;</div><div class="line">	android:layout_width=&quot;wrap_content&quot;</div><div class="line">	android:layout_height=&quot;wrap_content&quot;</div><div class="line">	android:background=&quot;?attr/barBgColor&quot;</div><div class="line">	app:position=&quot;left_bottom&quot;</div><div class="line">	app:radius=&quot;150dp&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<p>需要说明的是，可以不再控件属性中使用自定义的属性值，可在代码中进行获取与设置。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TypedValue typedValue = new TypedValue();</div><div class="line">mContext.getTheme().resolveAttribute(R.attr.barBgColor, typedValue, true);</div><div class="line">mRotatingArcMenu.setBackgroundColor(typedValue.data);</div></pre></td></tr></table></figure></p>
-<p>这里使用到了 <code>TypedValue</code> 这个类。</p>
-<h2 id="2-3-关于-TypedValue"><a href="#2-3-关于-TypedValue" class="headerlink" title="2.3 关于 TypedValue"></a>2.3 关于 TypedValue</h2><p>详细介绍见官网：<br><a href="https://developer.android.com/reference/android/util/TypedValue.html" target="_blank" rel="external">https://developer.android.com/reference/android/util/TypedValue.html</a></p>
-<p>此处我仅对我在上一小节中的使用做简单介绍。在使用过程中，我观察到在不同主题下，TypedValue 读取到的值如下：</p>
-<p>在 DayTheme 中，由于我定义的是 <code>@color/ZHIHUBlue</code> ，对color的引用即 resourceId。因此，typedValue.resourceId 有值，且直接等效于 <code>R.color.ZHIHUBlue</code>，typedValue.type=TYPE_INT_COLOR_RGB8，表示 typedValue.data 有值，为8位的颜色代码值（#rrggbb）。<br><img src="http://oltjxlyku.bkt.clouddn.com/android_theme_attr_day_barBgColor.jpg" alt=""></p>
-<p>在 NightTheme 中，由于我定义的是 <code>#263238</code>，颜色代码值。因此，TypedValue.resourceId 无值，但 typedValue.type=TYPE_INT_COLOR_RGB8，表示 typedValue.data 有值，为8位的颜色代码（#rrggbb）。<br><img src="http://oltjxlyku.bkt.clouddn.com/android_theme_attr_night_barBgColor.jpg" alt=""></p>
-
+        一、概述相信你已经知道，Android 可使用 XML 标签语言进行界面的定义。每个标签中有一个一个的属性，这些属性有相应的属性值。例如：1234567&lt;cn.neillee.composedmenu.RotatingArcMenu	android:id=&quot;@+id/ram2&quot;	android:layout_width=&quot;wrap_content&quot...
     
 
         <a href="/2017/06/02/android/Android-属性自定义及使用获取浅析/" class="post-more waves-effect waves-button">
@@ -542,76 +433,18 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>本次书单时间跨度为 2017.03.15 - 2017.05.15，约两个月。由于近两个月事情比较多，所以阅读的书籍不多。<br>—— <em>于2017年05月15日</em></p>
-<h1 id="二、阅读书目"><a href="#二、阅读书目" class="headerlink" title="二、阅读书目"></a>二、阅读书目</h1><ul>
-<li><a href="https://book.douban.com/subject/1291809/" target="_blank" rel="external">《世界尽头与冷酷仙境》</a></li>
-<li><a href="https://book.douban.com/subject/24522045/" target="_blank" rel="external">《Redis 入门指南》</a></li>
-<li><a href="https://book.douban.com/subject/10799984/" target="_blank" rel="external">《大数据》</a></li>
-<li><a href="https://book.douban.com/subject/26469547/" target="_blank" rel="external">《越界》</a></li>
-<li><a href="https://book.douban.com/subject/25871778/" target="_blank" rel="external">《数据之巅》</a></li>
-<li><a href="https://book.douban.com/subject/3688489/" target="_blank" rel="external">《异类》</a></li>
-<li><a href="https://book.douban.com/subject/26872876/" target="_blank" rel="external">《分布式实时计算框架：原理及实践案例》</a></li>
-</ul>
-<h1 id="三、阅读情况"><a href="#三、阅读情况" class="headerlink" title="三、阅读情况"></a>三、阅读情况</h1><h2 id="3-1-《世界尽头与冷酷仙境》"><a href="#3-1-《世界尽头与冷酷仙境》" class="headerlink" title="3.1 《世界尽头与冷酷仙境》"></a>3.1 <a href="https://book.douban.com/subject/1291809/" target="_blank" rel="external">《世界尽头与冷酷仙境》</a></h2><h3 id="3-1-1-基本情况"><a href="#3-1-1-基本情况" class="headerlink" title="3.1.1 基本情况"></a>3.1.1 基本情况</h3><p>豆瓣评分：8.5<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img1.doubanio.com/lpic/s1801057.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="3-1-2-阅读情况"><a href="#3-1-2-阅读情况" class="headerlink" title="3.1.2 阅读情况"></a>3.1.2 阅读情况</h3><p>20170401一晚上就读完。<br>由于在第二天晚上的中外文学通论课程上，我要给大家推荐这本书，所以在前一天的晚上翻阅了这本书。第一次阅读这本书是在我读高二的时候。此次阅读主要是熟悉一下书本的内容，以求第二天的书本推荐演讲能够更加贴近书本。</p>
-<p>村上是我非常喜欢的一位日本作家，出生于传统日本家庭的他，却总是离经畔道。国学老师的父母希望他能够从事日本古典文学，但是他却对西方文学情有独钟。中学时，放荡不羁，抽烟喝酒打牌泡妞，无所不为，以致几乎上不了大学。同样，到了大学也不安分守己，与爱人洋子热恋，休学结婚。走上写作道路的过程也十分的简单，仅仅是高尔夫球场上的灵光一闪！近期他在《骑兵团长杀人事件》中提起南京大屠杀事件，也非常因人关注。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://oltjxlyku.bkt.clouddn.com/ppt_qibingtuanzhangsharenshijian.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>阅读了他不少的作品之后，我觉得他的作品总是在尝试为读者构建起一个光怪陆离的新世界，神秘而有趣。《世界尽头与冷酷仙境》无出其右。冷酷仙境里温驯善良的 <code>独角兽</code> 与世界尽头中潜藏在地下黑暗邪恶的 <code>夜鬼</code> 两个意象尤其引人注意。小说的结尾，主人公面临着两个世界的选择，激起共鸣，引人深思。</p>
-<h2 id="3-2-《Redis-入门指南》"><a href="#3-2-《Redis-入门指南》" class="headerlink" title="3.2 《Redis 入门指南》"></a>3.2 <a href="https://book.douban.com/subject/24522045/" target="_blank" rel="external">《Redis 入门指南》</a></h2><p>技术类的入门书籍，营养不多！</p>
-<h2 id="3-3-《大数据》"><a href="#3-3-《大数据》" class="headerlink" title="3.3 《大数据》"></a>3.3 <a href="https://book.douban.com/subject/10799984/" target="_blank" rel="external">《大数据》</a></h2><h3 id="3-3-1-基本情况"><a href="#3-3-1-基本情况" class="headerlink" title="3.3.1 基本情况"></a>3.3.1 基本情况</h3><p>豆瓣评分：7.5<br>{% image https://img1.doubanio.com/lpic/s10391658.jpg '' '' %}</p>
-<h3 id="3-3-2-阅读情况"><a href="#3-3-2-阅读情况" class="headerlink" title="3.3.2 阅读情况"></a>3.3.2 阅读情况</h3><p>这本书是在两个月中，用零零散散的时间看的。</p>
-<p>这本书从美国社会入手谈大数据。书中内容多引经据典，真实可信。引用较多的轰动性历史事件，从大数据的角度做剖析，可谓独辟蹊径。众多的美国历史事件也给我们了解美国历史、体制有很大的帮助。不过这本书主要目的是培养我们的大数据思维，认识到大数据的趋势和潜力，从政府/体制的角度去对大数据进行把握。如欲了解并学习大数据的技术，那么请出门右拐！<br>{% image http://oltjxlyku.bkt.clouddn.com/big_data_revolution.jpg '' '' %}</p>
-<h2 id="3-4-《越界》"><a href="#3-4-《越界》" class="headerlink" title="3.4 《越界》"></a>3.4 <a href="https://book.douban.com/subject/26469547/" target="_blank" rel="external">《越界》</a></h2><h3 id="3-4-1-基本情况"><a href="#3-4-1-基本情况" class="headerlink" title="3.4.1 基本情况"></a>3.4.1 基本情况</h3><p>豆瓣评分：7.3<br>{% image https://img3.doubanio.com/lpic/s28154190.jpg '' '' %}</p>
-<h3 id="3-4-2-阅读情况"><a href="#3-4-2-阅读情况" class="headerlink" title="3.4.2 阅读情况"></a>3.4.2 阅读情况</h3><p>这本书是在两个月中，用零零散散的时间看的。</p>
-<p>剖析了阿里、百度、腾讯、小米、盛大的失败，系统地总结了这五大互联网公司的失败经验。正如作者在书中频繁提到的一句话 —— “成功了叫跨界，失败了叫越界”。<br>{% image http://oltjxlyku.bkt.clouddn.com/yuejie.jpg '' '' %}</p>
-<h2 id="3-5-《数据之巅》"><a href="#3-5-《数据之巅》" class="headerlink" title="3.5 《数据之巅》"></a>3.5 <a href="https://book.douban.com/subject/25871778/" target="_blank" rel="external">《数据之巅》</a></h2><h3 id="3-5-1-基本情况"><a href="#3-5-1-基本情况" class="headerlink" title="3.5.1 基本情况"></a>3.5.1 基本情况</h3><p>豆瓣评分：8.5<br>{% image https://img3.doubanio.com/lpic/s27281543.jpg '' '' %}</p>
-<p>我从网上找到了这本书的读书笔记，转载在这里 —— <a href="http://cnneillee.github.io/2017/05/13/daily/%E3%80%90%E8%BD%AC%E3%80%91%E3%80%8A%E6%95%B0%E6%8D%AE%E4%B9%8B%E5%B7%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0">【转】《数据之巅》读书笔记</a></p>
-<h3 id="3-5-2-阅读情况"><a href="#3-5-2-阅读情况" class="headerlink" title="3.5.2 阅读情况"></a>3.5.2 阅读情况</h3><p>这本书是在两个月中，用零零散散的时间看的。</p>
-<p>与本文中<code>3.3《大数据》</code>提及的《大数据》算是姊妹篇吧。</p>
-<p>该书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。两本书有着诸多的相似之处，诸如以美国社会为背景，大量引用美国在数据化发展道路上的实例来总结大数据的历史规律，不仅向读者阐述了关于大数据的一些观点，还潜移默化地给我们普及了美国社会的体制机制。</p>
-<p>作者从大数据的角度，将美国历史分割为：<strong>历史小数据（初数时代、内战时代、镀金时代、进步时代、抽样时代）、崛起大数据（开放时代、大数据时代、智慧城市）</strong>。较前一本书来说，论述更有力，自成系统。在《大数据》基础上进行了延伸和拓展，算是升级版吧！<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://oltjxlyku.bkt.clouddn.com/shujuzhidian_1.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://oltjxlyku.bkt.clouddn.com/shujuzhidian_2.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="3-6-《异类》"><a href="#3-6-《异类》" class="headerlink" title="3.6 《异类》"></a>3.6 <a href="https://book.douban.com/subject/3688489/" target="_blank" rel="external">《异类》</a></h2><h3 id="3-6-1-基本情况"><a href="#3-6-1-基本情况" class="headerlink" title="3.6.1 基本情况"></a>3.6.1 基本情况</h3><p>豆瓣评分：7.8<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img3.doubanio.com/lpic/s3806874.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="3-6-2-阅读情况"><a href="#3-6-2-阅读情况" class="headerlink" title="3.6.2 阅读情况"></a>3.6.2 阅读情况</h3><p>这本书是在两个月中，用零零散散的时间看的。</p>
-<p>这本书就是 “一万小时定律” 的出处！如果用一句话来表达我对这本书的感受，那就是 “蛮有意思的一本小书”。</p>
-<p>观点比较犀利。中心思想：成功与出生的时代，家庭背景，个人的思想等有关，要综合各个方面的优势，去提高自己。类似“天时地利人和”。大量引用实例、数据进行论证。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://oltjxlyku.bkt.clouddn.com/outlers.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="3-7-《分布式实时计算框架：原理及实践案例》"><a href="#3-7-《分布式实时计算框架：原理及实践案例》" class="headerlink" title="3.7 《分布式实时计算框架：原理及实践案例》"></a>3.7 <a href="https://book.douban.com/subject/26872876/" target="_blank" rel="external">《分布式实时计算框架：原理及实践案例》</a></h2><p>2017.05.14 花了半天的时间翻阅完了这本书。</p>
-<p>没有太多内容，也不够深入。我只是把它当作一本科普、技术漫谈类的书籍来看。以后，针对上面讲的技术点，我再找其他书籍或资料阅读学习。</p>
+        一、概述本次书单时间跨度为 2017.03.15 - 2017.05.15，约两个月。由于近两个月事情比较多，所以阅读的书籍不多。—— 于2017年05月15日
+二、阅读书目
+《世界尽头与冷酷仙境》
+《Redis 入门指南》
+《大数据》
+《越界》
+《数据之巅》
+《异类》
+《分布式实时计算框架：原理及实践案例》
 
+三、阅读情况3.1 《世界尽头与冷酷仙境》3.1.1 基本情况豆瓣评分：8.5
+...
     
 
         <a href="/2017/05/15/daily/【书单】2017-03-2017-05书单及阅读情况汇总/" class="post-more waves-effect waves-button">
@@ -660,149 +493,11 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。</p>
-<blockquote>
-<p>本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。</p>
-<p>个人觉得，这本书是《大数据》的延伸和拓展。</p>
-<p>作者从大数据的角度，将美国历史分割为：<strong>历史小数据（初数时代、内战时代、镀金时代、进步时代、抽样时代）、崛起大数据（开放时代、大数据时代、智慧城市）</strong>。较前一本书来说，论述更有力，自成系统。在《大数据》基础上进行了延伸和拓展，算是升级版吧！<br>—— 见<a href="http://cnneillee.github.io/2017/05/15/daily/%E3%80%90%E4%B9%A6%E5%8D%95%E3%80%912017-03-2017-05%E4%B9%A6%E5%8D%95%E5%8F%8A%E9%98%85%E8%AF%BB%E6%83%85%E5%86%B5%E6%B1%87%E6%80%BB/">【书单】2017-03-2017-05书单及阅读情况汇总</a></p>
-</blockquote>
-<p><em>以下内容摘要转自：<a href="http://www.jianshu.com/p/a69a9927005f" target="_blank" rel="external">20170202《数据之巅》-jianshu/im天行</a></em></p>
-<hr>
-<h1 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h1><p>•2015年之前可能就知道这本书，而且2016年上还是2015年上还听过作者的一次线上讲课。<br>•2017-01-25开始看，一个番茄钟30页左右，全书370页，共需要12个左右番茄钟。<br>•2017-02-02全书读完。</p>
-<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><h2 id="Part1-小数据之历史-27-372"><a href="#Part1-小数据之历史-27-372" class="headerlink" title="Part1 小数据之历史 27/372"></a>Part1 小数据之历史 27/372</h2><h3 id="chap1-初数时代：奠基共和-29-372"><a href="#chap1-初数时代：奠基共和-29-372" class="headerlink" title="chap1 初数时代：奠基共和 29/372"></a>chap1 初数时代：奠基共和 29/372</h3><ul>
-<li>克服民主的劣势：用数据分权</li>
-<li><p>1787年7月16日，大州和小州之间终于达成妥协。◦众议院的席位按人口比例在各州分配，体现了民主原则。</p>
-<ul>
-<li>参议院的议席每州两台，平均分配，体现了共和精神。</li>
-<li>任何一项法案，都必须在参、众两院同时以多数通过才能生效。</li>
-</ul>
-</li>
-<li><p>统计学的三大重要命题</p>
-<ul>
-<li>1、对一个国家来说，统计什么，不统计什么，是个政治问题。</li>
-<li>2、要统计一件东西，必须要有清晰的边界。</li>
-<li>3、如何提高数据的真实性。 </li>
-</ul>
-</li>
-<li><p>亚拉巴马悖论： 指总议席增加反而导致某些州的议席减少。</p>
-</li>
-<li>十进制在亚里士多德时代就被发明了，但美国是全世界第一个在货币体系中普及十进制的国家。几年后，法国也跟进。</li>
-<li>1831年，法国历史学家 托克维尔 《论美国的民主》</li>
-<li>其实，在整个19世纪，几乎一切数学和统计学的重大发明和进步都起源于欧州。</li>
-<li>商秧提出“强国知十三数”。现代意义上的人口普查在中国直到1900年才出现。（ 但没有普查成功 ）</li>
-</ul>
-<h3 id="chap2-内战时代：终结奴隶制的灯塔-65-372"><a href="#chap2-内战时代：终结奴隶制的灯塔-65-372" class="headerlink" title="chap2 内战时代：终结奴隶制的灯塔 65/372"></a>chap2 内战时代：终结奴隶制的灯塔 65/372</h3><ul>
-<li>1860年，是第八次认可普查年，也是大选年。林肯当总统，联邦正式解体，1861年3月，南方7个州宣布独立。萨姆特要塞，南北战争爆发。</li>
-<li>既然全国的青壮年兵力都集中在北方，那南方为什么敢主动挑起战火呢？答案是棉花。</li>
-<li>谢尔曼是南北战争中的一代名将，也是北方阵营中除林肯总统、格兰特司令外的第3号人物。</li>
-<li>谢尔曼声明： “如果被提名，我不会接受；如果被选上，我不会就职”</li>
-<li>政治家必须直面和解决一个个具体的社会问题。</li>
-<li>林肯解放的只是黑奴经济上的自由权，而关于黑奴的政治权利，只字未提。</li>
-<li>美国共和党强调经济自由，民主党注重政治平等。</li>
-</ul>
-<h3 id="chap3-爆发：镀金时代的三重崛起-107-372"><a href="#chap3-爆发：镀金时代的三重崛起-107-372" class="headerlink" title="chap3 爆发：镀金时代的三重崛起 107/372"></a>chap3 爆发：镀金时代的三重崛起 107/372</h3><ul>
-<li>在镀金时代的30多年间，美国的数据文化相继完成了思维、组织和技术的三重崛起。</li>
-<li>这三重崛起的起点，是1869年。国会人口普查委员会的主席加菲尔德 </li>
-<li>人类的政治史，说到底，就是各种利益不断调整的斗争史。</li>
-<li><strong>人口重心</strong>：</li>
-<li>因为加菲尔德前10年没有破解当时的利益格局，等到后来当上总统后，重用了之前觉得不错的沃克同志，让统计工作有了革命性变化。然后沃克由于政治事件中，被迫辞职，去MIT当了16年的第3任校长，后来他的工作被Herman Hollerith给做成了。</li>
-<li>1883年，美国国会通过了《彭德尔顿法》，规定政治和行政两相分开。</li>
-<li>霍尔瑞斯的自己创办的公司，就是IBM的前身。（1911年，霍尔瑞斯的公司与其它公司合并，成立了CTR，请了大名鼎鼎的托马斯.沃森当职业经理人，1924年，CTR更名为IBM。）</li>
-<li>检视人类的创新史，有一点可以肯定，市场的需求才是真正的创新动力， 当需求成为越来越迫切的现实，重大的技术突破就一定会产生。</li>
-<li>136/372</li>
-<li>劳工统计局：只提供事实和数据，不提供对事实的理论解释，也不介入政策的制定。</li>
-<li>1894年，美国的工业总产值超过英国，跃居世界第一位，成为世界上最庞大的经济体。</li>
-<li>农业统计局、普查局和劳工统计局，堪称美国统计领域的三驾马车。</li>
-<li>隐私观念的成熟，数据安全管理制度的完善</li>
-<li>中国在数据可视化方面的先驱人物，是地理学家陈正祥，他的著作《大学生活四十年》需要看一看。</li>
-</ul>
-<h3 id="chap4-量化：进步时代的数据大潮-161-372"><a href="#chap4-量化：进步时代的数据大潮-161-372" class="headerlink" title="chap4 量化：进步时代的数据大潮 161/372"></a>chap4 量化：进步时代的数据大潮 161/372</h3><ul>
-<li>通过对数学的学习，也唯有通过对数学的学习，我们才能对什么是真正的科学获得真实、深入的理解。—奥古斯特.孔德</li>
-<li>镀金时代虽然见证了经济的迅猛发展、城市的急剧膨胀，但同时也是一个问题丛生、动荡不安的时代，这也是称为“镀金”的原因，即光鲜的外表下掩盖着重生危机和大量矛盾。</li>
-<li>正因为进步主义者的杰出贡献，从19世纪90年代到20世纪20年代，这前后30多年被后人称为“进步时代”。</li>
-<li>匹兹堡调查</li>
-<li>成本收益分析方法</li>
-<li>大众因为恐惧、无知，常常做出和理性分析结果完全不同的决定。换句话说，民主的质量依赖于大众的理性思考水平。</li>
-<li>道伊调查福特公司的平托汽车情况，来进行人生命价值的量化。（本章到目前所讲的内容。）</li>
-</ul>
-<h3 id="chap5-抽样时代：统计革命的福祉-203-372"><a href="#chap5-抽样时代：统计革命的福祉-203-372" class="headerlink" title="chap5 抽样时代：统计革命的福祉 203/372"></a>chap5 抽样时代：统计革命的福祉 203/372</h3><ul>
-<li>直到20世纪30年代，抽样的科学性才成为学术界的共识。</li>
-<li>1939年1月，等到盖洛普的调查全部完成，《乱世佳人》电影才开机拍摄。拍摄方在重大问题决策上，几乎全部听取了盖洛普的意见。</li>
-<li>换句话说，由于调查行为的介入，被调查现象的本身将遭受扭曲。民意调查是不是存在这种“副作用”呢？</li>
-<li>戴明（物理学博士）是盖洛普（数学博士）的朋友，盖洛普曾经就如何抽样、如何设计问题，不断向他征询意见。</li>
-<li>我认识到，优秀的人才并不少见，公司最需要的，是能够不断学习、永远进步的人。—戴明回忆起在西电工作时拿到耶鲁的博士项目通知书要不要去读时，后来回忆这段时说的。</li>
-<li>1947年，在麦克阿瑟的邀请下，戴明搭乘军用飞机抵达日本。戴明的主要任务，就是利用抽样的技术，帮助日本开展战后的第一次人口普查。</li>
-<li>1950年，在日本科学与工程联盟的邀请下，戴明又来到日本。</li>
-<li>石川一郎</li>
-<li>美国人针对戴明的拍了一部记录片 《日本行，为什么我们不行》 </li>
-</ul>
-<h2 id="Part2-大数据的崛起-239-372"><a href="#Part2-大数据的崛起-239-372" class="headerlink" title="Part2 大数据的崛起 239/372"></a>Part2 大数据的崛起 239/372</h2><h3 id="chap6-开放时代：内开放的历程-241-372"><a href="#chap6-开放时代：内开放的历程-241-372" class="headerlink" title="chap6 开放时代：内开放的历程 241/372"></a>chap6 开放时代：内开放的历程 241/372</h3><ul>
-<li>开放，主要是指信息的自由流动，广义的开放，还包括人、财、物的自由流动。</li>
-<li>LEHD系统的真正强大这处，还在于其数据分析的粒度，经可以按地区，邮编，选区，学区，人口普查的片区等各层级单位对数据进行层层下钻。</li>
-<li><p>OnTheMap 美国的网站，可以查阅数据</p>
-<ul>
-<li>人工合成数据（开放数据使用、同时保护数据隐私的重要方法）的两种方式：◦完全合成数据</li>
-<li>部分合成数据</li>
-</ul>
-</li>
-<li><p>内开放3.0：用数据推动创新 270/372</p>
-<ul>
-<li>data.gov（奥在台时推动的）</li>
-<li>数据开放 不等于 数据公开</li>
-</ul>
-</li>
-</ul>
-<h3 id="chap7-大数据时代：通往计算型的智能社-281-372"><a href="#chap7-大数据时代：通往计算型的智能社-281-372" class="headerlink" title="chap7 大数据时代：通往计算型的智能社 281/372"></a>chap7 大数据时代：通往计算型的智能社 281/372</h3><ul>
-<li>数据最早来源于测量。</li>
-<li>普适计算 认为：计算机发明以后，要经历三个阶段。</li>
-<li>数据挖掘已经不是大数据的前沿和热点，取而代之的是机器学习。</li>
-<li>通过计算来解决社会问题，正变得越来越普遍。</li>
-<li>3D打印：通过逐层叠加、不断增加材料的方式、一次性完成生产过程，所以被称为“加式制造”。</li>
-<li>例如，中，印，韩等国不允许谷歌在自己国家为其地图收集数据，这也意味着，谷歌的无人驾驶汽车未来根本不可能进入这些国家，因为没有数据！*</li>
-<li>算法是运用数学和统计学的方法和技巧，解决某一类问题的特定步骤，其核心是建立模型。但建模首先需要的就是数据。</li>
-<li>下一代人机交互界面的核心技术是自然语言处理、语音识别、声音合成等，即实现文本和声音这两种数据之间的转换。</li>
-</ul>
-<h3 id="chap8-智慧城市：正在拍打世界的浪潮-329-372"><a href="#chap8-智慧城市：正在拍打世界的浪潮-329-372" class="headerlink" title="chap8 智慧城市：正在拍打世界的浪潮 329/372"></a>chap8 智慧城市：正在拍打世界的浪潮 329/372</h3><ul>
-<li><p>2008年11月，IBM提出“smart city”这个概念。</p>
-<ul>
-<li>政策配套</li>
-<li>市场参与</li>
-<li>技术支持</li>
-</ul>
-</li>
-<li><p>中国已经有了不少电子商务的平台，但还没有一个城市生活、公共服务的平台。—神州数码郭为。</p>
-</li>
-<li><p>SeeClickFix.com是个公益网站，Nextdoor.com是个商业网站。◦本质都是让大众来发现并解决城市生活的问题；（众包技术）</p>
-</li>
-<li><p>346</p>
-</li>
-<li>作者认为：物联网（普适计算）、云、大数据是智慧城市的三大核心技术。 </li>
-</ul>
-<h2 id="结语：把握后发优势：把科技符号变成文化符号-361-372"><a href="#结语：把握后发优势：把科技符号变成文化符号-361-372" class="headerlink" title="结语：把握后发优势：把科技符号变成文化符号 361/372"></a>结语：把握后发优势：把科技符号变成文化符号 361/372</h2><ul>
-<li>人类知识的唯一来源，是对过去经验的记录和整理。</li>
-</ul>
-<h2 id="后记：蝴蝶振翅-367-372"><a href="#后记：蝴蝶振翅-367-372" class="headerlink" title="后记：蝴蝶振翅 367/372"></a>后记：蝴蝶振翅 367/372</h2><ul>
-<li>2013年5月，接到中信银行信用卡中心的大数据方面的培训。</li>
-<li>纵观世界名国的历史，我相信有一条真理颠扑不破，那就是学习改变命运。</li>
-<li>作者意识到要追求工作中的使命感，又要保持个人生活的平衡，我还需要修炼–很多人都需要。</li>
-<li>2014年3月18日，写完。</li>
-</ul>
-<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ul>
-<li>2017-01-30看了2个番茄钟</li>
-<li>chap5讲的是盖洛普和戴明的故事。</li>
-<li><p>chap4讲的是道伊调查福特公司的平托汽车情况，来进行人生命价值的量化，以及不保局的和其它机构的成本收益分析方法，最重要的概念就是量化。</p>
-</li>
-<li><p>2017-02-02看了2个番茄钟◦两个番茄钟大多数时间给了chap3，美帝的各种数据技术，而国内的一片空白。</p>
-</li>
-<li><p>chap2只是进行了补充阅读。</p>
-</li>
-<li><p>Part2与Part1方面有点不太搭，但也是能看一看的。</p>
-</li>
-<li>章节独立性比较强，但连贯起来有点欠缺。</li>
-<li>全书以数据文化和科技在美国的发展为主线，讲了不少历史知识。</li>
-</ul>
-<hr>
+        本书作者为涂子沛，作者在这部著作之前的另一部著作《大数据》，我在今年三月份就有幸拜读了这本书。
 
+本书秉承着涂子沛先生的一贯著述风格，行文流畅，论证有理有据，甚是佩服。
+个人觉得，这本书是《大数据》的延伸和拓展。
+作者从大数据的角度，将美国历史分割为：历史小数据（初数时代、内战时代、镀金时代、进步时代、抽样时代）、崛起大数据（开放时代、大数据时代、智慧城市）。较前一本书来说，论述更有力，自成...
     
 
         <a href="/2017/05/13/daily/【转】《数据之巅》读书笔记/" class="post-more waves-effect waves-button">
@@ -849,75 +544,20 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、My-Github"><a href="#一、My-Github" class="headerlink" title="一、My Github"></a>一、My Github</h1><p>My github address: <a href="https://github.com/cnneillee" target="_blank" rel="external">github.com/cnneillee</a></p>
-<p>A glance of my github</p>
-<p><div class="github-card" data-github="cnneillee" data-width="400" data-height="316" data-theme="medium"></div></p>
-<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+        一、My GithubMy github address: github.com/cnneillee
+A glance of my github
 
-<p><div class="github-card" data-github="cnneillee" data-width="400" data-height="" data-theme="default"></div></p>
-<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
-<h1 id="二、My-Typical-Repos"><a href="#二、My-Typical-Repos" class="headerlink" title="二、My Typical Repos"></a>二、My Typical Repos</h1><h2 id="2-1-cnneillee-DailyZHIHU"><a href="#2-1-cnneillee-DailyZHIHU" class="headerlink" title="2.1 cnneillee/DailyZHIHU"></a>2.1 <a href="https://github.com/cnneillee/DailyZHIHU" target="_blank" rel="external">cnneillee/DailyZHIHU</a></h2><p><div class="github-card" data-github="cnneillee/DailyZHIHU" data-width="400" data-height="" data-theme="default"></div></p>
-<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
-<h3 id="2-1-1-Active-period"><a href="#2-1-1-Active-period" class="headerlink" title="2.1.1 Active period"></a>2.1.1 Active period</h3><p>Mar 20, 2016 – May 10, 2017</p>
-<h3 id="2-1-2-Some-of-the-points"><a href="#2-1-2-Some-of-the-points" class="headerlink" title="2.1.2 Some of the points"></a>2.1.2 Some of the points</h3><ul>
-<li>architecture, <strong><a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp-dagger" target="_blank" rel="external">MVP-Dagger2</a></strong> architecture</li>
-<li>web request, <strong><a href="https://github.com/square/retrofit" target="_blank" rel="external">retrofit2</a></strong> + <strong><a href="https://github.com/square/okhttp" target="_blank" rel="external">OKHttp3</a></strong></li>
-<li>image loader, <strong><a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">universal-image-loader</a></strong></li>
-<li>findViewbyId, <strong><a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">JakeWharton/butterknife</a></strong></li>
-<li>log, <strong><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">orhanobut/logger</a></strong></li>
-</ul>
-<h2 id="2-2-cnneillee-MyBookshelf"><a href="#2-2-cnneillee-MyBookshelf" class="headerlink" title="2.2 cnneillee/MyBookshelf"></a>2.2 <a href="https://github.com/cnneillee/MyBookshelf" target="_blank" rel="external">cnneillee/MyBookshelf</a></h2><p>forked from <a href="https://github.com/smartjinyu/MyBookshelf" target="_blank" rel="external">smartjinyu/MyBookshelf</a>, make PR and accepted. See details <a href="https://github.com/smartjinyu/MyBookshelf/pull/2" target="_blank" rel="external">here</a></p>
-<p><div class="github-card" data-github="cnneillee/MyBookshelf" data-width="400" data-height="" data-theme="default"></div></p>
-<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
-<h3 id="2-2-1-Active-period"><a href="#2-2-1-Active-period" class="headerlink" title="2.2.1 Active period"></a>2.2.1 Active period</h3><p>Jan 15, 2017 – May 10, 2017</p>
-<h3 id="2-2-2-My-Contributes"><a href="#2-2-2-My-Contributes" class="headerlink" title="2.2.2 My Contributes"></a>2.2.2 My Contributes</h3><blockquote>
-<p>对项目进行了如下重构：</p>
-<ol>
-<li>架构变化：<ul>
-<li>关键模块向 MVP 迁移</li>
-<li>网络请求进行统一管理（部分还没有实现整合）</li>
-<li>采用 dagger2 进行依赖注入</li>
-<li>采用 Butterknife 绑定 View 简化代码</li>
-</ul>
-</li>
-<li>界面与功能调整：<ul>
-<li>分离出 MainFragment，减轻 MainActivty “重量“</li>
-<li>从 SettingActivity 中分离出 ExportCSVTask、RestoreTask、BackupTask</li>
-<li>从 SingleAddActivity、BatchAddActivity（BatchListFragment 承担主要功能逻辑） 中抽取出 BookScanFragment</li>
-<li>从各个组件中抽取出 AlertUtil、AnswersUtil、AppUtil、SharedPrefUtil 等工具类</li>
-<li>构建 BookMultiClickAdapter 实现多选、长按、单击等事件响应（尚未完善）</li>
-<li>修复 shortcut 中，add 不显示的问题</li>
-<li>其他 UI 调整</li>
-</ul>
-</li>
-<li>其他调整：<ul>
-<li>依照 mvp 架构对项目进行分包</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<h2 id="2-3-cnneillee-nifi-redis"><a href="#2-3-cnneillee-nifi-redis" class="headerlink" title="2.3 cnneillee/nifi-redis"></a>2.3 <a href="https://github.com/cnneillee/nifi-redis" target="_blank" rel="external">cnneillee/nifi-redis</a></h2><p>forked from <a href="https://github.com/qntfy/nifi-redis" target="_blank" rel="external">qntfy/nifi-redis</a>, make PR but not accepted yet. See details <a href="https://github.com/qntfy/nifi-redis/pull/10" target="_blank" rel="external">here</a></p>
-<p><div class="github-card" data-github="cnneillee/nifi-redis" data-width="400" data-height="150" data-theme="default"></div></p>
-<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
-<h3 id="2-3-1-Active-period"><a href="#2-3-1-Active-period" class="headerlink" title="2.3.1 Active period"></a>2.3.1 Active period</h3><p>April, 2017 - May, 2017</p>
-<h3 id="2-3-2-My-contributes"><a href="#2-3-2-My-contributes" class="headerlink" title="2.3.2 My contributes"></a>2.3.2 My contributes</h3><blockquote>
-<ul>
-<li><strong>Mainly</strong> add the proccessor <code>PutRedis</code></li>
-<li><strong>Update nifi</strong> version to <strong>1.1.2</strong></li>
-<li>Add <code>.idea</code> to <code>.gitignore</code> file</li>
-<li>Modify multi connection string in Property named <code>REDIS_CONNECTION_STRING</code> of  Proccessor  <code>GetRedis</code></li>
-</ul>
-</blockquote>
-<h3 id="2-3-3-My-plans"><a href="#2-3-3-My-plans" class="headerlink" title="2.3.3 My plans"></a>2.3.3 My plans</h3><ul>
-<li>make <code>PutRedis</code> more flexible</li>
-<li>add a processor that put data into a cluster</li>
-<li>etc…</li>
-</ul>
 
+二、My Typical Repos2.1 cnneillee/DailyZHIHU
+
+
+2.1.1 Active periodMar 20, 2016 – May 10, 2017
+2.1.2 Some of the points
+a...
     
 
         <a href="/2017/05/10/brief_of_my_github/" class="post-more waves-effect waves-button">
@@ -960,23 +600,8 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>站点地图是一种文件，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。Googlebot等搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。</p>
-<p>在 Google 的 Search Console 的[抓取-&gt;站点地图]有为你的站点添加站点地图的选项。在此处添加了站点地图文件地址后，你的站点就能够充分地展示在 google 搜索引擎使用者的眼前。<br><img src="http://oltjxlyku.bkt.clouddn.com/google_search_console_sitemap.png" alt=""></p>
-<h1 id="二、Hexo-方案"><a href="#二、Hexo-方案" class="headerlink" title="二、Hexo 方案"></a>二、Hexo 方案</h1><p>npm 为 Hexo 提供了相应的插件，用以生成站点地图文件。</p>
-<h2 id="2-1-安装插件"><a href="#2-1-安装插件" class="headerlink" title="2.1 安装插件"></a>2.1 安装插件</h2><p>在 Hexo 根目录下，执行如下命令以安装插件：</p>
-<ul>
-<li><p>Google 版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
-</li>
-<li><p>Baidu 版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="2-2-开始生成站点地图文件"><a href="#2-2-开始生成站点地图文件" class="headerlink" title="2.2 开始生成站点地图文件"></a>2.2 开始生成站点地图文件</h2><p>安装好插件后，插件会在每次 <code>hexo g</code> 命令将 markdown 文件转化为 html 文件时执行</p>
-<p>执行结果为，在存放 html 文件根目录下，即 <code>[hexo install location]/public</code> 下生成一 ‘sitemap.xml’/‘baidusitemap.xml’<br><img src="http://oltjxlyku.bkt.clouddn.com/hexo_sitemap_pic.png" alt=""></p>
-<p>紧接着在你执行 <code>hexo d</code> 将网站文件部署到 github 仓库上之后，准备工作算是完成大半了<br><img src="http://oltjxlyku.bkt.clouddn.com/sitemap_file_in_github.png" alt=""></p>
-<h2 id="2-3-添加站点地图-url"><a href="#2-3-添加站点地图-url" class="headerlink" title="2.3 添加站点地图 url"></a>2.3 添加站点地图 url</h2><p>最后，你只需将该站点地图文件的 url 添加至搜索引擎的 search console ，旋即完成了整个过程<br><img src="http://oltjxlyku.bkt.clouddn.com/sitemap_added_in_google.png" alt=""></p>
-
+        一、概述站点地图是一种文件，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。Googlebot等搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。
+在 Google 的 Search Console 的[抓取-&gt;站点地图]有为你的站点添加站点地图的选项。在此处添加了站点地图文件地址后，你的站点就能够充分地展示在 google 搜...
     
 
         <a href="/2017/05/10/hexo/Hexo进阶——添加站点地图/" class="post-more waves-effect waves-button">
@@ -1025,14 +650,64 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>在 C、Java 等语言中，有一种常见的条件运算符，又叫“三目运算符”。<br>详情参见 <a href="https://zh.wikipedia.org/wiki/%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="external">条件运算符-wikipedia</a></p>
-<p><code>?:</code> 的一般形式为<br><code>&lt;表达式1&gt; ? &lt;表达式2&gt; : &lt;表达式3&gt;</code></p>
-<h1 id="二、Python-中的实现"><a href="#二、Python-中的实现" class="headerlink" title="二、Python 中的实现"></a>二、Python 中的实现</h1><p>Python 程序设计语言使用一种不同的语法处理条件表达式：<br><code>value_when_true if condition else value_when_false</code></p>
-<p>这一特性在 <strong>Python 2.5</strong> 以前的版本并不可用。</p>
-
+        一、概述在 C、Java 等语言中，有一种常见的条件运算符，又叫“三目运算符”。详情参见 条件运算符-wikipedia
+?: 的一般形式为&lt;表达式1&gt; ? &lt;表达式2&gt; : &lt;表达式3&gt;
+二、Python 中的实现Python 程序设计语言使用一种不同的语法处理条件表达式：value_when_true if condition else value_w...
     
 
         <a href="/2017/05/09/scripts/Python中的条件运算符/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-scripts/Python字符串连接问题归结"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-09 14:45:04" datetime="2017-05-09T06:45:04.000Z"  itemprop="datePublished">2017-05-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Scripts/">Scripts</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/05/09/scripts/Python字符串连接问题归结/">Python字符串连接问题归结</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一、概述Python 字符串连接场景较为普遍。由于编者对 Java 等语言较为熟悉，常常将两者语法混淆。
+加之，Python 语法较为灵活。例如，单单实现字符串连接，就有数种方法。在此，一并归结！
+二、字符串的连接方式2.1 类 Java 式hello = &#39;hello&#39; + &#39; python&#39;使用场景：适用于字符串相连。
+特点：之所以说python 中使用 ...
+    
+
+        <a href="/2017/05/09/scripts/Python字符串连接问题归结/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -1052,7 +727,7 @@ ga('send', 'pageview');
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
 </nav>
 
