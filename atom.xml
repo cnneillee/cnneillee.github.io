@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cnneillee.github.io/"/>
-  <updated>2017-08-03T12:36:55.184Z</updated>
+  <updated>2017-11-20T09:49:07.526Z</updated>
   <id>http://cnneillee.github.io/</id>
   
   <author>
@@ -14,6 +14,79 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【转】ViewPager一屏显示多个子页面</title>
+    <link href="http://cnneillee.github.io/2017/11/20/android/%E3%80%90%E8%BD%AC%E3%80%91ViewPager%E4%B8%80%E5%B1%8F%E6%98%BE%E7%A4%BA%E5%A4%9A%E4%B8%AA%E5%AD%90%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/</id>
+    <published>2017-11-20T09:39:45.000Z</published>
+    <updated>2017-11-20T09:49:07.526Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;项目中遇到一个需求：&lt;strong&gt;ViewPager 一屏显示多个子页面&lt;/strong&gt;。因为之前没有做过这样的界面，所
+    
+    </summary>
+    
+      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
+    
+    
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【秋招】人生的选择</title>
+    <link href="http://cnneillee.github.io/2017/11/01/%E3%80%90%E7%A7%8B%E6%8B%9B%E3%80%91%E4%BA%BA%E7%94%9F%E7%9A%84%E9%80%89%E6%8B%A9/"/>
+    <id>http://cnneillee.github.io/2017/11/01/【秋招】人生的选择/</id>
+    <published>2017-11-01T09:34:54.000Z</published>
+    <updated>2017-11-01T09:34:54.735Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;em&gt;此文在我的 &lt;a href=&quot;http://cnneillee.github.io/&quot;&gt;Github Pages&lt;/a&gt; 上同步发布，地址为：&lt;a href=&quot;http://cnneillee.github.io/2017/05/09/&amp;lt;!--￼1--&quot;&gt;【秋
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【秋招】秋招小结</title>
+    <link href="http://cnneillee.github.io/2017/11/01/daily/%E3%80%90%E7%A7%8B%E6%8B%9B%E3%80%91%E7%A7%8B%E6%8B%9B%E5%B0%8F%E7%BB%93/"/>
+    <id>http://cnneillee.github.io/2017/11/01/daily/【秋招】秋招小结/</id>
+    <published>2017-11-01T09:26:09.000Z</published>
+    <updated>2017-11-01T15:14:17.432Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;应届毕业生有三条出路：&lt;strong&gt;出国、就业、考研&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在人生的岔路口处，我也是纠结多番，
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java泛型</title>
+    <link href="http://cnneillee.github.io/2017/08/03/Java%E6%B3%9B%E5%9E%8B/"/>
+    <id>http://cnneillee.github.io/2017/08/03/Java泛型/</id>
+    <published>2017-08-03T13:13:41.000Z</published>
+    <updated>2017-08-03T13:15:43.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Java 中泛型如何将泛型实例化？&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div
+    
+    </summary>
+    
+      <category term="Java" scheme="http://cnneillee.github.io/categories/Java/"/>
+    
+    
+      <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Android中解析XML格式数据的方法</title>
@@ -34,9 +107,9 @@
       <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
     
-      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
-    
       <category term="java" scheme="http://cnneillee.github.io/tags/java/"/>
+    
+      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
     
       <category term="xml" scheme="http://cnneillee.github.io/tags/xml/"/>
     
@@ -266,94 +339,16 @@
   </entry>
   
   <entry>
-    <title>『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%8A%82%E7%82%B9%E6%9C%AC%E5%9C%B0%E6%B5%81%E4%B8%8E%E9%9B%86%E7%BE%A4%E6%B5%81%E4%B8%8D%E4%B8%80%E8%87%B4%E5%AF%BC%E8%87%B4%E9%9B%86%E7%BE%A4%E5%8A%A0%E5%85%A5%E5%A4%B1%E8%B4%A5%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/</id>
+    <title>『NiFi 学习之路』入门 —— 下载、安装与简单使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/</id>
     <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:07:58.168Z</updated>
+    <updated>2017-06-13T15:09:18.440Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;在某些极端情况下，某些 NiFi 节点信息会由于用户强行 disconnect from cluster ，而出现 loca
-    
-    </summary>
-    
-    
-      <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
-    
-      <category term="sollution" scheme="http://cnneillee.github.io/tags/sollution/"/>
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 学习之路』把握 —— 架构及主要组件</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E6%8A%8A%E6%8F%A1%E2%80%94%E2%80%94%E6%9E%B6%E6%9E%84%E5%8F%8A%E4%B8%BB%E8%A6%81%E9%83%A8%E4%BB%B6/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』把握——架构及主要部件/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:09:06.432Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;通过前面几篇文章的学习，相信你对 NiFi 有了一个基础性的了解。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;数据处理和分发系统&lt;/code
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 学习之路』使用 —— 主要组件的使用</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:09:27.207Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 学习之路』简介</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E7%AE%80%E4%BB%8B/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』简介/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:06:19.484Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#&quot;&gt;『NiFi 学习之路』简介&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用&quot;&gt;『NiFi 学习之路』
-    
-    </summary>
-    
-    
-      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『NiFi 自定义 Processor 无法获取到 Logger』问题解决</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%87%AA%E5%AE%9A%E4%B9%89Processor%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E5%88%B0Logger%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi自定义Processor无法获取到Logger』问题解决/</id>
-    <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:35:43.095Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 A
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。&lt;/p&gt;
+&lt;p&gt;实践
     
     </summary>
     
@@ -382,16 +377,15 @@
   </entry>
   
   <entry>
-    <title>『NiFi 学习之路』资源 —— 资料汇总</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E8%B5%84%E6%BA%90%E2%80%94%E2%80%94%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』资源——资料汇总/</id>
+    <title>『NiFi 学习之路』使用 —— 主要组件的使用</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』使用——主要组件的使用/</id>
     <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:19:47.113Z</updated>
+    <updated>2017-06-13T15:09:27.207Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;由于 NiFi 是一个比较新的开源项目，国内的相关资料少之又少。&lt;/p&gt;
-&lt;p&gt;加之，大家都知道，国内的那么些个教程，原创都
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;大部分 NiFi 使用者都是通过 NiFi 的 Processor 来实现自己的业务的。因此，我也主要就 NiFi 官方提供
     
     </summary>
     
@@ -401,43 +395,42 @@
   </entry>
   
   <entry>
-    <title>『NiFi 学习之路』入门 —— 下载、安装与简单使用</title>
-    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E3%80%8F%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi学习之路』入门——下载、安装与简单使用/</id>
+    <title>『NiFi 节点本地流与集群流不一致导致集群加入失败』问题解决</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%8A%82%E7%82%B9%E6%9C%AC%E5%9C%B0%E6%B5%81%E4%B8%8E%E9%9B%86%E7%BE%A4%E6%B5%81%E4%B8%8D%E4%B8%80%E8%87%B4%E5%AF%BC%E8%87%B4%E9%9B%86%E7%BE%A4%E5%8A%A0%E5%85%A5%E5%A4%B1%E8%B4%A5%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi节点本地流与集群流不一致导致集群加入失败』问题解决/</id>
     <published>2017-06-13T14:23:36.000Z</published>
-    <updated>2017-06-13T15:09:18.440Z</updated>
+    <updated>2017-06-13T15:07:58.168Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;“光说不练假把式。” 官网上的介绍多少让人迷迷糊糊的，各种高大上的词语仿佛让 NiFi 离我们越来越远。&lt;/p&gt;
-&lt;p&gt;实践
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;在某些极端情况下，某些 NiFi 节点信息会由于用户强行 disconnect from cluster ，而出现 loca
     
     </summary>
     
+    
+      <category term="error" scheme="http://cnneillee.github.io/tags/error/"/>
+    
+      <category term="sollution" scheme="http://cnneillee.github.io/tags/sollution/"/>
     
       <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
     
   </entry>
   
   <entry>
-    <title>TabLayout与ViewPager同步后Tab的标题不显示</title>
-    <link href="http://cnneillee.github.io/2017/06/13/android/TabLayout%E4%B8%8EViewPager%E5%90%8C%E6%AD%A5%E5%90%8ETab%E7%9A%84%E6%A0%87%E9%A2%98%E4%B8%8D%E6%98%BE%E7%A4%BA/"/>
-    <id>http://cnneillee.github.io/2017/06/13/android/TabLayout与ViewPager同步后Tab的标题不显示/</id>
-    <published>2017-06-13T08:20:29.000Z</published>
-    <updated>2017-06-13T08:27:07.570Z</updated>
+    <title>『NiFi 自定义 Processor 无法获取到 Logger』问题解决</title>
+    <link href="http://cnneillee.github.io/2017/06/13/bigdata/%E3%80%8ENiFi%E8%87%AA%E5%AE%9A%E4%B9%89Processor%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E5%88%B0Logger%E3%80%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>http://cnneillee.github.io/2017/06/13/bigdata/『NiFi自定义Processor无法获取到Logger』问题解决/</id>
+    <published>2017-06-13T14:23:36.000Z</published>
+    <updated>2017-06-13T15:35:43.095Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;h2 id=&quot;1-1-问题描述&quot;&gt;&lt;a href=&quot;#1-1-问题描述&quot; class=&quot;headerlink&quot; title=&quot;1
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;自定义的 Processor 继承了 AbstractProcessor，而 AbstractProcessor 继承了 A
     
     </summary>
     
-      <category term="Android" scheme="http://cnneillee.github.io/categories/Android/"/>
     
-    
-      <category term="android" scheme="http://cnneillee.github.io/tags/android/"/>
-    
-      <category term="exception" scheme="http://cnneillee.github.io/tags/exception/"/>
+      <category term="nifi" scheme="http://cnneillee.github.io/tags/nifi/"/>
     
   </entry>
   

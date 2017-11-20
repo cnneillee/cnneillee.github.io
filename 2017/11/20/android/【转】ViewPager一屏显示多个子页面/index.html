@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98790863-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/">
+    
+    
+    <title>【转】ViewPager一屏显示多个子页面 | Neil Lee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android">
+    <meta name="description" content="一、概述项目中遇到一个需求：ViewPager 一屏显示多个子页面。因为之前没有做过这样的界面，所以经历了些许小插曲，特以记之！ 主要内容来自： http://blog.csdn.net/JM_beizi/article/details/51297605 二、方案通过查询资料，发现有两种解决方案：  重写 PagerAdapter.getPageWidth(int position) 方法 XML">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】ViewPager一屏显示多个子页面">
+<meta property="og:url" content="http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/index.html">
+<meta property="og:site_name" content="Neil Lee&#39;s blog">
+<meta property="og:description" content="一、概述项目中遇到一个需求：ViewPager 一屏显示多个子页面。因为之前没有做过这样的界面，所以经历了些许小插曲，特以记之！ 主要内容来自： http://blog.csdn.net/JM_beizi/article/details/51297605 二、方案通过查询资料，发现有两种解决方案：  重写 PagerAdapter.getPageWidth(int position) 方法 XML">
+<meta property="og:updated_time" content="2017-11-20T09:49:07.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】ViewPager一屏显示多个子页面">
+<meta name="twitter:description" content="一、概述项目中遇到一个需求：ViewPager 一屏显示多个子页面。因为之前没有做过这样的界面，所以经历了些许小插曲，特以记之！ 主要内容来自： http://blog.csdn.net/JM_beizi/article/details/51297605 二、方案通过查询资料，发现有两种解决方案：  重写 PagerAdapter.getPageWidth(int position) 方法 XML">
+    
+        <link rel="alternate" type="application/atom+xml" title="Neil Lee&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Neil Lee</h5>
+          <a href="mailto:cn.neillee@gmail.com" title="cn.neillee@gmail.com" class="mail">cn.neillee@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Android/"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Java/"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                Java
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Big-Data/"  >
+                <i class="icon icon-lg icon-database"></i>
+                Big Data
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/Scripts/"  >
+                <i class="icon icon-lg icon-file-text"></i>
+                Scripts
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://cnneillee.github.io/2017/05/10/brief_of_my_github/"  >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【转】ViewPager一屏显示多个子页面</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【转】ViewPager一屏显示多个子页面</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-20T09:39:45.000Z" itemprop="datePublished" class="page-time">
+  2017-11-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、概述"><span class="post-toc-text">一、概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、方案"><span class="post-toc-text">二、方案</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、方案一详情"><span class="post-toc-text">三、方案一详情</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、方案二详情"><span class="post-toc-text">四、方案二详情</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-首先，对-XML-属性进行配置"><span class="post-toc-text">1. 首先，对 XML 属性进行配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-其次，设置-item-的缓存数目。"><span class="post-toc-text">2. 其次，设置 item 的缓存数目。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-最后，设置页与页之间的间距"><span class="post-toc-text">3. 最后，设置页与页之间的间距</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-注意："><span class="post-toc-text">4. 注意：</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/【转】ViewPager一屏显示多个子页面"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【转】ViewPager一屏显示多个子页面</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-20 17:39:45" datetime="2017-11-20T09:39:45.000Z"  itemprop="datePublished">2017-11-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>项目中遇到一个需求：<strong>ViewPager 一屏显示多个子页面</strong>。因为之前没有做过这样的界面，所以经历了些许小插曲，特以记之！</p>
+<p>主要内容来自： <a href="http://blog.csdn.net/JM_beizi/article/details/51297605" target="_blank" rel="external">http://blog.csdn.net/JM_beizi/article/details/51297605</a></p>
+<h1 id="二、方案"><a href="#二、方案" class="headerlink" title="二、方案"></a>二、方案</h1><p>通过查询资料，发现有两种解决方案：</p>
+<ul>
+<li>重写 <code>PagerAdapter.getPageWidth(int position)</code> 方法</li>
+<li>XML中设置 <code>android:clipChildren=&quot;false&quot;</code> 这个属性</li>
+</ul>
+<h1 id="三、方案一详情"><a href="#三、方案一详情" class="headerlink" title="三、方案一详情"></a>三、方案一详情</h1><p>PagerAdapter相关源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">    * Returns the proportional width of a given page as a percentage of the</div><div class="line">    * ViewPager&apos;s measured width from (0.f-1.f]</div><div class="line">    *</div><div class="line">    * @param position The position of the page requested</div><div class="line">    * @return Proportional width for the given page position</div><div class="line">    */</div><div class="line">   public float getPageWidth(int position) &#123;</div><div class="line">       return 1.f;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="四、方案二详情"><a href="#四、方案二详情" class="headerlink" title="四、方案二详情"></a>四、方案二详情</h1><h2 id="1-首先，对-XML-属性进行配置"><a href="#1-首先，对-XML-属性进行配置" class="headerlink" title="1. 首先，对 XML 属性进行配置"></a>1. 首先，对 XML 属性进行配置</h2><p><strong>配置 ViewPager 和其父布局的 <code>android:clipChildren</code> 属性为 false</strong></p>
+<p><code>android:clipChildren</code> 表示是否限制子 View 在其范围内，默认为 true。</p>
+<p>代码中通过 <code>setClipChildren(false)</code> 方法设置。</p>
+<blockquote>
+<p><strong>特别注意：</strong></p>
+<ol>
+<li><code>setClipChildren(false)</code> 在 3.0 以上版本中，开启了硬件加速后将不能正常工作，所以需要将其设置为软件加速。设置软硬件加速使用 <code>setLayerType(View.LAYER_TYPE_SOFTWARE, null)</code>; 也可以在布局文件中添加 <code>android:layerType=&quot;software&quot;</code></li>
+<li>通过设置 ViewPager 的 <code>layout_marginLeft</code> 和 <code>layout_marginLeft</code> 两个属性，可以设置其他页面（非当前页面）的显示大小</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout</div><div class="line">    android:id=&quot;@+id/viewPager_container&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;200dp&quot;</div><div class="line">    android:background=&quot;@android:color/white&quot;</div><div class="line">    android:clipChildren=&quot;false&quot;</div><div class="line">    android:layerType=&quot;software&quot;&gt;</div><div class="line"></div><div class="line">    &lt;android.support.v4.view.ViewPager</div><div class="line">        android:id=&quot;@+id/viewPager&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;match_parent&quot;</div><div class="line">        android:layout_marginLeft=&quot;110dp&quot;</div><div class="line">        android:layout_marginRight=&quot;110dp&quot;</div><div class="line">        android:clipChildren=&quot;false&quot; /&gt;</div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
+<h2 id="2-其次，设置-item-的缓存数目。"><a href="#2-其次，设置-item-的缓存数目。" class="headerlink" title="2. 其次，设置 item 的缓存数目。"></a>2. 其次，设置 item 的缓存数目。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mViewPager.setOffscreenPageLimit(2); // 2 表示除了当前页面，再缓存其他两个页面</div></pre></td></tr></table></figure>
+<h2 id="3-最后，设置页与页之间的间距"><a href="#3-最后，设置页与页之间的间距" class="headerlink" title="3. 最后，设置页与页之间的间距"></a>3. 最后，设置页与页之间的间距</h2><p><code>mViewPager.setPageMargin(int marginPixls);  // setPageMargin表示设置page之间的间距</code></p>
+<h2 id="4-注意："><a href="#4-注意：" class="headerlink" title="4. 注意："></a>4. 注意：</h2><p>如下事项来自参考文章的评论区：</p>
+<ul>
+<li>该方案如果配合无限循环的话，有 bug 会崩掉，所以需要自己处理！</li>
+<li>此法实现的 ViewPager 设置 Item 点击事件有问题！</li>
+</ul>
+<p>使用过程中，第二个问题未重现！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        博文在我的 <a href="http://www.cnblogs.com/neillee/">cnblogs/neillee</a> 站点同步发布 <br><a href="http://www.cnblogs.com/neillee/p/7867460.html" target="_blank" rel="external">http://www.cnblogs.com/neillee/p/7867460.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://cnneillee.github.io">
+            <img src="/img/avatar.jpg" alt="Neil Lee">
+            Neil Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/&title=《【转】ViewPager一屏显示多个子页面》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/&title=《【转】ViewPager一屏显示多个子页面》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】ViewPager一屏显示多个子页面》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/01/【秋招】人生的选择/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【秋招】人生的选择</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'neil-lees-blog';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/index.html',
+        sourceId: 'android/【转】ViewPager一屏显示多个子页面',
+        productKey: '51605be3f66c484481e439a3f7e57c66',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Neil Lee &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/&title=《【转】ViewPager一屏显示多个子页面》 — Neil Lee's blog&pic=http://cnneillee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/&title=《【转】ViewPager一屏显示多个子页面》 — Neil Lee's blog&source=路漫漫其修远兮，吾将上下而求索！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转】ViewPager一屏显示多个子页面》 — Neil Lee's blog&url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/&via=http://cnneillee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cnneillee.github.io/2017/11/20/android/【转】ViewPager一屏显示多个子页面/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADGElEQVR42u3aUY7iQAwFQO5/afYADOi9dliBqXyhJCSuHmmM7b7d4uP+cDxefXbns/sfzyfvenb/7R0HNjY29pew7y+P14Hm383DbZ+ZLPof78LGxsZex34dVnvP61CS83kkh0uMjY2N/cPs+9GRlw1J+kw+Y2NjY2Pn4Z6luqRtlDewsLGxsbHbJk7SYGrT4Zz6ll4aNjY29sez86no539+y3wbGxsb+4PZVzWG8mT2voFxocDGxsZexD5r2efNoEn5cfacPB5sbGzsX2AXyaAsCdo0Vrf+k3iwsbGxV7DztHGWZtryJn9vWw5hY2Nj72b//3QyHxVPtgphY2Njb2InW17OAO8YG0yec8sZ2NjY2F/FzouHNsHknyejgjMRNjY29ib2vFTIlyA/U4d+tEDY2NjYO9jzUPKlTAbJ8zIp2u6DjY2NvYid/9Nvy4a2VTRJaWejAmxsbOwd7OTLV22+ubZVNBp1YGNjYy9iT7bLtM2mNtnMnxy9CxsbG3sFOy9CLljd+HybVpNNQoe1FzY2NvYHs9uCoU1pbcFzNnKuSx1sbGzspex5C6kd9OaFRzvKrRtJ2NjY2F/OnpcfbeivE9KEGiVRbGxs7EXsSRD55p42BbZbfPIyCRsbG3sfu4VNSpG2zGifU4wNsLGxsZeyL3503FSaDHHPBtXY2NjY+9j5j/u8AGiLkLzx1C7oH3diY2NjL2JPGjRtCZGEPhknJ2kvyt7Y2NjYX8WeNH3yVJePY+skVC43NjY29j52nmYmRUU7sp0sWTFCxsbGxl7Nzs8nQbeNockYuG4qYWNjYy9iT9r3eaCTkUAec5RWsbGxsdex24LhbFSQFxjJ1dG4AhsbG3sF+14eZ43+sxFCO74tosLGxsZexJ6nnzk7/zMk2fgsQmxsbOxvZ7cJ4yzZJIkwHy1cULpgY2Njr2NPEsNZ+/4dybIYKmNjY2P/PLtNWmftqiSGNlpsbGxs7Pnmm2SBkqQ42iSEjY2NvY59lpCKn/5x4smvjgoYbGxs7EXsfNCbtPXzxUrGt22Rk8eMjY2NvYL9D/9G+HSGKuM0AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
